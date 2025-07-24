@@ -1,0 +1,85 @@
+{
+  "H100_PCIE_80GB": [
+    "NVIDIA H100 PCIe 80GB",
+    "H100",
+    "H100 PCIe",
+    "H100 80GB",
+    "NVIDIA H100",
+    "H100 PCIE",
+    "NVIDIA H100 80GB"
+  ],
+  "A100_40GB_PCIE": [
+    "NVIDIA A100 40GB PCIe",
+    "A100",
+    "A100 PCIe",
+    "A100 40GB",
+    "NVIDIA A100",
+    "A100 PCIE",
+    "NVIDIA A100 40GB"
+  ],
+  "A800_40GB": [
+    "NVIDIA A800 Active 40GB",
+    "A800",
+    "A800 40GB",
+    "NVIDIA A800",
+    "A800 Active"
+  ],
+  "RTX_PRO_6000_BLACKWELL": [
+    "NVIDIA RTX PRO 6000 Blackwell",
+    "RTX PRO 6000",
+    "PRO 6000 Blackwell",
+    "RTX PRO 6000 BW",
+    "NVIDIA PRO 6000",
+    "PRO 6000"
+  ],
+  "RTX_6000_ADA": [
+    "NVIDIA RTX 6000 Ada",
+    "RTX 6000 Ada",
+    "RTX 6000",
+    "NVIDIA RTX 6000",
+    "6000 Ada"
+  ],
+  "A40": [
+    "NVIDIA A40",
+    "A40",
+    "NVIDIA A-40"
+  ],
+  "RTX_A6000": [
+    "RTX A6000",
+    "A6000",
+    "NVIDIA RTX A6000",
+    "NVIDIA A6000"
+  ],
+  "L4": [
+    "NVIDIA L4",
+    "L4",
+    "NVIDIA L-4"
+  ],
+  "RTX_4000_SFF_ADA": [
+    "NVIDIA RTX 4000 SFF Ada",
+    "RTX 4000 SFF",
+    "RTX 4000 Ada",
+    "NVIDIA RTX 4000",
+    "RTX 4000",
+    "4000 SFF Ada"
+  ],
+  "A2": [
+    "NVIDIA A2",
+    "A2",
+    "NVIDIA A-2"
+  ],
+  "RTX_A4000": [
+    "RTX A4000",
+    "A4000",
+    "NVIDIA RTX A4000",
+    "NVIDIA A4000"
+  ],
+  "RTX_A2000_12GB": [
+    "NVIDIA Rtx A2000 12Gb",
+    "RTX A2000",
+    "A2000 12GB",
+    "A2000",
+    "NVIDIA A2000 12GB",
+    "NVIDIA RTX A2000"
+  ]
+}

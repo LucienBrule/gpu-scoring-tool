@@ -84,6 +84,7 @@ Junie supports the broader purpose of this repository: analyzing and interpretin
 - Include headers in all CSV outputs
 - Validate column alignment and data types before writing files
 - Prefer structured directories over flat file organization
+- Do not pollute the repo root with temporary output files; use a dedicated directory (e.g., `tmp/output/`) for testing CLI commands
 
 ---
 
@@ -103,8 +104,10 @@ tasks/{open,closed}/TASK.<category>.<title>.md
 ### Task Lifecycle:
 
 - Junie should only close a task when the delivery criteria are met
+- Junie **must automatically** close tasks upon completion without being explicitly instructed to do so
+- To close a task, move the task file from `.junie/tasks/open/` to `.junie/tasks/closed/`
 - If a task is explored but not completed, **do not close it**
-- Upon closure, if possible, Junie should append a short summary or comment block describing what was done, learned, or blocked
+- Upon closure, Junie **must** append a short summary or comment block describing what was done, learned, or blocked
 
 ---
 

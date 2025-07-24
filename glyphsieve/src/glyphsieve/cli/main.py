@@ -14,7 +14,7 @@ console = Console()
 def main():
     """
     glyphsieve: GPU data processing and scoring tool.
-    
+
     This CLI provides commands for cleaning, normalizing, and scoring GPU data.
     """
     pass
@@ -23,11 +23,15 @@ def main():
 from glyphsieve.cli.clean import clean
 from glyphsieve.cli.normalize import normalize
 from glyphsieve.cli.score import score
+from glyphsieve.cli.enrich import enrich
+from glyphsieve.cli.dedup import dedup
 
 # Add subcommands to the main group
 main.add_command(clean)
 main.add_command(normalize)
 main.add_command(score)
+main.add_command(enrich)
+main.add_command(dedup)
 
 if __name__ == "__main__":
     main()

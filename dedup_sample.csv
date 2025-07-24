@@ -1,0 +1,8 @@
+title,price,url,seller,dedup_status,dedup_group_id
+NVIDIA RTX 3080 Graphics Card,800,https://www.example.com/product/1,Seller A,DUPLICATE_PRIMARY,1
+RTX 3080 GPU by NVIDIA,820,https://www.example.com/product/2,Seller A,DUPLICATE_SECONDARY,1
+NVIDIA GeForce RTX 3080 10GB GDDR6X,800,https://www.ebay.com/itm/123456?campid=abc123,Seller B,DUPLICATE_PRIMARY,2
+NVIDIA RTX 3080 10GB Graphics Card,795,https://www.ebay.com/itm/123456,Seller B,DUPLICATE_SECONDARY,2
+AMD Radeon RX 6800 XT 16GB,750,https://www.example.com/product/3,Seller C,UNIQUE,
+NVIDIA RTX 3070 Ti 8GB GDDR6X,650,https://www.example.com/product/4,Seller D,UNIQUE,
+RTX 3070 Ti Graphics Card,640,https://www.example.com/product/5,Seller D,UNIQUE,

@@ -1,0 +1,239 @@
+# GPU Specifications YAML
+# 
+# This file contains metadata for GPU models, including VRAM, TDP, generation, and feature flags.
+# Each entry represents one canonical model.
+
+gpus:
+  # Ada Generation
+  - canonical_model: RTX_6000_ADA
+    vram_gb: 48
+    tdp_watts: 300
+    mig_support: 4
+    nvlink: true
+    generation: Ada
+    cuda_cores: 18176
+    slot_width: 2
+    pcie_generation: 4
+
+  - canonical_model: RTX_5000_ADA
+    vram_gb: 32
+    tdp_watts: 250
+    mig_support: 4
+    nvlink: false
+    generation: Ada
+    cuda_cores: 12800
+    slot_width: 2
+    pcie_generation: 4
+
+  - canonical_model: RTX_4500_ADA
+    vram_gb: 24
+    tdp_watts: 210
+    mig_support: 4
+    nvlink: false
+    generation: Ada
+    cuda_cores: 7680
+    slot_width: 2
+    pcie_generation: 4
+
+  - canonical_model: RTX_4000_ADA_SFF
+    vram_gb: 20
+    tdp_watts: 70
+    mig_support: 4
+    nvlink: false
+    generation: Ada
+    cuda_cores: 6144
+    slot_width: 2
+    pcie_generation: 4
+
+  - canonical_model: L40S
+    vram_gb: 48
+    tdp_watts: 350
+    mig_support: 7
+    nvlink: false
+    generation: Ada
+    cuda_cores: 18176
+    slot_width: 2
+    pcie_generation: 4
+
+  - canonical_model: L40
+    vram_gb: 48
+    tdp_watts: 300
+    mig_support: 7
+    nvlink: false
+    generation: Ada
+    cuda_cores: 18176
+    slot_width: 1
+    pcie_generation: 4
+
+  - canonical_model: L4
+    vram_gb: 24
+    tdp_watts: 72
+    mig_support: 7
+    nvlink: false
+    generation: Ada
+    cuda_cores: 7680
+    slot_width: 1
+    pcie_generation: 4
+
+  # Ampere Generation
+  - canonical_model: RTX_A6000
+    vram_gb: 48
+    tdp_watts: 300
+    mig_support: 0
+    nvlink: true
+    generation: Ampere
+    cuda_cores: 10752
+    slot_width: 2
+    pcie_generation: 4
+
+  - canonical_model: RTX_A5500
+    vram_gb: 24
+    tdp_watts: 230
+    mig_support: 0
+    nvlink: true
+    generation: Ampere
+    cuda_cores: 7424
+    slot_width: 2
+    pcie_generation: 4
+
+  - canonical_model: RTX_A5000
+    vram_gb: 24
+    tdp_watts: 230
+    mig_support: 0
+    nvlink: true
+    generation: Ampere
+    cuda_cores: 8192
+    slot_width: 2
+    pcie_generation: 4
+
+  - canonical_model: RTX_A4500
+    vram_gb: 20
+    tdp_watts: 200
+    mig_support: 0
+    nvlink: true
+    generation: Ampere
+    cuda_cores: 7168
+    slot_width: 2
+    pcie_generation: 4
+
+  - canonical_model: RTX_A4000
+    vram_gb: 16
+    tdp_watts: 140
+    mig_support: 0
+    nvlink: false
+    generation: Ampere
+    cuda_cores: 6144
+    slot_width: 1
+    pcie_generation: 4
+
+  - canonical_model: RTX_A2000_12GB
+    vram_gb: 12
+    tdp_watts: 70
+    mig_support: 0
+    nvlink: false
+    generation: Ampere
+    cuda_cores: 3328
+    slot_width: 2
+    pcie_generation: 4
+
+  - canonical_model: RTX_A2000_6GB
+    vram_gb: 6
+    tdp_watts: 70
+    mig_support: 0
+    nvlink: false
+    generation: Ampere
+    cuda_cores: 3328
+    slot_width: 2
+    pcie_generation: 4
+
+  - canonical_model: A800_40GB
+    vram_gb: 40
+    tdp_watts: 300
+    mig_support: 7
+    nvlink: true
+    generation: Ampere
+    cuda_cores: 10752
+    slot_width: 2
+    pcie_generation: 4
+
+  - canonical_model: A40
+    vram_gb: 48
+    tdp_watts: 300
+    mig_support: 7
+    nvlink: false
+    generation: Ampere
+    cuda_cores: 10752
+    slot_width: 2
+    pcie_generation: 4
+
+  - canonical_model: A2
+    vram_gb: 16
+    tdp_watts: 60
+    mig_support: 7
+    nvlink: false
+    generation: Ampere
+    cuda_cores: 3584
+    slot_width: 1
+    pcie_generation: 4
+
+  # Hopper Generation
+  - canonical_model: H100_PCIE_80GB
+    vram_gb: 80
+    tdp_watts: 350
+    mig_support: 7
+    nvlink: false
+    generation: Hopper
+    cuda_cores: 16896
+    slot_width: 2
+    pcie_generation: 5
+
+  - canonical_model: H800_PCIE_80GB
+    vram_gb: 80
+    tdp_watts: 350
+    mig_support: 7
+    nvlink: false
+    generation: Hopper
+    cuda_cores: 14592
+    slot_width: 2
+    pcie_generation: 5
+
+  # Blackwell Generation
+  - canonical_model: RTX_PRO_6000_BLACKWELL
+    vram_gb: 96
+    tdp_watts: 400
+    mig_support: 4
+    nvlink: true
+    generation: Blackwell
+    cuda_cores: 20480
+    slot_width: 2
+    pcie_generation: 5
+
+  - canonical_model: RTX_PRO_5000_BLACKWELL
+    vram_gb: 48
+    tdp_watts: 320
+    mig_support: 4
+    nvlink: false
+    generation: Blackwell
+    cuda_cores: 15360
+    slot_width: 2
+    pcie_generation: 5
+
+  - canonical_model: RTX_PRO_4500_BLACKWELL
+    vram_gb: 32
+    tdp_watts: 250
+    mig_support: 4
+    nvlink: false
+    generation: Blackwell
+    cuda_cores: 10240
+    slot_width: 2
+    pcie_generation: 5
+
+  - canonical_model: RTX_PRO_4000_BLACKWELL
+    vram_gb: 24
+    tdp_watts: 180
+    mig_support: 4
+    nvlink: false
+    generation: Blackwell
+    cuda_cores: 7680
+    slot_width: 2
+    pcie_generation: 5

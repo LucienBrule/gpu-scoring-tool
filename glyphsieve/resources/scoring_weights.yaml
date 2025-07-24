@@ -1,0 +1,15 @@
+# Scoring weights for GPU utility scoring
+# These weights determine the relative importance of different factors in the scoring model
+
+# Weights for different factors (must sum to 1.0)
+vram_weight: 0.3      # Weight for VRAM capacity (higher is better)
+mig_weight: 0.2       # Weight for MIG support (higher is better)
+nvlink_weight: 0.1    # Weight for NVLink support (binary)
+tdp_weight: 0.2       # Weight for TDP (inverse, lower is better)
+price_weight: 0.2     # Weight for price (inverse, lower is better)
+
+# Normalization parameters
+max_vram_gb: 80           # Maximum VRAM capacity in GB for normalization
+max_mig_partitions: 7     # Maximum MIG partitions for normalization
+max_tdp_watts: 700        # Maximum TDP in watts for normalization
+max_price: 10000.0        # Maximum price for normalization
