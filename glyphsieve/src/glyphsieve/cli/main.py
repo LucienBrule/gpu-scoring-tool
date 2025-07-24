@@ -27,6 +27,7 @@ from glyphsieve.cli.enrich import enrich
 from glyphsieve.cli.dedup import dedup
 from glyphsieve.cli.pipeline import pipeline
 from glyphsieve.cli.report import report
+from glyphsieve.cli.tag import tag
 
 # Add subcommands to the main group
 main.add_command(clean)
@@ -36,6 +37,7 @@ main.add_command(enrich)
 main.add_command(dedup)
 main.add_command(pipeline)
 main.add_command(report)
+main.add_command(tag)
 
 if __name__ == "__main__":
     main()

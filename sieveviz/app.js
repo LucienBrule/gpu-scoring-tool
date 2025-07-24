@@ -2,34 +2,9 @@
 
 class GPUScoring {
     constructor() {
-        // GPU data from the provided dataset
-        this.gpuData = [
-            {"Card_Name": "RTX 6000 Ada", "Current_Retail_Price_USD": 7383.995, "VRAM_GB": 48, "MIG_Support": 4, "TDP_Watts": 300, "Slot_Width": 2, "NVLink_Support": 1, "CUDA_Cores": 18176, "Generation": "Ada", "PCIe_Generation": 4},
-            {"Card_Name": "RTX 5000 Ada", "Current_Retail_Price_USD": 6650, "VRAM_GB": 32, "MIG_Support": 4, "TDP_Watts": 250, "Slot_Width": 2, "NVLink_Support": 0, "CUDA_Cores": 12800, "Generation": "Ada", "PCIe_Generation": 4},
-            {"Card_Name": "RTX 4500 Ada", "Current_Retail_Price_USD": 2350, "VRAM_GB": 24, "MIG_Support": 4, "TDP_Watts": 210, "Slot_Width": 2, "NVLink_Support": 0, "CUDA_Cores": 7680, "Generation": "Ada", "PCIe_Generation": 4},
-            {"Card_Name": "RTX 4000 Ada SFF", "Current_Retail_Price_USD": 1581.8, "VRAM_GB": 20, "MIG_Support": 4, "TDP_Watts": 70, "Slot_Width": 2, "NVLink_Support": 0, "CUDA_Cores": 6144, "Generation": "Ada", "PCIe_Generation": 4},
-            {"Card_Name": "RTX A6000", "Current_Retail_Price_USD": 4439.0, "VRAM_GB": 48, "MIG_Support": 0, "TDP_Watts": 300, "Slot_Width": 2, "NVLink_Support": 1, "CUDA_Cores": 10752, "Generation": "Ampere", "PCIe_Generation": 4},
-            {"Card_Name": "RTX A5500", "Current_Retail_Price_USD": 2500, "VRAM_GB": 24, "MIG_Support": 0, "TDP_Watts": 230, "Slot_Width": 2, "NVLink_Support": 1, "CUDA_Cores": 7424, "Generation": "Ampere", "PCIe_Generation": 4},
-            {"Card_Name": "RTX A5000", "Current_Retail_Price_USD": 2400, "VRAM_GB": 24, "MIG_Support": 0, "TDP_Watts": 230, "Slot_Width": 2, "NVLink_Support": 1, "CUDA_Cores": 8192, "Generation": "Ampere", "PCIe_Generation": 4},
-            {"Card_Name": "RTX A4500", "Current_Retail_Price_USD": 1800, "VRAM_GB": 20, "MIG_Support": 0, "TDP_Watts": 200, "Slot_Width": 2, "NVLink_Support": 1, "CUDA_Cores": 7168, "Generation": "Ampere", "PCIe_Generation": 4},
-            {"Card_Name": "RTX A4000", "Current_Retail_Price_USD": 845.0, "VRAM_GB": 16, "MIG_Support": 0, "TDP_Watts": 140, "Slot_Width": 1, "NVLink_Support": 0, "CUDA_Cores": 6144, "Generation": "Ampere", "PCIe_Generation": 4},
-            {"Card_Name": "RTX A2000 12GB", "Current_Retail_Price_USD": 620, "VRAM_GB": 12, "MIG_Support": 0, "TDP_Watts": 70, "Slot_Width": 2, "NVLink_Support": 0, "CUDA_Cores": 3328, "Generation": "Ampere", "PCIe_Generation": 4},
-            {"Card_Name": "RTX A2000 6GB", "Current_Retail_Price_USD": 599.99, "VRAM_GB": 6, "MIG_Support": 0, "TDP_Watts": 70, "Slot_Width": 2, "NVLink_Support": 0, "CUDA_Cores": 3328, "Generation": "Ampere", "PCIe_Generation": 4},
-            {"Card_Name": "L40S", "Current_Retail_Price_USD": 15000, "VRAM_GB": 48, "MIG_Support": 7, "TDP_Watts": 350, "Slot_Width": 2, "NVLink_Support": 0, "CUDA_Cores": 18176, "Generation": "Ada", "PCIe_Generation": 4},
-            {"Card_Name": "L40", "Current_Retail_Price_USD": 12000, "VRAM_GB": 48, "MIG_Support": 7, "TDP_Watts": 300, "Slot_Width": 1, "NVLink_Support": 0, "CUDA_Cores": 18176, "Generation": "Ada", "PCIe_Generation": 4},
-            {"Card_Name": "A800 40GB", "Current_Retail_Price_USD": 15875.28, "VRAM_GB": 40, "MIG_Support": 7, "TDP_Watts": 300, "Slot_Width": 2, "NVLink_Support": 1, "CUDA_Cores": 10752, "Generation": "Ampere", "PCIe_Generation": 4},
-            {"Card_Name": "A40", "Current_Retail_Price_USD": 6300.0, "VRAM_GB": 48, "MIG_Support": 7, "TDP_Watts": 300, "Slot_Width": 2, "NVLink_Support": 0, "CUDA_Cores": 10752, "Generation": "Ampere", "PCIe_Generation": 4},
-            {"Card_Name": "H100 PCIe 80GB", "Current_Retail_Price_USD": 34995, "VRAM_GB": 80, "MIG_Support": 7, "TDP_Watts": 350, "Slot_Width": 2, "NVLink_Support": 0, "CUDA_Cores": 16896, "Generation": "Hopper", "PCIe_Generation": 5},
-            {"Card_Name": "H800 PCIe 80GB", "Current_Retail_Price_USD": 30000, "VRAM_GB": 80, "MIG_Support": 7, "TDP_Watts": 350, "Slot_Width": 2, "NVLink_Support": 0, "CUDA_Cores": 14592, "Generation": "Hopper", "PCIe_Generation": 5},
-            {"Card_Name": "L4", "Current_Retail_Price_USD": 2599.0, "VRAM_GB": 24, "MIG_Support": 7, "TDP_Watts": 72, "Slot_Width": 1, "NVLink_Support": 0, "CUDA_Cores": 7680, "Generation": "Ada", "PCIe_Generation": 4},
-            {"Card_Name": "A2", "Current_Retail_Price_USD": 975.0, "VRAM_GB": 16, "MIG_Support": 7, "TDP_Watts": 60, "Slot_Width": 1, "NVLink_Support": 0, "CUDA_Cores": 3584, "Generation": "Ampere", "PCIe_Generation": 4},
-            {"Card_Name": "RTX 4090", "Current_Retail_Price_USD": 1650, "VRAM_GB": 24, "MIG_Support": 0, "TDP_Watts": 450, "Slot_Width": 3, "NVLink_Support": 0, "CUDA_Cores": 16384, "Generation": "Ada", "PCIe_Generation": 4},
-            {"Card_Name": "RTX 5090", "Current_Retail_Price_USD": 2000, "VRAM_GB": 32, "MIG_Support": 0, "TDP_Watts": 575, "Slot_Width": 2, "NVLink_Support": 0, "CUDA_Cores": 21760, "Generation": "Blackwell", "PCIe_Generation": 5},
-            {"Card_Name": "RTX PRO 6000 Blackwell", "Current_Retail_Price_USD": 9299, "VRAM_GB": 96, "MIG_Support": 4, "TDP_Watts": 400, "Slot_Width": 2, "NVLink_Support": 1, "CUDA_Cores": 20480, "Generation": "Blackwell", "PCIe_Generation": 5},
-            {"Card_Name": "RTX PRO 5000 Blackwell", "Current_Retail_Price_USD": 6000, "VRAM_GB": 48, "MIG_Support": 4, "TDP_Watts": 320, "Slot_Width": 2, "NVLink_Support": 0, "CUDA_Cores": 15360, "Generation": "Blackwell", "PCIe_Generation": 5},
-            {"Card_Name": "RTX PRO 4500 Blackwell", "Current_Retail_Price_USD": 4000, "VRAM_GB": 32, "MIG_Support": 4, "TDP_Watts": 250, "Slot_Width": 2, "NVLink_Support": 0, "CUDA_Cores": 10240, "Generation": "Blackwell", "PCIe_Generation": 5},
-            {"Card_Name": "RTX PRO 4000 Blackwell", "Current_Retail_Price_USD": 2500, "VRAM_GB": 24, "MIG_Support": 4, "TDP_Watts": 180, "Slot_Width": 2, "NVLink_Support": 0, "CUDA_Cores": 7680, "Generation": "Blackwell", "PCIe_Generation": 5}
-        ];
+        // GPU data will be loaded from CSV
+        this.gpuData = [];
+        this.csvPath = 'scored.csv'; // Default path to the scored CSV file
 
         // Preset configurations
         this.presets = {
@@ -57,6 +32,135 @@ class GPUScoring {
 
     init() {
         this.setupEventListeners();
+        this.loadDataFromCSV().then(() => {
+            this.normalizeData();
+            this.calculateScores();
+            this.updateDisplay();
+            this.initializeChart();
+        }).catch(error => {
+            console.error("Error loading data:", error);
+            // Fallback to sample data if available
+            this.loadSampleData();
+        });
+    }
+
+    async loadDataFromCSV() {
+        try {
+            const response = await fetch(this.csvPath);
+            if (!response.ok) {
+                throw new Error(`Failed to load CSV: ${response.status} ${response.statusText}`);
+            }
+
+            const csvText = await response.text();
+            const rows = csvText.split('\n');
+            const headers = rows[0].split(',');
+
+            this.gpuData = [];
+
+            for (let i = 1; i < rows.length; i++) {
+                if (!rows[i].trim()) continue; // Skip empty rows
+
+                const values = rows[i].split(',');
+                const gpu = {};
+
+                // Map CSV fields to our expected format
+                for (let j = 0; j < headers.length; j++) {
+                    const header = headers[j].trim();
+                    const value = values[j] ? values[j].trim() : '';
+
+                    // Convert values to appropriate types
+                    if (header === 'canonical_model') {
+                        gpu.Card_Name = value.replace(/_/g, ' '); // Replace underscores with spaces
+                    } else if (header === 'price' || header === 'price_usd') {
+                        gpu.Current_Retail_Price_USD = parseFloat(value) || 0;
+                    } else if (header === 'vram_gb') {
+                        gpu.VRAM_GB = parseInt(value) || 0;
+                    } else if (header === 'mig_support') {
+                        gpu.MIG_Support = parseInt(value) || 0;
+                    } else if (header === 'tdp_watts') {
+                        gpu.TDP_Watts = parseInt(value) || 0;
+                    } else if (header === 'nvlink') {
+                        gpu.NVLink_Support = value.toLowerCase() === 'true' ? 1 : 0;
+                    } else if (header === 'score') {
+                        // Store the original score, we'll scale it later
+                        gpu.originalScore = parseFloat(value) || 0;
+                    } else if (header === 'quantization_capable') {
+                        gpu.quantization_capable = value.toLowerCase() === 'true';
+                    } else if (header === 'generation') {
+                        gpu.Generation = value;
+                    } else if (header === 'slot_width') {
+                        gpu.Slot_Width = parseInt(value) || 2; // Default to 2 if not specified
+                    } else if (header === 'cuda_cores') {
+                        gpu.CUDA_Cores = parseInt(value) || 0;
+                    } else if (header === 'pcie_generation') {
+                        gpu.PCIe_Generation = parseInt(value) || 4; // Default to 4 if not specified
+                    }
+                }
+
+                // Set defaults for missing fields
+                if (!gpu.Generation) {
+                    // Try to infer generation from model name
+                    if (gpu.Card_Name.includes('RTX 40') || gpu.Card_Name.includes('Ada')) {
+                        gpu.Generation = 'Ada';
+                    } else if (gpu.Card_Name.includes('RTX 30') || gpu.Card_Name.includes('A') || gpu.Card_Name.includes('Ampere')) {
+                        gpu.Generation = 'Ampere';
+                    } else if (gpu.Card_Name.includes('H100') || gpu.Card_Name.includes('Hopper')) {
+                        gpu.Generation = 'Hopper';
+                    } else if (gpu.Card_Name.includes('RTX 50') || gpu.Card_Name.includes('Blackwell')) {
+                        gpu.Generation = 'Blackwell';
+                    } else {
+                        gpu.Generation = 'Unknown';
+                    }
+                }
+
+                if (!gpu.CUDA_Cores) {
+                    // Estimate CUDA cores based on model if not provided
+                    if (gpu.Card_Name.includes('H100')) {
+                        gpu.CUDA_Cores = 16896;
+                    } else if (gpu.Card_Name.includes('A100')) {
+                        gpu.CUDA_Cores = 6912;
+                    } else if (gpu.Card_Name.includes('RTX 4090')) {
+                        gpu.CUDA_Cores = 16384;
+                    } else if (gpu.Card_Name.includes('RTX 3090')) {
+                        gpu.CUDA_Cores = 10496;
+                    } else {
+                        gpu.CUDA_Cores = 5000; // Default value
+                    }
+                }
+
+                if (!gpu.Slot_Width) {
+                    gpu.Slot_Width = 2; // Default slot width
+                }
+
+                if (!gpu.PCIe_Generation) {
+                    gpu.PCIe_Generation = 4; // Default PCIe generation
+                }
+
+                this.gpuData.push(gpu);
+            }
+
+            if (this.gpuData.length === 0) {
+                throw new Error("No valid data found in CSV");
+            }
+
+            console.log(`Loaded ${this.gpuData.length} GPUs from CSV`);
+        } catch (error) {
+            console.error("Error loading CSV:", error);
+            throw error;
+        }
+    }
+
+    loadSampleData() {
+        console.log("Loading sample data as fallback");
+        // Sample data in case CSV loading fails
+        this.gpuData = [
+            {"Card_Name": "H100 PCIe 80GB", "Current_Retail_Price_USD": 30000, "VRAM_GB": 80, "MIG_Support": 7, "TDP_Watts": 350, "Slot_Width": 2, "NVLink_Support": 0, "CUDA_Cores": 16896, "Generation": "Hopper", "PCIe_Generation": 5, "quantization_capable": true},
+            {"Card_Name": "A100 40GB", "Current_Retail_Price_USD": 10000, "VRAM_GB": 40, "MIG_Support": 7, "TDP_Watts": 250, "Slot_Width": 2, "NVLink_Support": 1, "CUDA_Cores": 6912, "Generation": "Ampere", "PCIe_Generation": 4, "quantization_capable": true},
+            {"Card_Name": "RTX 4090", "Current_Retail_Price_USD": 1500, "VRAM_GB": 24, "MIG_Support": 0, "TDP_Watts": 450, "Slot_Width": 3, "NVLink_Support": 0, "CUDA_Cores": 16384, "Generation": "Ada", "PCIe_Generation": 4, "quantization_capable": false},
+            {"Card_Name": "RTX 3090", "Current_Retail_Price_USD": 1000, "VRAM_GB": 24, "MIG_Support": 0, "TDP_Watts": 350, "Slot_Width": 3, "NVLink_Support": 0, "CUDA_Cores": 10496, "Generation": "Ampere", "PCIe_Generation": 4, "quantization_capable": false},
+            {"Card_Name": "RTX A5000", "Current_Retail_Price_USD": 2500, "VRAM_GB": 24, "MIG_Support": 0, "TDP_Watts": 230, "Slot_Width": 2, "NVLink_Support": 1, "CUDA_Cores": 8192, "Generation": "Ampere", "PCIe_Generation": 4, "quantization_capable": true}
+        ];
+
         this.normalizeData();
         this.calculateScores();
         this.updateDisplay();
@@ -136,11 +240,28 @@ class GPUScoring {
             mig: { min: 0, max: 7 },
             tdp: { min: Math.min(...this.gpuData.map(gpu => gpu.TDP_Watts)), max: Math.max(...this.gpuData.map(gpu => gpu.TDP_Watts)) },
             slots: { min: 1, max: 3 },
-            cuda: { min: Math.min(...this.gpuData.map(gpu => gpu.CUDA_Cores)), max: Math.max(...this.gpuData.map(gpu => gpu.CUDA_Cores)) },
+            cuda: { min: Math.min(...this.gpuData.map(gpu => gpu.CUDA_Cores || 1000)), max: Math.max(...this.gpuData.map(gpu => gpu.CUDA_Cores || 20000)) },
             pcie: { min: 3, max: 5 }
         };
 
         this.normalizedData = this.gpuData.map(gpu => {
+            // If we already have a score from the CSV, use it
+            if (gpu.originalScore !== undefined) {
+                return {
+                    ...gpu,
+                    scores: {
+                        // Use the original score for all components if available
+                        price_efficiency: gpu.originalScore,
+                        vram_capacity: gpu.originalScore,
+                        mig_capability: gpu.originalScore,
+                        power_efficiency: gpu.originalScore,
+                        form_factor: gpu.originalScore,
+                        connectivity: gpu.originalScore
+                    }
+                };
+            }
+
+            // Otherwise calculate scores as before
             // Price efficiency (lower price per GB VRAM is better)
             const pricePerVRAM = gpu.Current_Retail_Price_USD / gpu.VRAM_GB;
             const minPricePerVRAM = Math.min(...this.gpuData.map(g => g.Current_Retail_Price_USD / g.VRAM_GB));
@@ -154,16 +275,16 @@ class GPUScoring {
             const migScore = gpu.MIG_Support / metrics.mig.max;
 
             // Power efficiency (lower TDP per CUDA core is better)
-            const tdpPerCore = gpu.TDP_Watts / gpu.CUDA_Cores;
-            const minTdpPerCore = Math.min(...this.gpuData.map(g => g.TDP_Watts / g.CUDA_Cores));
-            const maxTdpPerCore = Math.max(...this.gpuData.map(g => g.TDP_Watts / g.CUDA_Cores));
+            const tdpPerCore = gpu.TDP_Watts / (gpu.CUDA_Cores || 5000); // Use default if CUDA_Cores is missing
+            const minTdpPerCore = Math.min(...this.gpuData.map(g => g.TDP_Watts / (g.CUDA_Cores || 5000)));
+            const maxTdpPerCore = Math.max(...this.gpuData.map(g => g.TDP_Watts / (g.CUDA_Cores || 5000)));
             const powerEfficiency = 1 - ((tdpPerCore - minTdpPerCore) / (maxTdpPerCore - minTdpPerCore));
 
             // Form factor (smaller slot width is better)
             const formFactor = 1 - ((gpu.Slot_Width - metrics.slots.min) / (metrics.slots.max - metrics.slots.min));
 
             // Connectivity (NVLink + PCIe generation)
-            const connectivityScore = (gpu.NVLink_Support * 0.5) + ((gpu.PCIe_Generation - metrics.pcie.min) / (metrics.pcie.max - metrics.pcie.min) * 0.5);
+            const connectivityScore = (gpu.NVLink_Support * 0.5) + (((gpu.PCIe_Generation || 4) - metrics.pcie.min) / (metrics.pcie.max - metrics.pcie.min) * 0.5);
 
             return {
                 ...gpu,
@@ -181,13 +302,21 @@ class GPUScoring {
 
     calculateScores() {
         this.scoredData = this.normalizedData.map(gpu => {
-            const compositeScore = 
-                (gpu.scores.price_efficiency * this.weights.price_efficiency) +
-                (gpu.scores.vram_capacity * this.weights.vram_capacity) +
-                (gpu.scores.mig_capability * this.weights.mig_capability) +
-                (gpu.scores.power_efficiency * this.weights.power_efficiency) +
-                (gpu.scores.form_factor * this.weights.form_factor) +
-                (gpu.scores.connectivity * this.weights.connectivity);
+            let compositeScore;
+
+            // If we have an original score from the CSV, use it directly
+            if (gpu.originalScore !== undefined) {
+                compositeScore = gpu.originalScore;
+            } else {
+                // Otherwise calculate the composite score as before
+                compositeScore = 
+                    (gpu.scores.price_efficiency * this.weights.price_efficiency) +
+                    (gpu.scores.vram_capacity * this.weights.vram_capacity) +
+                    (gpu.scores.mig_capability * this.weights.mig_capability) +
+                    (gpu.scores.power_efficiency * this.weights.power_efficiency) +
+                    (gpu.scores.form_factor * this.weights.form_factor) +
+                    (gpu.scores.connectivity * this.weights.connectivity);
+            }
 
             return {
                 ...gpu,
@@ -197,7 +326,7 @@ class GPUScoring {
 
         // Sort by composite score
         this.scoredData.sort((a, b) => b.compositeScore - a.compositeScore);
-        
+
         // Add rankings
         this.scoredData.forEach((gpu, index) => {
             gpu.rank = index + 1;
@@ -286,19 +415,21 @@ class GPUScoring {
 
         tbody.innerHTML = displayData.map(gpu => {
             const rankClass = gpu.rank <= 3 ? `rank-${gpu.rank}` : '';
-            const generationClass = `generation-${gpu.Generation.toLowerCase()}`;
+            const generationClass = `generation-${(gpu.Generation || 'unknown').toLowerCase()}`;
             const migClass = `mig-${gpu.MIG_Support === 0 ? '0' : gpu.MIG_Support >= 7 ? '7' : '4'}`;
+            const quantClass = gpu.quantization_capable ? 'quant-capable' : 'quant-not-capable';
 
             return `
                 <tr class="${rankClass} fade-in">
                     <td>${gpu.rank}</td>
-                    <td class="gpu-name ${generationClass}">${gpu.Card_Name}</td>
+                    <td class="gpu-name ${generationClass} ${quantClass}">${gpu.Card_Name}</td>
                     <td class="score-value">${gpu.compositeScore.toFixed(1)}</td>
                     <td class="price-value">${gpu.Current_Retail_Price_USD.toLocaleString()}</td>
                     <td class="vram-value">${gpu.VRAM_GB}</td>
                     <td><span class="mig-support ${migClass}">${gpu.MIG_Support || 'No'}</span></td>
                     <td class="tdp-value">${gpu.TDP_Watts}</td>
                     <td>${gpu.Slot_Width}</td>
+                    <td>${gpu.quantization_capable ? '✓' : '✗'}</td>
                 </tr>
             `;
         }).join('');
@@ -336,7 +467,7 @@ class GPUScoring {
         // Sort data
         this.filteredData.sort((a, b) => {
             let valueA, valueB;
-            
+
             switch (column) {
                 case 'rank':
                     valueA = a.rank;
@@ -370,6 +501,11 @@ class GPUScoring {
                     valueA = a.Slot_Width;
                     valueB = b.Slot_Width;
                     break;
+                case 'quant':
+                    // Sort by quantization capability (true values first)
+                    valueA = a.quantization_capable === true ? 1 : 0;
+                    valueB = b.quantization_capable === true ? 1 : 0;
+                    break;
                 default:
                     return 0;
             }
@@ -385,7 +521,7 @@ class GPUScoring {
 
     initializeChart() {
         const ctx = document.getElementById('scatterChart').getContext('2d');
-        
+
         this.scatterChart = new Chart(ctx, {
             type: 'scatter',
             data: {
@@ -430,14 +566,111 @@ class GPUScoring {
     updateScatterChart() {
         if (!this.scatterChart) return;
 
-        const chartData = this.filteredData.slice(0, 20).map(gpu => ({
-            x: gpu.Current_Retail_Price_USD,
-            y: gpu.compositeScore,
-            gpu: gpu
-        }));
+        // Group GPUs by quantization capability or generation
+        const quantizationGroups = {
+            true: [],
+            false: []
+        };
 
-        this.scatterChart.data.datasets[0].data = chartData;
-        this.scatterChart.update('none');
+        const generationGroups = {};
+
+        this.filteredData.slice(0, 20).forEach(gpu => {
+            const dataPoint = {
+                x: gpu.Current_Retail_Price_USD,
+                y: gpu.compositeScore,
+                gpu: gpu
+            };
+
+            // Group by quantization capability if available
+            if (gpu.quantization_capable !== undefined) {
+                quantizationGroups[gpu.quantization_capable].push(dataPoint);
+            } 
+            // Otherwise group by generation
+            else if (gpu.Generation) {
+                if (!generationGroups[gpu.Generation]) {
+                    generationGroups[gpu.Generation] = [];
+                }
+                generationGroups[gpu.Generation].push(dataPoint);
+            }
+            // Fallback for GPUs with neither
+            else {
+                if (!generationGroups['Unknown']) {
+                    generationGroups['Unknown'] = [];
+                }
+                generationGroups['Unknown'].push(dataPoint);
+            }
+        });
+
+        // Determine which grouping to use
+        let useQuantization = quantizationGroups[true].length > 0 || quantizationGroups[false].length > 0;
+
+        // Create datasets based on grouping
+        let datasets = [];
+
+        if (useQuantization) {
+            // Use quantization grouping
+            datasets = [
+                {
+                    label: 'Quantization Capable',
+                    data: quantizationGroups[true],
+                    backgroundColor: '#4CAF50', // Green
+                    pointRadius: 8,
+                    pointHoverRadius: 10
+                },
+                {
+                    label: 'Not Quantization Capable',
+                    data: quantizationGroups[false],
+                    backgroundColor: '#F44336', // Red
+                    pointRadius: 8,
+                    pointHoverRadius: 10
+                }
+            ];
+        } else {
+            // Use generation grouping
+            const colors = {
+                'Hopper': '#9C27B0', // Purple
+                'Ada': '#2196F3',    // Blue
+                'Ampere': '#FF9800', // Orange
+                'Turing': '#795548', // Brown
+                'Blackwell': '#009688', // Teal
+                'Unknown': '#607D8B'  // Gray
+            };
+
+            datasets = Object.keys(generationGroups).map(generation => ({
+                label: generation,
+                data: generationGroups[generation],
+                backgroundColor: colors[generation] || '#607D8B',
+                pointRadius: 8,
+                pointHoverRadius: 10
+            }));
+        }
+
+        // Update chart with new datasets
+        this.scatterChart.data.datasets = datasets;
+
+        // Update chart options to show legend if we have multiple datasets
+        this.scatterChart.options.plugins.legend.display = datasets.length > 1;
+
+        // Add tooltips with GPU details
+        this.scatterChart.options.plugins.tooltip = {
+            callbacks: {
+                label: function(context) {
+                    const gpu = context.raw.gpu;
+                    return [
+                        `Model: ${gpu.Card_Name}`,
+                        `Score: ${gpu.compositeScore.toFixed(1)}`,
+                        `Price: $${gpu.Current_Retail_Price_USD.toLocaleString()}`,
+                        `VRAM: ${gpu.VRAM_GB} GB`,
+                        `MIG: ${gpu.MIG_Support || 'No'}`,
+                        `TDP: ${gpu.TDP_Watts}W`,
+                        gpu.quantization_capable !== undefined ? 
+                            `Quantization: ${gpu.quantization_capable ? 'Yes' : 'No'}` : ''
+                    ].filter(line => line !== '');
+                }
+            }
+        };
+
+        this.scatterChart.update();
     }
 
     switchChartTab(tabName) {
@@ -451,7 +684,7 @@ class GPUScoring {
         document.querySelectorAll('.chart-container').forEach(container => {
             container.classList.add('hidden');
         });
-        
+
         const targetChart = document.getElementById(`chart${tabName === '2d' ? '2d' : tabName === '3d' ? '3d' : 'Scatter'}`);
         targetChart.classList.remove('hidden');
 

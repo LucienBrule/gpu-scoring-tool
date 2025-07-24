@@ -162,7 +162,7 @@
     --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
     --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
     --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
-    
+
     /* Semantic Color Tokens (Dark Mode) */
     --color-background: var(--color-charcoal-700);
     --color-surface: var(--color-charcoal-800);
@@ -222,7 +222,7 @@
   --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
   --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
   --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
-  
+
   /* Semantic Color Tokens (Dark Mode) */
   --color-background: var(--color-charcoal-700);
   --color-surface: var(--color-charcoal-800);
@@ -268,7 +268,7 @@
   --color-brown-600-rgb: 94, 82, 64;
   --color-teal-500-rgb: 33, 128, 141;
   --color-slate-900-rgb: 19, 52, 59;
-  
+
   /* Semantic Color Tokens (Light Mode) */
   --color-background: var(--color-cream-50);
   --color-surface: var(--color-cream-100);
@@ -1041,6 +1041,37 @@ select.form-control {
   color: var(--color-success);
 }
 
+/* Quantization capability styles */
+.quant-capable {
+  position: relative;
+}
+
+.quant-capable::after {
+  content: '•';
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--color-success);
+  font-size: 16px;
+  line-height: 0;
+  position: relative;
+  top: -1px;
+}
+
+.quant-not-capable {
+  position: relative;
+}
+
+.quant-not-capable::after {
+  content: '•';
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--color-error);
+  font-size: 16px;
+  line-height: 0;
+  position: relative;
+  top: -1px;
+}
+
 /* Visualization Styles */
 .visualization-card {
   background: var(--color-bg-8);
@@ -1195,30 +1226,30 @@ select.form-control {
   .header {
     padding: var(--space-20) 0;
   }
-  
+
   .main-layout {
     gap: var(--space-20);
   }
-  
+
   .header-controls {
     flex-direction: column;
     align-items: stretch;
     gap: var(--space-8);
   }
-  
+
   .search-input {
     width: 100%;
   }
-  
+
   .results-table {
     font-size: var(--font-size-xs);
   }
-  
+
   .results-table th,
   .results-table td {
     padding: var(--space-8) var(--space-4);
   }
-  
+
   .preset-buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1231,11 +1262,11 @@ select.form-control {
     padding-left: var(--space-8);
     padding-right: var(--space-8);
   }
-  
+
   .chart-tabs {
     flex-wrap: wrap;
   }
-  
+
   .tab-btn {
     flex: 1;
     min-width: 80px;
@@ -1247,7 +1278,7 @@ select.form-control {
   .weight-slider::-webkit-slider-track {
     background: var(--color-secondary);
   }
-  
+
   .weight-slider::-moz-range-track {
     background: var(--color-secondary);
   }

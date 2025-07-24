@@ -1,0 +1,13 @@
+# Quantization Heuristic Configuration
+#
+# This file contains the configuration for the quantization capability heuristic.
+# It defines the thresholds for classifying a GPU as quantization-capable.
+
+# Minimum VRAM capacity in GB
+min_vram_gb: 24
+
+# Maximum Thermal Design Power in watts
+max_tdp_watts: 300
+
+# Minimum MIG support level (0=none, 1-7=supported)
+min_mig_support: 1
