@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVIDIA GPU Financial Scoring Model</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>NVIDIA GPU Financial Scoring Model</h1>
+            <p class="header-subtitle">Comprehensive analysis and ranking of NVIDIA GPUs based on configurable performance metrics</p>
+        </header>
+
+        <div class="main-layout">
+            <!-- Controls Panel -->
+            <aside class="controls-panel">
+                <div class="card">
+                    <div class="card__header">
+                        <h3>Scoring Weights</h3>
+                        <button class="btn btn--sm btn--outline" id="resetBtn">Reset to Defaults</button>
+                    </div>
+                    <div class="card__body">
+                        <div class="weight-controls">
+                            <div class="weight-control">
+                                <label class="form-label" for="priceWeight">
+                                    Price Efficiency
+                                    <span class="tooltip" title="Lower price per VRAM GB scores higher">?</span>
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" id="priceWeight" class="weight-slider" min="0" max="100" value="25">
+                                    <span class="weight-value" id="priceWeightValue">25%</span>
+                                </div>
+                            </div>
+
+                            <div class="weight-control">
+                                <label class="form-label" for="vramWeight">
+                                    VRAM Capacity
+                                    <span class="tooltip" title="Higher VRAM capacity scores higher">?</span>
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" id="vramWeight" class="weight-slider" min="0" max="100" value="20">
+                                    <span class="weight-value" id="vramWeightValue">20%</span>
+                                </div>
+                            </div>
+
+                            <div class="weight-control">
+                                <label class="form-label" for="migWeight">
+                                    MIG Capability
+                                    <span class="tooltip" title="Higher MIG instance support scores higher">?</span>
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" id="migWeight" class="weight-slider" min="0" max="100" value="15">
+                                    <span class="weight-value" id="migWeightValue">15%</span>
+                                </div>
+                            </div>
+
+                            <div class="weight-control">
+                                <label class="form-label" for="powerWeight">
+                                    Power Efficiency
+                                    <span class="tooltip" title="Lower TDP per CUDA core scores higher">?</span>
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" id="powerWeight" class="weight-slider" min="0" max="100" value="15">
+                                    <span class="weight-value" id="powerWeightValue">15%</span>
+                                </div>
+                            </div>
+
+                            <div class="weight-control">
+                                <label class="form-label" for="formWeight">
+                                    Form Factor
+                                    <span class="tooltip" title="Smaller slot width scores higher">?</span>
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" id="formWeight" class="weight-slider" min="0" max="100" value="10">
+                                    <span class="weight-value" id="formWeightValue">10%</span>
+                                </div>
+                            </div>
+
+                            <div class="weight-control">
+                                <label class="form-label" for="connectWeight">
+                                    Connectivity
+                                    <span class="tooltip" title="NVLink support and higher PCIe generation score higher">?</span>
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" id="connectWeight" class="weight-slider" min="0" max="100" value="15">
+                                    <span class="weight-value" id="connectWeightValue">15%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="weight-total">
+                            Total Weight: <span id="totalWeight">100%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card preset-card">
+                    <div class="card__header">
+                        <h4>Preset Configurations</h4>
+                    </div>
+                    <div class="card__body">
+                        <div class="preset-buttons">
+                            <button class="btn btn--secondary btn--sm preset-btn" data-preset="balanced">Balanced</button>
+                            <button class="btn btn--secondary btn--sm preset-btn" data-preset="ai_training">AI Training</button>
+                            <button class="btn btn--secondary btn--sm preset-btn" data-preset="budget_conscious">Budget Conscious</button>
+                            <button class="btn btn--secondary btn--sm preset-btn" data-preset="enterprise_efficiency">Enterprise Efficiency</button>
+                            <button class="btn btn--secondary btn--sm preset-btn" data-preset="compact_workstation">Compact Workstation</button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Results Panel -->
+            <main class="results-panel">
+                <div class="card">
+                    <div class="card__header">
+                        <h3>GPU Rankings</h3>
+                        <div class="header-controls">
+                            <input type="text" id="searchInput" class="form-control search-input" placeholder="Search GPUs...">
+                            <button class="btn btn--primary btn--sm" id="exportBtn">Export CSV</button>
+                        </div>
+                    </div>
+                    <div class="card__body">
+                        <div class="table-container">
+                            <table class="results-table" id="resultsTable">
+                                <thead>
+                                    <tr>
+                                        <th class="sortable" data-sort="rank">Rank</th>
+                                        <th class="sortable" data-sort="name">GPU Name</th>
+                                        <th class="sortable" data-sort="score">Score</th>
+                                        <th class="sortable" data-sort="price">Price</th>
+                                        <th class="sortable" data-sort="vram">VRAM</th>
+                                        <th class="sortable" data-sort="mig">MIG</th>
+                                        <th class="sortable" data-sort="tdp">TDP</th>
+                                        <th class="sortable" data-sort="slots">Slots</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="resultsBody">
+                                    <!-- Dynamic content -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card visualization-card">
+                    <div class="card__header">
+                        <h4>Performance Visualization</h4>
+                    </div>
+                    <div class="card__body">
+                        <div class="chart-tabs">
+                            <button class="tab-btn active" data-tab="2d">2D Analysis</button>
+                            <button class="tab-btn" data-tab="3d">3D Analysis</button>
+                            <button class="tab-btn" data-tab="scatter">Live Scatter</button>
+                        </div>
+                        
+                        <div class="chart-container" id="chart2d" style="position: relative; height: 400px;">
+                            <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/7938c58056defeff6c1c06d644b04f16/f4fa2c06-d05c-43fc-a292-46f5274afafb/0f8b2eec.png" alt="2D GPU Performance Analysis" class="chart-image">
+                        </div>
+
+                        <div class="chart-container hidden" id="chart3d" style="position: relative; height: 400px;">
+                            <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/7938c58056defeff6c1c06d644b04f16/536c5c8d-b986-4835-9a4a-6396290f7098/f8ff5c63.png" alt="3D GPU Analysis" class="chart-image">
+                        </div>
+
+                        <div class="chart-container hidden" id="chartScatter" style="position: relative; height: 400px;">
+                            <canvas id="scatterChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card summary-card">
+                    <div class="card__header">
+                        <h4>Summary Statistics</h4>
+                    </div>
+                    <div class="card__body">
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-label">Average Score:</span>
+                                <span class="stat-value" id="avgScore">0.0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Top Performer:</span>
+                                <span class="stat-value" id="topPerformer">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Best Value:</span>
+                                <span class="stat-value" id="bestValue">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Most Efficient:</span>
+                                <span class="stat-value" id="mostEfficient">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

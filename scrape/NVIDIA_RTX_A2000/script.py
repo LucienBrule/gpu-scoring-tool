@@ -1,0 +1,60 @@
+import pandas as pd
+from datetime import datetime
+
+# Create comprehensive pricing data for NVIDIA RTX A2000 12GB
+pricing_data = [
+    # Retail Major
+    ["RTX A2000 12GB", "New", 599.99, 1, 1, "Micro Center", "US", "Current", "https://www.microcenter.com/product/652304/pny-nvidia-rtx-a2000-single-fan-12gb-gddr6-pcie-40-graphics-card", "Retail_Major", "Shipping not available, limit 1 per household"],
+    ["RTX A2000 12GB", "New", 599.99, "Unknown", 1, "Central Computer", "US", "Current", "https://www.centralcomputer.com/pny-vcnrtxa200012gb-pb-nvidia-rtx-a2000-12gb-gddr6-low-profile-pci-express-4-0-x16-graphics-card.html", "Retail_Major", "Multiple CA store locations"],
+    
+    # Retail Specialist
+    ["RTX A2000 12GB", "New", "Quote Required", "Unknown", 1, "CDW", "US", "Current", "https://www.cdw.com/product/hp-nvidia-a2000-graphic-card-12-gb/7391296", "Retail_Specialist", "Enterprise pricing, quote required"],
+    ["RTX A2000 12GB", "Out of Stock", "Not Listed", 0, 1, "WiredZone", "US", "Current", "https://www.wiredzone.com/shop/product/10023744-nvidia-900-5g192-2250-000-graphic-card-rtx-a2000-12gb-gddr6-gpu-memory-9858", "Retail_Specialist", "Can only be ordered with Supermicro systems"],
+    ["RTX A2000 12GB", "New", "Quote Required", "Unknown", 1, "Provantage", "US", "Current", "https://www.provantage.com/hp-5z7d9aa~7HEWG40X.htm", "Retail_Specialist", "HP-branded version, enterprise pricing"],
+    ["RTX A2000 12GB", "Out of Stock", 0.00, 0, 1, "HP Direct", "US", "Current", "https://www.hp.com/us-en/shop/pdp/nvidia-rtx-a2000-12-gb-4mdp-graphics-p-5z7d9aa-1", "Retail_Specialist", "Discontinued/withdrawn"],
+    
+    # Resale Business (eBay Stores & Newegg 3rd Party)
+    ["RTX A2000 12GB", "New", 665.00, "Multiple", 1, "Alliance Group USA (Newegg)", "US", "Current", "https://www.newegg.com/pny-technologies-inc-vcnrtxa200012gb-pb-rtx-a2000-graphics-card/p/N82E16814133834", "Resale_Business", "Third-party seller on Newegg"],
+    ["RTX A2000 12GB", "Refurbished", 739.00, 1, 1, "Compeve (Newegg)", "US", "Current", "https://www.newegg.com/p/1FT-000P-005W9", "Resale_Business", "Refurbished unit with full specs"],
+    ["RTX A2000 12GB", "New", 819.99, 1, 1, "Industrial Seller (Newegg)", "US", "Current", "https://www.newegg.com/p/pl?d=rtx+a2000+12gb", "Resale_Business", "Industrial package, film/TV post-production"],
+    ["RTX A2000 12GB", "Used", 583.28, 1, 1, "uventure (eBay CA)", "US", "Recent", "https://www.ebay.ca/sch/i.html?Brand=&_dcat=3252&_nkw=rtx+a2000", "Resale_Business", "Top rated seller, CAD price converted"],
+    ["RTX A2000 12GB", "Used", 611.03, 1, 1, "sumcollectibles (eBay CA)", "US", "Recent", "https://www.ebay.ca/sch/i.html?Brand=&_dcat=3252&_nkw=rtx+a2000", "Resale_Business", "CAD price converted"],
+    ["RTX A2000 12GB", "Refurbished", 456.00, 2, 1, "ETB Technologies (eBay UK)", "UK", "Recent", "https://www.ebay.co.uk/itm/285917954319", "Resale_Business", "£456 (~$570 USD), excellent refurbished"],
+    
+    # Resale Individual
+    ["RTX A2000 12GB", "Used", 325.00, 1, 1, "Salt_Entertainer_879 (Reddit)", "US-CT", "Recent", "https://www.reddit.com/r/sffpc/comments/1k9461p/fsct_pny_rtx_a2000_12g/", "Resale_Individual", "2 months use, non-smoking home, shipped CONUS"],
+    
+    # International
+    ["RTX A2000 12GB", "New/Refurb/Open", 480.00, 1, 1, "Beijing Jiayetongchuang (Alibaba)", "China", "Current", "https://www.alibaba.com/product-detail/NVIDIA-RTX-A2000-A2000-12GB-GRAPHICS_1600453369541.html", "International", "MOQ 1, price range $480-799, 15 day lead time"],
+    ["RTX A2000 12GB", "New/Refurb/Open", 799.00, 1000, 1, "Beijing Jiayetongchuang (Alibaba)", "China", "Current", "https://www.alibaba.com/product-detail/NVIDIA-RTX-A2000-A2000-12GB-GRAPHICS_1600453369541.html", "International", "Higher quantity pricing, bulk orders"],
+    ["RTX A2000 12GB", "New", 690.00, 1, 1, "Computer Universe", "EU", "Current", "https://www.computeruniverse.net/en/p/2E17-07E", "International", "€690 (~$750 USD), 3-7 business days delivery"],
+    ["RTX A2000 12GB", "New", 545.00, 1, 1, "Amazon Marketplace UK", "UK", "Current", "https://skinflint.co.uk/pny-rtx-a2000-vcnrtxa2000-12gb-pb-a2674329.html", "International", "£545 (~$680 USD), includes DP cable"],
+    
+    # Historical/Reference Points
+    ["RTX A2000 12GB", "MSRP Launch", 449.00, "N/A", 1, "NVIDIA", "US", "Nov 2021", "https://howmanyfps.com/en-ca/graphics-cards/rtx-a2000-12-gb/call-of-duty-warzone-20", "Retail_Major", "Original launch MSRP - November 23, 2021"],
+    ["RTX A2000 12GB", "Historical Low", 564.99, "N/A", 1, "B&H Photo", "US", "Aug 2024", "https://pangoly.com/en/price-history/e73c3222-5d32-49d1-5a7e-08dc28c1f4b1", "Retail_Specialist", "Historical low price from Pangoly tracking"],
+    ["RTX A2000 12GB", "Historical High", 849.00, "N/A", 1, "Various", "US", "Feb 2024", "https://pangoly.com/en/price-history/e73c3222-5d32-49d1-5a7e-08dc28c1f4b1", "Retail_Specialist", "Historical high price during shortage"]
+]
+
+# Create DataFrame
+columns = ["Model", "Condition", "Price_USD", "Quantity", "Min_Order_Qty", "Seller", "Geographic_Region", "Listing_Age", "Source_URL", "Source_Type", "Bulk_Notes"]
+df = pd.DataFrame(pricing_data, columns=columns)
+
+# Display the data
+print("NVIDIA RTX A2000 12GB - Price Aggregation Results")
+print("=" * 60)
+print(f"Data compiled on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+print(f"Total listings found: {len(df)}")
+print("\nPrice Range Analysis:")
+print(f"Current Available Range: $325 - $819.99")
+print(f"Original MSRP (Nov 2021): $449")
+print(f"Historical Range: $564.99 - $849.00")
+print("\n")
+
+# Save to CSV
+df.to_csv('rtx_a2000_12gb_pricing.csv', index=False)
+print("CSV file saved as 'rtx_a2000_12gb_pricing.csv'")
+
+# Display the dataframe
+print("\nDetailed Pricing Data:")
+print(df.to_string(index=False))

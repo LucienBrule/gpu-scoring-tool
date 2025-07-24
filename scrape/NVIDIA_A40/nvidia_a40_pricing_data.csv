@@ -1,0 +1,19 @@
+Model,Condition,Price_USD,Quantity,Min_Order_Qty,Seller,Geographic_Region,Listing_Age,Source_URL,Source_Type,Bulk_Notes,Price_Sort
+NVIDIA A40,New,Quote,Available,Varies,CDW,US,Current,https://www.cdw.com/product/nvidia-a40-gpu-computing-processor-nvidia-a40-48-gb/7005474,Retail_Specialist,Enterprise pricing - quote required,0
+Cisco Tesla A40 RTX,New,Quote,Available,10000,Provantage,US,Current,https://www.provantage.com/cisco-systems-ucsc-gpu-a40-d~7CSC62R5.htm,Retail_Specialist,"Min $10,000 Cisco purchase required",0
+NVIDIA A40,Refurbished,Out of Stock,0,1,PCServerAndParts,US,Recent,https://pcserverandparts.com/nvidia-a40-gpu-accelerator-48gb-gddr6-tesla-ampere-used-pg133c-900-2g133-0000-000-699-2g133-0200-c00/,Resale_Business,90-day warranty,0
+Dell NVIDIA A40,Refurbished,Quote,3,1,Bytestock,UK,Recent,https://shop.bytestock.com/dell-nvidia-a40-ampere-48gb-gddr6-passive-gpu-graphics-card-w6gx6-tcsa40m-pm,Resale_Business,"30-70% off MSRP, Dell OEM",0
+NVIDIA Tesla A40,Used,4900,Discussion,1,Reddit r/homelabsales,US/UK,Stale,https://www.reddit.com/r/homelabsales/comments/12aue6s/pc_nvidia_tesla_a40_48gb/,Resale_Individual,"Discussion: fair price $4200-4500, recent eBay $4900",4900
+NVIDIA A40,New,5170,Out of Stock,1,Newegg Direct,US,Recent,https://www.newegg.com/p/pl?d=nvidia+a40,Retail_Major,Free shipping,5170
+NVIDIA A40,New,5499,Out of Stock,1,C3Aero LLC,US,Stale,https://c3aero.com/products/nvidia-a40-datacenter-gpu,Retail_Specialist,PNY Partner,5499
+NVIDIA A40,Liquidation,5500,Limited,1,Instagram Liquidation,US,Recent,https://www.instagram.com/p/C_A-nytyi1y/,Liquidation,Liquidation sale - limited availability,5500
+PNY NVIDIA A40,New,5599,Out of Stock,1,Newegg,US,Recent,https://www.newegg.com/p/pl?d=nvidia+a40,Retail_Major,Free shipping,5599
+NVIDIA A40 (Dell),Refurbished,5999,3,1,Xbyte.com,US,Current,https://www.xbyte.com/products/cat-23978/,Retail_Specialist,"Was $9,999 - Dell OEM",5999
+NVIDIA A40,Refurbished,5999,Limited,1,Newegg (Dell),US,Recent,https://www.newegg.com/p/pl?d=nvidia+a40,Retail_Major,Dell refurbished,5999
+NVIDIA A40,New,6300,1,1,heinzsoft (eBay.de),EU,Recent,https://www.ebay.de/itm/286207081910,Resale_Business,Ended - no longer available,6300
+NVIDIA A40,New,6439,In Stock,1,Router-Switch.com,US,Stale,https://www.router-switch.com/nvidia-a40.html,Retail_Specialist,Up to $80 coupons available,6439
+PNY NVIDIA A40,New,7342,Available,1,Novatech,UK,Current,https://www.novatech.co.uk/products/pny-nvidia-a40-48gb-gddr6-ecc-data-centre-gpu/tcsa40m-pb.html,Retail_Specialist,"£6,496.50 inc. VAT, 24-month financing",7342
+PNY NVIDIA A40,New,7700,Available,1,Zoro.co.uk,UK,Recent,https://www.idealo.co.uk/compare/201658583/pny-nvidia-a40-48g.html,Retail_Specialist,"£6,199.99 + shipping",7700
+NVIDIA Tesla A40,New (Opened),7749,1,1,binhua158 (eBay),Asia/CN,Stale,https://www.ebay.com.au/itm/296430453835,International,"Ships from China, no returns",7749
+PNY NVIDIA A40,New,7840,Available,1,LDLC,EU,Stale,https://www.ldlc.com/en/product/PB00462697.html,Retail_Specialist,"€6,849.95, 3-year warranty",7840
+NVIDIA Tesla A40,New,13200,47,1,MemoryPartner_Deals (eBay),Asia/CN,Stale,https://www.ebay.com.au/itm/374192509164,International,"60-day returns, bulk available",13200

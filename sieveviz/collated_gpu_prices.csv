@@ -1,0 +1,210 @@
+Model,Condition,Price_USD,Quantity,Min_Order_Qty,Seller,Geographic_Region,Listing_Age,Source_URL,Source_Type,Bulk_Notes,Meta1,Meta2
+NVIDIA H100 PCIe 80GB,New,34995,Available,1,ServerSupply.com,US domestic,Current: 7-30 days,https://www.serversupply.com/GPU/HBM2E/80GB/NVIDIA/900-21010-0000-000_387928.htm,Retail_Specialist,Standard enterprise pricing
+NVIDIA H100 PCIe 80GB,New,29500,Out of Stock,1,Newegg (PNY),US domestic,Current: 7-30 days,https://www.newegg.com/p/pl?d=h100,Retail_Major,PNY branded model NVH100TCGPU-KIT
+NVIDIA H100 PCIe 80GB,New,39879,Available,1,High Performance Tech (Newegg),US domestic,Recent: <7 days,https://www.newegg.com/p/1VK-0066-00022,Resale_Business,Third-party seller on Newegg marketplace
+NVIDIA H100 PCIe 80GB,New,Contact for Quote,Available,1,CDW,US domestic,Current: 7-30 days,https://www.cdw.com/product/pny-nvidia-h100-graphic-card-80-gb-hbm3/7367181,Retail_Specialist,Enterprise pricing available on request
+NVIDIA H100 PCIe 80GB,New,Contact for Quote,Not in stock,1,WiredZone,US domestic,Current: 7-30 days,https://www.wiredzone.com/shop/product/10025500-nvidia-900-21010-0000-000-graphics-processing-unit-gpu-h100-80gb-hbm2e-memory-fhfl-10753,Retail_Specialist,Needs approval before purchase
+NVIDIA H100 NVL 94GB,New,Contact for Quote,Available,1,Provantage,US domestic,Current: 7-30 days,https://www.provantage.com/pny-technologies-nvh100nvltcgpu-kit~7PNY92MT.htm,Retail_Specialist,Needs approval before purchase
+NVIDIA H100 PCIe 80GB,New/Sealed,24000,1,1,Individual (Reddit r/hardwareswap),US domestic (NYC),Recent: <7 days,https://www.reddit.com/r/hardwareswap/comments/1ifkbr4/usany_h_nvidia_h100_80gb_pcie_w_local_cash/,Resale_Individual,"OBO - willing to travel in USA, local cash preferred"
+NVIDIA H100 PCIe 80GB,New,36000,Pre-order,1,G-Dep (Japan),Asia/Japan,Current: 7-30 days,Referenced in PC Gamer article,International,"Japanese retailer, 4,745,950 yen (~$36,000"
+NVIDIA H100 PCIe 80GB,New,23800,Available,1,Alibaba Supplier,Asia/China,Current: 7-30 days,https://www.alibaba.com/showroom/nvidia-h100-80gb-gpu.html,International,"High Performance H-100 PCIe 80GB, 3 years warranty"
+NVIDIA H100 PCIe 80GB,New,49999,Available,1,Shenzhen Jiechuang (Alibaba),Asia/China,Current: 7-30 days,https://www.alibaba.com/product-detail/High-Quality-Computing-Graphic-Card-80GB_1600969217202.html,International,"Volume pricing: 1-4 pcs $49,999, 5-99 pcs $45,666, 100+ pcs $39,999"
+NVIDIA H100 PCIe 80GB (8-GPU system),New,325000,Out of Stock,1,Tyan/Newegg,US domestic,Current: 7-30 days,https://www.newegg.com/p/pl?d=h100,Retail_Specialist,"Complete 8-GPU system (~$40,625 per GPU)"
+RTX A6000,New,5499,Multiple,1,Newegg (PNY),US domestic,Current,https://www.newegg.com/p/pl?d=rtx+a6000,Retail_Major,"Free shipping, multiple SKUs available"
+RTX A6000,New,4399,In Stock,1,Newegg (PNY OEM),US domestic,Current,https://www.newegg.com/p/N82E16814133822,Retail_Major,"OEM version, replacement only return policy"
+RTX A6000,New,6680,In Stock,1,Newegg (Third Party),US domestic,Current,https://www.newegg.com/p/pl?d=rtx+a6000,Retail_Major,Higher-end SKU or different vendor
+RTX A6000,New,8899,In Stock,1,Newegg (Boxed),US domestic,Current,https://www.newegg.com/p/pl?d=rtx+a6000,Retail_Major,Boxed retail version with accessories
+RTX A6000,New,Out of Stock,0,1,B&H Photo,US domestic,Current,https://www.bhphotovideo.com/c/product/1607840-REG/pny_technologies_vcnrtxa6000_pb_nvidia_rtx_a6000_graphic.html,Retail_Major,Out of stock
+RTX A6000,New,Quote Required,Available,1,CDW,US domestic,Current,https://www.cdw.com/product/nvidia-rtx-a6000-graphics-card-rtx-a6000-48-gb/7928471,Retail_Specialist,"Enterprise focus, quote-based pricing"
+RTX A6000,New,7500,In Stock,1,ServerSupply,US domestic,Current,https://www.serversupply.com/GPU/GDDR6/48GB/PNY%20Technology/VCNRTXA6000-SB_379239.htm,Retail_Specialist,New factory sealed
+RTX A6000,New,3199,In Stock,1,Router-Switch.com,International,Current,https://www.router-switch.com/nvidia-rtx-6000.html,Retail_Specialist,"Global warehouses, coupons available"
+RTX A6000,Delivery Unknown,5580,Delivery Unknown,1,ComputerUniverse (EU),EU,Current,https://www.computeruniverse.net/en/p/2E17-06A,Retail_Specialist,"EUR price converted, delivery date unknown"
+RTX A6000,New,Out of Stock,0,1,WiredZone,US domestic,Current,https://www.wiredzone.com/shop/product/10021351,Retail_Specialist,Out of stock
+RTX A6000,Refurbished,4738,In Stock,1,Newegg (Compeve),US domestic,Recent,https://www.newegg.com/p/2VV-000K-00127,Resale_Business,Refurbished with specs listed
+RTX A6000,New,4924,Varies,1,Amazon (3rd Party New),US domestic,Recent,https://camelcamelcamel.com/product/B09BDH8VZV,Retail_Major,Current 3rd party new price as of July 2025
+RTX A6000,Used,4439,Varies,1,Amazon (3rd Party Used),US domestic,Recent,https://camelcamelcamel.com/product/B09BDH8VZV,Retail_Major,Current 3rd party used price as of July 2025
+RTX A6000,New,3849,In Stock,1,Amazon (PCPartPicker),US domestic,Recent,https://pcpartpicker.com/product/HWt9TW/pny-rtx-a-series-rtx-a6000-48-gb-video-card-vcnrtxa6000-pb,Retail_Major,10 new listings from $3849-4999
+RTX A6000,Used,3449,In Stock,1,Amazon (PCPartPicker Used),US domestic,Recent,https://pcpartpicker.com/product/HWt9TW/pny-rtx-a-series-rtx-a6000-48-gb-video-card-vcnrtxa6000-pb,Retail_Major,4 used listings from $3449-4499
+RTX A6000,Used,3200,Individual,1,Reddit r/homelabsales,US domestic,Stale,https://www.reddit.com/r/homelabsales/comments/17e5b2u/w_used_rtx_a6000/,Resale_Individual,User mentions typical eBay range 3200-3400
+RTX A6000,Used,3500,Individual,1,Reddit r/homelabsales seller,US domestic,Stale,https://www.reddit.com/r/homelabsales/comments/10fqo4f/fs_usw_nvidia_quadro_a6000/,Resale_Individual,"Individual seller, shipped US"
+Server with RTX A6000,Used,9664,4,1,eBay UK (CTOServers),EU,Recent,https://www.ebay.co.uk/itm/276839971749,Resale_Business,"Complete server with A6000, HPE ProLiant DL380 Gen10"
+RTX A6000,Cloud Rental,1.89,Available,1,DigitalOcean,US domestic,Current,https://www.digitalocean.com/pricing/additional-gpus,Retail_Specialist,"$1.89/hour, 45GiB RAM, 8 vCPUs"
+RTX A6000,Cloud Rental,373,Available,1,GPU-Mart,US domestic,Current,https://www.gpu-mart.com/blog/best-gpus-for-ai-inference-2025,Retail_Specialist,"$373/month dedicated server, 32% discount available"
+NVIDIA RTX 4000 SFF Ada,New,0.0,Out of Stock,0,WiredZone,US,Current,https://www.wiredzone.com/shop/product/10029700-nvidia-900-5g192-2270-000-rtx4000-sff-ada-generation-20gb-memory-active-cooling-12766,Retail_Specialist,Out of stock - SFF version
+NVIDIA RTX 4000 SFF Ada,Used,1085.16,Sold,1,eBay US Seller,US,Recent,https://www.benl.ebay.be/sch/i.html?_nkw=rtx+4000+sff+ada,Resale_Individual,"EUR 1,019.45 - converted to USD, never used"
+NVIDIA RTX 4000 SFF Ada,New,1267.06,Sold,1,eBay US Seller,US,Recent,https://www.benl.ebay.be/sch/i.html?_nkw=rtx+4000+sff+ada,Resale_Business,"EUR 1,189.36 - 13 sold"
+NVIDIA RTX 4000 SFF Ada,New,1275.99,In Stock,1,Newegg - PNY,US,Current,https://www.newegg.com/p/pl?d=rtx+4000+ada+sff,Retail_Major,Free shipping
+NVIDIA RTX 4000 SFF Ada,New,1299.99,In Stock,1,Central Computer,US,Current,https://www.centralcomputer.com/pny-vcnrtx4000adalp-pb-nvidia-rtx-4000-sff-ada-graphics-card-20-gb-gddr6-ecc-2-slot-pcie-4-0-x16-mdp-1-4a.html,Retail_Specialist,14-day returns
+NVIDIA RTX 4000 SFF Ada,New,1382.01,In Stock,8,Channel Online,US,Current,https://usm.channelonline.com/netcombsi/storesite/Products/overview/M024302451,Retail_Specialist,Bulk quantity available
+NVIDIA RTX 4000 SFF Ada,New,1397.16,Active,1,eBay China Seller,Asia,Current,https://www.benl.ebay.be/sch/i.html?_nkw=rtx+4000+sff+ada,International,"EUR 1,310 - Founders Edition claim"
+NVIDIA RTX 4000 SFF Ada,Used,1466.12,Variable,1,Amazon 3rd Party,EU,Recent,https://fr.camelcamelcamel.com/product/B0C2KNGV5L,Resale_Business,"€1,377.90 average used price"
+NVIDIA RTX 4000 SFF Ada,New,1489.48,In Stock,2,Alternate.de,EU,Current,https://www.alternate.de/PNY/NVIDIA-RTX-4000-SFF-Ada-Generation-20GB-PB-Grafikkarte/html/product/1914392,International,"€1,399 down from €1,509"
+NVIDIA RTX 4000 SFF Ada,New,1529.0,Variable,1,Amazon 3rd Party,EU,Current,https://fr.camelcamelcamel.com/product/B0C2KNGV5L,Resale_Business,"€1,435.27 current 3rd party price"
+NVIDIA RTX 4000 SFF Ada,New,1581.8,In Stock,1,Connection,US,Current,https://www.connection.com/product/pny-nvidia-rtx-4000-sff-ada-generation-pcie-4.0-x16-graphics-card-20gb-gddr6/vcnrtx4000adalp-pb/41615067,Retail_Specialist,Ships in 48 Hours
+NVIDIA RTX 4000 SFF Ada,New,1600.0,Limited Stock,1,ServerSupply,US,Current,https://www.serversupply.com/GPU/GDDR6/20GB/PNY%20Technology/VCNRTX4000ADALP-PB_377624.htm,Retail_Specialist,"Down from $1,850 - 13% off"
+NVIDIA RTX 4000 SFF Ada,New,1713.54,Active,1,eBay China Seller,Asia,Current,https://www.benl.ebay.be/sch/i.html?_nkw=rtx+4000+sff+ada,International,"EUR 1,605.64 - Professional graphics"
+NVIDIA RTX 4000 SFF Ada,New,1723.33,In Stock,1,Overclockers UK,EU,Current,https://www.overclockers.co.uk/nvidia-rtx-4000-sff-ada-20gb-gddr6-pci-express-graphics-card-oem-gra-nvi-05600.html,International,"£1,339.99 - converted to USD"
+NVIDIA RTX 4000 SFF Ada,New,1939.99,In Stock,1,CDW,US,Current,https://www.cdw.com/product/nvidia-rtx-4000-ada-graphics-card-rtx-4000-sff-ada-20-gb/8377274,Retail_Major,"Down from $2,623.99 - 26% discount"
+NVIDIA RTX 4000 SFF Ada,New,1959.7,In Stock,1,Computer Universe,EU,Current,https://www.computeruniverse.net/en/p/2E17-07X,International,"€1,461 - converted to USD"
+NVIDIA RTX 4000 SFF Ada,New,1999.0,Available,1,SHI,US,Current,https://www.shi.com/product/46030307/NVIDIA-RTX-4000-SFF-Ada-Generation,Retail_Specialist,MSRP listed
+NVIDIA RTX 4000 SFF Ada,New,2119.99,In Stock,1,Newegg - Tech Edge,US,Current,https://www.newegg.com/p/1FT-0004-00904,Retail_Major,"Industrial package, ships from China"
+NVIDIA RTX 4000 SFF Ada,New,2144.64,In Stock,1,MediaMarkt,EU,Current,https://www.mediamarkt.de/de/product/_pny-vcnrtx4000adalp-pb-nvidia-grafikkarte-142765925.html,International,"€1,600 - premium pricing"
+NVIDIA RTX 4000 SFF Ada,New,2208.0,In Stock,1,Newegg - Leadtek,US,Current,https://www.newegg.com/p/pl?d=rtx+4000+ada+sff,Retail_Major,Free shipping
+NVIDIA RTX 4000 SFF Ada,New,2837.06,Ended,1,eBay Japan Seller,Asia,Stale,https://www.ebay.co.uk/itm/286151546995,International,Listing ended - high premium pricing
+NVIDIA A40,New,Quote,Available,Varies,CDW,US,Current,https://www.cdw.com/product/nvidia-a40-gpu-computing-processor-nvidia-a40-48-gb/7005474,Retail_Specialist,Enterprise pricing - quote required,0
+Cisco Tesla A40 RTX,New,Quote,Available,10000,Provantage,US,Current,https://www.provantage.com/cisco-systems-ucsc-gpu-a40-d~7CSC62R5.htm,Retail_Specialist,"Min $10,000 Cisco purchase required",0
+NVIDIA A40,Refurbished,Out of Stock,0,1,PCServerAndParts,US,Recent,https://pcserverandparts.com/nvidia-a40-gpu-accelerator-48gb-gddr6-tesla-ampere-used-pg133c-900-2g133-0000-000-699-2g133-0200-c00/,Resale_Business,90-day warranty,0
+Dell NVIDIA A40,Refurbished,Quote,3,1,Bytestock,UK,Recent,https://shop.bytestock.com/dell-nvidia-a40-ampere-48gb-gddr6-passive-gpu-graphics-card-w6gx6-tcsa40m-pm,Resale_Business,"30-70% off MSRP, Dell OEM",0
+NVIDIA Tesla A40,Used,4900,Discussion,1,Reddit r/homelabsales,US/UK,Stale,https://www.reddit.com/r/homelabsales/comments/12aue6s/pc_nvidia_tesla_a40_48gb/,Resale_Individual,"Discussion: fair price $4200-4500, recent eBay $4900",4900
+NVIDIA A40,New,5170,Out of Stock,1,Newegg Direct,US,Recent,https://www.newegg.com/p/pl?d=nvidia+a40,Retail_Major,Free shipping,5170
+NVIDIA A40,New,5499,Out of Stock,1,C3Aero LLC,US,Stale,https://c3aero.com/products/nvidia-a40-datacenter-gpu,Retail_Specialist,PNY Partner,5499
+NVIDIA A40,Liquidation,5500,Limited,1,Instagram Liquidation,US,Recent,https://www.instagram.com/p/C_A-nytyi1y/,Liquidation,Liquidation sale - limited availability,5500
+PNY NVIDIA A40,New,5599,Out of Stock,1,Newegg,US,Recent,https://www.newegg.com/p/pl?d=nvidia+a40,Retail_Major,Free shipping,5599
+NVIDIA A40 (Dell),Refurbished,5999,3,1,Xbyte.com,US,Current,https://www.xbyte.com/products/cat-23978/,Retail_Specialist,"Was $9,999 - Dell OEM",5999
+NVIDIA A40,Refurbished,5999,Limited,1,Newegg (Dell),US,Recent,https://www.newegg.com/p/pl?d=nvidia+a40,Retail_Major,Dell refurbished,5999
+NVIDIA A40,New,6300,1,1,heinzsoft (eBay.de),EU,Recent,https://www.ebay.de/itm/286207081910,Resale_Business,Ended - no longer available,6300
+NVIDIA A40,New,6439,In Stock,1,Router-Switch.com,US,Stale,https://www.router-switch.com/nvidia-a40.html,Retail_Specialist,Up to $80 coupons available,6439
+PNY NVIDIA A40,New,7342,Available,1,Novatech,UK,Current,https://www.novatech.co.uk/products/pny-nvidia-a40-48gb-gddr6-ecc-data-centre-gpu/tcsa40m-pb.html,Retail_Specialist,"£6,496.50 inc. VAT, 24-month financing",7342
+PNY NVIDIA A40,New,7700,Available,1,Zoro.co.uk,UK,Recent,https://www.idealo.co.uk/compare/201658583/pny-nvidia-a40-48g.html,Retail_Specialist,"£6,199.99 + shipping",7700
+NVIDIA Tesla A40,New (Opened),7749,1,1,binhua158 (eBay),Asia/CN,Stale,https://www.ebay.com.au/itm/296430453835,International,"Ships from China, no returns",7749
+PNY NVIDIA A40,New,7840,Available,1,LDLC,EU,Stale,https://www.ldlc.com/en/product/PB00462697.html,Retail_Specialist,"€6,849.95, 3-year warranty",7840
+NVIDIA Tesla A40,New,13200,47,1,MemoryPartner_Deals (eBay),Asia/CN,Stale,https://www.ebay.com.au/itm/374192509164,International,"60-day returns, bulk available",13200
+RTX A4000,new,1149.99,unknown,1,B&H Photo,US domestic,Current,https://www.bhphotovideo.com/c/product/1644218-REG/pny_technologies_vcnrtxa4000_pb_nvidia_rtx_a4000_graphics.html,Retail_Major,"Back-ordered, expected availability May 02, 2025"
+RTX A4000,new,1295.0,unknown,1,Newegg (Tech Trends),US domestic,Current,https://www.newegg.com/pny-technologies-inc-vcnrtxa4000-pb-rtx-a4000-16gb-graphics-card/p/N82E16814132091,Retail_Major,In stock
+RTX A4000,new,691.19,0,1,Micro Center,US domestic,Current,https://www.microcenter.com/product/652306/pny-nvidia-rtx-a4000-single-fan-16gb-gddr6-pcie-40-graphics-card,Retail_Major,Not Available - Out of Stock
+RTX A4000,new,1230.99,unknown,1,Zones.com,US domestic,Current,https://www.zones.com/site/product/index.html?id=109402324,Retail_Specialist,Enterprise pricing available
+RTX A4000,out of stock,0.0,0,1,Supermicro,US domestic,Current,https://store.supermicro.com/us_en/supermicro-nvidia-rtx-a4000-16gb-gddr6-graphics-card-gpu-nvqrtx-a4000.html,Retail_Specialist,Out of stock
+RTX A4000,used,535.0,1,1,rburla (eBay Canada),Canada,Recent,https://www.ebay.ca/itm/375373064015,Resale_Individual,SOLD listing - C$727.00
+RTX A4000,used,550.0,1,1,eBay Individual,Canada,Recent,https://www.ebay.ca/sch/i.html?_nkw=rtx+a4000,Resale_Individual,C$750.00 or Best Offer
+RTX A4000,used,785.0,1,1,OfferUp Gastonia NC,US domestic,Current,https://offerup.com/item/detail/57292b4a-bd29-3a68-8c3c-0e5f348846f0,Resale_Individual,Local pickup only
+RTX A4000,used,615.0,2,1,Dell (Reddit HardwareSwap),US domestic,Recent,https://www.reddit.com/r/hardwareswap/comments/1ix0bmh/usamah_nvidia_quado_rtx_a4000_16gb_gddr6_pcie/,Resale_Individual,"Dell P/N: 0HGP0F, Boston MA"
+RTX A4000,refurbished,739.97,9,1,ReSpec.io Store (eBay),US domestic,Current,https://www.ebay.ca/itm/156035032609,Resale_Business,"Professionally renewed, 1yr warranty, 418 sold"
+RTX A4000,refurbished,735.0,1,1,HP Refurbished (eBay),US domestic,Current,https://www.ebay.ca/sch/i.html?_nkw=rtx+a4000,Resale_Business,"C$999.37, 6 sold"
+RTX A4000,refurbished,750.0,1,1,Newegg Refurbished,US domestic,Current,https://www.newegg.com/p/1FT-000P-005P8,Resale_Business,"Tech Trends seller, $828.99"
+RTX A4000,refurbished,1019.78,1,1,eBay Business Seller,US domestic,Current,https://www.ebay.ca/sch/i.html?_nkw=rtx+a4000,Resale_Business,"C$1,019.78, 7 sold"
+RTX A4000,new,933.0,4,1,Lenovo (eBay),Canada,Current,https://www.ebay.ca/sch/i.html?_nkw=rtx+a4000,Resale_Business,"C$1,269.00, 15% off original price"
+RTX A4000,new,1000.0,1,1,eBay Sealed Box,US domestic,Current,https://www.ebay.ca/sch/i.html?_nkw=rtx+a4000,Resale_Business,"C$1,358.34 or Best Offer, sealed box"
+RTX A4000,new,1095.0,20,1,mujitech3 (eBay China),Asia/HK,Current,https://www.ebay.co.uk/itm/374527189182,International,"New, never used, Chinese seller"
+RTX A4000,new,1360.0,unknown,1,China eBay Seller,Asia/HK,Current,https://www.ebay.ca/sch/i.html?_nkw=rtx+a4000,International,"C$1,849.19, from China"
+RTX A4000,new,720.0,1+,1,Alibaba Seller 1,Asia/HK,Current,https://www.alibaba.com/showroom/a4000.html,International,$720-729 range
+RTX A4000,new,790.0,1+,1,Alibaba Seller 2,Asia/HK,Current,https://www.alibaba.com/showroom/rtx-a400.html,International,$790-920 range
+RTX A4000,new,900.0,1+,1,Alibaba Seller 3,Asia/HK,Current,https://chinese.alibaba.com/g/rtx-a4000-price.html,International,$900-935 range
+RTX A4000,used,450.0,1+,1,Alibaba Seller 4,Asia/HK,Current,https://chinese.alibaba.com/g/rtx-a4000-price.html,International,"$458-833 range, mixed A2000/A4000"
+RTX A4000,new,1140.0,few,1,Computer Universe,EU,Current,https://www.computeruniverse.net/en/p/2E17-06M,International,"€1,097.00, Germany, in stock"
+RTX A4000,new,400.0,3+,3,Eurolots Wholesale,EU,Current,https://www.blog.eurolots.com/wholesale-video-cards,Liquidation,"€400.00 VAT Excl., wholesale pricing, min 3 pieces"
+RTX A4000,new,944.0,in stock,1,Pangoly Aggregator,US domestic,Current,https://pangoly.com/en/price-history/pny-nvidia-rtx-a4000,Retail_Specialist,Used from $689.99
+RTX A4000,new,1049.0,in stock,1,Router-Switch.com,International,Current,https://www.router-switch.com/fr/nvidia-rtx-a4000.html,Retail_Specialist,"Global warehouses, bulk savings available"
+RTXPRO 6000 Blackwell Workstation Edition,New,8299.99,N/A,1,Central Computer,US Domestic,Current,https://www.centralcomputer.com/pny-nvidia-rtx-pro-6000-graphics-card-96gb-gddr6-24-064-cuda-cores-pci-express-5-0-x16-600w-vcnrtxpro6000b-pb.html,Retail_Specialist,~3% below MSRP; in-stock
+RTX PRO 6000 Blackwell Workstation Edition,New,8899.0,Out of Stock,1,Newegg (3C Expert),US Domestic,Recent (2 days),https://www.newegg.com/p/2VV-000K-00143,Retail_Major,Slight premium vs. MSRP; OOS
+RTX PRO 6000 Blackwell Workstation Edition,New,9299.0,Out of Stock,1,Newegg (Newegg Direct),US Domestic,Current,https://www.newegg.com/p/N82E16888884001,Retail_Major,≈9% above MSRP; OOS
+RTX PRO 6000 Blackwell Workstation Edition,New,10999.0,N/A,1,B&H Photo,US Domestic,Current,https://www.bhphotovideo.com/c/product/1895402-REG/nvidia_900-5g144-2200-000_rtx_pro_6000_blackwell.html,Retail_Major,Premium pricing; back-ordered
+RTX PRO 6000 Blackwell Workstation Edition,New,8565.0,N/A,1,PC Connection,US Domestic,Stale (>30 d),https://www.reddit.com/r/LocalLLaMA/comments/1jgnye9/rtx_pro_blackwell_pricing_listed/,Retail_Specialist,Original MSRP listing; now delisted
+RTX PRO 6000 Blackwell Workstation Edition,New,8031.08,N/A,1,SabrePC,US Domestic,Current,https://www.sabrepc.com/900-5G144-2200-000-NVIDIA-S197828594,Resale_Business,≈6% below MSRP; non-returnable
+RTX PRO 6000 Blackwell Workstation Edition,New,7673.0,N/A,1,Directdial / Tech-America,US/Canada,Stale (>30 d),https://www.techradar.com/pro/nvidias-most-expensive-blackwell-card-gets-massive-price-cut-but-it-is-not-the-rtx-5090,Retail_Specialist,~10% below MSRP; preorder price cut
+RTX PRO 6000 Blackwell Workstation Edition,New,11400.0,Pre-order,1,Overclockers UK,UK (EU),Stale (>30 d),https://www.overclockers.co.uk/nvidia-rtx-pro-6000-blackwell-workstation-edition-96gb-gddr7-graphics-card-gra-nvi-05609.html,International,High-price anomaly (+33% incl. VAT)
+RTX PRO 6000 Blackwell Workstation Edition,New,11990.0,In Stock,N/A,ServerSupply,US Domestic,Current,https://www.serversupply.com/GPU/GDDR7/96GB/NVIDIA/900-5G144-2200-001_414708.htm,Resale_Business,High-price anomaly (+40% over MSRP); may target enterprise rush demand
+RTX PRO 6000 Blackwell Max-Q Workstation Edition,New,10999.0,N/A,1,SHI International,US Domestic,Current,https://texas.gs.shi.com/product/50042625/NVIDIA-RTX-PRO-6000-Blackwell-Max-Q,Retail_Specialist,300 W variant; preorder only
+NVIDIA A2,New,975,Unknown,1,Newegg (PNY),US domestic,Current,newegg.com/p/1FT-000P-005Y7,Retail_Major,Free delivery
+NVIDIA A2,New,1070,Unknown,1,Newegg (TECH EDGE),Asia/China,Current,newegg.com/p/0XP-00VH-000G9,Retail_Major,Ships from China
+NVIDIA A2,New,889,In Stock,1,Router-Switch.com,US domestic,Current,router-switch.com/nvidia-a2.html,Retail_Specialist,"New Factory Sealed, Global Warehouses"
+NVIDIA A2,Unavailable,1399,Out of Stock,1,C3aero.com,US domestic,Current,c3aero.com/products/pny-nvidia-a2-graphics-card-16gb-gddr6,Retail_Specialist,Unavailable - pricing reference only
+NVIDIA A2,New,5576,In Stock,1,CDW Canada,Canada,Current,cdw.ca/product/nvidia-a2-gpu-computing-processor-a2-16-gb/7474786,Retail_Specialist,"Enterprise pricing, converted from CAD 7193.99"
+NVIDIA A2,Refurbished,699,Unknown,1,Newegg (ServerQue),US domestic,Current,newegg.com/nvidia-tesla-a2-graphics-card/p/1WK-00TY-00082,Resale_Business,30-day return policy
+NVIDIA A2,Refurbished,750,In Stock,1,ServerSupply,US domestic,Current,serversupply.com/GPU/GDDR6/16%20GIGABIT/NVIDIA/900-2G179-0020-000_395854.htm,Resale_Business,"90 days warranty, refurbished condition"
+NVIDIA A2,New,1947,In Stock,1,LDLC (France),EU,Current,ldlc.com/en/product/PB00482177.html,International,"Converted from €1539.95, 3-year warranty"
+NVIDIA A2,New,1912,In Stock,1,Novatech (UK),EU,Current,novatech.co.uk/products/pny-nvidia-a2-16gb-gddr6-ecc-data-centre-gpu/tcsa2matx-pb.html,International,"Converted from £1560.20 inc VAT, UK pricing"
+NVIDIA A2,New,730,1+,1,Alibaba Supplier,Asia/China,Current,alibaba.com/showroom/nvidia-a2-gpu.html,International,"$730-750 range, original for AI/HPC"
+NVIDIA A2,Used,521,1,1,eBay UK Seller,EU,Current,ebay.co.uk/shop/nvidia-a2,Resale_Individual,"Converted from £399, used condition, China seller"
+NVIDIA A2,Refurbished,780,1,1,eBay UK Dell Seller,EU,Current,ebay.co.uk/shop/nvidia-a2,Resale_Individual,"Converted from £600, Dell branded, refurbished"
+NVIDIA A2,New,1497,In Stock,1,Router-Switch (Tesla A2),US domestic,Current,router-switch.com/tesla-a2.html,Retail_Specialist,"New Factory Sealed, 3 years warranty, 30/mo sold"
+NVIDIA A2,Refurbished,1648,2,1,Bonanza Seller,US domestic,Current,bonanza.com/listings/Nvidia-Tesla-A2-16G-Video-Card/1637846728,Resale_Business,"Seller refurbished, 30-day return, 6% discount w/ $60 spent"
+NVIDIA A2,New,1423,Unknown,1,youyeetoo,US domestic,Current,youyeetoo.com/products/nvidia-a2-tensor-core-gpu,Retail_Specialist,"Free delivery over $10K, entry-level GPU"
+NVIDIA A2,New,1750,Unknown,1,Newegg (Tech Trends),US domestic,Current,newegg.com/p/1FT-000P-005Y7,Retail_Major,"PNY NVIDIA TESLA A2, #1 Best Seller"
+NVIDIA A2,New,975,Unknown,1,Newegg (PNY),US domestic,Current,newegg.com/p/1FT-000P-005Y7,Retail_Major,Free delivery
+NVIDIA A2,New,1070,Unknown,1,Newegg (TECH EDGE),Asia/China,Current,newegg.com/p/0XP-00VH-000G9,Retail_Major,Ships from China
+NVIDIA A2,New,889,In Stock,1,Router-Switch.com,US domestic,Current,router-switch.com/nvidia-a2.html,Retail_Specialist,"New Factory Sealed, Global Warehouses"
+NVIDIA A2,Unavailable,1399,Out of Stock,1,C3aero.com,US domestic,Current,c3aero.com/products/pny-nvidia-a2-graphics-card-16gb-gddr6,Retail_Specialist,Unavailable - pricing reference only
+NVIDIA A2,New,5576,In Stock,1,CDW Canada,Canada,Current,cdw.ca/product/nvidia-a2-gpu-computing-processor-a2-16-gb/7474786,Retail_Specialist,"Enterprise pricing, converted from CAD 7193.99"
+NVIDIA A2,Refurbished,699,Unknown,1,Newegg (ServerQue),US domestic,Current,newegg.com/nvidia-tesla-a2-graphics-card/p/1WK-00TY-00082,Resale_Business,30-day return policy
+NVIDIA A2,Refurbished,750,In Stock,1,ServerSupply,US domestic,Current,serversupply.com/GPU/GDDR6/16%20GIGABIT/NVIDIA/900-2G179-0020-000_395854.htm,Resale_Business,"90 days warranty, refurbished condition"
+NVIDIA A2,New,1947,In Stock,1,LDLC (France),EU,Current,ldlc.com/en/product/PB00482177.html,International,"Converted from €1539.95, 3-year warranty"
+NVIDIA A2,New,1912,In Stock,1,Novatech (UK),EU,Current,novatech.co.uk/products/pny-nvidia-a2-16gb-gddr6-ecc-data-centre-gpu/tcsa2matx-pb.html,International,"Converted from £1560.20 inc VAT, UK pricing"
+NVIDIA A2,New,730,1+,1,Alibaba Supplier,Asia/China,Current,alibaba.com/showroom/nvidia-a2-gpu.html,International,"$730-750 range, original for AI/HPC"
+NVIDIA A2,Used,521,1,1,eBay UK Seller,EU,Current,ebay.co.uk/shop/nvidia-a2,Resale_Individual,"Converted from £399, used condition, China seller"
+NVIDIA A2,Refurbished,780,1,1,eBay UK Dell Seller,EU,Current,ebay.co.uk/shop/nvidia-a2,Resale_Individual,"Converted from £600, Dell branded, refurbished"
+RTX 6000 Ada,New Factory Sealed,3199.0,In Stock,1,Router-Switch.com,Asia/HK,Current (7-30 days),https://www.router-switch.com/nvidia-rtx-6000.html,International,Price 40% below typical - may be liquidating stock
+RTX 6000 Ada,Used - Private Seller,4900.0,1 available,1,Private Seller (eBay),EU,Recent (<7 days),https://www.befr.ebay.be/sch/i.html?_nkw=rtx+6000+ada,Resale_Individual,"Auction format, 3 days remaining"
+RTX 6000 Ada,New,5200.0,In Stock,1,Alibaba Supplier,Asia/HK,Current (7-30 days),https://www.alibaba.com/showroom/rtx-6000-ada-generation.html,International,"New Retail Box Hot-selling, price range $5,200-8,250"
+RTX 6000 Ada (Dell Pre-built),New (via Dell system),6305.0,Available,1,Dell (Precision 3680),US Domestic,Current (7-30 days),https://www.reddit.com/r/LocalLLaMA/comments/1jekgzu/tip_6000_adas_available_for_6305_via_dell/,Retail_Major,"GPU upgrade option in workstation, total system cost $7,032.78"
+RTX 6000 Ada,New,6500.0,In Stock,1,Alibaba Supplier,Asia/HK,Current (7-30 days),https://www.alibaba.com/showroom/rtx-6000-ada-generation.html,International,Hot selling N-VIDIA Quadro RTX 6000 Ada Generation
+RTX 6000 Ada,Out of Stock,6974.0,Out of Stock,1,Various (Pangoly tracked),US Domestic,Recent (<7 days),https://pangoly.com/en/price-history/pny-nvidia-quadro-rtx-6000-ada,Retail_Specialist,"Lowest tracked price, used from $5,999.95"
+RTX 6000 Ada,New,6999.99,In Stock,1,Newegg (NVIDIA Direct),US Domestic,Current (7-30 days),https://www.newegg.com/nvidia-900-5g133-2250-000-rtx-6000-ada-48gb-graphics-card/p/N82E16814132103,Retail_Major,"OEM packaging, free shipping"
+RTX 6000 Ada,New,7069.0,In Stock,1,B&H Photo,US Domestic,Current (7-30 days),https://www.bhphotovideo.com/c/product/1811918-REG/nvidia_900_5g133_2250_000_rtx_6000_ada_graphic.html,Retail_Specialist,Expected availability: 2-4 weeks
+RTX 6000 Ada,New,7267.99,In Stock,1,Newegg (PNY),US Domestic,Current (7-30 days),https://www.newegg.com/pny-rtx-6000-ada-vcnrtx6000ada-pb-48gb-384-bit-gddr6-pci-express-4-0-x16-graphics-card/p/N82E16814133886,Retail_Major,"Retail packaging, free shipping"
+RTX 6000 Ada,Factory New,7500.0,Available,1,Provantage,US Domestic,Current (7-30 days),https://www.provantage.com/pny-technologies-vcnrtx6000ada-pb~7PNY9260.htm,Retail_Specialist,PNY VCNRTX6000ADA-PB model
+RTX 6000 Ada,New,7590.0,In Stock,1,computersdeal.com,EU,Current (7-30 days),https://www.idealo.co.uk/compare/202289996/pny-nvidia-rtx-6000-ada.html,International,UK pricing via Idealo price comparison
+RTX 6000 Ada,New,7691.99,In Stock,1,Zones.com,US Domestic,Current (7-30 days),https://www.zones.com/site/product/index.html?id=114707304,Retail_Specialist,NVIDIA retail packaging
+RTX 6000 Ada,New,7999.99,Back-Ordered,1,B&H Photo (PNY),US Domestic,Current (7-30 days),https://www.bhphotovideo.com/c/product/1753962-REG/pny_vcnrtx6000ada_pb_rtx_6000_ada_generation.html,Retail_Specialist,"PNY branded, back-ordered"
+RTX 6000 Ada,New,8600.0,Quote Required,1,CDW,US Domestic,Current (7-30 days),https://www.cdw.com/product/nvidia-rtx-6000-ada-generation-graphics-card/7237964,Retail_Specialist,"4-6 weeks availability, 25% markup over MSRP"
+RTX 6000 Ada,Brand New,9380.0,5 available,1,tugm4470 (eBay),Asia/HK,Current (7-30 days),https://www.ebay.com.au/itm/176567141211,Resale_Business,"No returns accepted, ships from Shenzhen, China"
+RTX 6000 Ada,New,10499.99,Special Order,1,Memory Express,Canada,Current (7-30 days),https://www.memoryexpress.com/Products/MX00124902,Retail_Specialist,PNY NVIDIA RTX 6000 Ada Generation 48GB
+RTX 6000 Ada,New Original,22800.0,Available,2,Alibaba Supplier,Asia/HK,Current (7-30 days),https://www.alibaba.com/showroom/rtx-6000-ada-generation.html,International,Premium pricing - may include warranty/service
+RTX 6000 Ada (Jensen Signed),New (Signed by Jensen Huang),40000.0,1 available,1,eBay Seller,US Domestic,Recent (<7 days),https://www.techpowerup.com/forums/threads/nvidia-rtx-6000-ada-signed-by-jensen-for-40-000-usd.336636/,Resale_Individual,Collectible - CEO Jensen Huang signed card
+RTX A2000 12GB,New,599.99,1,1,Micro Center,US,Current,https://www.microcenter.com/product/652304/pny-nvidia-rtx-a2000-single-fan-12gb-gddr6-pcie-40-graphics-card,Retail_Major,"Shipping not available, limit 1 per household"
+RTX A2000 12GB,New,599.99,Unknown,1,Central Computer,US,Current,https://www.centralcomputer.com/pny-vcnrtxa200012gb-pb-nvidia-rtx-a2000-12gb-gddr6-low-profile-pci-express-4-0-x16-graphics-card.html,Retail_Major,Multiple CA store locations
+RTX A2000 12GB,New,Quote Required,Unknown,1,CDW,US,Current,https://www.cdw.com/product/hp-nvidia-a2000-graphic-card-12-gb/7391296,Retail_Specialist,"Enterprise pricing, quote required"
+RTX A2000 12GB,Out of Stock,Not Listed,0,1,WiredZone,US,Current,https://www.wiredzone.com/shop/product/10023744-nvidia-900-5g192-2250-000-graphic-card-rtx-a2000-12gb-gddr6-gpu-memory-9858,Retail_Specialist,Can only be ordered with Supermicro systems
+RTX A2000 12GB,New,Quote Required,Unknown,1,Provantage,US,Current,https://www.provantage.com/hp-5z7d9aa~7HEWG40X.htm,Retail_Specialist,"HP-branded version, enterprise pricing"
+RTX A2000 12GB,Out of Stock,0.0,0,1,HP Direct,US,Current,https://www.hp.com/us-en/shop/pdp/nvidia-rtx-a2000-12-gb-4mdp-graphics-p-5z7d9aa-1,Retail_Specialist,Discontinued/withdrawn
+RTX A2000 12GB,New,665.0,Multiple,1,Alliance Group USA (Newegg),US,Current,https://www.newegg.com/pny-technologies-inc-vcnrtxa200012gb-pb-rtx-a2000-graphics-card/p/N82E16814133834,Resale_Business,Third-party seller on Newegg
+RTX A2000 12GB,Refurbished,739.0,1,1,Compeve (Newegg),US,Current,https://www.newegg.com/p/1FT-000P-005W9,Resale_Business,Refurbished unit with full specs
+RTX A2000 12GB,New,819.99,1,1,Industrial Seller (Newegg),US,Current,https://www.newegg.com/p/pl?d=rtx+a2000+12gb,Resale_Business,"Industrial package, film/TV post-production"
+RTX A2000 12GB,Used,583.28,1,1,uventure (eBay CA),US,Recent,https://www.ebay.ca/sch/i.html?Brand=&_dcat=3252&_nkw=rtx+a2000,Resale_Business,"Top rated seller, CAD price converted"
+RTX A2000 12GB,Used,611.03,1,1,sumcollectibles (eBay CA),US,Recent,https://www.ebay.ca/sch/i.html?Brand=&_dcat=3252&_nkw=rtx+a2000,Resale_Business,CAD price converted
+RTX A2000 12GB,Refurbished,456.0,2,1,ETB Technologies (eBay UK),UK,Recent,https://www.ebay.co.uk/itm/285917954319,Resale_Business,"£456 (~$570 USD), excellent refurbished"
+RTX A2000 12GB,Used,325.0,1,1,Salt_Entertainer_879 (Reddit),US-CT,Recent,https://www.reddit.com/r/sffpc/comments/1k9461p/fsct_pny_rtx_a2000_12g/,Resale_Individual,"2 months use, non-smoking home, shipped CONUS"
+RTX A2000 12GB,New/Refurb/Open,480.0,1,1,Beijing Jiayetongchuang (Alibaba),China,Current,https://www.alibaba.com/product-detail/NVIDIA-RTX-A2000-A2000-12GB-GRAPHICS_1600453369541.html,International,"MOQ 1, price range $480-799, 15 day lead time"
+RTX A2000 12GB,New/Refurb/Open,799.0,1000,1,Beijing Jiayetongchuang (Alibaba),China,Current,https://www.alibaba.com/product-detail/NVIDIA-RTX-A2000-A2000-12GB-GRAPHICS_1600453369541.html,International,"Higher quantity pricing, bulk orders"
+RTX A2000 12GB,New,690.0,1,1,Computer Universe,EU,Current,https://www.computeruniverse.net/en/p/2E17-07E,International,"€690 (~$750 USD), 3-7 business days delivery"
+RTX A2000 12GB,New,545.0,1,1,Amazon Marketplace UK,UK,Current,https://skinflint.co.uk/pny-rtx-a2000-vcnrtxa2000-12gb-pb-a2674329.html,International,"£545 (~$680 USD), includes DP cable"
+RTX A2000 12GB,MSRP Launch,449.0,N/A,1,NVIDIA,US,Nov 2021,https://howmanyfps.com/en-ca/graphics-cards/rtx-a2000-12-gb/call-of-duty-warzone-20,Retail_Major,"Original launch MSRP - November 23, 2021"
+RTX A2000 12GB,Historical Low,564.99,N/A,1,B&H Photo,US,Aug 2024,https://pangoly.com/en/price-history/e73c3222-5d32-49d1-5a7e-08dc28c1f4b1,Retail_Specialist,Historical low price from Pangoly tracking
+RTX A2000 12GB,Historical High,849.0,N/A,1,Various,US,Feb 2024,https://pangoly.com/en/price-history/e73c3222-5d32-49d1-5a7e-08dc28c1f4b1,Retail_Specialist,Historical high price during shortage
+NVIDIA Tesla 100 40GB PCIe,New,15398.90,10,1,Lucky-PLC Store,"Asia (Shenzhen, CN)",Stale,https://www.ebay.co.uk/itm/386415154179,Resale_Business,—
+NVIDIA A100 900-21001-0000-000 40GB PCIe,New,18999.99,—,1,High Performance Tech (Newegg),International (ship from CN),Current,https://www.newegg.com/nvidia-900-21001-0000-000-a100-40gb-graphics-card/p/N82E16814132090,Retail_Major,Free shipping; seller rating 4★
+HPE R6B53A NVIDIA A100 40GB PCIe,Refurbished,22350.00,—,1,ServerSupply,US Domestic,Current,https://www.serversupply.com/NETWORKING/EXPANSION%20MODULE/APPLICATION%20ACCELERATOR/HPE/R6B53A_343787.htm,Retail_Specialist,90-day warranty
+NVIDIA A100 40GB HBM2 PCIe 4.0 GPU,Refurbished,12000.00,—,1,UnixSurplus,US Domestic,Recent,https://unixsurplus.com/Nvidia-A100-40GB-Memory,Retail_Specialist,Ships in 2 business days
+NVIDIA TESLA A100 Tensor Core 40GB GPU Server,Used,15859.00,2,1,CTOServers,EU (UK),Recent,https://www.ebay.co.uk/itm/276787452070,Resale_Business,Includes HPE Gen10 carrier
+NVIDIA A100 40GB PCIe OEM GA100-884,New,27589.26,10,1,yudr3m,Canada,Current,https://www.ebay.ca/itm/167577727473,Resale_Individual,Price ≈40% above typical – possible premium/rarity
+NVIDIA L4,New,2524.99,1,1,Newegg,US domestic,Current,https://www.newegg.com/p/N82E16888892004,Retail_Major,Free shipping,In Stock,
+NVIDIA L4,New,2549.0,1,1,Router-Switch,US domestic,Current,https://www.router-switch.com/nvidia-l4.html,Retail_Specialist,"Global warehouses, up to $80 coupons available",In Stock,
+NVIDIA L4,New,3399.0,1,1,Marigold Systems,US domestic,Stale,https://www.marigoldsystems.com/products/nvidia-l4-24gb-single,Retail_Specialist,Out of stock,Out of Stock,Premium pricing - specialty retailer
+NVIDIA L4,New,3150.0,1,1,EuroPC,EU,Current,https://www.europc.com/us/nvidia-l4-tensor-core-ai-computational,Retail_Specialist,"£2519.99 inc VAT, £2099.99 ex VAT",In Stock,
+NVIDIA L4,New,3150.0,1,1,Novatech UK,EU,Current,https://www.novatech.co.uk/products/pny-nvidia-l4-24gb-gddr6,Retail_Specialist,"£2519.99 inc VAT, financing available",In Stock,
+NVIDIA L4,New,2136.0,1,1,ViperaTech,US domestic,Recent,https://viperatech.com/shop/nvidia-l4-24g-pcie-tensor,Retail_Specialist,"Sale price, was $3,081 - $945 savings",In Stock,Sale pricing - 30% discount
+NVIDIA L4,New,2487.5,1,1,SabrePC,US domestic,Current,https://www.sabrepc.com/900-2G193-0000-000-NVIDIA,Retail_Specialist,"B2B pricing available, non-cancelable",In Stock,
+NVIDIA L4,New,2072.0,10,1,eBay Business Seller,Asia/HK,Current,https://www.ebay.de/itm/126436167844,Resale_Business,"Chinese seller, 99.4% feedback, 11 sold",In Stock,Below typical range - may be gray market
+NVIDIA L4,Refurbished,2599.0,1,1,xByte Technologies,US domestic,Current,https://www.newegg.com/p/2NS-0008-7B2V4,Resale_Business,"Dell refurbished, 30-day return policy",Limited Stock,
+NVIDIA L4,New,2150.0,10,1,eBay Business Seller,Asia/HK,Current,https://www.ebay.co.uk/itm/204746958291,Resale_Business,"98.5% feedback, 4.4K items sold",In Stock,
+NVIDIA L4,New,2425.0,10,1,eBay Business Seller,Asia/HK,Current,https://www.ebay.co.uk/itm/375843854373,Resale_Business,"99.3% feedback, 12K items sold",In Stock,
+NVIDIA L4,New,5680.0,2,1,Bonanza Seller,US domestic,Current,https://www.bonanza.com/listings/Nvidia-Tesla-L4-24G,Resale_Business,"30-day return, PayPal accepted",In Stock,Premium pricing - enterprise grade
+NVIDIA L4,New,7566.0,1,1,SHI (HPE),US domestic,Current,https://www.shi.com/product/45410419,Liquidation,"MSRP listed, enterprise channel",In Stock,3x typical price - enterprise MSRP
+NVIDIA L4,New,7874.11,1,1,SHI (Hitachi Vantara),US domestic,Current,https://www.shi.com/product/49450195,Liquidation,"MSRP listed, enterprise channel",In Stock,3x typical price - enterprise MSRP
+NVIDIA L4,New,8107.99,1,1,Zones (Cisco UCS),US domestic,Current,https://www.zones.com/site/product/index.html?id=115013295,Liquidation,Cisco UCS variant UCSX-GPU-L4,In Stock,3x typical price - enterprise MSRP
+NVIDIA L4,New,4729.99,1,1,Newegg (HPE),US domestic,Current,https://www.newegg.com/hpe-s0k89c/p/N82E16816269085,Liquidation,"HPE S0K89C model, 1-year warranty",In Stock,Above typical - enterprise channel
+NVIDIA L4,New,11184.81,1,1,Dell Singapore,Asia/SG,Current,https://www.dell.com/en-sg/shop/nvidia-l4-pcie-72-watt,Liquidation,SGD price includes 9% GST,In Stock,4x typical price - includes enterprise markup
+NVIDIA L4,New,1980.0,1,1,eBay International,EU,Stale,https://www.ebay.co.uk/itm/363551612404,International,"€1,819.00, listing ended Jun 2025",Out of Stock,Below typical - ended listing
+NVIDIA L4,New,2200.0,879,1,Alibaba Sellers,Asia/HK,Current,https://www.alibaba.com/showroom/l4-nvidia.html,International,"879+ products available, various suppliers",In Stock,Bulk wholesale pricing
+NVIDIA A800 Active 40GB,New,19999.0,Available,1,SHI.com,US domestic,Current,https://www.shi.com/product/46563369/NVIDIA-A800-40GB-Active,Retail_Major,"MSRP pricing, official distributor",Available,"Official NVIDIA partner, sealed retail box"
+NVIDIA A800 Active 40GB,New,19999.0,Special Order,1,B&H Photo,US domestic,Current,https://www.bhphotovideo.com/c/product/1803762-REG/pny_vcna800_pb_a800_40gb_active_graphics.html,Retail_Specialist,"4-6 weeks expected availability, cannot cancel/return",Pre-order,"Authorized dealer, PNY retail packaging"
+NVIDIA A800 Active 40GB,New,14124.99,Available,1,Zones.com,US domestic,Current,https://www.zones.com/site/product/index.html?id=114978286,Retail_Specialist,Includes 3-year NVIDIA AI Enterprise subscription,Available,"NVIDIA authorized partner, bulk packaging"
+NVIDIA A800 Active 40GB,New,14117.99,Available,1,Zones.com,US domestic,Current,https://www.zones.com/site/product/index.html?id=301534092NEW,Retail_Specialist,Includes 3-year NVIDIA AI Enterprise subscription,Available,"NVIDIA authorized partner, bulk packaging"
+NVIDIA A800 Active 40GB,New,17256.99,Available,1,Zones.com,US domestic,Current,https://www.zones.com/site/product/index.html?id=114101413,Retail_Specialist,PNY black box packaging and accessories,Available,"PNY official packaging, 3-year warranty"
+NVIDIA A800 Active 40GB,New,14399.99,Out of Stock,1,Central Computer,US domestic,Current,https://www.centralcomputer.com/pny-nvidia-a800-40gb-active-graphic-card-ecc-pcie-4-0-dual-slot-240w-vcna800-pb.html,Retail_Specialist,PNY model VCNA800-PB,Out of Stock,"Authorized retailer, 3-year warranty"
+NVIDIA A800 Active 40GB,New,21475.25,Out of Stock,1,HP Connection,US domestic,Current,https://www.connection.com/product/hp-nvidia-a800-pcie-4.0-x16-graphics-card-40gb-hbm2/8d6c0aa/41770375,Retail_Specialist,HP branded version (8D6C0AA),Out of Stock,"HP official partner, enterprise warranty"
+NVIDIA A800 Active 40GB,New,14493.57,Special Order,1,Provantage,US domestic,Current,https://www.provantage.com/pny-technologies-vcna800-pb~7PNY92EK.htm,Retail_Specialist,"28% discount from MSRP, PNY black box packaging",Special Order,"NVIDIA authorized dealer, factory new"
+NVIDIA A800 Active 40GB,New,5500.0,In Stock,1,Genius Teknolojl Ticaret Limited Sirketi,Turkey/International,Current,https://www.tradeindia.com/products/a800-40gb-active-graphics-card-9243263.html,International,"Supply ability: 3 per day, 10-day delivery, Payment: T/T, PayPal, Western Union",In Stock,Requires verification - significantly below market price
+NVIDIA A800 Active 40GB,New,17400.0,Pre-order,1,Scan.co.uk,UK/EU,Current,https://www.scan.co.uk/products/40gb-pny-nvidia-a800-active-6912-cuda-432-tensor-hbm2-195-tflops-fp32-3118-tflops-tf32-retail,Retail_Specialist,"PNY retail packaging, financing available, 36-month warranty",Pre-order,"PNY authorized partner, retail packaging"
+NVIDIA A800 Active 40GB,New,13200.0,In Stock,1,Japanese retailers (aggregated),Japan/Asia,Current,https://kakaku.com/item/K0001605271/,Retail_Specialist,"Price range ¥1,980,000-¥2,666,750 across multiple retailers",In Stock,Multiple authorized Japanese retailers
+NVIDIA A800 Active 40GB,New,Price on request,Available,1,SourceIT Singapore,Singapore/Asia,Recent,https://sourceit.com.sg/products/nvidia-a800-pcie-40-gb-active-cooling-ampere-900-51001-2500-000,Retail_Specialist,"Local warranty, detailed specifications listed",Available,"Local warranty, professional specifications"
+NVIDIA A800 Active 40GB,New,Quote required,Available,1,Avendor,US domestic,Current,https://www.avendor.com/products/nvidia-nvidia-a800-graphic-card-40-gb-hbm2,Retail_Specialist,"Detailed technical specifications, quote-based pricing",Available,"Enterprise-focused, detailed technical specs"

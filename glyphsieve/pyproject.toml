@@ -1,0 +1,17 @@
+[project]
+name = "glyphsieve"
+version = "0.1.0"
+description = "ETL"
+readme = "README.md"
+authors = [
+    { name = "Lucien Brule", email = "lucien@lucienbrule.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+glyphsieve = "glyphsieve:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

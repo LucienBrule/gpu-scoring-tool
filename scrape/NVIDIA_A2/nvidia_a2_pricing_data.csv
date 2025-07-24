@@ -1,0 +1,13 @@
+Model,Condition,Price_USD,Quantity,Min_Order_Qty,Seller,Geographic_Region,Listing_Age,Source_URL,Source_Type,Bulk_Notes
+NVIDIA A2,New,975,Unknown,1,Newegg (PNY),US domestic,Current,newegg.com/p/1FT-000P-005Y7,Retail_Major,Free delivery
+NVIDIA A2,New,1070,Unknown,1,Newegg (TECH EDGE),Asia/China,Current,newegg.com/p/0XP-00VH-000G9,Retail_Major,Ships from China
+NVIDIA A2,New,889,In Stock,1,Router-Switch.com,US domestic,Current,router-switch.com/nvidia-a2.html,Retail_Specialist,"New Factory Sealed, Global Warehouses"
+NVIDIA A2,Unavailable,1399,Out of Stock,1,C3aero.com,US domestic,Current,c3aero.com/products/pny-nvidia-a2-graphics-card-16gb-gddr6,Retail_Specialist,Unavailable - pricing reference only
+NVIDIA A2,New,5576,In Stock,1,CDW Canada,Canada,Current,cdw.ca/product/nvidia-a2-gpu-computing-processor-a2-16-gb/7474786,Retail_Specialist,"Enterprise pricing, converted from CAD 7193.99"
+NVIDIA A2,Refurbished,699,Unknown,1,Newegg (ServerQue),US domestic,Current,newegg.com/nvidia-tesla-a2-graphics-card/p/1WK-00TY-00082,Resale_Business,30-day return policy
+NVIDIA A2,Refurbished,750,In Stock,1,ServerSupply,US domestic,Current,serversupply.com/GPU/GDDR6/16%20GIGABIT/NVIDIA/900-2G179-0020-000_395854.htm,Resale_Business,"90 days warranty, refurbished condition"
+NVIDIA A2,New,1947,In Stock,1,LDLC (France),EU,Current,ldlc.com/en/product/PB00482177.html,International,"Converted from €1539.95, 3-year warranty"
+NVIDIA A2,New,1912,In Stock,1,Novatech (UK),EU,Current,novatech.co.uk/products/pny-nvidia-a2-16gb-gddr6-ecc-data-centre-gpu/tcsa2matx-pb.html,International,"Converted from £1560.20 inc VAT, UK pricing"
+NVIDIA A2,New,730,1+,1,Alibaba Supplier,Asia/China,Current,alibaba.com/showroom/nvidia-a2-gpu.html,International,"$730-750 range, original for AI/HPC"
+NVIDIA A2,Used,521,1,1,eBay UK Seller,EU,Current,ebay.co.uk/shop/nvidia-a2,Resale_Individual,"Converted from £399, used condition, China seller"
+NVIDIA A2,Refurbished,780,1,1,eBay UK Dell Seller,EU,Current,ebay.co.uk/shop/nvidia-a2,Resale_Individual,"Converted from £600, Dell branded, refurbished"

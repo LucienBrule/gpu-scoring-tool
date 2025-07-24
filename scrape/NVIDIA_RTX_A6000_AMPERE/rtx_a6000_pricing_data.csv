@@ -1,0 +1,21 @@
+Model,Condition,Price_USD,Quantity,Min_Order_Qty,Seller,Geographic_Region,Listing_Age,Source_URL,Source_Type,Bulk_Notes
+RTX A6000,New,5499,Multiple,1,Newegg (PNY),US domestic,Current,https://www.newegg.com/p/pl?d=rtx+a6000,Retail_Major,"Free shipping, multiple SKUs available"
+RTX A6000,New,4399,In Stock,1,Newegg (PNY OEM),US domestic,Current,https://www.newegg.com/p/N82E16814133822,Retail_Major,"OEM version, replacement only return policy"
+RTX A6000,New,6680,In Stock,1,Newegg (Third Party),US domestic,Current,https://www.newegg.com/p/pl?d=rtx+a6000,Retail_Major,Higher-end SKU or different vendor
+RTX A6000,New,8899,In Stock,1,Newegg (Boxed),US domestic,Current,https://www.newegg.com/p/pl?d=rtx+a6000,Retail_Major,Boxed retail version with accessories
+RTX A6000,New,Out of Stock,0,1,B&H Photo,US domestic,Current,https://www.bhphotovideo.com/c/product/1607840-REG/pny_technologies_vcnrtxa6000_pb_nvidia_rtx_a6000_graphic.html,Retail_Major,Out of stock
+RTX A6000,New,Quote Required,Available,1,CDW,US domestic,Current,https://www.cdw.com/product/nvidia-rtx-a6000-graphics-card-rtx-a6000-48-gb/7928471,Retail_Specialist,"Enterprise focus, quote-based pricing"
+RTX A6000,New,7500,In Stock,1,ServerSupply,US domestic,Current,https://www.serversupply.com/GPU/GDDR6/48GB/PNY%20Technology/VCNRTXA6000-SB_379239.htm,Retail_Specialist,New factory sealed
+RTX A6000,New,3199,In Stock,1,Router-Switch.com,International,Current,https://www.router-switch.com/nvidia-rtx-6000.html,Retail_Specialist,"Global warehouses, coupons available"
+RTX A6000,Delivery Unknown,5580,Delivery Unknown,1,ComputerUniverse (EU),EU,Current,https://www.computeruniverse.net/en/p/2E17-06A,Retail_Specialist,"EUR price converted, delivery date unknown"
+RTX A6000,New,Out of Stock,0,1,WiredZone,US domestic,Current,https://www.wiredzone.com/shop/product/10021351,Retail_Specialist,Out of stock
+RTX A6000,Refurbished,4738,In Stock,1,Newegg (Compeve),US domestic,Recent,https://www.newegg.com/p/2VV-000K-00127,Resale_Business,Refurbished with specs listed
+RTX A6000,New,4924,Varies,1,Amazon (3rd Party New),US domestic,Recent,https://camelcamelcamel.com/product/B09BDH8VZV,Retail_Major,Current 3rd party new price as of July 2025
+RTX A6000,Used,4439,Varies,1,Amazon (3rd Party Used),US domestic,Recent,https://camelcamelcamel.com/product/B09BDH8VZV,Retail_Major,Current 3rd party used price as of July 2025
+RTX A6000,New,3849,In Stock,1,Amazon (PCPartPicker),US domestic,Recent,https://pcpartpicker.com/product/HWt9TW/pny-rtx-a-series-rtx-a6000-48-gb-video-card-vcnrtxa6000-pb,Retail_Major,10 new listings from $3849-4999
+RTX A6000,Used,3449,In Stock,1,Amazon (PCPartPicker Used),US domestic,Recent,https://pcpartpicker.com/product/HWt9TW/pny-rtx-a-series-rtx-a6000-48-gb-video-card-vcnrtxa6000-pb,Retail_Major,4 used listings from $3449-4499
+RTX A6000,Used,3200,Individual,1,Reddit r/homelabsales,US domestic,Stale,https://www.reddit.com/r/homelabsales/comments/17e5b2u/w_used_rtx_a6000/,Resale_Individual,User mentions typical eBay range 3200-3400
+RTX A6000,Used,3500,Individual,1,Reddit r/homelabsales seller,US domestic,Stale,https://www.reddit.com/r/homelabsales/comments/10fqo4f/fs_usw_nvidia_quadro_a6000/,Resale_Individual,"Individual seller, shipped US"
+Server with RTX A6000,Used,9664,4,1,eBay UK (CTOServers),EU,Recent,https://www.ebay.co.uk/itm/276839971749,Resale_Business,"Complete server with A6000, HPE ProLiant DL380 Gen10"
+RTX A6000,Cloud Rental,1.89,Available,1,DigitalOcean,US domestic,Current,https://www.digitalocean.com/pricing/additional-gpus,Retail_Specialist,"$1.89/hour, 45GiB RAM, 8 vCPUs"
+RTX A6000,Cloud Rental,373,Available,1,GPU-Mart,US domestic,Current,https://www.gpu-mart.com/blog/best-gpus-for-ai-inference-2025,Retail_Specialist,"$373/month dedicated server, 32% discount available"
