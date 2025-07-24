@@ -91,3 +91,16 @@ This ensures all pipeline steps are testable as a service, not just a command.
 ## ✍️ Context
 
 This is the first step toward turning GlyphSieve into a long-lived daemon or streaming pipeline. Treat this as both utility and orchestration primer. Modular flow now, full service soon.
+---
+
+## ✅ Task Completed
+
+Implemented the pipeline command that chains together the clean, normalize, enrich, and score steps, with an optional deduplication step. The command accepts input and output paths, as well as optional parameters for working directory, deduplication, models file, specs file, and weights file.
+
+The implementation:
+- Uses internal Python functions directly rather than subprocess or shell commands
+- Handles intermediate files in a working directory or temporary directory
+- Provides rich output with timing information for each step
+- Includes comprehensive tests that verify the pipeline's functionality
+
+All tests are passing, and the pipeline command is ready for use.

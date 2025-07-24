@@ -1,0 +1,331 @@
+"""
+Reporting module for glyphsieve.
+
+This module provides functionality for generating human-readable reports from scored GPU datasets.
+It includes functions for calculating statistics, generating highlight sections, and formatting
+the report in Markdown.
+"""
+import os
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List, Optional, Union, Any, Tuple
+
+import pandas as pd
+import numpy as np
+from rich.console import Console
+
+# Initialize rich console for formatted output
+console = Console()
+
+
+def calculate_summary_statistics(df: pd.DataFrame) -> Dict[str, Any]:
+    """
+    Calculate summary statistics for a scored GPU dataset.
+
+    Args:
+        df: Input DataFrame with scored GPU listings
+
+    Returns:
+        Dict[str, Any]: Dictionary of summary statistics
+    """
+    stats = {
+        "num_listings": len(df),
+        "unique_models": df["canonical_model"].nunique(),
+        "price_min": df["price"].min(),
+        "price_max": df["price"].max(),
+        "price_avg": df["price"].mean(),
+        "price_median": df["price"].median(),
+        "score_min": df["score"].min(),
+        "score_max": df["score"].max(),
+        "score_mean": df["score"].mean(),
+        "most_common_model": df["canonical_model"].value_counts().idxmax()
+    }
+    return stats
+
+
+def get_top_cards_by_score(df: pd.DataFrame, n: int = 10) -> pd.DataFrame:
+    """
+    Get the top N cards by score.
+
+    Args:
+        df: Input DataFrame with scored GPU listings
+        n: Number of cards to return
+
+    Returns:
+        pd.DataFrame: DataFrame with top N cards
+    """
+    return df.sort_values("score", ascending=False).head(n)
+
+
+def get_top_cards_by_score_per_dollar(df: pd.DataFrame, n: int = 10) -> pd.DataFrame:
+    """
+    Get the top N cards by score per dollar.
+
+    Args:
+        df: Input DataFrame with scored GPU listings
+        n: Number of cards to return
+
+    Returns:
+        pd.DataFrame: DataFrame with top N cards by score per dollar
+    """
+    # Create a copy to avoid modifying the original
+    result_df = df.copy()
+    
+    # Calculate score per dollar (avoid division by zero)
+    result_df["score_per_dollar"] = result_df.apply(
+        lambda row: row["score"] / row["price"] if row["price"] > 0 else 0,
+        axis=1
+    )
+    
+    return result_df.sort_values("score_per_dollar", ascending=False).head(n)
+
+
+def get_best_value_cards_under_price(df: pd.DataFrame, price_limit: float = 2000.0, n: int = 10) -> pd.DataFrame:
+    """
+    Get the best value cards under a price limit.
+
+    Args:
+        df: Input DataFrame with scored GPU listings
+        price_limit: Maximum price
+        n: Number of cards to return
+
+    Returns:
+        pd.DataFrame: DataFrame with best value cards under the price limit
+    """
+    # Filter cards under the price limit
+    filtered_df = df[df["price"] <= price_limit]
+    
+    # Sort by score and return top N
+    return filtered_df.sort_values("score", ascending=False).head(n)
+
+
+def find_price_anomalies(df: pd.DataFrame, threshold: float = 0.3) -> pd.DataFrame:
+    """
+    Find cards with identical models but widely varying prices.
+
+    Args:
+        df: Input DataFrame with scored GPU listings
+        threshold: Threshold for price variation (as a fraction of the mean price)
+
+    Returns:
+        pd.DataFrame: DataFrame with price anomalies
+    """
+    # Group by canonical_model and calculate price statistics
+    price_stats = df.groupby("canonical_model")["price"].agg(["mean", "std", "count"])
+    
+    # Filter for models with multiple listings and significant price variation
+    anomalies = price_stats[(price_stats["count"] > 1) & 
+                           (price_stats["std"] > threshold * price_stats["mean"])]
+    
+    # Get the listings for these models
+    if not anomalies.empty:
+        return df[df["canonical_model"].isin(anomalies.index)]
+    else:
+        return pd.DataFrame()
+
+
+def find_duplicate_anomalies(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Find listings flagged as DUPLICATE_SECONDARY that had a higher score than their primary.
+
+    Args:
+        df: Input DataFrame with scored GPU listings
+
+    Returns:
+        pd.DataFrame: DataFrame with duplicate anomalies
+    """
+    # Check if the DataFrame has the duplicate_flag column
+    if "duplicate_flag" not in df.columns:
+        return pd.DataFrame()
+    
+    # Find DUPLICATE_SECONDARY listings
+    secondary_dupes = df[df["duplicate_flag"] == "DUPLICATE_SECONDARY"]
+    
+    # If there are no secondary duplicates, return empty DataFrame
+    if secondary_dupes.empty:
+        return pd.DataFrame()
+    
+    # Find anomalies where secondary has higher score than primary
+    anomalies = []
+    
+    for _, row in secondary_dupes.iterrows():
+        # Find the primary listing (assuming there's a primary_id column)
+        if "primary_id" in df.columns:
+            primary = df[df["id"] == row["primary_id"]]
+            if not primary.empty and primary.iloc[0]["score"] < row["score"]:
+                anomalies.append(row)
+    
+    return pd.DataFrame(anomalies) if anomalies else pd.DataFrame()
+
+
+def generate_markdown_report(df: pd.DataFrame, output_path: str) -> str:
+    """
+    Generate a Markdown report from a scored GPU dataset.
+
+    Args:
+        df: Input DataFrame with scored GPU listings
+        output_path: Path to save the report
+
+    Returns:
+        str: Path to the generated report
+    """
+    # Calculate statistics
+    stats = calculate_summary_statistics(df)
+    top_by_score = get_top_cards_by_score(df)
+    top_by_score_per_dollar = get_top_cards_by_score_per_dollar(df)
+    best_value_under_2000 = get_best_value_cards_under_price(df)
+    price_anomalies = find_price_anomalies(df)
+    duplicate_anomalies = find_duplicate_anomalies(df)
+    
+    # Generate report content
+    report = []
+    
+    # Title and date
+    now = datetime.now()
+    report.append(f"# GPU Market Insight Report")
+    report.append(f"*Generated on {now.strftime('%Y-%m-%d %H:%M:%S')}*")
+    report.append("")
+    
+    # Summary statistics
+    report.append("## 📈 Summary Statistics")
+    report.append("")
+    report.append(f"- **Number of listings:** {stats['num_listings']}")
+    report.append(f"- **Unique models:** {stats['unique_models']}")
+    report.append(f"- **Price range:** ${stats['price_min']:.2f} - ${stats['price_max']:.2f}")
+    report.append(f"- **Average price:** ${stats['price_avg']:.2f}")
+    report.append(f"- **Median price:** ${stats['price_median']:.2f}")
+    report.append(f"- **Score range:** {stats['score_min']:.4f} - {stats['score_max']:.4f}")
+    report.append(f"- **Average score:** {stats['score_mean']:.4f}")
+    report.append(f"- **Most common model:** {stats['most_common_model']}")
+    report.append("")
+    
+    # Top cards by score
+    report.append("## 🏆 Top 10 Cards by Score")
+    report.append("")
+    report.append("| Rank | Model | Score | VRAM (GB) | Price ($) |")
+    report.append("|------|-------|-------|-----------|-----------|")
+    for i, (_, row) in enumerate(top_by_score.iterrows(), 1):
+        model = row.get("canonical_model", "Unknown")
+        score = row.get("score", 0)
+        vram = row.get("vram_gb", "N/A")
+        price = row.get("price", "N/A")
+        report.append(f"| {i} | {model} | {score:.4f} | {vram} | {price:.2f} |")
+    report.append("")
+    
+    # Top cards by score per dollar
+    report.append("## 💰 Top 10 Cards by Score-per-Dollar")
+    report.append("")
+    report.append("| Rank | Model | Score/$ | Score | Price ($) |")
+    report.append("|------|-------|---------|-------|-----------|")
+    for i, (_, row) in enumerate(top_by_score_per_dollar.iterrows(), 1):
+        model = row.get("canonical_model", "Unknown")
+        score = row.get("score", 0)
+        price = row.get("price", "N/A")
+        score_per_dollar = row.get("score_per_dollar", 0)
+        report.append(f"| {i} | {model} | {score_per_dollar:.6f} | {score:.4f} | {price:.2f} |")
+    report.append("")
+    
+    # Best value cards under $2000
+    report.append("## 🔥 Best Value Cards Under $2000")
+    report.append("")
+    if not best_value_under_2000.empty:
+        report.append("| Rank | Model | Score | VRAM (GB) | Price ($) |")
+        report.append("|------|-------|-------|-----------|-----------|")
+        for i, (_, row) in enumerate(best_value_under_2000.iterrows(), 1):
+            model = row.get("canonical_model", "Unknown")
+            score = row.get("score", 0)
+            vram = row.get("vram_gb", "N/A")
+            price = row.get("price", "N/A")
+            report.append(f"| {i} | {model} | {score:.4f} | {vram} | {price:.2f} |")
+    else:
+        report.append("*No cards found under $2000*")
+    report.append("")
+    
+    # Price anomalies
+    report.append("## 📉 Price Anomalies")
+    report.append("*Cards with identical models but widely varying prices*")
+    report.append("")
+    if not price_anomalies.empty:
+        # Group by model and show price range
+        model_groups = price_anomalies.groupby("canonical_model")
+        
+        report.append("| Model | Min Price ($) | Max Price ($) | Difference ($) | Difference (%) |")
+        report.append("|-------|---------------|---------------|----------------|----------------|")
+        
+        for model, group in model_groups:
+            min_price = group["price"].min()
+            max_price = group["price"].max()
+            diff = max_price - min_price
+            pct_diff = (diff / min_price) * 100 if min_price > 0 else float('inf')
+            
+            report.append(f"| {model} | {min_price:.2f} | {max_price:.2f} | {diff:.2f} | {pct_diff:.2f}% |")
+    else:
+        report.append("*No significant price anomalies found*")
+    report.append("")
+    
+    # Duplicate anomalies
+    report.append("## 🔄 Duplicate Anomalies")
+    report.append("*Listings flagged as DUPLICATE_SECONDARY with higher scores than their primary*")
+    report.append("")
+    if not duplicate_anomalies.empty:
+        report.append("| Secondary Model | Secondary Score | Primary Model | Primary Score |")
+        report.append("|-----------------|-----------------|---------------|---------------|")
+        
+        for _, row in duplicate_anomalies.iterrows():
+            sec_model = row.get("canonical_model", "Unknown")
+            sec_score = row.get("score", 0)
+            
+            # Find primary info (assuming there's a primary_id column)
+            if "primary_id" in df.columns:
+                primary = df[df["id"] == row["primary_id"]]
+                if not primary.empty:
+                    prim_model = primary.iloc[0].get("canonical_model", "Unknown")
+                    prim_score = primary.iloc[0].get("score", 0)
+                    report.append(f"| {sec_model} | {sec_score:.4f} | {prim_model} | {prim_score:.4f} |")
+    else:
+        report.append("*No duplicate anomalies found*")
+    report.append("")
+    
+    # Write report to file
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    with open(output_path, "w") as f:
+        f.write("\n".join(report))
+    
+    return output_path
+
+
+def generate_report(
+    input_file: str,
+    output_dir: Optional[str] = None,
+    output_format: str = "md"
+) -> str:
+    """
+    Generate a report from a scored GPU dataset.
+
+    Args:
+        input_file: Path to input CSV file with scored GPU listings
+        output_dir: Directory to save the report (default: reports/YYYY-MM-DD/)
+        output_format: Output format (md or html, default: md)
+
+    Returns:
+        str: Path to the generated report
+    """
+    # Load the input CSV
+    df = pd.read_csv(input_file)
+    
+    # Set default output directory if not provided
+    if output_dir is None:
+        today = datetime.now().strftime("%Y-%m-%d")
+        output_dir = f"reports/{today}"
+    
+    # Create output directory if it doesn't exist
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Set output path based on format
+    if output_format.lower() == "html":
+        output_path = os.path.join(output_dir, "insight.html")
+        # TODO: Implement HTML report generation
+        raise NotImplementedError("HTML report generation is not yet implemented")
+    else:  # Default to Markdown
+        output_path = os.path.join(output_dir, "insight.md")
+        return generate_markdown_report(df, output_path)

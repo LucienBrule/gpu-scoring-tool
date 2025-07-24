@@ -25,6 +25,8 @@ from glyphsieve.cli.normalize import normalize
 from glyphsieve.cli.score import score
 from glyphsieve.cli.enrich import enrich
 from glyphsieve.cli.dedup import dedup
+from glyphsieve.cli.pipeline import pipeline
+from glyphsieve.cli.report import report
 
 # Add subcommands to the main group
 main.add_command(clean)
@@ -32,6 +34,8 @@ main.add_command(normalize)
 main.add_command(score)
 main.add_command(enrich)
 main.add_command(dedup)
+main.add_command(pipeline)
+main.add_command(report)
 
 if __name__ == "__main__":
     main()
