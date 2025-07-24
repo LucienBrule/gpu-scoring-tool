@@ -24,3 +24,8 @@ dev = [
 ]
 [tool.uv.workspace]
 members = ["glyphsieve"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+]

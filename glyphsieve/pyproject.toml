@@ -7,10 +7,17 @@ authors = [
     { name = "Lucien Brule", email = "lucien@lucienbrule.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "click>=8.2.1",
+    "orjson>=3.11.0",
+    "pandas>=2.3.1",
+    "pydantic>=2.11.7",
+    "python-dotenv>=1.1.1",
+    "rich>=14.0.0",
+]
 
 [project.scripts]
-glyphsieve = "glyphsieve:main"
+glyphsieve = "glyphsieve.cli.main:main"
 
 [build-system]
 requires = ["hatchling"]
