@@ -1,10 +1,22 @@
-
-
 # TASK.daemon.expose-openapi.md
 
 ## 🧩 Task: Expose OpenAPI Metadata for `glyphd`
 
 Junie, your task is to ensure that the FastAPI service `glyphd` exposes a complete and well-annotated OpenAPI schema that can be used by downstream consumers, SDK generators, and developer tools.
+
+---
+
+## 📌 Best Practices
+
+- You **must use Pydantic v2 models** with `Field(...)` for all request and response schemas.
+  - Avoid using `pydantic.v1` compatibility imports.
+- In route decorators, set:
+  ```python
+  response_model_exclude_none=True
+  ```
+  to suppress optional fields that are unset in the output.
+- Do **not** return ad-hoc `dict` values directly from routes.
+  - Every route must return a validated, structured DTO.
 
 ---
 

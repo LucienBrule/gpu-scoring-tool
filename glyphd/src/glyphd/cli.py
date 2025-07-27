@@ -2,8 +2,11 @@
 Command-line interface for glyphd.
 """
 import click
+import json
+import os
 import uvicorn
 from typing import Optional
+from fastapi.openapi.utils import get_openapi
 
 @click.group()
 def cli():
@@ -28,6 +31,39 @@ def serve(host: str, port: int, reload: bool):
         port=port,
         reload=reload,
     )
+
+@cli.command()
+@click.argument("output_path", type=click.Path(), default="openapi.json")
+def export_openapi(output_path: str):
+    """Export the OpenAPI schema to a JSON file.
+
+    Args:
+        output_path: Path where the OpenAPI schema will be saved.
+    """
+    # Import here to avoid circular imports
+    from glyphd.api.router import create_app
+
+    click.echo(f"Generating OpenAPI schema to {output_path}")
+
+    # Create the FastAPI app (without serving)
+    app = create_app()
+
+    # Get the OpenAPI schema
+    openapi_schema = get_openapi(
+        title=app.title,
+        version=app.version,
+        description=app.description,
+        routes=app.routes,
+    )
+
+    # Create directory if it doesn't exist
+    os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
+
+    # Write the schema to the output file
+    with open(output_path, "w") as f:
+        json.dump(openapi_schema, f, indent=2)
+
+    click.echo(f"✅ OpenAPI schema exported to {output_path}")
 
 if __name__ == "__main__":
     cli()

@@ -46,6 +46,22 @@ Junie supports the broader purpose of this repository: analyzing and interpretin
   - Implement proper error handling and logging
   - Create unit tests for core functionality
 
+### Safe Execution Environment (`safe-run.sh`)
+
+Junie must use `.junie/safe-run.sh` when running any long-lived or blocking process that could interfere with task concurrency (e.g., launching `pnpm dev`, running `uvicorn`, etc.).
+
+This script safely runs foreground or background processes, manages logs, and records status and PID information.
+
+Example usage:
+
+```bash
+./.junie/safe-run.sh -n devserver -b pnpm dev --filter controlpanel
+```
+
+This runs the control panel frontend in the background and saves logs to `.junie/logs/`.
+
+Junie must prefer `safe-run.sh` over raw `nohup` or foreground dev servers, especially when multiple services are running concurrently or during test-driven development.
+
 ### Language Interoperability
 
 - Kotlin/TypeScript interop for DTO definitions and structured pipelines is planned
@@ -118,3 +134,67 @@ tasks/{open,closed}/TASK.<category>.<title>.md
 - Assume that everything here is part of a live, breathing architecture — clean inputs and structured communication enable robust cognition across all tools
 
 Junie is expected to operate with care, precision, and clarity. Welcome to the forge.
+
+---
+
+## 🛰 Daemon Layer (`glyphd/`)
+
+Junie may contribute to the FastAPI-based API service that exposes GPU data, scores, and reports. The following practices apply:
+
+- Use **FastAPI dependency injection**; avoid global state or module-level variables.
+- Register routes under `/api/` and tag them with `openapi_tags` groups.
+- Ensure all routes declare `response_model`, status codes, and `summary/description`.
+- All DTOs must be `pydantic.BaseModel` (v2) with `field` annotations.
+- Lifecycle behavior (data loading) must be declared using FastAPI's startup hooks or dependency injection.
+
+---
+
+## 🔁 OpenAPI Interop & Codegen
+
+Junie participates in the OpenAPI-based bridge between backend and frontend.
+
+- Run the export process using:
+  ```bash
+  pnpm run codegen
+  ```
+  (This internally calls `glyphd export-openapi`, generates schema, and re-runs TypeScript client generation.)
+- Generated clients are stored in:
+  ```
+  web/generated/client-generated/
+  ```
+- These are wrapped and re-exported by the manual package:
+  ```
+  packages/client/
+  ```
+- Do not manually edit the generated output.
+
+---
+
+## 🧭 Web Platform (Turbo Monorepo)
+
+Junie may work inside the `web/` directory, a `turborepo` workspace managed with `pnpm`.
+
+- Apps are located in `web/apps/`, packages in `web/packages/`, and generated code in `web/generated/`.
+- The primary frontend lives in `apps/controlpanel/` and uses:
+  - **Next.js** (App Router)
+  - **Tailwind CSS**
+  - **TypeScript**
+- Use the correct `pnpm` commands for dev flow:
+  ```bash
+  pnpm dev --filter controlpanel
+  pnpm build --filter controlpanel
+  ```
+  ( remember to use safe_run.sh if you run the dev server)
+- Tests should live in `apps/controlpanel/tests/` and use **Playwright** for integration.
+
+---
+
+## 🧱 Persistence Layer (Planned)
+
+Junie may eventually help wire up persistence (e.g., SQLite or Postgres) to store scored results or forecasts.
+
+- Models should use `pydantic + SQLAlchemy` if implemented
+- Data should be versioned and enriched with clear provenance fields (e.g., `seen_at`, `source_url`)
+- Ingestion should be CLI-driven (e.g., `glyphsieve ingest-csv`)
+- All write paths must be explicitly logged and tested
+- Database integration must be optional and configured via env or CLI flags

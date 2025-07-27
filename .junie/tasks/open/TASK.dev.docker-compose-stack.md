@@ -67,7 +67,7 @@ services:
     build: ./glyphd
     ports:
       - "8000:8000"
-    volumes:
+    volumes:  # Mount local code for live reload support
       - ./glyphd:/app
     environment:
       - PYTHONUNBUFFERED=1
@@ -76,7 +76,7 @@ services:
     build: ./web/apps/controlpanel
     ports:
       - "3000:3000"
-    volumes:
+    volumes:  # Mount local code for live reload support
       - ./web/apps/controlpanel:/app
     depends_on:
       - glyphd
@@ -104,3 +104,5 @@ services:
 Do **not** use Ubuntu as a base image. Use Alpine for Node and Bookworm-slim for Python. This dev stack should remain minimal, fast, and observable in Docker Desktop.
 
 You must also update your `.junie/guidelines.md` to document the proper way to run the stack using `docker compose up -d`. This ensures you do not block your terminal or crash your session when invoking services interactively.
+
+This task focuses on the **local development stack**. If needed, future variants (e.g. preview, staging) may use `docker-compose.override.yml` or a separate production-oriented stack.
