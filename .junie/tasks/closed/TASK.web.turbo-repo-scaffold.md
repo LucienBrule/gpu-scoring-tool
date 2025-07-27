@@ -96,3 +96,6 @@ web/
 ## ✍️ Notes
 
 This repo will grow over time. Structure matters. Your work here sets the foundation for the full web UI, API client interop, and test automation. Make it clean, conventional, and forward-looking.
+
+
+Note: done manually since pnpm create command hangs in Junie
