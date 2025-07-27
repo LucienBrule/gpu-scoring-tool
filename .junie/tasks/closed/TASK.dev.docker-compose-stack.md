@@ -106,3 +106,28 @@ Do **not** use Ubuntu as a base image. Use Alpine for Node and Bookworm-slim for
 You must also update your `.junie/guidelines.md` to document the proper way to run the stack using `docker compose up -d`. This ensures you do not block your terminal or crash your session when invoking services interactively.
 
 This task focuses on the **local development stack**. If needed, future variants (e.g. preview, staging) may use `docker-compose.override.yml` or a separate production-oriented stack.
+
+## ✅ Task Completed
+
+**Changes made:**
+- Created Dockerfile for the backend (glyphd) using python:3.12-bookworm as the base image
+- Created Dockerfile for the frontend (controlpanel) using node:20-alpine as the base image
+- Created docker-compose.yml in the project root with two services: glyphd and controlpanel
+- Updated .junie/guidelines.md to document the Docker development stack, including:
+  - How to run the stack in detached mode
+  - How to access the services
+  - How to manage the stack (stop, view logs, rebuild)
+  - Information about hot reload functionality
+
+**Outcomes:**
+- A complete Docker development environment that can run both the FastAPI backend and Next.js frontend
+- Hot reload functionality for both services to support efficient development
+- Clear documentation on how to use the Docker stack
+
+**Lessons learned:**
+- Docker volumes are essential for enabling hot reload in containerized development environments
+- Running services in detached mode (-d) is important to keep the CLI responsive
+
+**Follow-up needed:**
+- Consider adding additional services to the Docker stack as the project evolves
+- Explore creating separate Docker configurations for production environments

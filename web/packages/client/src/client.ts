@@ -28,7 +28,7 @@ export class ApiClient {
 
 // Re-export specific generated types/functions with aliases if needed
 // This gives you control over what gets exposed and how
-export const getHealth = async (baseUrl: string = 'http://localhost:8000') => {
+export const getHealth = async (baseUrl: string = 'http://localhost:8002') => {
   const client = new ApiClient(baseUrl);
   return client.getHealth();
 };

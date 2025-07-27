@@ -4,11 +4,13 @@
 #
 # Usage:
 #   ./safe-run.sh [options] -- <command> [command-args]
+#   ./safe-run.sh -k|--kill <name> - Kill a running process by name
 
 # Defaults
 BACKGROUND=false
 TIMEOUT=300
 NAME=""
+KILL_MODE=false
 
 # Parse arguments
 while (( "$#" )); do
@@ -25,12 +27,19 @@ while (( "$#" )); do
       NAME="$2"
       shift 2
       ;;
+    -k|--kill)
+      KILL_MODE=true
+      NAME="$2"
+      shift 2
+      ;;
     -h|--help)
       echo "Usage: ./safe-run.sh [options] -- <command> [command-args]"
+      echo "       ./safe-run.sh -k|--kill <name> - Kill a running process by name"
       echo "Options:"
       echo "  -b, --background     Run command in background (nohup)"
       echo "  -t, --timeout SEC    Set timeout in seconds (default: 300)"
       echo "  -n, --name NAME      Custom name for logs/status (optional)"
+      echo "  -k, --kill NAME      Kill a running process by name"
       echo "  -h, --help           Show this message"
       echo ""
       echo "Environment:"
@@ -50,7 +59,7 @@ while (( "$#" )); do
   esac
 done
 
-if [[ $# -eq 0 ]]; then
+if [[ $# -eq 0 && "$KILL_MODE" = false ]]; then
   echo "❌ Error: No command provided"
   exit 1
 fi
@@ -79,6 +88,60 @@ log() {
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*" | tee -a "$LOG_FILE"
 }
 
+# Kill process if in kill mode
+if [ "$KILL_MODE" = true ]; then
+  if [ -z "$NAME" ]; then
+    echo "❌ Error: No process name provided for kill mode"
+    exit 1
+  fi
+
+  PID_FILE="$PIDS_DIR/$NAME.pid"
+  STATUS_FILE="$STATUS_DIR/$NAME.status"
+  LOG_FILE="$LOGS_DIR/$NAME.log"
+
+  if [ ! -f "$PID_FILE" ]; then
+    echo "❌ Error: No PID file found for process '$NAME'"
+    exit 1
+  fi
+
+  PID=$(cat "$PID_FILE")
+  if [ -z "$PID" ]; then
+    echo "❌ Error: PID file exists but is empty for process '$NAME'"
+    rm -f "$PID_FILE"
+    exit 1
+  fi
+
+  # Check if process is running
+  if ! ps -p "$PID" > /dev/null; then
+    echo "⚠️ Process '$NAME' (PID: $PID) is not running"
+    rm -f "$PID_FILE"
+    echo "killed" > "$STATUS_FILE"
+    exit 0
+  fi
+
+  echo "🛑 Killing process '$NAME' (PID: $PID)..."
+  kill "$PID"
+
+  # Wait for process to terminate
+  for i in {1..5}; do
+    if ! ps -p "$PID" > /dev/null; then
+      break
+    fi
+    sleep 1
+  done
+
+  # Force kill if still running
+  if ps -p "$PID" > /dev/null; then
+    echo "⚠️ Process did not terminate gracefully, sending SIGKILL..."
+    kill -9 "$PID"
+  fi
+
+  rm -f "$PID_FILE"
+  echo "killed" > "$STATUS_FILE"
+  echo "✅ Process '$NAME' terminated"
+  exit 0
+fi
+
 COMMAND_STRING="$*"
 log "Running: $COMMAND_STRING"
 
@@ -97,7 +160,9 @@ if [ "$BACKGROUND" = true ]; then
   PID=$!
   echo $PID > "$PID_FILE"
   log "Background PID: $PID"
-  echo "Use: tail -f $LOG_FILE"
+  echo "To inspect logs without blocking, use:"
+  echo "  tail -n 20 $LOG_FILE"
+  echo "  or grep -i error $LOG_FILE"
 else
   echo "running" > "$STATUS_FILE"
   log "Timeout set to ${TIMEOUT}s"

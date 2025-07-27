@@ -1,0 +1,488 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Glyphd: GPU Market API",
+    "description": "API service exposing enriched GPU listings, model metadata, scoring reports, and insight overlays from the glyphsieve pipeline.",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/health": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Health Check",
+        "description": "Simple health check endpoint to verify API is running",
+        "operationId": "health_check_api_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings": {
+      "get": {
+        "tags": [
+          "Listings"
+        ],
+        "summary": "Get GPU Listings",
+        "description": "Retrieve all GPU listings with optional filtering by model and quantization capability",
+        "operationId": "get_listings_api_listings_get",
+        "parameters": [
+          {
+            "name": "model",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by exact model name",
+              "title": "Model"
+            },
+            "description": "Filter by exact model name"
+          },
+          {
+            "name": "quantized",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by quantization capability",
+              "title": "Quantized"
+            },
+            "description": "Filter by quantization capability"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GPUListingDTO"
+                  },
+                  "title": "Response Get Listings Api Listings Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/models": {
+      "get": {
+        "tags": [
+          "Models"
+        ],
+        "summary": "Get GPU Models",
+        "description": "Retrieve all GPU model metadata including specifications and market data",
+        "operationId": "get_models_api_models_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/GPUModelDTO"
+                  },
+                  "type": "array",
+                  "title": "Response Get Models Api Models Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/report": {
+      "get": {
+        "tags": [
+          "Report"
+        ],
+        "summary": "Get Market Insight Report",
+        "description": "Retrieve the latest GPU market insight report with summary statistics and scoring weights",
+        "operationId": "get_report_api_report_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GPUListingDTO": {
+        "properties": {
+          "canonical_model": {
+            "type": "string",
+            "title": "Canonical Model",
+            "description": "The canonical model name of the GPU"
+          },
+          "vram_gb": {
+            "type": "integer",
+            "title": "Vram Gb",
+            "description": "The amount of VRAM in GB"
+          },
+          "mig_support": {
+            "type": "integer",
+            "title": "Mig Support",
+            "description": "The MIG support level (0-7)"
+          },
+          "nvlink": {
+            "type": "boolean",
+            "title": "Nvlink",
+            "description": "Whether the GPU supports NVLink"
+          },
+          "tdp_watts": {
+            "type": "integer",
+            "title": "Tdp Watts",
+            "description": "The TDP in watts"
+          },
+          "price": {
+            "type": "number",
+            "title": "Price",
+            "description": "The price in USD"
+          },
+          "score": {
+            "type": "number",
+            "title": "Score",
+            "description": "The calculated utility score"
+          }
+        },
+        "type": "object",
+        "required": [
+          "canonical_model",
+          "vram_gb",
+          "mig_support",
+          "nvlink",
+          "tdp_watts",
+          "price",
+          "score"
+        ],
+        "title": "GPUListingDTO",
+        "description": "Data Transfer Object for GPU listing information.\n\nRepresents a GPU listing with its properties and score.",
+        "example": {
+          "canonical_model": "H100_PCIE_80GB",
+          "mig_support": 7,
+          "nvlink": true,
+          "price": 10000.0,
+          "score": 0.7,
+          "tdp_watts": 350,
+          "vram_gb": 80
+        }
+      },
+      "GPUModelDTO": {
+        "properties": {
+          "model": {
+            "type": "string",
+            "title": "Model",
+            "description": "The model name of the GPU"
+          },
+          "listing_count": {
+            "type": "integer",
+            "title": "Listing Count",
+            "description": "The number of listings for this model"
+          },
+          "min_price": {
+            "type": "number",
+            "title": "Min Price",
+            "description": "The minimum price for this model"
+          },
+          "median_price": {
+            "type": "number",
+            "title": "Median Price",
+            "description": "The median price for this model"
+          },
+          "max_price": {
+            "type": "number",
+            "title": "Max Price",
+            "description": "The maximum price for this model"
+          },
+          "avg_price": {
+            "type": "number",
+            "title": "Avg Price",
+            "description": "The average price for this model"
+          },
+          "vram_gb": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vram Gb",
+            "description": "The amount of VRAM in GB"
+          },
+          "tdp_watts": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tdp Watts",
+            "description": "The TDP in watts"
+          },
+          "mig_support": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mig Support",
+            "description": "The MIG support level (0-7)"
+          },
+          "nvlink": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nvlink",
+            "description": "Whether the GPU supports NVLink"
+          },
+          "generation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Generation",
+            "description": "The GPU generation (e.g., Ada, Ampere)"
+          },
+          "cuda_cores": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cuda Cores",
+            "description": "The number of CUDA cores"
+          },
+          "slot_width": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Slot Width",
+            "description": "The slot width"
+          },
+          "pcie_generation": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pcie Generation",
+            "description": "The PCIe generation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "model",
+          "listing_count",
+          "min_price",
+          "median_price",
+          "max_price",
+          "avg_price"
+        ],
+        "title": "GPUModelDTO",
+        "description": "Data Transfer Object for GPU model metadata.\n\nRepresents a GPU model with its specifications and market data.",
+        "example": {
+          "avg_price": 34024.71,
+          "cuda_cores": 18176,
+          "generation": "Hopper",
+          "listing_count": 7,
+          "max_price": 49999.0,
+          "median_price": 34995.0,
+          "mig_support": 7,
+          "min_price": 23800.0,
+          "model": "NVIDIA H100 PCIe 80GB",
+          "nvlink": true,
+          "pcie_generation": 5,
+          "slot_width": 2,
+          "tdp_watts": 350,
+          "vram_gb": 80
+        }
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ReportDTO": {
+        "properties": {
+          "markdown": {
+            "type": "string",
+            "title": "Markdown",
+            "description": "The full markdown content of the report"
+          },
+          "summary_stats": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Summary Stats",
+            "description": "Summary statistics from the report"
+          },
+          "top_ranked": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Top Ranked",
+            "description": "List of top-ranked GPU models"
+          },
+          "scoring_weights": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Scoring Weights",
+            "description": "Weights used for scoring"
+          }
+        },
+        "type": "object",
+        "required": [
+          "markdown",
+          "summary_stats",
+          "top_ranked",
+          "scoring_weights"
+        ],
+        "title": "ReportDTO",
+        "description": "Data Transfer Object for GPU market insight reports.\n\nRepresents a market insight report with markdown content and structured data.",
+        "example": {
+          "markdown": "# GPU Market Insight Report\n*Generated on 2025-07-24*\n\n## Summary Statistics\n...",
+          "scoring_weights": {
+            "mig_weight": 0.2,
+            "nvlink_weight": 0.1,
+            "price_weight": 0.2,
+            "tdp_weight": 0.2,
+            "vram_weight": 0.3
+          },
+          "summary_stats": {
+            "average_price": "$4600.00",
+            "average_score": "0.4789",
+            "median_price": "$2500.00",
+            "most_common_model": "H100_PCIE_80GB",
+            "number_of_listings": "5",
+            "price_range": "$1000.00 - $10000.00",
+            "score_range": "0.3314 - 0.7000",
+            "unique_models": "5"
+          },
+          "top_ranked": [
+            "H100_PCIE_80GB",
+            "A100_40GB_PCIE",
+            "RTX_A5000",
+            "RTX_3090",
+            "RTX_4090"
+          ]
+        }
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

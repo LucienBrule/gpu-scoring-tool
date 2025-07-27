@@ -10,7 +10,7 @@ from glyphd.core.dependencies import get_gpu_listings, get_gpu_models, get_insig
 # Create the API router
 router = APIRouter(prefix="/api")
 
-@router.get("/health", status_code=status.HTTP_200_OK)
+@router.get("/health", status_code=status.HTTP_200_OK, tags=["Health"], summary="Health Check", description="Simple health check endpoint to verify API is running")
 async def health_check():
     """
     Health check endpoint.
@@ -21,7 +21,7 @@ async def health_check():
     """
     return {"status": "ok"}
 
-@router.get("/listings", response_model=List[GPUListingDTO], status_code=status.HTTP_200_OK, tags=["GPU Data"])
+@router.get("/listings", response_model=List[GPUListingDTO], response_model_exclude_none=True, status_code=status.HTTP_200_OK, tags=["Listings"], summary="Get GPU Listings", description="Retrieve all GPU listings with optional filtering by model and quantization capability")
 async def get_listings(
     model: Optional[str] = Query(None, description="Filter by exact model name"),
     quantized: Optional[bool] = Query(None, description="Filter by quantization capability"),
@@ -55,7 +55,7 @@ async def get_listings(
 
     return filtered_listings
 
-@router.get("/models", response_model=List[GPUModelDTO], status_code=status.HTTP_200_OK, tags=["GPU Data"])
+@router.get("/models", response_model=List[GPUModelDTO], response_model_exclude_none=True, status_code=status.HTTP_200_OK, tags=["Models"], summary="Get GPU Models", description="Retrieve all GPU model metadata including specifications and market data")
 async def get_models(
     models: List[GPUModelDTO] = Depends(get_gpu_models)
 ):
@@ -70,7 +70,7 @@ async def get_models(
     """
     return models
 
-@router.get("/report", response_model=ReportDTO, status_code=status.HTTP_200_OK, tags=["Reports"])
+@router.get("/report", response_model=ReportDTO, response_model_exclude_none=True, status_code=status.HTTP_200_OK, tags=["Report"], summary="Get Market Insight Report", description="Retrieve the latest GPU market insight report with summary statistics and scoring weights")
 async def get_report(
     report: Optional[ReportDTO] = Depends(get_insight_report)
 ):
@@ -99,9 +99,19 @@ def create_app() -> FastAPI:
         FastAPI: The configured FastAPI application.
     """
     app = FastAPI(
-        title="GlyphD API",
-        description="API for GPU scoring and market analysis",
+        title="Glyphd: GPU Market API",
+        description="API service exposing enriched GPU listings, model metadata, scoring reports, and insight overlays from the glyphsieve pipeline.",
         version="0.1.0",
+        contact={
+            "name": "Glyphsieve Research",
+            "url": "https://github.com/lucienbrule/gpu-scoring-tool",
+        },
+        openapi_tags=[
+            {"name": "Listings", "description": "Access enriched GPU listing records"},
+            {"name": "Models", "description": "Explore normalized GPU model specs"},
+            {"name": "Report", "description": "Retrieve current insight summary and scoring weights"},
+            {"name": "Health", "description": "Basic system liveness check"},
+        ],
         docs_url="/docs",
         redoc_url="/redoc",
         openapi_url="/openapi.json",

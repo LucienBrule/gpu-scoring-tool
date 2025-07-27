@@ -1,0 +1,20 @@
+services:
+  glyphd:
+    build: ./glyphd
+    ports:
+      - "8000:8000"
+    volumes:  # Mount local code for live reload support
+      - ./glyphd:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  controlpanel:
+    build: 
+      context: ./web
+      dockerfile: ./apps/controlpanel/Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:  # Mount local code for live reload support
+      - ./web:/app
+    depends_on:
+      - glyphd

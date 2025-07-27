@@ -1,4 +1,4 @@
-# Junie Guidelines (v0.1.0)
+# Junie Guidelines (v0.1.1)
 
 Welcome to Junie, the assistant task and tooling layer for `gpu-scoring-tool` and `glyphsieve`. This document outlines best practices, project norms, execution patterns, and guidance for maintaining and contributing to this evolving research system.
 
@@ -52,6 +52,25 @@ Junie must use `.junie/safe-run.sh` when running any long-lived or blocking proc
 
 This script safely runs foreground or background processes, manages logs, and records status and PID information.
 
+#### Process Management with `safe-run.sh`
+
+Junie can manage long-running processes with the following operations:
+
+- **Starting processes**: Use the `-b` flag to run in background
+  ```bash
+  ./.junie/scripts/safe-run.sh -n process-name -b -- command args
+  ```
+
+- **Terminating processes**: Use the `-k` flag to kill a named process
+  ```bash
+  ./.junie/scripts/safe-run.sh -k process-name
+  ```
+
+- **Checking process status**: Inspect the status files in `.junie/status/`
+  ```bash
+  cat .junie/status/process-name.status
+  ```
+
 Example usage:
 
 ```bash
@@ -62,6 +81,21 @@ This runs the control panel frontend in the background and saves logs to `.junie
 
 Junie must prefer `safe-run.sh` over raw `nohup` or foreground dev servers, especially when multiple services are running concurrently or during test-driven development.
 
+#### Process Cleanup Guidelines
+
+Always terminate background processes when they are no longer needed using the kill functionality. Include process cleanup in your task completion summary.
+
+⚠️ **Important:** Junie must never use `tail -f` inside her tasks — it blocks her synchronous task execution and halts all downstream processing.
+
+Instead, use log inspection tools that exit cleanly:
+
+```bash
+tail -n 20 .junie/logs/glyphd-server.log      # Show last 20 lines
+grep 'ERROR' .junie/logs/glyphd-server.log    # Search for errors
+```
+
+Junie cannot observe logs in real time, but she can always inspect snapshots as part of post-task analysis.
+
 ### Language Interoperability
 
 - Kotlin/TypeScript interop for DTO definitions and structured pipelines is planned
@@ -69,6 +103,19 @@ Junie must prefer `safe-run.sh` over raw `nohup` or foreground dev servers, espe
   - Document schema definitions in both languages
   - Ensure consistent naming conventions across language boundaries
   - Validate data integrity during language transitions
+
+### Error Handling and Debugging
+
+#### Standardized Error Handling
+- Use try/except blocks with specific exception types
+- Log errors with context information
+- Return meaningful error messages
+- For CLI tools, use appropriate exit codes
+
+#### Debugging Practices
+- Use logging at appropriate levels (DEBUG, INFO, WARNING, ERROR)
+- For server components, add debug endpoints that can be toggled with environment variables
+- Document common error scenarios and their resolutions
 
 ---
 
@@ -92,6 +139,17 @@ Junie must prefer `safe-run.sh` over raw `nohup` or foreground dev servers, espe
 - When modifying data structures, include version numbers (e.g., `v1.0 -> v1.1`)
 - Maintain backward compatibility where possible
 - Create migration scripts when breaking changes are necessary
+
+### Documentation Standards
+
+#### Code Documentation Format
+- Use Google-style docstrings for Python code
+- Document parameters, return values, and exceptions
+- Include usage examples for public functions
+- Add type hints to all function signatures
+
+#### Architecture Documentation
+- Maintain architecture decision records (ADRs) for significant design choices in `.junie/docs/architecture/`
 
 ### Clean File Output Discipline
 
@@ -124,6 +182,30 @@ tasks/{open,closed}/TASK.<category>.<title>.md
 - To close a task, move the task file from `.junie/tasks/open/` to `.junie/tasks/closed/`
 - If a task is explored but not completed, **do not close it**
 - Upon closure, Junie **must** append a short summary or comment block describing what was done, learned, or blocked
+
+### Task Completion Template
+
+When closing a task, append a summary using this template:
+
+```
+## ✅ Task Completed
+
+**Changes made:**
+- [List specific changes]
+
+**Outcomes:**
+- [Describe what was accomplished]
+
+**Lessons learned:**
+- [Optional: Note any insights gained]
+
+**Follow-up needed:**
+- [Optional: Note any future work required]
+```
+
+### Task Dependencies
+
+When working on tasks that depend on other tasks, reference the dependent tasks in your comments and ensure prerequisites are completed first.
 
 ---
 
@@ -179,13 +261,114 @@ Junie may work inside the `web/` directory, a `turborepo` workspace managed with
   - **Next.js** (App Router)
   - **Tailwind CSS**
   - **TypeScript**
-- Use the correct `pnpm` commands for dev flow:
+- Use the correct `pnpm` commands for dev flow (remember to use `safe-run.sh` for long-lived or background services):
+
   ```bash
   pnpm dev --filter controlpanel
   pnpm build --filter controlpanel
+
+  # For background-safe runs using `safe-run.sh`:
+  ./.junie/scripts/safe-run.sh -n controlpanel -b -- pnpm dev --filter controlpanel
+
+  # If directory changes or complex command chaining is required:
+  ./.junie/scripts/safe-run.sh -n glyphd-server -b -- bash -c 'cd glyphd && uv run glyphd serve --host 127.0.0.1 --port 8001'
   ```
-  ( remember to use safe_run.sh if you run the dev server)
 - Tests should live in `apps/controlpanel/tests/` and use **Playwright** for integration.
+
+---
+
+## 🐳 Docker Development Stack
+
+Junie can use Docker to run the development environment, which includes both the FastAPI backend and the Next.js frontend in hot-reloading containers.
+
+### Docker Setup
+
+- The project includes a `docker-compose.yml` file in the root directory
+- Two services are defined:
+  - `glyphd`: The FastAPI backend
+  - `controlpanel`: The Next.js frontend
+
+### Running the Docker Stack
+
+Always run the Docker stack in detached mode to avoid blocking the terminal:
+
+```bash
+docker compose up -d --build
+```
+
+This command builds the images (if needed) and starts the containers in the background.
+
+### Accessing the Services
+
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:8000/api/health
+
+### Managing the Docker Stack
+
+- Stop the stack:
+  ```bash
+  docker compose down
+  ```
+
+- View logs:
+  ```bash
+  docker compose logs -f glyphd     # Backend logs
+  docker compose logs -f controlpanel  # Frontend logs
+  ```
+
+- Rebuild and restart a specific service:
+  ```bash
+  docker compose up -d --build glyphd  # Rebuild and restart backend
+  ```
+
+### Hot Reload
+
+The Docker setup supports hot reload for both services:
+- Backend: Changes to Python files in `glyphd/` are automatically detected
+- Frontend: Changes to files in `web/apps/controlpanel/` are automatically detected
+
+---
+
+## 🧪 Testing Framework
+
+### Testing Strategy
+- Write unit tests for all core functionality
+- Use pytest as the testing framework
+- Aim for at least 80% code coverage
+- Include integration tests for API endpoints
+- Add performance tests for critical paths
+
+## 🔒 Security Considerations
+
+### Security Considerations
+- Do not hardcode credentials in source code
+- Use environment variables for sensitive configuration
+- Validate all user inputs
+- Follow the principle of least privilege
+
+## 📦 Dependency Management
+
+### Dependency Management
+- Document all dependencies in requirements files
+- Pin dependency versions for reproducibility
+- Regularly update dependencies for security patches
+- Use virtual environments for isolation
+
+## 📊 Monitoring and Observability
+
+### Monitoring and Observability
+- Add health check endpoints to services
+- Implement structured logging
+- Include performance metrics
+- Document expected behavior and thresholds
+
+## 🔄 Continuous Integration
+
+### Continuous Integration
+- Run tests automatically on push
+- Validate code style and formatting
+- Check for security vulnerabilities
+- Generate documentation
 
 ---
 

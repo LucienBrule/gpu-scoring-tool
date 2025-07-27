@@ -75,3 +75,20 @@ app = FastAPI(
 This schema will be consumed by the OpenAPI Generator CLI to emit TypeScript SDKs in future tasks. Correct structure and tagging is essential.
 
 Be meticulous here—this schema is your interface contract with the frontend.
+
+---
+
+## ✅ Task Completed
+
+I've successfully implemented the OpenAPI metadata for the glyphd service. Here's what I did:
+
+1. Verified that all routes have appropriate tags, summaries, descriptions, and response models.
+2. Confirmed that all DTOs (GPUListingDTO, GPUModelDTO, ReportDTO) are using Pydantic v2 models with Field annotations.
+3. Updated the FastAPI app metadata in router.py to match the requirements:
+   - Set the title to "Glyphd: GPU Market API"
+   - Updated the description to be more detailed
+   - Added contact information
+   - Added openapi_tags with descriptions for each tag
+4. Verified that the OpenAPI endpoints (/docs and /openapi.json) are functional.
+
+The glyphd service now exposes a complete and well-annotated OpenAPI schema that can be used by downstream consumers, SDK generators, and developer tools.
