@@ -3,7 +3,7 @@ from unittest.mock import patch
 from fastapi.testclient import TestClient
 from glyphd.api.router import create_app
 from glyphd.api.models import GPUListingDTO, GPUModelDTO, ReportDTO
-from glyphd.core.dependencies import get_insight_report
+from glyphd.core.dependencies.insight_report import get_insight_report
 
 def test_app_creation(app):
     """Test that the FastAPI app can be created successfully."""

@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional
 
 import pandas as pd
 
-from glyphsieve.core.resources.yaml_loader import YamlLoader
+from glyphsieve.core.resources.yaml_loader import GlyphSieveYamlLoader
 from glyphsieve.models.heuristic import QuantizationHeuristicConfig
 
 
@@ -66,7 +66,7 @@ class QuantizationHeuristic(Heuristic):
             ValueError: If the configuration file is invalid
         """
         try:
-            loader = YamlLoader()
+            loader = GlyphSieveYamlLoader()
             return loader.load(QuantizationHeuristicConfig, "quantization_heuristic.yaml")
         except FileNotFoundError:
             # If the file doesn't exist, return the default configuration
@@ -122,7 +122,7 @@ def load_heuristic_config(config_file: Optional[str] = None) -> QuantizationHeur
         ValueError: If the configuration file is invalid
     """
     try:
-        loader = YamlLoader()
+        loader = GlyphSieveYamlLoader()
         resource_name = config_file or "quantization_heuristic.yaml"
         return loader.load(QuantizationHeuristicConfig, resource_name)
     except FileNotFoundError:

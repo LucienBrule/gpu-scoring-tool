@@ -1,7 +1,7 @@
-from .base_yaml_loader import BaseYamlLoader
+from .base_csv_loader import BaseCsvLoader
 
 
-class GlyphSieveYamlLoader(BaseYamlLoader):
+class GlyphSieveCsvLoader(BaseCsvLoader):
     @property
     def resource_uri(self) -> str:
         return "glyphsieve.resources"

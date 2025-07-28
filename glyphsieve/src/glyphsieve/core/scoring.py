@@ -11,7 +11,7 @@ from typing import Any, Dict, Optional
 
 import pandas as pd
 
-from glyphsieve.core.resources.yaml_loader import YamlLoader
+from glyphsieve.core.resources.yaml_loader import GlyphSieveYamlLoader
 from glyphsieve.models.scoring_weights import ScoringWeights
 
 
@@ -25,7 +25,7 @@ def load_scoring_weights(weights_file: Optional[str] = None) -> ScoringWeights:
     Returns:
         ScoringWeights: Parsed and validated scoring weights model.
     """
-    loader = YamlLoader()
+    loader = GlyphSieveYamlLoader()
     return loader.load(ScoringWeights, weights_file or "scoring_weights.yaml")
 
 

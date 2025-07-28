@@ -10,7 +10,7 @@ from typing import Optional
 
 import pandas as pd
 
-from glyphsieve.core.resources.yaml_loader import YamlLoader
+from glyphsieve.core.resources.yaml_loader import GlyphSieveYamlLoader
 from glyphsieve.models.gpu import GPURegistry
 
 
@@ -30,7 +30,7 @@ def load_gpu_specs(specs_file: Optional[str] = None) -> GPURegistry:
         ValueError: If the specs file is invalid
     """
     try:
-        loader = YamlLoader()
+        loader = GlyphSieveYamlLoader()
         resource_name = specs_file or "gpu_specs.yaml"
         return loader.load(GPURegistry, resource_name)
     except FileNotFoundError as e:

@@ -1,0 +1,3 @@
+canonical_model,vram_gb,mig_support,nvlink,tdp_watts,price,score
+H100_PCIE_80GB,80,7,True,350,10000.0,0.7
+A100_40GB_PCIE,40,7,False,250,8000.0,0.5185714285714286
