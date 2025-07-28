@@ -5,76 +5,28 @@ This module provides functionality for scoring GPU listings based on various met
 It implements the Strategy Pattern for scoring, allowing different scoring strategies
 to be used interchangeably.
 """
+
 import abc
-from pathlib import Path
-from typing import Dict, List, Optional, Union, Any
+from typing import Any, Dict, Optional
 
 import pandas as pd
-import yaml
-from pydantic import BaseModel, Field
 
-from glyphsieve.models.gpu import GPUMetadata
-
-
-class ScoringWeights(BaseModel):
-    """
-    Pydantic model for scoring weights.
-
-    This model defines the weights used for scoring GPU listings.
-    """
-    vram_weight: float = Field(0.3, description="Weight for VRAM capacity")
-    mig_weight: float = Field(0.2, description="Weight for MIG support")
-    nvlink_weight: float = Field(0.1, description="Weight for NVLink support")
-    tdp_weight: float = Field(0.2, description="Weight for TDP (inverse)")
-    price_weight: float = Field(0.2, description="Weight for price (inverse)")
-
-    # Normalization parameters
-    max_vram_gb: int = Field(80, description="Maximum VRAM capacity in GB for normalization")
-    max_mig_partitions: int = Field(7, description="Maximum MIG partitions for normalization")
-    max_tdp_watts: int = Field(700, description="Maximum TDP in watts for normalization")
-    max_price: float = Field(10000.0, description="Maximum price for normalization")
-
-    class Config:
-        """Pydantic model configuration."""
-        schema_extra = {
-            "example": {
-                "vram_weight": 0.3,
-                "mig_weight": 0.2,
-                "nvlink_weight": 0.1,
-                "tdp_weight": 0.2,
-                "price_weight": 0.2,
-                "max_vram_gb": 80,
-                "max_mig_partitions": 7,
-                "max_tdp_watts": 700,
-                "max_price": 10000.0
-            }
-        }
+from glyphsieve.core.resources.yaml_loader import YamlLoader
+from glyphsieve.models.scoring_weights import ScoringWeights
 
 
 def load_scoring_weights(weights_file: Optional[str] = None) -> ScoringWeights:
     """
-    Load scoring weights from a YAML file.
+    Load scoring weights from a YAML file using the resource loader strategy.
 
     Args:
-        weights_file: Path to the YAML file with scoring weights.
-                     If None, uses the default weights.
+        weights_file: Optional override path for the scoring weights file.
 
     Returns:
-        ScoringWeights: Loaded scoring weights
+        ScoringWeights: Parsed and validated scoring weights model.
     """
-    if weights_file is None:
-        # Use default weights
-        return ScoringWeights()
-
-    # Load weights from file
-    weights_path = Path(weights_file)
-    if not weights_path.exists():
-        raise FileNotFoundError(f"Weights file not found: {weights_file}")
-
-    with open(weights_path, "r") as f:
-        weights_data = yaml.safe_load(f)
-
-    return ScoringWeights(**weights_data)
+    loader = YamlLoader()
+    return loader.load(ScoringWeights, weights_file or "scoring_weights.yaml")
 
 
 class ScoringStrategy(abc.ABC):
@@ -134,22 +86,22 @@ class WeightedAdditiveScorer(ScoringStrategy):
         score_components = []
 
         # VRAM score (higher is better)
-        vram_gb = max(0, row.get('vram_gb', 0))  # Ensure non-negative
+        vram_gb = max(0, row.get("vram_gb", 0))  # Ensure non-negative
         vram_score = min(vram_gb / weights.max_vram_gb, 1.0) * weights.vram_weight
         score_components.append(vram_score)
 
         # MIG support score (higher is better)
-        mig_support = max(0, row.get('mig_support', 0))  # Ensure non-negative
+        mig_support = max(0, row.get("mig_support", 0))  # Ensure non-negative
         mig_score = min(mig_support / weights.max_mig_partitions, 1.0) * weights.mig_weight
         score_components.append(mig_score)
 
         # NVLink score (binary)
-        nvlink = row.get('nvlink', False)
+        nvlink = row.get("nvlink", False)
         nvlink_score = weights.nvlink_weight if nvlink else 0.0
         score_components.append(nvlink_score)
 
         # TDP score (lower is better, so we invert)
-        tdp_watts = max(0, row.get('tdp_watts', 0))  # Ensure non-negative
+        tdp_watts = max(0, row.get("tdp_watts", 0))  # Ensure non-negative
         if tdp_watts > 0:
             # Invert so that lower TDP gets a higher score
             tdp_score = (1.0 - min(tdp_watts / weights.max_tdp_watts, 1.0)) * weights.tdp_weight
@@ -158,7 +110,7 @@ class WeightedAdditiveScorer(ScoringStrategy):
         score_components.append(tdp_score)
 
         # Price score (lower is better, so we invert)
-        price = max(0, row.get('price', 0.0))  # Ensure non-negative
+        price = max(0, row.get("price", 0.0))  # Ensure non-negative
         if price > 0:
             # Invert so that lower price gets a higher score
             price_score = (1.0 - min(price / weights.max_price, 1.0)) * weights.price_weight
@@ -184,18 +136,13 @@ class WeightedAdditiveScorer(ScoringStrategy):
         result_df = df.copy()
 
         # Apply scoring to each row
-        result_df['score'] = result_df.apply(
-            lambda row: self.score_listing(row, weights), axis=1
-        )
+        result_df["score"] = result_df.apply(lambda row: self.score_listing(row, weights), axis=1)
 
         return result_df
 
 
 def score_csv(
-    input_file: str,
-    output_file: str,
-    weights_file: Optional[str] = None,
-    strategy: Optional[ScoringStrategy] = None
+    input_file: str, output_file: str, weights_file: Optional[str] = None, strategy: Optional[ScoringStrategy] = None
 ) -> pd.DataFrame:
     """
     Score GPU listings in a CSV file.

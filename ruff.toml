@@ -1,0 +1,32 @@
+# ruff.toml (top-level)
+line-length = 120
+target-version = "py312"
+
+[lint]
+select = [
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "I",    # isort
+    "PL",   # pylint rules
+    "RUF",  # Ruff-specific rules
+    "UP",   # pyupgrade (modern syntax)
+]
+ignore = [
+    "E501",  # Ignore line-length warnings if using Black
+    "UP006",
+    "UP045",
+    "UP035",
+    "UP015",
+    "PLR0915",
+    "PLR0912",
+    "PLR0913",
+    "E402",
+    "RUF012"
+]
+
+[format]
+quote-style = "double"
+line-ending = "lf"
+indent-style = "space"
+docstring-code-format = true
+docstring-code-line-length = 120

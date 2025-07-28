@@ -1,0 +1,16 @@
+[flake8]
+max-line-length = 120
+extend-select = GLS
+exclude = .git,__pycache__,.venv,.eggs,build,dist
+max-complexity = 10
+per-file-ignores =
+    # Allow tests to be more lenient
+    tests/*: E501
+
+# Only lint our actual source dir
+paths = glyphsieve/src
+
+[flake8:local-plugins]
+extension =
+    GLS001 = tools.flake8_glyphsieve.plugin:Plugin
+paths = src

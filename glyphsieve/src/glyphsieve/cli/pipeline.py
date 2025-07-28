@@ -3,23 +3,24 @@ Pipeline subcommand for glyphsieve CLI.
 
 This module provides a CLI command for running the full pipeline: clean → normalize → enrich → score.
 """
+
 import os
 import tempfile
 import time
-from pathlib import Path
-from typing import Optional
 
 import click
 from rich.console import Console
 from rich.table import Table
 
 from glyphsieve.core.cleaning import clean_csv_headers
-from glyphsieve.core.normalization import normalize_csv
+from glyphsieve.core.deduplication import dedup_csv
 from glyphsieve.core.enrichment import enrich_csv
+from glyphsieve.core.normalization import normalize_csv
 from glyphsieve.core.scoring import score_csv
 
 # Initialize rich console for formatted output
 console = Console()
+
 
 @click.command()
 @click.option("--input", "-i", required=True, help="Path to raw CSV file to process")
@@ -93,7 +94,7 @@ def pipeline(input, output, working_dir, dedup, models_file, specs_file, weights
             console.print(f"[green]Normalized CSV written to '{normalized_file}'[/green] ({step_duration:.2f}s)")
 
             # Print a summary of the normalization results
-            match_counts = df['match_type'].value_counts().to_dict()
+            match_counts = df["match_type"].value_counts().to_dict()
             table = Table(title="Normalization Results")
             table.add_column("Match Type", style="cyan")
             table.add_column("Count", style="green")
@@ -103,7 +104,6 @@ def pipeline(input, output, working_dir, dedup, models_file, specs_file, weights
 
             # Optional Step: Dedup
             if dedup:
-                from glyphsieve.core.deduplication import dedup_csv
 
                 console.print("\n[bold blue]Optional Step: Dedup[/bold blue]")
                 step_start = time.time()
@@ -134,21 +134,9 @@ def pipeline(input, output, working_dir, dedup, models_file, specs_file, weights
             table.add_column("Count", style="green")
             table.add_column("Percentage", style="yellow")
 
-            table.add_row(
-                "Enriched Rows",
-                str(enriched_count),
-                f"{enriched_count / total_count * 100:.1f}%"
-            )
-            table.add_row(
-                "Missing Metadata",
-                str(missing_count),
-                f"{missing_count / total_count * 100:.1f}%"
-            )
-            table.add_row(
-                "Total Rows",
-                str(total_count),
-                "100.0%"
-            )
+            table.add_row("Enriched Rows", str(enriched_count), f"{enriched_count / total_count * 100:.1f}%")
+            table.add_row("Missing Metadata", str(missing_count), f"{missing_count / total_count * 100:.1f}%")
+            table.add_row("Total Rows", str(total_count), "100.0%")
 
             console.print(table)
 
@@ -174,12 +162,12 @@ def pipeline(input, output, working_dir, dedup, models_file, specs_file, weights
 
             # Print top 3 cards
             console.print("\n[bold]Top 3 Cards:[/bold]")
-            top_3 = scored_df.sort_values('score', ascending=False).head(3)
+            top_3 = scored_df.sort_values("score", ascending=False).head(3)
             for _, row in top_3.iterrows():
-                model = row.get('canonical_model', 'Unknown')
-                score = row['score']
-                vram = row.get('vram_gb', 'N/A')
-                price = row.get('price', 'N/A')
+                model = row.get("canonical_model", "Unknown")
+                score = row["score"]
+                vram = row.get("vram_gb", "N/A")
+                price = row.get("price", "N/A")
                 console.print(f"[green]{model}[/green]: Score {score:.4f}, VRAM: {vram} GB, Price: ${price}")
 
             # Calculate total duration
@@ -188,5 +176,5 @@ def pipeline(input, output, working_dir, dedup, models_file, specs_file, weights
             console.print(f"Final output written to: {output}")
 
     except Exception as e:
-        console.print(f"[bold red]Error:[/bold red] {str(e)}")
+        console.print(f"[bold red]Error:[/bold red] {e!s}")
         raise

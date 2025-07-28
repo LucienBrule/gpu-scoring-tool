@@ -3,7 +3,9 @@ Normalize subcommand for glyphsieve CLI.
 
 This module provides a CLI command for normalizing GPU model names.
 """
+
 import os
+
 import click
 from rich.console import Console
 from rich.table import Table
@@ -12,6 +14,7 @@ from glyphsieve.core.normalization import normalize_csv
 
 # Initialize rich console for formatted output
 console = Console()
+
 
 @click.command()
 @click.option("--input", "-i", required=True, help="Path to CSV file to normalize")
@@ -51,7 +54,7 @@ def normalize(input, output, models_file):
         df = normalize_csv(input, output, models_file)
 
         # Print a summary of the normalization results
-        match_counts = df['match_type'].value_counts().to_dict()
+        match_counts = df["match_type"].value_counts().to_dict()
 
         table = Table(title="Normalization Results")
         table.add_column("Match Type", style="cyan")
@@ -64,13 +67,16 @@ def normalize(input, output, models_file):
 
         # Print examples of each match type
         console.print("\n[bold]Examples of matches:[/bold]")
-        for match_type in ['exact', 'regex', 'fuzzy', 'none']:
+        for match_type in ["exact", "regex", "fuzzy", "none"]:
             if match_type in match_counts and match_counts[match_type] > 0:
-                example = df[df['match_type'] == match_type].iloc[0]
-                console.print(f"[cyan]{match_type.upper()}[/cyan]: '{example['title']}' → '{example['canonical_model']}' (score: {example['match_score']:.2f})")
+                example = df[df["match_type"] == match_type].iloc[0]
+                console.print(
+                    f"[cyan]{match_type.upper()}[/cyan]: '{example['title']}' → "
+                    f"'{example['canonical_model']}' (score: {example['match_score']:.2f})"
+                )
 
         console.print(f"\n[green]Success:[/green] Normalized CSV written to '{output}'")
 
     except Exception as e:
-        console.print(f"[bold red]Error:[/bold red] {str(e)}")
+        console.print(f"[bold red]Error:[/bold red] {e!s}")
         raise

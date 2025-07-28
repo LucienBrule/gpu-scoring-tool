@@ -7,9 +7,14 @@ services:
       - ./glyphd:/app
     environment:
       - PYTHONUNBUFFERED=1
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   controlpanel:
-    build: 
+    build:
       context: ./web
       dockerfile: ./apps/controlpanel/Dockerfile
     ports:
@@ -18,3 +23,8 @@ services:
       - ./web:/app
     depends_on:
       - glyphd
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5

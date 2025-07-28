@@ -12,12 +12,12 @@ import pytest
 from pathlib import Path
 
 from glyphsieve.core.scoring import (
-    ScoringWeights,
     load_scoring_weights,
     ScoringStrategy,
     WeightedAdditiveScorer,
     score_csv
 )
+from glyphsieve.models.scoring_weights import ScoringWeights
 
 
 def test_scoring_weights():

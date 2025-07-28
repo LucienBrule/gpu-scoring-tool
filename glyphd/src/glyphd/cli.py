@@ -1,17 +1,20 @@
 """
 Command-line interface for glyphd.
 """
-import click
+
 import json
 import os
+
+import click
 import uvicorn
-from typing import Optional
 from fastapi.openapi.utils import get_openapi
+
 
 @click.group()
 def cli():
     """GlyphD: FastAPI daemon for GPU scoring tool."""
     pass
+
 
 @cli.command()
 @click.option("--host", default="127.0.0.1", help="Host to bind the server to.")
@@ -31,6 +34,7 @@ def serve(host: str, port: int, reload: bool):
         port=port,
         reload=reload,
     )
+
 
 @cli.command()
 @click.argument("output_path", type=click.Path(), default="openapi.json")
@@ -64,6 +68,7 @@ def export_openapi(output_path: str):
         json.dump(openapi_schema, f, indent=2)
 
     click.echo(f"✅ OpenAPI schema exported to {output_path}")
+
 
 if __name__ == "__main__":
     cli()

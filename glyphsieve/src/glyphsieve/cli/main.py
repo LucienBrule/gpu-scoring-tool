@@ -1,13 +1,23 @@
 """
 Main CLI module for glyphsieve.
 """
+
 import click
 from rich.console import Console
 
 from glyphsieve import __version__
+from glyphsieve.cli.clean import clean
+from glyphsieve.cli.dedup import dedup
+from glyphsieve.cli.enrich import enrich
+from glyphsieve.cli.normalize import normalize
+from glyphsieve.cli.pipeline import pipeline
+from glyphsieve.cli.report import report
+from glyphsieve.cli.score import score
+from glyphsieve.cli.tag import tag
 
 # Initialize rich console for formatted output
 console = Console()
+
 
 @click.group()
 @click.version_option(version=__version__)
@@ -19,15 +29,6 @@ def main():
     """
     pass
 
-# Import subcommands
-from glyphsieve.cli.clean import clean
-from glyphsieve.cli.normalize import normalize
-from glyphsieve.cli.score import score
-from glyphsieve.cli.enrich import enrich
-from glyphsieve.cli.dedup import dedup
-from glyphsieve.cli.pipeline import pipeline
-from glyphsieve.cli.report import report
-from glyphsieve.cli.tag import tag
 
 # Add subcommands to the main group
 main.add_command(clean)

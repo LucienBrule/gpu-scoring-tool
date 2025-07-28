@@ -3,7 +3,9 @@ Clean subcommand for glyphsieve CLI.
 
 This module provides a CLI command for cleaning CSV headers.
 """
+
 import os
+
 import click
 from rich.console import Console
 from rich.table import Table
@@ -12,6 +14,7 @@ from glyphsieve.core.cleaning import clean_csv_headers
 
 # Initialize rich console for formatted output
 console = Console()
+
 
 @click.command()
 @click.option("--input", "-i", required=True, help="Path to CSV file to clean")
@@ -52,5 +55,5 @@ def clean(input, output, dry_run):
             console.print(f"[green]Success:[/green] Cleaned CSV written to '{output_path}'")
 
     except Exception as e:
-        console.print(f"[bold red]Error:[/bold red] {str(e)}")
+        console.print(f"[bold red]Error:[/bold red] {e!s}")
         raise
