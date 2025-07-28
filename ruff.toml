@@ -21,7 +21,9 @@ ignore = [
     "PLR0912",
     "PLR0913",
     "E402",
-    "RUF012"
+    "RUF012",
+    "PLC0415",
+    "PLR2004"
 ]
 
 [format]

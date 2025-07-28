@@ -10,9 +10,8 @@ import pandas as pd
 import pytest
 from pathlib import Path
 
+from glyphsieve.models.heuristic import HeuristicConfig, QuantizationHeuristicConfig
 from glyphsieve.core.heuristics import (
-    HeuristicConfig,
-    QuantizationHeuristicConfig,
     Heuristic,
     QuantizationHeuristic,
     load_heuristic_config,

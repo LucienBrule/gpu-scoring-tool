@@ -1,15 +1,18 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "GlyphD API",
-    "description": "API for GPU scoring and market analysis",
+    "title": "Glyphd: GPU Market API",
+    "description": "API service exposing enriched GPU listings, model metadata, scoring reports, and insight overlays from the glyphsieve pipeline.",
     "version": "0.1.0"
   },
   "paths": {
     "/api/health": {
       "get": {
+        "tags": [
+          "Health"
+        ],
         "summary": "Health Check",
-        "description": "Health check endpoint.\nReturns a simple status message to indicate the API is running.\n\nReturns:\n    dict: A simple status message.",
+        "description": "Simple health check endpoint to verify API is running",
         "operationId": "health_check_api_health_get",
         "responses": {
           "200": {
@@ -26,10 +29,10 @@
     "/api/listings": {
       "get": {
         "tags": [
-          "GPU Data"
+          "Listings"
         ],
-        "summary": "Get Listings",
-        "description": "Get all GPU listings with optional filtering.\n\nArgs:\n    model: Optional filter by exact model name\n    quantized: Optional filter by quantization capability\n    listings: List of GPU listings from dependency injection\n\nReturns:\n    List[GPUListingDTO]: A list of GPU listings.",
+        "summary": "Get GPU Listings",
+        "description": "Retrieve all GPU listings with optional filtering by model and quantization capability",
         "operationId": "get_listings_api_listings_get",
         "parameters": [
           {
@@ -100,10 +103,10 @@
     "/api/models": {
       "get": {
         "tags": [
-          "GPU Data"
+          "Models"
         ],
-        "summary": "Get Models",
-        "description": "Get all GPU model metadata.\n\nArgs:\n    models: List of GPU models from dependency injection\n\nReturns:\n    List[GPUModelDTO]: A list of GPU models with their metadata.",
+        "summary": "Get GPU Models",
+        "description": "Retrieve all GPU model metadata including specifications and market data",
         "operationId": "get_models_api_models_get",
         "responses": {
           "200": {
@@ -126,10 +129,10 @@
     "/api/report": {
       "get": {
         "tags": [
-          "Reports"
+          "Report"
         ],
-        "summary": "Get Report",
-        "description": "Get the latest GPU market insight report.\n\nArgs:\n    report: The insight report from dependency injection\n\nReturns:\n    ReportDTO: The market insight report with markdown content and structured data.",
+        "summary": "Get Market Insight Report",
+        "description": "Retrieve the latest GPU market insight report with summary statistics and scoring weights",
         "operationId": "get_report_api_report_get",
         "responses": {
           "200": {

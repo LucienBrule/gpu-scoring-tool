@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * GlyphD API
- * API for GPU scoring and market analysis
+ * Glyphd: GPU Market API
+ * API service exposing enriched GPU listings, model metadata, scoring reports, and insight overlays from the glyphsieve pipeline.
  *
  * The version of the OpenAPI document: 0.1.0
  * 
@@ -18,10 +18,10 @@ import * as runtime from '../runtime';
 /**
  * 
  */
-export class DefaultApi extends runtime.BaseAPI {
+export class HealthApi extends runtime.BaseAPI {
 
     /**
-     * Health check endpoint. Returns a simple status message to indicate the API is running.  Returns:     dict: A simple status message.
+     * Simple health check endpoint to verify API is running
      * Health Check
      */
     async healthCheckApiHealthGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
@@ -47,7 +47,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Health check endpoint. Returns a simple status message to indicate the API is running.  Returns:     dict: A simple status message.
+     * Simple health check endpoint to verify API is running
      * Health Check
      */
     async healthCheckApiHealthGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {

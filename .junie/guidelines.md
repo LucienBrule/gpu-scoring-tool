@@ -381,3 +381,66 @@ Junie may eventually help wire up persistence (e.g., SQLite or Postgres) to stor
 - Ingestion should be CLI-driven (e.g., `glyphsieve ingest-csv`)
 - All write paths must be explicitly logged and tested
 - Database integration must be optional and configured via env or CLI flags
+
+## 🧹 Linter Rules & Architecture Compliance
+
+Junie enforces structural and architectural rules through custom lint policies (GLS001–GLS005). These rules are not style suggestions — they reflect key architectural decisions and help enforce design continuity across modules and contributors.
+
+---
+
+### GLS001 — Path-Based Resource Access
+
+- Avoid `Path(__file__)`, `os.path.dirname`, and related filesystem access patterns.
+- Use the `YamlLoader` or resource broker to access any internal project data.
+- Reason: This ensures all resources are accessed in a packaging-safe, distribution-ready way and avoids runtime path hacks.
+
+---
+
+### GLS002 — Untyped Dict Returns in `load_*` Functions
+
+- All `load_*` functions must return either a `BaseModel` or a collection of DTOs (`List[DTO]`, `Dict[str, DTO]`).
+- Returning `Dict[str, Any]` or `Dict[str, List[str]]` is not allowed.
+- Reason: Return types are API contracts. Using typed DTOs enforces schema clarity and improves downstream correctness and introspection.
+
+---
+
+### GLS003 — Model Placement
+
+- All Pydantic models must live in a file path containing `/models/`.
+- Do not define DTOs inside core logic files or CLI scripts.
+- Reason: Keeping models centralized preserves clarity, improves reuse, and simplifies lint enforcement.
+
+---
+
+### GLS004 — Import Discipline
+
+- Do not import from `glyphsieve.resources` directly.
+- Always use a loader or broker function to access resource files.
+- Reason: Prevents accidental bypass of versioned, typed access paths and avoids coupling to raw files.
+
+---
+
+### GLS005 — Filesystem Resource Path Violations
+
+- Never hardcode `Path("glyphsieve/resources/...")` or similar.
+- Instead, use the `YamlLoader().load(...)` method with the appropriate model and filename.
+- Reason: Filesystem paths are brittle and violate the abstraction boundary provided by the resource broker.
+
+---
+
+### Lessons from Lint Compliance Pass
+
+- Changing return types requires coordinated updates to all consumers and associated tests.
+- Schema upgrades should be documented and discussed — downstream expectations often assume legacy behavior.
+- Tests must not assume internal structure of DTOs unless explicitly documented.
+- Linter violations often reflect *real structural drift* — Junie must treat them as design failures, not just formatting errors.
+
+---
+
+### Future Suggestions
+
+- Add examples of compliant resource access patterns in `.junie/guidelines.md`.
+- Document best practices for upgrading legacy `load_*` functions with minimal test breakage.
+- Add version tags or changelogs to DTOs when their return shape changes.
+
+These practices are not optional. Junie is expected to enforce and extend them as the architecture evolves.

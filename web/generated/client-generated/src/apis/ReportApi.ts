@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * GlyphD API
- * API for GPU scoring and market analysis
+ * Glyphd: GPU Market API
+ * API service exposing enriched GPU listings, model metadata, scoring reports, and insight overlays from the glyphsieve pipeline.
  *
  * The version of the OpenAPI document: 0.1.0
  * 
@@ -25,11 +25,11 @@ import {
 /**
  * 
  */
-export class ReportsApi extends runtime.BaseAPI {
+export class ReportApi extends runtime.BaseAPI {
 
     /**
-     * Get the latest GPU market insight report.  Args:     report: The insight report from dependency injection  Returns:     ReportDTO: The market insight report with markdown content and structured data.
-     * Get Report
+     * Retrieve the latest GPU market insight report with summary statistics and scoring weights
+     * Get Market Insight Report
      */
     async getReportApiReportGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReportDTO>> {
         const queryParameters: any = {};
@@ -50,8 +50,8 @@ export class ReportsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get the latest GPU market insight report.  Args:     report: The insight report from dependency injection  Returns:     ReportDTO: The market insight report with markdown content and structured data.
-     * Get Report
+     * Retrieve the latest GPU market insight report with summary statistics and scoring weights
+     * Get Market Insight Report
      */
     async getReportApiReportGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReportDTO> {
         const response = await this.getReportApiReportGetRaw(initOverrides);

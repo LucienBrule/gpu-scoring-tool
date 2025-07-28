@@ -13,7 +13,11 @@ from typing import List, Optional
 from fastapi import Depends
 
 from glyphd.api.models import GPUListingDTO, GPUModelDTO, ReportDTO
-from glyphd.core.loader import load_gpu_model_metadata, load_insight_report, load_scored_listings
+from glyphd.core.loader import (
+    load_gpu_model_metadata,
+    load_insight_report,
+    load_scored_listings,
+)
 
 # Set up logging
 logger = logging.getLogger(__name__)

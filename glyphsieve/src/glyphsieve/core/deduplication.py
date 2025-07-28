@@ -94,8 +94,8 @@ def _check_price_duplicate(df: pd.DataFrame, i: int, j: int, price_epsilon: floa
     if (
         pd.isna(price_i)
         or pd.isna(price_j)
-        or not isinstance(price_i, (int, float))
-        or not isinstance(price_j, (int, float))
+        or not isinstance(price_i, int | float)
+        or not isinstance(price_j, int | float)
     ):
         return False
 

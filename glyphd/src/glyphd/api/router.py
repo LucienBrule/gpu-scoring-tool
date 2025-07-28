@@ -7,7 +7,11 @@ from typing import List, Optional
 from fastapi import APIRouter, Depends, FastAPI, HTTPException, Query, status
 
 from glyphd.api.models import GPUListingDTO, GPUModelDTO, ReportDTO
-from glyphd.core.dependencies import get_gpu_listings, get_gpu_models, get_insight_report
+from glyphd.core.dependencies import (
+    get_gpu_listings,
+    get_gpu_models,
+    get_insight_report,
+)
 
 # Create the API router
 router = APIRouter(prefix="/api")

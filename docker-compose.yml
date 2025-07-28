@@ -1,19 +1,25 @@
 services:
   glyphd:
-    build: ./glyphd
+    container_name: glyphd
+    hostname: glyphd
+    build:
+      context: .
+      dockerfile: ./glyphd/Dockerfile
     ports:
-      - "8000:8000"
+      - "8080:8080"
     volumes:  # Mount local code for live reload support
       - ./glyphd:/app
     environment:
       - PYTHONUNBUFFERED=1
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/health"]
       interval: 10s
       timeout: 5s
       retries: 5
 
   controlpanel:
+    container_name: controlpanel
+    hostname: controlpanel
     build:
       context: ./web
       dockerfile: ./apps/controlpanel/Dockerfile
@@ -21,10 +27,16 @@ services:
       - "3000:3000"
     volumes:  # Mount local code for live reload support
       - ./web:/app
+      - controlpanel_node_modules:/app/node_modules
+    environment:
+      - GLYPHD_HOST=http://glyphd:8080
     depends_on:
       - glyphd
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/internal-api/health"]
       interval: 10s
       timeout: 5s
       retries: 5
+
+volumes:
+  controlpanel_node_modules:

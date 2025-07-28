@@ -11,17 +11,20 @@ import pytest
 from pathlib import Path
 
 from glyphsieve.core.enrichment import load_gpu_specs, enrich_csv
-from glyphsieve.models.gpu import GPUMetadata
+from glyphsieve.models.gpu import GPUMetadata, GPURegistry
 
 
 def test_load_gpu_specs():
     """Test loading GPU specifications from the default YAML file."""
     # Load the specs from the default file
-    gpu_specs = load_gpu_specs()
+    gpu_registry = load_gpu_specs()
     
-    # Check that we got a dictionary of GPUMetadata objects
-    assert isinstance(gpu_specs, dict)
-    assert len(gpu_specs) > 0
+    # Check that we got a GPURegistry object
+    assert isinstance(gpu_registry, GPURegistry)
+    assert len(gpu_registry.gpus) > 0
+    
+    # Convert to dictionary for easier testing
+    gpu_specs = {gpu.canonical_model: gpu for gpu in gpu_registry.gpus}
     
     # Check that the keys are canonical model names and values are GPUMetadata objects
     for model_name, gpu in gpu_specs.items():
@@ -58,10 +61,15 @@ gpus:
     
     try:
         # Load the specs from the custom file
-        gpu_specs = load_gpu_specs(temp_file)
+        gpu_registry = load_gpu_specs(temp_file)
         
-        # Check that we got the expected data
-        assert len(gpu_specs) == 1
+        # Check that we got a GPURegistry object with the expected data
+        assert isinstance(gpu_registry, GPURegistry)
+        assert len(gpu_registry.gpus) == 1
+        
+        # Convert to dictionary for easier testing
+        gpu_specs = {gpu.canonical_model: gpu for gpu in gpu_registry.gpus}
+        
         assert "TEST_GPU" in gpu_specs
         
         test_gpu = gpu_specs["TEST_GPU"]

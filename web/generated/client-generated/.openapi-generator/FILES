@@ -3,9 +3,10 @@
 .openapi-generator-ignore
 README.md
 package.json
-src/apis/DefaultApi.ts
-src/apis/GPUDataApi.ts
-src/apis/ReportsApi.ts
+src/apis/HealthApi.ts
+src/apis/ListingsApi.ts
+src/apis/ModelsApi.ts
+src/apis/ReportApi.ts
 src/apis/index.ts
 src/index.ts
 src/models/GPUListingDTO.ts

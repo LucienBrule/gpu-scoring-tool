@@ -6,15 +6,15 @@ This module provides functions for enriching normalized GPU listings with metada
 
 import os
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Optional
 
 import pandas as pd
-import yaml
 
-from glyphsieve.models.gpu import GPUMetadata, GPURegistry
+from glyphsieve.core.resources.yaml_loader import YamlLoader
+from glyphsieve.models.gpu import GPURegistry
 
 
-def load_gpu_specs(specs_file: Optional[str] = None) -> Dict[str, GPUMetadata]:
+def load_gpu_specs(specs_file: Optional[str] = None) -> GPURegistry:
     """
     Load GPU specifications from a YAML file.
 
@@ -23,27 +23,19 @@ def load_gpu_specs(specs_file: Optional[str] = None) -> Dict[str, GPUMetadata]:
             If None, uses the default file in the package resources.
 
     Returns:
-        Dict[str, GPUMetadata]: Dictionary of GPU metadata indexed by canonical model name
+        GPURegistry: Registry of GPU metadata
 
     Raises:
         FileNotFoundError: If the specs file does not exist
         ValueError: If the specs file is invalid
     """
-    if specs_file is None:
-        # Use the default specs file in the package resources
-        specs_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), "resources", "gpu_specs.yaml")
-
-    if not os.path.exists(specs_file):
-        raise FileNotFoundError(f"GPU specs file not found: {specs_file}")
-
     try:
-        with open(specs_file, "r") as f:
-            specs_data = yaml.safe_load(f)
-
-        # Validate the data using Pydantic
-        registry = GPURegistry(**specs_data)
-        return registry.to_dict()
-
+        loader = YamlLoader()
+        resource_name = specs_file or "gpu_specs.yaml"
+        return loader.load(GPURegistry, resource_name)
+    except FileNotFoundError as e:
+        # Re-raise FileNotFoundError to maintain the original behavior
+        raise FileNotFoundError(f"GPU specs file not found: {specs_file}") from e
     except Exception as e:
         raise ValueError(f"Invalid GPU specs file: {e!s}")
 
@@ -75,7 +67,9 @@ def enrich_csv(input_file: str | Path, output_file: str | Path, specs_file: Opti
         raise ValueError("Input CSV must contain a 'canonical_model' column")
 
     # Load GPU specifications
-    gpu_specs = load_gpu_specs(specs_file)
+    gpu_registry = load_gpu_specs(specs_file)
+    # Convert the registry to a dictionary for easier lookup
+    gpu_specs = {gpu.canonical_model: gpu for gpu in gpu_registry.gpus}
 
     # Add metadata columns with default values
     df["vram_gb"] = None

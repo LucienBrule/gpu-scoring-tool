@@ -11,35 +11,9 @@ from pathlib import Path
 from typing import Any, Dict, Optional
 
 import pandas as pd
-import yaml
-from pydantic import BaseModel, Field
 
-
-class HeuristicConfig(BaseModel):
-    """
-    Base class for heuristic configuration.
-
-    This class should be extended by specific heuristic configurations.
-    """
-
-    pass
-
-
-class QuantizationHeuristicConfig(HeuristicConfig):
-    """
-    Configuration for the quantization capability heuristic.
-
-    This model defines the thresholds for classifying a GPU as quantization-capable.
-    """
-
-    min_vram_gb: int = Field(24, description="Minimum VRAM capacity in GB")
-    max_tdp_watts: int = Field(300, description="Maximum Thermal Design Power in watts")
-    min_mig_support: int = Field(1, description="Minimum MIG support level (0=none, 1-7=supported)")
-
-    class Config:
-        """Pydantic model configuration."""
-
-        schema_extra = {"example": {"min_vram_gb": 24, "max_tdp_watts": 300, "min_mig_support": 1}}
+from glyphsieve.core.resources.yaml_loader import YamlLoader
+from glyphsieve.models.heuristic import QuantizationHeuristicConfig
 
 
 class Heuristic(ABC):
@@ -89,24 +63,14 @@ class QuantizationHeuristic(Heuristic):
             QuantizationHeuristicConfig: The default configuration
 
         Raises:
-            FileNotFoundError: If the configuration file does not exist
             ValueError: If the configuration file is invalid
         """
-        config_file = os.path.join(
-            os.path.dirname(os.path.dirname(__file__)), "resources", "quantization_heuristic.yaml"
-        )
-
-        if not os.path.exists(config_file):
+        try:
+            loader = YamlLoader()
+            return loader.load(QuantizationHeuristicConfig, "quantization_heuristic.yaml")
+        except FileNotFoundError:
             # If the file doesn't exist, return the default configuration
             return QuantizationHeuristicConfig()
-
-        try:
-            with open(config_file, "r") as f:
-                config_data = yaml.safe_load(f)
-
-            # Validate the data using Pydantic
-            return QuantizationHeuristicConfig(**config_data)
-
         except Exception as e:
             raise ValueError(f"Invalid configuration file: {e!s}")
 
@@ -155,26 +119,15 @@ def load_heuristic_config(config_file: Optional[str] = None) -> QuantizationHeur
         QuantizationHeuristicConfig: The loaded configuration
 
     Raises:
-        FileNotFoundError: If the configuration file does not exist
         ValueError: If the configuration file is invalid
     """
-    if config_file is None:
-        # Use the default configuration file in the package resources
-        config_file = os.path.join(
-            os.path.dirname(os.path.dirname(__file__)), "resources", "quantization_heuristic.yaml"
-        )
-
-    if not os.path.exists(config_file):
+    try:
+        loader = YamlLoader()
+        resource_name = config_file or "quantization_heuristic.yaml"
+        return loader.load(QuantizationHeuristicConfig, resource_name)
+    except FileNotFoundError:
         # If the file doesn't exist, return the default configuration
         return QuantizationHeuristicConfig()
-
-    try:
-        with open(config_file, "r") as f:
-            config_data = yaml.safe_load(f)
-
-        # Validate the data using Pydantic
-        return QuantizationHeuristicConfig(**config_data)
-
     except Exception as e:
         raise ValueError(f"Invalid configuration file: {e!s}")
 

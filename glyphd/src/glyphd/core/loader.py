@@ -11,10 +11,12 @@ import logging
 from pathlib import Path
 from typing import List
 
-import yaml
 from pydantic import ValidationError
 
 from glyphd.api.models import GPUListingDTO, GPUModelDTO, ReportDTO
+from glyphsieve.core.resources.yaml_loader import YamlLoader
+from glyphsieve.models.gpu import GPURegistry
+from glyphsieve.models.scoring_weights import ScoringWeights
 
 # Set up logging
 logger = logging.getLogger(__name__)
@@ -85,28 +87,29 @@ def load_gpu_model_metadata(path: Path) -> List[GPUModelDTO]:
         raise FileNotFoundError(f"File not found: {path}")
 
     # Also load GPU specs from YAML if available
-    specs_path = Path("glyphsieve/src/glyphsieve/resources/gpu_specs.yaml")
     gpu_specs = {}
-    if specs_path.exists():
-        try:
-            with open(specs_path, "r") as f:
-                specs_data = yaml.safe_load(f)
-                for gpu in specs_data.get("gpus", []):
-                    canonical_model = gpu.get("canonical_model")
-                    if canonical_model:
-                        gpu_specs[canonical_model] = {
-                            "vram_gb": gpu.get("vram_gb"),
-                            "tdp_watts": gpu.get("tdp_watts"),
-                            "mig_support": gpu.get("mig_support"),
-                            "nvlink": gpu.get("nvlink"),
-                            "generation": gpu.get("generation"),
-                            "cuda_cores": gpu.get("cuda_cores"),
-                            "slot_width": gpu.get("slot_width"),
-                            "pcie_generation": gpu.get("pcie_generation"),
-                        }
-            logger.info(f"Loaded specs for {len(gpu_specs)} GPU models from {specs_path}")
-        except Exception as e:
-            logger.warning(f"Error loading GPU specs: {e}. Will continue with market data only.")
+    try:
+        # Use YamlLoader to load GPU specs
+        loader = YamlLoader()
+        gpu_registry = loader.load(GPURegistry, "gpu_specs.yaml")
+
+        # Convert the registry to a dictionary for easier lookup
+        for gpu in gpu_registry.gpus:
+            canonical_model = gpu.canonical_model
+            if canonical_model:
+                gpu_specs[canonical_model] = {
+                    "vram_gb": gpu.vram_gb,
+                    "tdp_watts": gpu.tdp_watts,
+                    "mig_support": gpu.mig_support,
+                    "nvlink": gpu.nvlink,
+                    "generation": gpu.generation,
+                    "cuda_cores": gpu.cuda_cores,
+                    "slot_width": gpu.slot_width,
+                    "pcie_generation": gpu.pcie_generation,
+                }
+        logger.info(f"Loaded specs for {len(gpu_specs)} GPU models using YamlLoader")
+    except Exception as e:
+        logger.warning(f"Error loading GPU specs: {e}. Will continue with market data only.")
 
     models = []
     try:
@@ -206,7 +209,6 @@ def load_insight_report(path: Path) -> ReportDTO:
                 break
 
         # Load scoring weights
-        weights_path = Path("glyphsieve/resources/scoring_weights.yaml")
         scoring_weights = {
             "vram_weight": 0.0,
             "mig_weight": 0.0,
@@ -215,20 +217,20 @@ def load_insight_report(path: Path) -> ReportDTO:
             "price_weight": 0.0,
         }
 
-        if weights_path.exists():
-            try:
-                with open(weights_path, "r") as f:
-                    weights_data = yaml.safe_load(f)
-                    scoring_weights = {
-                        "vram_weight": weights_data.get("vram_weight", 0.0),
-                        "mig_weight": weights_data.get("mig_weight", 0.0),
-                        "nvlink_weight": weights_data.get("nvlink_weight", 0.0),
-                        "tdp_weight": weights_data.get("tdp_weight", 0.0),
-                        "price_weight": weights_data.get("price_weight", 0.0),
-                    }
-                logger.info(f"Loaded scoring weights from {weights_path}")
-            except Exception as e:
-                logger.warning(f"Error loading scoring weights: {e}. Using defaults.")
+        try:
+            # Use YamlLoader to load scoring weights
+            loader = YamlLoader()
+            weights = loader.load(ScoringWeights, "scoring_weights.yaml")
+            scoring_weights = {
+                "vram_weight": weights.vram_weight,
+                "mig_weight": weights.mig_weight,
+                "nvlink_weight": weights.nvlink_weight,
+                "tdp_weight": weights.tdp_weight,
+                "price_weight": weights.price_weight,
+            }
+            logger.info("Loaded scoring weights using YamlLoader")
+        except Exception as e:
+            logger.warning(f"Error loading scoring weights: {e}. Using defaults.")
 
         # Create report DTO
         report = ReportDTO(
