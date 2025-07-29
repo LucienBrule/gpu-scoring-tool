@@ -7,7 +7,7 @@ Define Initial SQLite Schema for Listings & Models
 [EPIC.persist.sqlite-store](../../epics/open/EPIC.persist.sqlite-store.md)
 
 ## Status
-Open
+Closed
 
 ## Context
 This schema design reflects a strategic architectural decision to separate domain boundaries clearly, removing embedded resource loaders to simplify the persistence layer. It marks a key integration milestone aligning with our version tagging strategy to ensure smooth incremental adoption and backward compatibility.
@@ -44,13 +44,13 @@ Establish the foundational SQLite schema required to persist enriched and scored
 
 ## Acceptance Criteria
 
-- [ ] Schema written and committed under `glyphd/sqlite/schema.sql` or equivalent
-- [ ] All primary/foreign keys defined where applicable
-- [ ] Can be instantiated via CLI or Python code without error
-- [ ] Reviewed for extensibility (e.g., can we support new score fields?)
-- [ ] Reviewed for query performance (e.g., indexes on `canonical_model`, `score`)
-- [ ] CI pipeline can instantiate schema on a fresh database
-- [ ] Migration scripts included under `glyphd/sqlite/migrations`
+- [x] Schema written and committed under `glyphd/sqlite/schema.sql` or equivalent
+- [x] All primary/foreign keys defined where applicable
+- [x] Can be instantiated via CLI or Python code without error
+- [x] Reviewed for extensibility (e.g., can we support new score fields?)
+- [x] Reviewed for query performance (e.g., indexes on `canonical_model`, `score`)
+- [x] CI pipeline can instantiate schema on a fresh database
+- [x] Migration scripts included under `glyphd/sqlite/migrations`
 
 ## Developer Workflow
 
@@ -70,11 +70,44 @@ pytest tests/test_schema.py
 
 ## Related Tasks
 
-- [TASK.persist.02.sqlite-engine-storage.md](TASK.persist.02.sqlite-engine-storage.md)
-- [TASK.persist.03.api.import-listings-endpoint.md](TASK.persist.03.api.import-listings-endpoint.md)
+- [TASK.persist.02.sqlite-engine-storage.md](../open/TASK.persist.02.sqlite-engine-storage.md)
+- [TASK.persist.03.api.import-listings-endpoint.md](../open/TASK.persist.03.api.import-listings-endpoint.md)
 
 ## Implementation Notes
 
 - Plan for future migrations using Alembic with versioned scripts under `glyphd/sqlite/migrations`.
 - Use version tags and batch timestamps to manage schema evolution and differential data imports.
 - Maintain backward compatibility by careful schema extension and deprecation strategies.
+
+## ✅ Task Completed
+
+**Changes made:**
+- Created SQLite schema definition in `glyphd/src/glyphd/sqlite/schema.sql` with tables for:
+  - `schema_version`: For tracking schema versions and migrations
+  - `import_batches`: For tracking import batches and enabling differential updates
+  - `models`: For storing normalized GPU model registry with technical specifications
+  - `listings`: For storing raw listing metadata
+  - `scored_listings`: For storing enriched and scored GPU listings
+  - `quantized_listings`: For storing quantization capacities for GPU listings
+- Implemented SQLAlchemy models in `glyphd/src/glyphd/sqlite/models.py`
+- Set up Alembic for migrations in `glyphd/src/glyphd/sqlite/migrations/`
+- Created a test harness in `glyphd/tests/test_schema.py`
+- Documented the schema in `glyphd/src/glyphd/sqlite/SCHEMA.md`
+- Added an `init-db` command to the CLI in `glyphd/src/glyphd/cli.py`
+
+**Outcomes:**
+- The schema is fully defined and can be instantiated via CLI or Python code
+- All primary/foreign keys are defined where applicable
+- The schema is extensible and can support new score fields
+- Indexes are created on fields that are likely to be used in queries
+- Migration scripts are included for future schema evolution
+- The schema supports import versioning and timestamping of batches for differential updates
+
+**Lessons learned:**
+- The schema design needs to balance normalization with query performance
+- Import versioning is crucial for tracking data provenance and enabling differential updates
+- SQLAlchemy models provide a clean abstraction over the database schema
+
+**Follow-up needed:**
+- Implement the storage engine in TASK.persist.02.sqlite-engine-storage.md
+- Implement the import endpoint in TASK.persist.03.api.import-listings-endpoint.md

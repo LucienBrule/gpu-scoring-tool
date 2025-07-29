@@ -444,3 +444,35 @@ Junie enforces structural and architectural rules through custom lint policies (
 - Add version tags or changelogs to DTOs when their return shape changes.
 
 These practices are not optional. Junie is expected to enforce and extend them as the architecture evolves.
+---
+
+## 🧱 Database Modeling Guidelines
+
+The GPU Scoring Tool uses SQLite as the backing store for persistence, with schema defined manually in `schema.sql`.
+
+Junie must follow these modeling preferences:
+
+### General Principles
+
+- Schema-first design: The SQLite schema in `schema.sql` is the single source of truth.
+- Pydantic-first DTOs: All data models must be defined using Pydantic V2 with `BaseModel`.
+- ORM-less: No usage of SQLAlchemy ORM or other ORM systems is allowed.
+- Use SQLAlchemy **Core** only (or raw SQL when appropriate).
+- Avoid Active Record patterns. Model classes should be pure data representations.
+- All timestamps must be in **ISO 8601** format. Use `datetime.utcnow().isoformat()` consistently.
+- Table access should go through explicitly defined query modules (e.g. `listing_queries.py`) to keep logic modular.
+
+### Triggers and Timestamps
+
+- `created_at` and `updated_at` should be handled at the DB layer using `DEFAULT CURRENT_TIMESTAMP` and triggers.
+- Application code must not manually manage these unless necessary.
+
+### Import Tracking
+
+- All persisted rows must reference an `import_id` from `import_batches`.
+- No writes should occur outside the context of a tracked import unless explicitly stated.
+
+### Additional Notes
+
+- Junie is not permitted to run interactive tools such as the `sqlite3` shell.
+- Tests must use in-memory or tempdir-based SQLite databases to ensure stateless test isolation.

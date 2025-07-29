@@ -41,6 +41,9 @@ Implement a modular, injectable SQLite-backed storage engine that conforms to th
 - Integration with mock data via CLI or task harness.
 - Compatible with FastAPI dependency injection in future tasks.
 
+- All new code must pass linting: `ruff check`, `flake8`, `black`, and `isort`.
+- If unsure, run the full lint compliance sweep via `.junie/status/lint_compliance_reflection.md` runbook.
+
 ## Developer Experience
 - Can be run from CLI or directly imported.
 - Play nicely with `ExecutionContext`.

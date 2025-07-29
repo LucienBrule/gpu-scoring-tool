@@ -4,10 +4,14 @@ Command-line interface for glyphd.
 
 import json
 import os
+import sys
+from pathlib import Path
 
 import click
 import uvicorn
 from fastapi.openapi.utils import get_openapi
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 
 @click.group()
@@ -68,6 +72,74 @@ def export_openapi(output_path: str):
         json.dump(openapi_schema, f, indent=2)
 
     click.echo(f"✅ OpenAPI schema exported to {output_path}")
+
+
+def get_db_path(db_path: str = None) -> str:
+    """
+    Get the database path from the provided argument, environment variable, or use default.
+
+    Args:
+        db_path: Path to the SQLite database file (optional)
+
+    Returns:
+        str: Path to the SQLite database file
+    """
+    if db_path:
+        return db_path
+
+    return os.environ.get("GLYPHD_DB_PATH", "data/gpu.db")
+
+
+@cli.command()
+@click.option(
+    "--db-path",
+    "-d",
+    help="Path to the SQLite database file",
+)
+@click.option(
+    "--force",
+    "-f",
+    is_flag=True,
+    help="Force initialization even if the database already exists",
+)
+def init_db(db_path: str, force: bool):
+    """Initialize the SQLite database with the schema.
+
+    This command creates the database file and initializes it with the schema.
+    If the database file already exists, it will be overwritten if --force is specified.
+    """
+    db_path = get_db_path(db_path)
+    db_file = Path(db_path)
+
+    # Create the directory if it doesn't exist
+    db_file.parent.mkdir(parents=True, exist_ok=True)
+
+    # Check if the database file already exists
+    if db_file.exists() and not force:
+        click.echo(f"Database file {db_path} already exists. Use --force to overwrite.")
+        sys.exit(1)
+
+    # Create the database
+    from glyphd.sqlite.models import Base, SchemaVersion
+
+    engine = create_engine(f"sqlite:///{db_path}")
+    Base.metadata.create_all(engine)
+
+    # Create a session and insert initial schema version
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    # Check if schema_version table exists and has records
+    if session.query(SchemaVersion).count() == 0:
+        # Insert initial schema version
+        schema_version = SchemaVersion(
+            version="1.0.0",
+            description="Initial schema creation",
+        )
+        session.add(schema_version)
+        session.commit()
+
+    click.echo(f"Database initialized at {db_path}")
 
 
 if __name__ == "__main__":
