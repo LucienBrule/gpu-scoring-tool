@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Glyphd: GPU Market API",
-    "description": "API service exposing enriched GPU listings, model metadata, scoring reports, and insight overlays from the glyphsieve pipeline.",
+    "description": "API service exposing enriched GPU listingsmodel metadata, scoring reports, and insight overlays from the glyphsieve pipeline.",
     "version": "0.1.0"
   },
   "paths": {
@@ -19,7 +19,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/HealthStatus"
+                }
               }
             }
           }
@@ -103,6 +105,7 @@
     "/api/models": {
       "get": {
         "tags": [
+          "Models",
           "Models"
         ],
         "summary": "Get GPU Models",
@@ -380,6 +383,19 @@
         },
         "type": "object",
         "title": "HTTPValidationError"
+      },
+      "HealthStatus": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "HealthStatus"
       },
       "ReportDTO": {
         "properties": {

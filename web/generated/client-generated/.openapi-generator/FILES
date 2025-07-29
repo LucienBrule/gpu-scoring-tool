@@ -12,6 +12,7 @@ src/index.ts
 src/models/GPUListingDTO.ts
 src/models/GPUModelDTO.ts
 src/models/HTTPValidationError.ts
+src/models/HealthStatus.ts
 src/models/ReportDTO.ts
 src/models/ValidationError.ts
 src/models/ValidationErrorLocInner.ts

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Glyphd: GPU Market API
- * API service exposing enriched GPU listings, model metadata, scoring reports, and insight overlays from the glyphsieve pipeline.
+ * API service exposing enriched GPU listingsmodel metadata, scoring reports, and insight overlays from the glyphsieve pipeline.
  *
  * The version of the OpenAPI document: 0.1.0
  * 
@@ -55,6 +55,37 @@ export class ModelsApi extends runtime.BaseAPI {
      */
     async getModelsApiModelsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GPUModelDTO>> {
         const response = await this.getModelsApiModelsGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve all GPU model metadata including specifications and market data
+     * Get GPU Models
+     */
+    async getModelsApiModelsGet_1Raw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GPUModelDTO>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/models`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(GPUModelDTOFromJSON));
+    }
+
+    /**
+     * Retrieve all GPU model metadata including specifications and market data
+     * Get GPU Models
+     */
+    async getModelsApiModelsGet_1(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GPUModelDTO>> {
+        const response = await this.getModelsApiModelsGet_1Raw(initOverrides);
         return await response.value();
     }
 

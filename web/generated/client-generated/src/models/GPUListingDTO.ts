@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Glyphd: GPU Market API
- * API service exposing enriched GPU listings, model metadata, scoring reports, and insight overlays from the glyphsieve pipeline.
+ * API service exposing enriched GPU listingsmodel metadata, scoring reports, and insight overlays from the glyphsieve pipeline.
  *
  * The version of the OpenAPI document: 0.1.0
  * 

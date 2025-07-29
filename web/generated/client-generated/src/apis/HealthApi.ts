@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Glyphd: GPU Market API
- * API service exposing enriched GPU listings, model metadata, scoring reports, and insight overlays from the glyphsieve pipeline.
+ * API service exposing enriched GPU listingsmodel metadata, scoring reports, and insight overlays from the glyphsieve pipeline.
  *
  * The version of the OpenAPI document: 0.1.0
  * 
@@ -14,6 +14,13 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  HealthStatus,
+} from '../models/index';
+import {
+    HealthStatusFromJSON,
+    HealthStatusToJSON,
+} from '../models/index';
 
 /**
  * 
@@ -24,7 +31,7 @@ export class HealthApi extends runtime.BaseAPI {
      * Simple health check endpoint to verify API is running
      * Health Check
      */
-    async healthCheckApiHealthGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+    async healthCheckApiHealthGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HealthStatus>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -39,18 +46,14 @@ export class HealthApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
+        return new runtime.JSONApiResponse(response, (jsonValue) => HealthStatusFromJSON(jsonValue));
     }
 
     /**
      * Simple health check endpoint to verify API is running
      * Health Check
      */
-    async healthCheckApiHealthGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+    async healthCheckApiHealthGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HealthStatus> {
         const response = await this.healthCheckApiHealthGetRaw(initOverrides);
         return await response.value();
     }
