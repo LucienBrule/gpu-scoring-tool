@@ -176,6 +176,16 @@ gpus:
     slot_width: 1
     pcie_generation: 4
 
+  - canonical_model: A100_PCIE_40GB
+    vram_gb: 40
+    tdp_watts: 250
+    mig_support: 7
+    nvlink: false
+    generation: Ampere
+    cuda_cores: 6912
+    slot_width: 2
+    pcie_generation: 4
+
   # Hopper Generation
   - canonical_model: H100_PCIE_80GB
     vram_gb: 80

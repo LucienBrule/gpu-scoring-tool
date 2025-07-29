@@ -1,5 +1,3 @@
-
-
 # TASK.registry.gpu-model-spec-schema.md
 
 ## Title
@@ -17,35 +15,59 @@ Introduce a canonical, structured registry of GPU model metadata to support norm
 ## Requirements
 
 1. **Schema Design**
-   - Define a schema (as a Pydantic model) for `GPUModelSpec` including:
-     - `name`: str — Canonical model name
-     - `vram_gb`: int
-     - `tdp_w`: int
-     - `slots`: int
-     - `mig_capable`: bool
-     - `form_factor`: Literal["SFF", "Dual", "Triple", "FullHeight", ...]
-     - `connectivity`: Optional[str] (e.g. PCIe 4.0, NVLink, SXM)
-     - `notes`: Optional[str]
-   - Use Pydantic v2 for all schema definitions
+   - Define `GPUModelSpec` as a Pydantic v2 model with fields:
+     - `name: str` — Canonical model name
+     - `vram_gb: int`
+     - `tdp_w: int`
+     - `slots: int`
+     - `mig_capable: bool`
+     - `form_factor: Literal["SFF", "Dual", "Triple", "FullHeight", ...]`
+     - `connectivity: Optional[str]` (e.g. PCIe 4.0, NVLink, SXM)
+     - `notes: Optional[str]`
+   - **Registry YAML file must live at** `glyphsieve/resources/gpu_models.yaml`
+   - **Access the YAML only via the `ResourceContext` loader**; direct `Path()` or file reads are disallowed (will be flagged by linter).
 
-2. **YAML Loading**
-   - Define a `GPUModelRegistry` container class that loads a set of YAML files and indexes them by canonical name
-   - Implement validation and helpful error messages if malformed or missing fields are encountered
-   - Add sample `gpu_models.yaml` file with ~10 sample entries to test loading
+2. **YAML Loading via ResourceContext**
+   - Implement `GPUModelRegistry` that uses `ResourceContext` to load `gpu_models.yaml` from `glyphsieve/resources/`
+   - Index entries by `name`, raising `RuntimeError` on missing or malformed fields with clear messages
+   - **Do not** use direct filesystem access
 
-3. **Integration**
-   - Implement CLI command `glyphsieve registry list` that prints the loaded registry as a formatted table
-   - This command should use the YAML registry, load it via Pydantic, and pretty-print using standard library tools (no external deps)
+   **Example YAML entry** in `glyphsieve/resources/gpu_models.yaml`:
+   ```yaml
+   - name: "NVIDIA RTX 6000 Ada"
+     vram_gb: 48
+     tdp_w: 300
+     slots: 2
+     mig_capable: true
+     form_factor: Dual
+     connectivity: PCIe 4.0
+   ```
 
-4. **Test Coverage**
-   - Add `test_registry.py` under `tests/` in `glyphsieve`
-   - Include:
-     - Registry loads correctly with valid input
-     - Fails gracefully with invalid YAML
-     - Canonical names are retrievable and accurate
+3. **CLI Integration**
+   - Add `@app.command("registry list")` in `glyphsieve.cli`
+   - On invocation, load registry via `GPUModelRegistry`
+   - **Print a tabular output** with columns:
+     ```
+     name               | vram_gb | mig_capable | tdp_w | slots | connectivity
+     -------------------|---------|-------------|-------|-------|--------------
+     NVIDIA RTX 6000 Ada| 48      | true        | 300   | 2     | PCIe 4.0
+     ```
+   - Use only stdlib formatting (e.g., `str.format` or `tabulate` from stdlib if available)
 
-5. **Guidelines Update**
-   - Update `guidelines.md` to include instruction for adding new entries to the GPU registry YAML
+4. **Test Coverage & DX Runbook**
+   - Create `glyphsieve/tests/test_registry.py` with:
+     - Valid load test using sample YAML
+     - Invalid YAML raises `RuntimeError` with expected message
+     - Registry lookup by name returns correct `GPUModelSpec`
+   - **DX Runbook**: After implementation, run:
+     ```bash
+     uv run black glyphsieve/src
+     uv run isort glyphsieve/src
+     uv run ruff glyphsieve/src
+     uv run flake8 glyphsieve/src
+     uv run pytest
+     ```
+   - All lint and test commands must finish with zero errors.
 
 ## Bonus
 - Add a method to return the closest matching GPU name in the registry (e.g., using Levenshtein distance)
@@ -55,5 +77,8 @@ Introduce a canonical, structured registry of GPU model metadata to support norm
 - All requirements implemented and committed
 - Tests pass via `uv run pytest`
 - Running `glyphsieve registry list` prints the expected table
-- Registry YAML lives in a durable place (e.g. `glyphsieve/registry/data/gpu_models.yaml`)
-- Bonus (if implemented) documented in a docstring or help message
+- `gpu_models.yaml` resides at `glyphsieve/resources/gpu_models.yaml`
+- `glyphsieve registry list` prints the table as specified
+- `ResourceContext` loader is used; no direct file access
+- Linting and tests pass without violations
+- Bonus alias/closest-match logic, if added, is documented and tested

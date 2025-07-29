@@ -2,7 +2,7 @@
 Tests for the enrichment module.
 
 This module contains tests for the enrichment functionality, including loading GPU specs
-and enriching CSV files with GPU metadata.
+and enriching GPU listings with metadata.
 """
 import os
 import tempfile
@@ -10,8 +10,8 @@ import pandas as pd
 import pytest
 from pathlib import Path
 
-from glyphsieve.core.enrichment import load_gpu_specs, enrich_csv
-from glyphsieve.models.gpu import GPUMetadata, GPURegistry
+from glyphsieve.core.enrichment import load_gpu_specs, enrich_csv, enrich_listings
+from glyphsieve.models.gpu import GPUMetadata, GPURegistry, GPUListingDTO, EnrichedGPUListingDTO
 
 
 def test_load_gpu_specs():
@@ -90,6 +90,93 @@ def test_load_gpu_specs_file_not_found():
         load_gpu_specs("non_existent_file.yaml")
 
 
+def test_enrich_listings():
+    """Test enriching GPU listings with metadata."""
+    # Create test listings
+    listings = [
+        GPUListingDTO(
+            title="NVIDIA RTX A6000 48GB",
+            price=4500.0,
+            canonical_model="RTX_A6000",
+            match_type="exact",
+            match_score=1.0
+        ),
+        GPUListingDTO(
+            title="NVIDIA RTX A5000 24GB",
+            price=2400.0,
+            canonical_model="RTX_A5000",
+            match_type="exact",
+            match_score=1.0
+        ),
+        GPUListingDTO(
+            title="Unknown GPU",
+            price=1000.0,
+            canonical_model="UNKNOWN_GPU",
+            match_type="none",
+            match_score=0.0
+        )
+    ]
+    
+    # Enrich the listings
+    enriched_listings = enrich_listings(listings)
+    
+    # Check that we got the expected number of enriched listings
+    assert len(enriched_listings) == 3
+    assert all(isinstance(listing, EnrichedGPUListingDTO) for listing in enriched_listings)
+    
+    # Check that the metadata is correctly added for known models
+    rtx_a6000 = next(l for l in enriched_listings if l.canonical_model == "RTX_A6000")
+    assert rtx_a6000.vram_gb == 48
+    assert rtx_a6000.tdp_w == 300
+    assert rtx_a6000.mig_capable == 0
+    assert rtx_a6000.nvlink is True
+    assert rtx_a6000.generation == "Ampere"
+    assert rtx_a6000.slots == 2
+    assert rtx_a6000.form_factor == "Dual-slot"
+    assert rtx_a6000.warnings is None
+    
+    rtx_a5000 = next(l for l in enriched_listings if l.canonical_model == "RTX_A5000")
+    assert rtx_a5000.vram_gb == 24
+    assert rtx_a5000.tdp_w == 230
+    assert rtx_a5000.mig_capable == 0
+    assert rtx_a5000.nvlink is True
+    assert rtx_a5000.generation == "Ampere"
+    assert rtx_a5000.slots == 2
+    assert rtx_a5000.form_factor == "Dual-slot"
+    assert rtx_a5000.warnings is None
+    
+    # Check that unknown models have default values and warnings
+    unknown = next(l for l in enriched_listings if l.canonical_model == "UNKNOWN_GPU")
+    assert unknown.vram_gb == 0
+    assert unknown.tdp_w == 0
+    assert unknown.mig_capable == 0
+    assert unknown.nvlink is False
+    assert unknown.generation is None
+    assert unknown.slots == 1
+    assert unknown.form_factor == "Standard"
+    assert unknown.warnings is not None
+    assert "not found in GPU registry" in unknown.warnings
+
+
+def test_enrich_listings_sff_model():
+    """Test enriching GPU listings with SFF models."""
+    # Create test listing with SFF in the model name
+    listing = GPUListingDTO(
+        title="NVIDIA RTX 4000 SFF Ada",
+        price=1500.0,
+        canonical_model="RTX_4000_ADA_SFF",
+        match_type="exact",
+        match_score=1.0
+    )
+    
+    # Enrich the listing
+    enriched_listings = enrich_listings([listing])
+    
+    # Check that the form factor is correctly set to SFF
+    assert len(enriched_listings) == 1
+    assert enriched_listings[0].form_factor == "SFF"
+
+
 def test_enrich_csv():
     """Test enriching a CSV file with GPU metadata."""
     # Create a temporary CSV file with test data
@@ -125,33 +212,43 @@ def test_enrich_csv():
         
         # Check that the new columns are added
         assert "vram_gb" in output_df.columns
-        assert "tdp_watts" in output_df.columns
-        assert "mig_support" in output_df.columns
+        assert "tdp_w" in output_df.columns
+        assert "mig_capable" in output_df.columns
+        assert "slots" in output_df.columns
+        assert "form_factor" in output_df.columns
         assert "nvlink" in output_df.columns
         assert "generation" in output_df.columns
+        assert "warnings" in output_df.columns
         
         # Check that the metadata is correctly added for known models
         rtx_a6000_row = output_df[output_df["canonical_model"] == "RTX_A6000"].iloc[0]
         assert rtx_a6000_row["vram_gb"] == 48
-        assert rtx_a6000_row["tdp_watts"] == 300
-        assert rtx_a6000_row["mig_support"] == 0
-        assert rtx_a6000_row["nvlink"] is True
+        assert rtx_a6000_row["tdp_w"] == 300
+        assert rtx_a6000_row["mig_capable"] == 0
+        assert rtx_a6000_row["slots"] == 2
+        assert rtx_a6000_row["form_factor"] == "Dual-slot"
+        assert rtx_a6000_row["nvlink"] == True
         assert rtx_a6000_row["generation"] == "Ampere"
         
         rtx_a5000_row = output_df[output_df["canonical_model"] == "RTX_A5000"].iloc[0]
         assert rtx_a5000_row["vram_gb"] == 24
-        assert rtx_a5000_row["tdp_watts"] == 230
-        assert rtx_a5000_row["mig_support"] == 0
-        assert rtx_a5000_row["nvlink"] is True
+        assert rtx_a5000_row["tdp_w"] == 230
+        assert rtx_a5000_row["mig_capable"] == 0
+        assert rtx_a5000_row["slots"] == 2
+        assert rtx_a5000_row["form_factor"] == "Dual-slot"
+        assert rtx_a5000_row["nvlink"] == True
         assert rtx_a5000_row["generation"] == "Ampere"
         
-        # Check that unknown models have null metadata
+        # Check that unknown models have default values and warnings
         unknown_row = output_df[output_df["canonical_model"] == "UNKNOWN_GPU"].iloc[0]
-        assert pd.isna(unknown_row["vram_gb"])
-        assert pd.isna(unknown_row["tdp_watts"])
-        assert pd.isna(unknown_row["mig_support"])
-        assert pd.isna(unknown_row["nvlink"])
+        assert unknown_row["vram_gb"] == 0
+        assert unknown_row["tdp_w"] == 0
+        assert unknown_row["mig_capable"] == 0
+        assert unknown_row["slots"] == 1
+        assert unknown_row["form_factor"] == "Standard"
+        assert unknown_row["nvlink"] == False
         assert pd.isna(unknown_row["generation"])
+        assert "not found in GPU registry" in unknown_row["warnings"]
     
     finally:
         # Clean up the temporary files

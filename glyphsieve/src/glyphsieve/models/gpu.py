@@ -61,3 +61,49 @@ class GPURegistry(BaseModel):
             Dict[str, GPUMetadata]: Dictionary of GPU metadata indexed by canonical model name
         """
         return {gpu.canonical_model: gpu for gpu in self.gpus}
+
+
+class GPUListingDTO(BaseModel):
+    """
+    Data Transfer Object for a normalized GPU listing.
+
+    This model represents a GPU listing that has been normalized with a canonical model name.
+    """
+
+    title: str = Field(..., description="Original title of the GPU listing")
+    price: float = Field(..., description="Price of the GPU")
+    canonical_model: str = Field(..., description="Canonical model name (e.g., RTX_A5000)")
+    match_type: str = Field(..., description="Type of match (exact, regex, fuzzy)")
+    match_score: float = Field(..., description="Confidence score of the match")
+
+
+class EnrichedGPUListingDTO(BaseModel):
+    """
+    Data Transfer Object for an enriched GPU listing.
+
+    This model represents a GPU listing that has been enriched with metadata from the GPU registry.
+    """
+
+    # Original fields from GPUListingDTO
+    title: str = Field(..., description="Original title of the GPU listing")
+    price: float = Field(..., description="Price of the GPU")
+    canonical_model: str = Field(..., description="Canonical model name (e.g., RTX_A5000)")
+    match_type: str = Field(..., description="Type of match (exact, regex, fuzzy)")
+    match_score: float = Field(..., description="Confidence score of the match")
+
+    # Enriched fields from GPUMetadata
+    vram_gb: int = Field(..., description="VRAM capacity in GB")
+    tdp_w: int = Field(..., description="Thermal Design Power in watts")
+    mig_capable: int = Field(0, description="MIG support level (0, 4, or 7)")
+    slots: int = Field(1, description="Physical slot width")
+    form_factor: str = Field("Standard", description="Form factor (e.g., Standard, SFF)")
+
+    # Optional fields
+    nvlink: Optional[bool] = Field(None, description="NVLink support")
+    generation: Optional[str] = Field(None, description="GPU architecture generation")
+    cuda_cores: Optional[int] = Field(None, description="Number of CUDA cores")
+    pcie_generation: Optional[int] = Field(None, description="PCIe generation")
+
+    # Notes and warnings
+    notes: Optional[str] = Field(None, description="Additional notes about the GPU")
+    warnings: Optional[str] = Field(None, description="Warnings about metadata mismatches")

@@ -64,7 +64,7 @@ GPU 2,200.00,RTX 3090,Used"""
             expected_columns = {
                 "title", "price_usd", "model", "condition",  # From clean
                 "canonical_model", "match_type", "match_score",  # From normalize
-                "vram_gb", "tdp_watts", "mig_support", "nvlink", "generation",  # From enrich
+                "vram_gb", "tdp_w", "mig_capable", "nvlink", "generation",  # From enrich
                 "score"  # From score
             }
 
@@ -132,7 +132,7 @@ GPU 2,200.00,RTX 3090,Used"""
             expected_columns = {
                 "title", "price_usd", "model", "condition",  # From clean
                 "canonical_model", "match_type", "match_score",  # From normalize
-                "vram_gb", "tdp_watts", "mig_support", "nvlink", "generation",  # From enrich
+                "vram_gb", "tdp_w", "mig_capable", "nvlink", "generation",  # From enrich
                 "score"  # From score
             }
 
@@ -171,8 +171,8 @@ def test_pipeline_calls_correct_functions(mock_score, mock_enrich, mock_normaliz
         "match_type": ["exact"],
         "match_score": [1.0],
         "vram_gb": [10],
-        "tdp_watts": [320],
-        "mig_support": [0],
+        "tdp_w": [320],
+        "mig_capable": [0],
         "nvlink": [True],
         "generation": ["Ampere"]
     })
@@ -182,8 +182,8 @@ def test_pipeline_calls_correct_functions(mock_score, mock_enrich, mock_normaliz
         "match_type": ["exact"],
         "match_score": [1.0],
         "vram_gb": [10],
-        "tdp_watts": [320],
-        "mig_support": [0],
+        "tdp_w": [320],
+        "mig_capable": [0],
         "nvlink": [True],
         "generation": ["Ampere"],
         "score": [0.85]

@@ -1,0 +1,7 @@
+title,price,canonical_model,match_type,match_score,vram_gb,tdp_w,mig_capable,slots,form_factor,nvlink,generation,cuda_cores,pcie_generation,notes,warnings
+NVIDIA H100 PCIe 80GB,30000,H100_PCIE_80GB,exact,1.0,80.0,350.0,7.0,2.0,Dual-slot,False,Hopper,16896.0,5.0,,
+NVIDIA A100 PCIe 40GB,15000,A100_PCIE_40GB,exact,1.0,40.0,250.0,7.0,2.0,Dual-slot,False,Ampere,6912.0,4.0,,
+NVIDIA RTX A6000 48GB,4500,RTX_A6000,exact,1.0,48.0,300.0,0.0,2.0,Dual-slot,True,Ampere,10752.0,4.0,,
+NVIDIA RTX A5000 24GB,2400,RTX_A5000,exact,1.0,24.0,230.0,0.0,2.0,Dual-slot,True,Ampere,8192.0,4.0,,
+NVIDIA L4 24GB,1800,L4,exact,1.0,24.0,72.0,7.0,1.0,Single-slot,False,Ada,7680.0,4.0,,
+Unknown GPU Model,1000,UNKNOWN_GPU,none,0.0,0.0,0.0,0.0,1.0,Standard,False,,,,,Model 'UNKNOWN_GPU' not found in GPU registry

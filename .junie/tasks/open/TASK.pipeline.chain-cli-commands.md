@@ -1,37 +1,38 @@
-
-
 ## 🎯 Task: Add End-to-End Pipeline Execution to `glyphsieve` CLI
 
-Junie, your task is to implement a new CLI command that chains together the core stages of the GPU data pipeline:
+Junie, implement a new `pipeline` command in `glyphsieve.cli` that processes a raw GPU listing CSV through all core stages in sequence.
 
-- cleaning
-- normalization
-- enrichment
-- scoring
-- insight report generation
-
-This command will allow a user to process a scraped CSV file from start to finish using a single invocation.
+This single command must:
+  - Clean the raw CSV
+  - Normalize listings
+  - Enrich with model metadata
+  - Score each entry
+  - Generate an insight report
 
 ---
 
 ## 🧪 Requirements
 
-- Add a new `@app.command()` to the `glyphsieve.cli` named `pipeline`
-- The command must accept:
-  - `--input` (path to raw CSV)
-  - `--output` (path to final scored CSV)
-  - `--report` (optional path to insight report file)
-  - `--debug` (flag to emit intermediate CSVs)
-- The pipeline must:
-  - Invoke the same logic used by existing CLI subcommands
-  - Chain the output of each stage to the next
-  - Use in-memory data passing when possible (avoid file IO where not required)
-- Implement test coverage in `tests/cli/` using `CliRunner`
-- If `--debug` is passed:
-  - Emit intermediate CSVs to the output directory:
-    - `01.cleaned.csv`
-    - `02.normalized.csv`
-    - `03.scored.csv`
+- Add a `@app.command("pipeline")` to `glyphsieve.cli`
+- Command flags:
+  - `--input <path>`: existing raw CSV (must exist and be readable)
+  - `--output <path>`: scored CSV destination (parent directory must be writable)
+  - `--report <path>` (optional): insight report (Markdown or HTML)
+  - `--debug`: emit intermediate outputs for inspection
+- Validation:
+  - Fail fast with a clear error if `--input` is missing or invalid
+  - Create `--output` parent directory if needed
+- In-memory chaining:
+  - Invoke internal `clean()`, `normalize()`, `enrich()`, `score()`, and `report()` functions
+  - Avoid spawning subprocesses or performing external CLI calls
+- Debug behavior:
+  - When `--debug` is set, write intermediate files alongside `--output`:
+    1. `01.cleaned.csv`
+    2. `02.normalized.csv`
+    3. `03.scored.csv`
+- Final output:
+  - Print a summary line on success, e.g.  
+    `✅ Pipeline complete: scored CSV → output.csv`
 
 ---
 
@@ -49,18 +50,23 @@ uv run glyphsieve pipeline \
 
 ## 🔍 Additional Notes
 
-- This command should call into existing `clean`, `normalize`, `score`, and `generate-report` modules rather than duplicating logic.
-- You must call these stages as internal functions, not subprocesses or CLI shell-outs.
-- Output format should match the structure used in prior reports.
-- You may reuse or wrap DTOs to pass in-memory between stages.
+- Use the existing CLI modules; do **not** duplicate logic.
+- Follow project linting rules: run `ruff`, `flake8`, `isort`, and `black` with zero errors or diffs.
+- Ensure `--help` output is clear and documents all flags.
+- Handle errors gracefully with user-friendly messages.
 
 ---
 
 ## ✅ Completion Criteria
 
-- CLI command `glyphsieve pipeline` exists and accepts all expected flags
-- The pipeline executes successfully on real scraped input
-- All intermediate stages pass data in-memory when possible
-- `--debug` files are emitted with numbered filenames if the flag is used
-- Tests are present under `tests/cli/` using `CliRunner`
-- Pipeline completion is verified with a scored CSV and optional report output
+- `glyphsieve pipeline` command is available with all flags and help text
+- Pipeline runs end-to-end successfully on a real CSV, producing valid scored output
+- Intermediate files appear correctly when `--debug` is used
+- Input and output path validations work as specified
+- A success summary line is printed at the end
+- Unit and CLI tests cover:
+  - Normal flow (all flags, no flags)
+  - Error flow (missing input, invalid CSV)
+  - Debug flow (intermediate files)
+- All tests pass under `uv run pytest`
+- Codebase passes `ruff`, `flake8`, `isort`, and `black`

@@ -5,6 +5,7 @@ This module provides a CLI command for enriching normalized GPU listings with me
 """
 
 import os
+from pathlib import Path
 
 import click
 from rich.console import Console
@@ -30,10 +31,14 @@ def enrich(input, output, specs_file):
 
     The output CSV will include the original columns plus:
     - vram_gb: VRAM capacity in GB
-    - tdp_watts: Thermal Design Power in watts
-    - mig_support: MIG support level (0, 4, or 7)
+    - tdp_w: Thermal Design Power in watts
+    - mig_capable: MIG support level (0, 4, or 7)
+    - slots: Physical slot width
+    - form_factor: Form factor (e.g., Standard, SFF)
     - nvlink: Boolean indicating NVLink support
     - generation: GPU architecture generation (e.g. Ada, Ampere, Hopper, Blackwell)
+    - notes: Additional notes about the GPU
+    - warnings: Warnings about metadata mismatches
     """
     console.print("[bold blue]Running enrich command[/bold blue]")
 
@@ -53,6 +58,11 @@ def enrich(input, output, specs_file):
 
             # Use tmp/output directory for default output
             output = os.path.join("tmp/output", output)
+        else:
+            # Create parent directories for output if needed
+            output_path = Path(output)
+            if output_path.parent != Path("."):
+                os.makedirs(output_path.parent, exist_ok=True)
 
         console.print(f"Input file: {input}")
         console.print(f"Output file: {output}")
@@ -63,8 +73,8 @@ def enrich(input, output, specs_file):
         df = enrich_csv(input, output, specs_file)
 
         # Print a summary of the enrichment results
-        enriched_count = df[df["vram_gb"].notnull()].shape[0]
-        missing_count = df[df["vram_gb"].isnull()].shape[0]
+        enriched_count = df[df["vram_gb"] > 0].shape[0]
+        missing_count = df[df["vram_gb"] == 0].shape[0]
         total_count = df.shape[0]
 
         table = Table(title="Enrichment Results")
@@ -81,21 +91,25 @@ def enrich(input, output, specs_file):
         # Print examples of enriched rows
         if enriched_count > 0:
             console.print("\n[bold]Examples of enriched rows:[/bold]")
-            example = df[df["vram_gb"].notnull()].iloc[0]
+            example = df[df["vram_gb"] > 0].iloc[0]
             console.print(f"[cyan]Model:[/cyan] {example['canonical_model']}")
             console.print(f"[cyan]VRAM:[/cyan] {example['vram_gb']} GB")
-            console.print(f"[cyan]TDP:[/cyan] {example['tdp_watts']} watts")
-            console.print(f"[cyan]MIG Support:[/cyan] {example['mig_support']}")
+            console.print(f"[cyan]TDP:[/cyan] {example['tdp_w']} watts")
+            console.print(f"[cyan]MIG Capable:[/cyan] {example['mig_capable']}")
+            console.print(f"[cyan]Slots:[/cyan] {example['slots']}")
+            console.print(f"[cyan]Form Factor:[/cyan] {example['form_factor']}")
             console.print(f"[cyan]NVLink:[/cyan] {example['nvlink']}")
             console.print(f"[cyan]Generation:[/cyan] {example['generation']}")
 
-        # Print examples of missing metadata
-        if missing_count > 0:
-            console.print("\n[bold]Examples of rows with missing metadata:[/bold]")
-            example = df[df["vram_gb"].isnull()].iloc[0]
+        # Print examples of rows with warnings
+        warnings_count = df[df["warnings"].notnull()].shape[0]
+        if warnings_count > 0:
+            console.print("\n[bold]Examples of rows with warnings:[/bold]")
+            example = df[df["warnings"].notnull()].iloc[0]
             console.print(f"[cyan]Model:[/cyan] {example['canonical_model']}")
+            console.print(f"[cyan]Warning:[/cyan] {example['warnings']}")
 
-        console.print(f"\n[green]Success:[/green] Enriched CSV written to '{output}'")
+        console.print(f"\n[green]✅ Enrichment complete: enriched CSV → {output}")
 
     except Exception as e:
         console.print(f"[bold red]Error:[/bold red] {e!s}")
