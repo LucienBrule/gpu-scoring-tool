@@ -74,7 +74,7 @@ def export_openapi(output_path: str):
     click.echo(f"✅ OpenAPI schema exported to {output_path}")
 
 
-def get_db_path(db_path: str = None) -> str:
+def get_db_path(db_path: str | None = None) -> str:
     """
     Get the database path from the provided argument, environment variable, or use default.
 

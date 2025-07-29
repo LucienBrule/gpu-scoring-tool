@@ -8,6 +8,7 @@ from fastapi import APIRouter, FastAPI
 from glyphd.api.routes.health import router as health_router
 from glyphd.api.routes.listings import router as listings_router
 from glyphd.api.routes.models import router as models_router
+from glyphd.api.routes.persist import router as persist_router
 from glyphd.api.routes.report import router as report_router
 
 # Create the API router
@@ -16,6 +17,7 @@ router = APIRouter(prefix="/api")
 router.include_router(health_router)
 router.include_router(listings_router)
 router.include_router(models_router)
+router.include_router(persist_router)
 router.include_router(report_router)
 
 
@@ -41,6 +43,7 @@ def create_app() -> FastAPI:
         openapi_tags=[
             {"name": "Listings", "description": "Access enriched GPU listing records"},
             {"name": "Models", "description": "Explore normalized GPU model specs"},
+            {"name": "Persist", "description": "Import and persist GPU listings to SQLite store"},
             {"name": "Report", "description": "Retrieve current insight summary and scoring weights"},
             {"name": "Health", "description": "Basic system liveness check"},
         ],

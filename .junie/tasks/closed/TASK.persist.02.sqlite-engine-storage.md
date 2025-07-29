@@ -48,3 +48,31 @@ Implement a modular, injectable SQLite-backed storage engine that conforms to th
 - Can be run from CLI or directly imported.
 - Play nicely with `ExecutionContext`.
 - Reuses existing DTOs and type checks via Pydantic.
+
+## ✅ Task Completed
+
+**Changes made:**
+- Created the `ListingStore` interface in `glyphd/src/glyphd/core/storage/interface.py` defining the contract for storage backends
+- Implemented the `SqliteListingStore` class in `glyphd/src/glyphd/core/storage/sqlite_store.py` that uses SQLAlchemy Core to interact with SQLite
+- Created the `ImportMetadata` DTO in `glyphd/src/glyphd/api/models/imports.py` for representing import batch metadata
+- Updated `__init__.py` files to expose the new classes
+- Created comprehensive unit tests in `glyphd/tests/test_sqlite_store.py` that verify all functionality
+- Ensured the implementation handles idempotent inserts correctly
+
+**Outcomes:**
+- The `SqliteListingStore` class successfully connects to a SQLite database file
+- It initializes the schema if not present using the SQL from `glyphd/src/glyphd/sqlite/schema.sql`
+- It implements all required methods: `insert_listings`, `query_listings`, and `list_imports`
+- All tests pass successfully, verifying the functionality
+- The code has been formatted with black and isort and passes ruff checks
+
+**Lessons learned:**
+- SQLAlchemy Core provides a clean way to interact with SQLite without the overhead of ORM
+- Using raw SQL execution for schema initialization allows for complex SQL statements like triggers
+- Proper error handling and logging are essential for database operations
+- Idempotent inserts require careful handling of existing records
+
+**Follow-up needed:**
+- The implementation will need to be integrated with FastAPI dependency injection in future tasks
+- Additional query parameters may be needed for more complex filtering
+- Performance optimization for large datasets may be required in the future

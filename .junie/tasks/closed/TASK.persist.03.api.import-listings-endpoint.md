@@ -71,10 +71,37 @@ Define a Pydantic model `ImportResultDTO` with:
 ```
 
 ## Acceptance Criteria
-- [ ] Endpoint is reachable at `POST /api/persist/listings`
-- [ ] Valid JSON payloads of `GPUListingDTO` array are accepted and persisted
-- [ ] A unique `import_id` is generated and returned
-- [ ] Response conforms to `ImportResultDTO`
-- [ ] Records are committed to the `gpu_listings` table
-- [ ] Invalid payloads return HTTP 422 with detailed errors
-- [ ] Covered by `tests/test_api_persist.py::test_import_endpoint`
+- [x] Endpoint is reachable at `POST /api/persist/listings`
+- [x] Valid JSON payloads of `GPUListingDTO` array are accepted and persisted
+- [x] A unique `import_id` is generated and returned
+- [x] Response conforms to `ImportResultDTO`
+- [x] Records are committed to the `gpu_listings` table
+- [x] Invalid payloads return HTTP 422 with detailed errors
+- [x] Covered by `tests/test_api_persist.py::test_import_endpoint`
+
+## ✅ Task Completed
+
+**Changes made:**
+- Added `ImportResultDTO` model to `glyphd/src/glyphd/api/models/imports.py`
+- Created storage dependency injection function in `glyphd/src/glyphd/core/dependencies/storage.py`
+- Implemented POST `/api/persist/listings` endpoint in `glyphd/src/glyphd/api/routes/persist.py`
+- Added persist router to main API router in `glyphd/src/glyphd/api/router.py`
+- Created comprehensive test suite in `glyphd/tests/test_api_persist.py`
+- Fixed all linting issues (ruff, black, isort compliance)
+
+**Outcomes:**
+- Endpoint successfully accepts JSON arrays of `GPUListingDTO` records
+- Generates unique UUID-based import IDs for each batch
+- Returns proper `ImportResultDTO` with metadata (import_id, record_count, first_model, last_model, timestamp)
+- Validates input using FastAPI + Pydantic with HTTP 422 for invalid payloads
+- Uses dependency injection via `Depends(get_storage_engine)` for storage access
+- Leverages `SqliteListingStore` for persistence operations
+- All tests pass successfully
+
+**Lessons learned:**
+- Docker containers need to be rebuilt (`docker compose up -d --build`) to pick up code changes
+- Port conflicts can be resolved by using docker compose instead of manual uvicorn commands
+- The `--factory` flag is needed when using a function that returns the FastAPI app
+
+**Follow-up needed:**
+- None - task is fully complete and functional
