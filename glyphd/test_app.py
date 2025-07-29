@@ -1,9 +1,11 @@
 """
 Test script to verify the glyphd implementation.
 """
+
 from fastapi.testclient import TestClient
+
 from glyphd.api.router import create_app
-from glyphd.cli import cli
+
 
 def test_app_creation():
     """Test that the FastAPI app can be created successfully."""
@@ -32,6 +34,7 @@ def test_app_creation():
     print("✅ Report endpoint test passed")
 
     return True
+
 
 def test_api_endpoints():
     """Test that the API endpoints return the expected responses."""
@@ -71,6 +74,7 @@ def test_api_endpoints():
         print(f"⚠️ Report endpoint test skipped: {e}")
 
     return True
+
 
 if __name__ == "__main__":
     success = test_app_creation() and test_api_endpoints()

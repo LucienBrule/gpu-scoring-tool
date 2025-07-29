@@ -6,7 +6,7 @@ from starlette import status
 from glyphd.api.models import GPUListingDTO
 from glyphd.core.dependencies.gpu_listings import get_gpu_listings
 
-router = APIRouter( tags=["Listings"])
+router = APIRouter(tags=["Listings"])
 
 
 @router.get(

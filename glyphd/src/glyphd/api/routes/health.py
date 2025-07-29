@@ -3,7 +3,7 @@ from starlette import status
 
 from glyphd.api.models.health_status import HealthStatus
 
-router = APIRouter( tags=["Health"])
+router = APIRouter(tags=["Health"])
 
 
 @router.get(

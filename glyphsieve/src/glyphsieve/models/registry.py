@@ -144,8 +144,8 @@ class GPUModelRegistry:
                         mig_capable=mig_capable,
                         form_factor=form_factor,
                         connectivity=connectivity,
-                        notes=f"{generation} architecture, {cuda_cores} CUDA cores" +
-                              (", NVLink support" if nvlink else "")
+                        notes=f"{generation} architecture, {cuda_cores} CUDA cores"
+                        + (", NVLink support" if nvlink else ""),
                     )
                     models.append(model)
                 except KeyError as e:

@@ -1,8 +1,8 @@
-
-
 import ast
 from typing import Generator, Tuple, Type
+
 from .base import BaseRule
+
 
 class FilesystemResourcePathViolationRule(BaseRule):
     CODE = "GLS005"

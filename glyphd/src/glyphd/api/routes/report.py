@@ -6,7 +6,7 @@ from starlette import status
 from glyphd.api.models import ReportDTO
 from glyphd.core.dependencies.insight_report import get_insight_report
 
-router = APIRouter( tags=["Report"])
+router = APIRouter(tags=["Report"])
 
 
 @router.get(

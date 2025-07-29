@@ -1,4 +1,5 @@
 from ast import AST
+
 from .rules.gls001_pathbased import PathBasedResourceRule
 from .rules.gls002_dictload import DictReturnInLoadRule
 from .rules.gls003_model_locations import ModelOutsideModelsRule

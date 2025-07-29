@@ -28,19 +28,19 @@ class MockResourceContext(ResourceContext):
         """Mock load method that returns the mock data wrapped in the provided model."""
         if self.data is None:
             raise FileNotFoundError(f"File not found: {filename}")
-        
+
         if model is None:
             return self.data
-            
+
         # If this is a RootModel
-        if hasattr(model, '__pydantic_root_model__'):
+        if hasattr(model, "__pydantic_root_model__"):
             # Check if this is the GPUSpecsModel from GPUModelRegistry.load()
-            if hasattr(model, 'root') and isinstance(model.root, dict):
+            if hasattr(model, "root") and isinstance(model.root, dict):
                 # Create a mock object with a root attribute containing the dictionary
                 class MockRootModel:
                     def __init__(self, root):
                         self.root = root
-                
+
                 # Create a dictionary of mock GPU spec objects
                 if "gpus" in self.data:
                     # Create a list of mock GPU spec objects
@@ -51,9 +51,9 @@ class MockResourceContext(ResourceContext):
                             def __init__(self, **kwargs):
                                 for key, value in kwargs.items():
                                     setattr(self, key, value)
-                        
+
                         gpu_specs.append(MockGPUSpecModel(**gpu_data))
-                    
+
                     # Return a mock object with a root attribute containing the dictionary with gpus key
                     return MockRootModel({"gpus": gpu_specs})
                 else:
@@ -64,9 +64,9 @@ class MockResourceContext(ResourceContext):
                 class MockRootModel:
                     def __init__(self, root):
                         self.root = root
-                
+
                 return MockRootModel(self.data)
-        
+
         # For other models, just return the data
         return self.data
 
@@ -111,7 +111,7 @@ def test_valid_load():
     # Verify that the registry contains the expected models
     models = registry.list()
     assert len(models) == 2
-    
+
     # First model
     assert models[0].name == "TEST GPU 1"
     assert models[0].vram_gb == 24
@@ -121,7 +121,7 @@ def test_valid_load():
     assert models[0].form_factor == "Dual"
     assert models[0].connectivity == "PCIe 4.0"
     assert "Test architecture, 5000 CUDA cores, NVLink support" in models[0].notes
-    
+
     # Second model
     assert models[1].name == "TEST GPU 2"
     assert models[1].vram_gb == 16
@@ -151,7 +151,7 @@ def test_error_handling():
     # Verify that loading raises a RuntimeError
     with pytest.raises(RuntimeError):
         registry.load(resource_context)
-        
+
     # Create mock resource context with invalid structure (missing gpus key)
     resource_context = MockResourceContext({"invalid_key": []})
 

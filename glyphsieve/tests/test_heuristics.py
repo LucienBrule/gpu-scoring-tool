@@ -4,6 +4,7 @@ Tests for the heuristics module.
 This module contains tests for the heuristics functionality, including loading heuristic
 configurations and evaluating heuristics on GPU data.
 """
+
 import os
 import tempfile
 
@@ -30,12 +31,14 @@ def test_load_heuristic_config_custom_file():
     """Test loading a custom quantization heuristic configuration."""
     # Create a temporary YAML file with test data
     with tempfile.NamedTemporaryFile(mode="w", suffix=".yaml", delete=False) as f:
-        f.write("""
+        f.write(
+            """
 # Custom configuration
 min_vram_gb: 32
 max_tdp_watts: 250
 min_mig_support: 4
-        """)
+        """
+        )
         temp_file = f.name
 
     try:
@@ -67,11 +70,7 @@ def test_quantization_heuristic_init_default():
 def test_quantization_heuristic_init_custom():
     """Test initializing the quantization heuristic with custom configuration."""
     # Create a custom configuration
-    config = QuantizationHeuristicConfig(
-        min_vram_gb=32,
-        max_tdp_watts=250,
-        min_mig_support=4
-    )
+    config = QuantizationHeuristicConfig(min_vram_gb=32, max_tdp_watts=250, min_mig_support=4)
 
     # Initialize the heuristic with the custom configuration
     heuristic = QuantizationHeuristic(config)
@@ -94,7 +93,7 @@ def test_quantization_heuristic_evaluate_capable():
         "tdp_watts": 300,  # Exactly at the threshold
         "mig_support": 7,
         "nvlink": False,
-        "generation": "Hopper"
+        "generation": "Hopper",
     }
 
     # Evaluate the heuristic
@@ -117,7 +116,7 @@ def test_quantization_heuristic_evaluate_not_capable_vram():
         "tdp_watts": 140,
         "mig_support": 0,
         "nvlink": False,
-        "generation": "Ampere"
+        "generation": "Ampere",
     }
 
     # Evaluate the heuristic
@@ -140,7 +139,7 @@ def test_quantization_heuristic_evaluate_not_capable_tdp():
         "tdp_watts": 400,  # Above the threshold
         "mig_support": 4,
         "nvlink": True,
-        "generation": "Blackwell"
+        "generation": "Blackwell",
     }
 
     # Evaluate the heuristic
@@ -163,7 +162,7 @@ def test_quantization_heuristic_evaluate_not_capable_mig():
         "tdp_watts": 230,
         "mig_support": 0,  # Below the threshold
         "nvlink": True,
-        "generation": "Ampere"
+        "generation": "Ampere",
     }
 
     # Evaluate the heuristic
@@ -186,7 +185,7 @@ def test_quantization_heuristic_evaluate_boundary():
         "tdp_watts": 300,  # Exactly at the threshold
         "mig_support": 1,  # Exactly at the threshold
         "nvlink": False,
-        "generation": "Ada"
+        "generation": "Ada",
     }
 
     # Evaluate the heuristic
@@ -203,9 +202,7 @@ def test_quantization_heuristic_evaluate_missing_fields():
     heuristic = QuantizationHeuristic()
 
     # Create a row with missing fields
-    row = {
-        "canonical_model": "UNKNOWN_GPU"
-    }
+    row = {"canonical_model": "UNKNOWN_GPU"}
 
     # Evaluate the heuristic
     result = heuristic.evaluate(row)
@@ -221,12 +218,7 @@ def test_quantization_heuristic_evaluate_null_fields():
     heuristic = QuantizationHeuristic()
 
     # Create a row with null fields
-    row = {
-        "canonical_model": "UNKNOWN_GPU",
-        "vram_gb": None,
-        "tdp_watts": None,
-        "mig_support": None
-    }
+    row = {"canonical_model": "UNKNOWN_GPU", "vram_gb": None, "tdp_watts": None, "mig_support": None}
 
     # Evaluate the heuristic
     result = heuristic.evaluate(row)
@@ -240,12 +232,14 @@ def test_apply_heuristics():
     """Test applying heuristics to a CSV file."""
     # Create a temporary CSV file with test data
     with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False) as f:
-        f.write("""canonical_model,vram_gb,tdp_watts,mig_support,nvlink,generation
+        f.write(
+            """canonical_model,vram_gb,tdp_watts,mig_support,nvlink,generation
 H100_PCIE_80GB,80,350,7,false,Hopper
 RTX_A6000,48,300,0,true,Ampere
 RTX_A4000,16,140,0,false,Ampere
 RTX_4500_ADA,24,210,4,false,Ada
-        """)
+        """
+        )
         input_file = f.name
 
     # Create a temporary output file
@@ -302,9 +296,11 @@ def test_apply_heuristics_custom_config():
     """Test applying heuristics with a custom configuration."""
     # Create a temporary CSV file with test data
     with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False) as f:
-        f.write("""canonical_model,vram_gb,tdp_watts,mig_support,nvlink,generation
+        f.write(
+            """canonical_model,vram_gb,tdp_watts,mig_support,nvlink,generation
 RTX_4500_ADA,24,210,4,false,Ada
-        """)
+        """
+        )
         input_file = f.name
 
     # Create a temporary output file
@@ -313,12 +309,14 @@ RTX_4500_ADA,24,210,4,false,Ada
 
     # Create a temporary configuration file
     with tempfile.NamedTemporaryFile(mode="w", suffix=".yaml", delete=False) as f:
-        f.write("""
+        f.write(
+            """
 # Custom configuration with stricter requirements
 min_vram_gb: 32
 max_tdp_watts: 200
 min_mig_support: 7
-        """)
+        """
+        )
         config_file = f.name
 
     try:

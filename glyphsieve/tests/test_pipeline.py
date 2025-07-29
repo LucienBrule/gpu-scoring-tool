@@ -1,6 +1,7 @@
 """
 Tests for the pipeline module.
 """
+
 import os
 import tempfile
 from unittest.mock import MagicMock, patch
@@ -18,12 +19,12 @@ GPU 1,100.00,RTX 3080,New
 GPU 2,200.00,RTX 3090,Used"""
 
     # Create a temporary CSV file
-    with tempfile.NamedTemporaryFile(suffix='.csv', delete=False) as temp_file:
-        temp_file.write(csv_content.encode('utf-8'))
+    with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as temp_file:
+        temp_file.write(csv_content.encode("utf-8"))
         input_path = temp_file.name
 
     # Create a temporary output file
-    with tempfile.NamedTemporaryFile(suffix='.csv', delete=False) as output_file:
+    with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as output_file:
         output_path = output_file.name
 
     # Create a temporary working directory
@@ -33,7 +34,7 @@ GPU 2,200.00,RTX 3090,Used"""
             ctx = MagicMock()
 
             # Run the pipeline
-            with patch('glyphsieve.cli.pipeline.console'):  # Mock the console to avoid output during tests
+            with patch("glyphsieve.cli.pipeline.console"):  # Mock the console to avoid output during tests
                 pipeline.callback(
                     input=input_path,
                     output=output_path,
@@ -43,7 +44,7 @@ GPU 2,200.00,RTX 3090,Used"""
                     specs_file=None,
                     weights_file=None,
                     quantize_capacity=False,
-                    force_quantize=False
+                    force_quantize=False,
                 )
 
             # Check that the output file exists
@@ -59,7 +60,10 @@ GPU 2,200.00,RTX 3090,Used"""
 
             # Verify that all expected columns are present
             expected_columns = {
-                "model", "raw_score", "quantization_score", "final_score"  # New output format from score
+                "model",
+                "raw_score",
+                "quantization_score",
+                "final_score",  # New output format from score
             }
 
             assert set(df.columns).issuperset(expected_columns)
@@ -84,12 +88,12 @@ GPU 1,100.00,RTX 3080,New
 GPU 2,200.00,RTX 3090,Used"""
 
     # Create a temporary CSV file
-    with tempfile.NamedTemporaryFile(suffix='.csv', delete=False) as temp_file:
-        temp_file.write(csv_content.encode('utf-8'))
+    with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as temp_file:
+        temp_file.write(csv_content.encode("utf-8"))
         input_path = temp_file.name
 
     # Create a temporary output file
-    with tempfile.NamedTemporaryFile(suffix='.csv', delete=False) as output_file:
+    with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as output_file:
         output_path = output_file.name
 
     # Create a temporary working directory
@@ -99,7 +103,7 @@ GPU 2,200.00,RTX 3090,Used"""
             ctx = MagicMock()
 
             # Run the pipeline with dedup enabled
-            with patch('glyphsieve.cli.pipeline.console'):  # Mock the console to avoid output during tests
+            with patch("glyphsieve.cli.pipeline.console"):  # Mock the console to avoid output during tests
                 pipeline.callback(
                     input=input_path,
                     output=output_path,
@@ -109,7 +113,7 @@ GPU 2,200.00,RTX 3090,Used"""
                     specs_file=None,
                     weights_file=None,
                     quantize_capacity=False,
-                    force_quantize=False
+                    force_quantize=False,
                 )
 
             # Check that the output file exists
@@ -126,7 +130,10 @@ GPU 2,200.00,RTX 3090,Used"""
 
             # Verify that all expected columns are present
             expected_columns = {
-                "model", "raw_score", "quantization_score", "final_score"  # New output format from score
+                "model",
+                "raw_score",
+                "quantization_score",
+                "final_score",  # New output format from score
             }
 
             assert set(df.columns).issuperset(expected_columns)
@@ -144,53 +151,56 @@ GPU 2,200.00,RTX 3090,Used"""
                 os.unlink(output_path)
 
 
-@patch('glyphsieve.cli.pipeline.clean_csv_headers')
-@patch('glyphsieve.cli.pipeline.normalize_csv')
-@patch('glyphsieve.cli.pipeline.enrich_csv')
-@patch('glyphsieve.cli.pipeline.score_csv')
+@patch("glyphsieve.cli.pipeline.clean_csv_headers")
+@patch("glyphsieve.cli.pipeline.normalize_csv")
+@patch("glyphsieve.cli.pipeline.enrich_csv")
+@patch("glyphsieve.cli.pipeline.score_csv")
 def test_pipeline_calls_correct_functions(mock_score, mock_enrich, mock_normalize, mock_clean):
     """Test that the pipeline calls the correct functions in the correct order."""
     # Setup mocks
     mock_clean.return_value = {"Title": "title"}
-    mock_normalize.return_value = pd.DataFrame({
-        "title": ["GPU 1"],
-        "canonical_model": ["RTX_3080"],
-        "match_type": ["exact"],
-        "match_score": [1.0]
-    })
-    mock_enrich.return_value = pd.DataFrame({
-        "title": ["GPU 1"],
-        "canonical_model": ["RTX_3080"],
-        "match_type": ["exact"],
-        "match_score": [1.0],
-        "vram_gb": [10],
-        "tdp_w": [320],
-        "mig_capable": [0],
-        "nvlink": [True],
-        "generation": ["Ampere"]
-    })
-    mock_score.return_value = pd.DataFrame({
-        "title": ["GPU 1"],
-        "canonical_model": ["RTX_3080"],
-        "match_type": ["exact"],
-        "match_score": [1.0],
-        "vram_gb": [10],
-        "tdp_w": [320],
-        "mig_capable": [0],
-        "nvlink": [True],
-        "generation": ["Ampere"],
-        "score": [0.85]
-    })
+    mock_normalize.return_value = pd.DataFrame(
+        {"title": ["GPU 1"], "canonical_model": ["RTX_3080"], "match_type": ["exact"], "match_score": [1.0]}
+    )
+    mock_enrich.return_value = pd.DataFrame(
+        {
+            "title": ["GPU 1"],
+            "canonical_model": ["RTX_3080"],
+            "match_type": ["exact"],
+            "match_score": [1.0],
+            "vram_gb": [10],
+            "tdp_w": [320],
+            "mig_capable": [0],
+            "nvlink": [True],
+            "generation": ["Ampere"],
+        }
+    )
+    mock_score.return_value = pd.DataFrame(
+        {
+            "title": ["GPU 1"],
+            "canonical_model": ["RTX_3080"],
+            "match_type": ["exact"],
+            "match_score": [1.0],
+            "vram_gb": [10],
+            "tdp_w": [320],
+            "mig_capable": [0],
+            "nvlink": [True],
+            "generation": ["Ampere"],
+            "score": [0.85],
+        }
+    )
 
     # Create temporary files
-    with tempfile.NamedTemporaryFile(suffix='.csv', delete=False) as input_file, \
-         tempfile.NamedTemporaryFile(suffix='.csv', delete=False) as output_file, \
-         tempfile.TemporaryDirectory() as working_dir:
+    with (
+        tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as input_file,
+        tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as output_file,
+        tempfile.TemporaryDirectory() as working_dir,
+    ):
 
         # Write sample content to input file
         csv_content = """Title,Price (USD),Model Name,Condition
 GPU 1,100.00,RTX 3080,New"""
-        input_file.write(csv_content.encode('utf-8'))
+        input_file.write(csv_content.encode("utf-8"))
         input_file.flush()
 
         input_path = input_file.name
@@ -198,7 +208,7 @@ GPU 1,100.00,RTX 3080,New"""
 
         try:
             # Run the pipeline
-            with patch('glyphsieve.cli.pipeline.console'):  # Mock the console to avoid output during tests
+            with patch("glyphsieve.cli.pipeline.console"):  # Mock the console to avoid output during tests
                 pipeline.callback(
                     input=input_path,
                     output=output_path,
@@ -208,7 +218,7 @@ GPU 1,100.00,RTX 3080,New"""
                     specs_file=None,
                     weights_file=None,
                     quantize_capacity=False,
-                    force_quantize=False
+                    force_quantize=False,
                 )
 
             # Check that each function was called exactly once

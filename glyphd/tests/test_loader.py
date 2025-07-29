@@ -1,14 +1,16 @@
 """
 Tests for the loader module.
 """
-import pytest
-from pathlib import Path
-from unittest.mock import patch, mock_open
 
-from glyphd.core.resources.loaders.insight_report import load_insight_report
-from glyphd.core.resources.loaders.gpu_metadata import load_gpu_model_metadata
-from glyphd.core.resources.loaders.scored_listings import load_scored_listings
+from pathlib import Path
+from unittest.mock import mock_open, patch
+
+import pytest
+
 from glyphd.api.models import GPUListingDTO, GPUModelDTO, ReportDTO
+from glyphd.core.resources.loaders.gpu_metadata import load_gpu_model_metadata
+from glyphd.core.resources.loaders.insight_report import load_insight_report
+from glyphd.core.resources.loaders.scored_listings import load_scored_listings
 
 # Sample data for testing
 SAMPLE_SCORED_CSV = """canonical_model,vram_gb,mig_support,nvlink,tdp_watts,price,score
@@ -57,6 +59,7 @@ tdp_weight: 0.2
 price_weight: 0.2
 """
 
+
 def test_load_scored_listings():
     """Test loading scored listings from a CSV file."""
     # Create a temporary file path
@@ -78,6 +81,7 @@ def test_load_scored_listings():
             assert listings[0].tdp_watts == 350
             assert listings[0].price == 10000.0
             assert listings[0].score == 0.7
+
 
 def test_load_gpu_model_metadata():
     """Test loading GPU model metadata from a CSV file."""
@@ -110,6 +114,7 @@ def test_load_gpu_model_metadata():
             assert models[0].median_price == 34995.0
             assert models[0].max_price == 49999.0
             assert models[0].avg_price == 34024.71428571428
+
 
 def test_load_insight_report():
     """Test loading insight report from a markdown file."""
@@ -154,6 +159,7 @@ def test_load_insight_report():
             assert report.scoring_weights["tdp_weight"] == 0.2
             assert report.scoring_weights["price_weight"] == 0.2
 
+
 def test_load_scored_listings_file_not_found():
     """Test loading scored listings when the file is not found."""
     # Create a temporary file path
@@ -165,6 +171,7 @@ def test_load_scored_listings_file_not_found():
         with pytest.raises(FileNotFoundError):
             load_scored_listings(path)
 
+
 def test_load_gpu_model_metadata_file_not_found():
     """Test loading GPU model metadata when the file is not found."""
     # Create a temporary file path
@@ -175,4 +182,3 @@ def test_load_gpu_model_metadata_file_not_found():
         # Call the function and expect an exception
         with pytest.raises(FileNotFoundError):
             load_gpu_model_metadata(path)
-

@@ -1,19 +1,18 @@
-import pytest
-from unittest.mock import patch
-from fastapi.testclient import TestClient
-from glyphd.api.router import create_app
-from glyphd.api.models import GPUListingDTO, GPUModelDTO, ReportDTO
+from glyphd.api.models import ReportDTO
 from glyphd.core.dependencies.insight_report import get_insight_report
+
 
 def test_app_creation(app):
     """Test that the FastAPI app can be created successfully."""
     assert app is not None
+
 
 def test_health_endpoint(client):
     """Test that the health endpoint returns the expected response."""
     response = client.get("/api/health")
     assert response.status_code == 200
     assert response.json() == {"status": "ok"}
+
 
 def test_listings_endpoint(client):
     """Test that the listings endpoint returns the expected response."""
@@ -31,6 +30,7 @@ def test_listings_endpoint(client):
         assert "tdp_watts" in listing
         assert "price" in listing
         assert "score" in listing
+
 
 def test_listings_endpoint_with_filters(client):
     """Test that the listings endpoint with filters returns the expected response."""
@@ -50,6 +50,7 @@ def test_listings_endpoint_with_filters(client):
     assert isinstance(listings, list)
     # Note: We can't assert anything about the content here without knowing the data
 
+
 def test_models_endpoint(client):
     """Test that the models endpoint returns the expected response."""
     response = client.get("/api/models")
@@ -66,6 +67,7 @@ def test_models_endpoint(client):
         assert "max_price" in model
         assert "avg_price" in model
 
+
 def test_report_endpoint(app, client):
     """Test that the report endpoint returns the expected response."""
     # Create a mock report
@@ -78,8 +80,8 @@ def test_report_endpoint(app, client):
             "mig_weight": 0.2,
             "nvlink_weight": 0.1,
             "tdp_weight": 0.2,
-            "price_weight": 0.2
-        }
+            "price_weight": 0.2,
+        },
     )
 
     # Override the get_insight_report dependency

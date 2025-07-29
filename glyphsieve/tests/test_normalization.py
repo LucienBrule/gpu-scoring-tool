@@ -1,6 +1,7 @@
 """
 Tests for the normalization module.
 """
+
 import os
 import tempfile
 
@@ -56,12 +57,14 @@ NO_MATCH_CASES = [
     "Storage 2TB NVMe SSD",
 ]
 
+
 def test_exact_match():
     """Test exact matching of GPU model names."""
     for title, expected in EXACT_MATCH_CASES:
         model, score = exact_match(title, CANONICAL_MODELS)
         assert model == expected
         assert score == 1.0
+
 
 def test_regex_match():
     """Test regex matching of GPU model names."""
@@ -70,6 +73,7 @@ def test_regex_match():
         assert model == expected
         assert score == 0.9
 
+
 def test_fuzzy_match():
     """Test fuzzy matching of GPU model names."""
     for title, expected in FUZZY_MATCH_CASES:
@@ -77,6 +81,7 @@ def test_fuzzy_match():
         assert model == expected
         assert score > 0.0
         assert score <= 0.8
+
 
 def test_no_match():
     """Test cases where no match should be found."""
@@ -95,6 +100,7 @@ def test_no_match():
         model, score = fuzzy_match(title, CANONICAL_MODELS, threshold=95.0)
         assert model is None
         assert score == 0.0
+
 
 def test_normalize_gpu_model():
     """Test the normalize_gpu_model function."""
@@ -130,27 +136,30 @@ def test_normalize_gpu_model():
     assert match_type == "none"
     assert score == 0.0
 
+
 def test_normalize_csv():
     """Test the normalize_csv function."""
     # Create a temporary CSV file for testing
-    with tempfile.NamedTemporaryFile(suffix='.csv', delete=False) as temp_input:
+    with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as temp_input:
         # Create test data
-        test_data = pd.DataFrame({
-            'title': [
-                "NVIDIA H100 PCIe 80GB",
-                "NVIDIA A100 40GB PCIe",
-                "NVIDIA H100 PCIe with 80GB memory",
-                "NVIDIA H-100 PCIE",
-                "Random text with no GPU model"
-            ],
-            'price': [10000, 8000, 9500, 9000, 100]
-        })
+        test_data = pd.DataFrame(
+            {
+                "title": [
+                    "NVIDIA H100 PCIe 80GB",
+                    "NVIDIA A100 40GB PCIe",
+                    "NVIDIA H100 PCIe with 80GB memory",
+                    "NVIDIA H-100 PCIE",
+                    "Random text with no GPU model",
+                ],
+                "price": [10000, 8000, 9500, 9000, 100],
+            }
+        )
 
         # Write test data to the temporary file
         test_data.to_csv(temp_input.name, index=False)
 
     # Create a temporary output file
-    with tempfile.NamedTemporaryFile(suffix='.csv', delete=False) as temp_output:
+    with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as temp_output:
         pass
 
     try:
@@ -160,58 +169,58 @@ def test_normalize_csv():
         # Check that the output file exists and has the expected columns
         assert os.path.exists(temp_output.name)
         output_df = pd.read_csv(temp_output.name)
-        assert 'canonical_model' in output_df.columns
-        assert 'match_type' in output_df.columns
-        assert 'match_score' in output_df.columns
+        assert "canonical_model" in output_df.columns
+        assert "match_type" in output_df.columns
+        assert "match_score" in output_df.columns
 
         # Check that the normalization results are as expected
-        assert output_df.loc[0, 'canonical_model'] == "H100_PCIE_80GB"
-        assert output_df.loc[0, 'match_type'] == "exact"
-        assert output_df.loc[0, 'match_score'] == 1.0
+        assert output_df.loc[0, "canonical_model"] == "H100_PCIE_80GB"
+        assert output_df.loc[0, "match_type"] == "exact"
+        assert output_df.loc[0, "match_score"] == 1.0
 
-        assert output_df.loc[1, 'canonical_model'] == "A100_40GB_PCIE"
-        assert output_df.loc[1, 'match_type'] == "exact"
-        assert output_df.loc[1, 'match_score'] == 1.0
+        assert output_df.loc[1, "canonical_model"] == "A100_40GB_PCIE"
+        assert output_df.loc[1, "match_type"] == "exact"
+        assert output_df.loc[1, "match_score"] == 1.0
 
-        assert output_df.loc[2, 'canonical_model'] == "H100_PCIE_80GB"
-        assert output_df.loc[2, 'match_type'] == "regex"
-        assert output_df.loc[2, 'match_score'] == 0.9
+        assert output_df.loc[2, "canonical_model"] == "H100_PCIE_80GB"
+        assert output_df.loc[2, "match_type"] == "regex"
+        assert output_df.loc[2, "match_score"] == 0.9
 
-        assert output_df.loc[3, 'canonical_model'] == "H100_PCIE_80GB"
+        assert output_df.loc[3, "canonical_model"] == "H100_PCIE_80GB"
         # This is now matched by regex due to the more flexible regex patterns
-        assert output_df.loc[3, 'match_type'] == "regex"
-        assert output_df.loc[3, 'match_score'] == 0.9
+        assert output_df.loc[3, "match_type"] == "regex"
+        assert output_df.loc[3, "match_score"] == 0.9
 
-        assert output_df.loc[4, 'canonical_model'] == "UNKNOWN"
-        assert output_df.loc[4, 'match_type'] == "none"
-        assert output_df.loc[4, 'match_score'] == 0.0
+        assert output_df.loc[4, "canonical_model"] == "UNKNOWN"
+        assert output_df.loc[4, "match_type"] == "none"
+        assert output_df.loc[4, "match_score"] == 0.0
 
     finally:
         # Clean up temporary files
         os.unlink(temp_input.name)
         os.unlink(temp_output.name)
 
+
 def test_normalize_csv_with_models_file(tmp_path):
     """Test the normalize_csv function with a custom models file."""
     # Create a temporary models file
     models_file = tmp_path / "test_models.json"
-    with open(models_file, 'w') as f:
-        f.write('''
+    with open(models_file, "w") as f:
+        f.write(
+            """
         {
             "TEST_MODEL": ["Test GPU", "TestGPU"],
             "OTHER_MODEL": ["Other GPU", "OtherGPU"]
         }
-        ''')
+        """
+        )
 
     # Create a temporary CSV file for testing
     input_file = tmp_path / "test_input.csv"
     output_file = tmp_path / "test_output.csv"
 
     # Create test data
-    test_data = pd.DataFrame({
-        'title': ["Test GPU", "Other GPU", "Unknown GPU"],
-        'price': [1000, 800, 500]
-    })
+    test_data = pd.DataFrame({"title": ["Test GPU", "Other GPU", "Unknown GPU"], "price": [1000, 800, 500]})
 
     # Write test data to the temporary file
     test_data.to_csv(input_file, index=False)
@@ -224,17 +233,18 @@ def test_normalize_csv_with_models_file(tmp_path):
     output_df = pd.read_csv(output_file)
 
     # Check that the normalization results are as expected
-    assert output_df.loc[0, 'canonical_model'] == "TEST_MODEL"
-    assert output_df.loc[0, 'match_type'] == "exact"
-    assert output_df.loc[0, 'match_score'] == 1.0
+    assert output_df.loc[0, "canonical_model"] == "TEST_MODEL"
+    assert output_df.loc[0, "match_type"] == "exact"
+    assert output_df.loc[0, "match_score"] == 1.0
 
-    assert output_df.loc[1, 'canonical_model'] == "OTHER_MODEL"
-    assert output_df.loc[1, 'match_type'] == "exact"
-    assert output_df.loc[1, 'match_score'] == 1.0
+    assert output_df.loc[1, "canonical_model"] == "OTHER_MODEL"
+    assert output_df.loc[1, "match_type"] == "exact"
+    assert output_df.loc[1, "match_score"] == 1.0
 
-    assert output_df.loc[2, 'canonical_model'] == "UNKNOWN"
-    assert output_df.loc[2, 'match_type'] == "none"
-    assert output_df.loc[2, 'match_score'] == 0.0
+    assert output_df.loc[2, "canonical_model"] == "UNKNOWN"
+    assert output_df.loc[2, "match_type"] == "none"
+    assert output_df.loc[2, "match_score"] == 0.0
+
 
 def test_error_handling():
     """Test error handling in the normalize_csv function."""
@@ -243,17 +253,14 @@ def test_error_handling():
         normalize_csv("non_existent_file.csv", "output.csv")
 
     # Test with input file that doesn't have a 'title' column
-    with tempfile.NamedTemporaryFile(suffix='.csv', delete=False) as temp_input:
+    with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as temp_input:
         # Create test data without a 'title' column
-        test_data = pd.DataFrame({
-            'model': ["NVIDIA H100", "NVIDIA A100"],
-            'price': [10000, 8000]
-        })
+        test_data = pd.DataFrame({"model": ["NVIDIA H100", "NVIDIA A100"], "price": [10000, 8000]})
 
         # Write test data to the temporary file
         test_data.to_csv(temp_input.name, index=False)
 
-    with tempfile.NamedTemporaryFile(suffix='.csv', delete=False) as temp_output:
+    with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as temp_output:
         pass
 
     try:

@@ -1,15 +1,17 @@
-import pytest
 from glyphd.cli import cli
+
 
 def test_cli_exists():
     """Test that the CLI is properly defined."""
     assert cli is not None
+
 
 def test_serve_command_help(runner):
     """Test that the serve command help text is displayed correctly."""
     result = runner.invoke(cli, ["serve", "--help"])
     assert result.exit_code == 0
     assert "Run the FastAPI server with uvicorn" in result.output
+
 
 def test_serve_command_parameters(runner):
     """Test that the serve command accepts the expected parameters."""
