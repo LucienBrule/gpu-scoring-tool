@@ -7,6 +7,7 @@ the report in Markdown.
 """
 
 import os
+import tempfile
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
@@ -301,6 +302,59 @@ def _generate_duplicate_anomalies_section(duplicate_anomalies: pd.DataFrame, df:
     return lines
 
 
+def _generate_quantization_capacity_section(df: pd.DataFrame) -> List[str]:
+    """
+    Generate the quantization capacity section.
+
+    This section shows the number of models of different sizes (7B, 13B, 70B) that can fit
+    on each GPU based on its VRAM.
+
+    Args:
+        df: Input DataFrame with quantization capacity data
+
+    Returns:
+        List[str]: Lines of markdown text for the section
+    """
+    lines = [
+        "## 🧠 Quantization Capacity",
+        "*Number of models of different sizes that can fit on each GPU based on VRAM*",
+        "",
+    ]
+
+    # Check if quantization capacity columns exist
+    if (
+        "quantization_capacity.7b" in df.columns
+        and "quantization_capacity.13b" in df.columns
+        and "quantization_capacity.70b" in df.columns
+    ):
+        # Get top 10 GPUs by 7B model capacity
+        top_by_7b = df.sort_values("quantization_capacity.7b", ascending=False).head(10)
+
+        if not top_by_7b.empty:
+            lines.extend(
+                [
+                    "| Model | VRAM (GB) | 7B Models | 13B Models | 70B Models |",
+                    "|-------|-----------|-----------|------------|------------|",
+                ]
+            )
+
+            for _, row in top_by_7b.iterrows():
+                model = row.get("canonical_model", "Unknown")
+                vram = row.get("vram_gb", 0)
+                cap_7b = row.get("quantization_capacity.7b", 0)
+                cap_13b = row.get("quantization_capacity.13b", 0)
+                cap_70b = row.get("quantization_capacity.70b", 0)
+
+                lines.append(f"| {model} | {vram} | {cap_7b} | {cap_13b} | {cap_70b} |")
+        else:
+            lines.append("*No quantization capacity data available*")
+    else:
+        lines.append("*Quantization capacity data not included in this report*")
+
+    lines.append("")
+    return lines
+
+
 def generate_markdown_report(df: pd.DataFrame, output_path: str) -> str:
     """
     Generate a Markdown report from a scored GPU dataset.
@@ -327,6 +381,14 @@ def generate_markdown_report(df: pd.DataFrame, output_path: str) -> str:
     report.extend(_generate_top_cards_section(top_by_score))
     report.extend(_generate_score_per_dollar_section(top_by_score_per_dollar))
     report.extend(_generate_best_value_section(best_value_under_2000))
+
+    # Add quantization capacity section if data is available
+    if all(
+        col in df.columns
+        for col in ["quantization_capacity.7b", "quantization_capacity.13b", "quantization_capacity.70b"]
+    ):
+        report.extend(_generate_quantization_capacity_section(df))
+
     report.extend(_generate_price_anomalies_section(price_anomalies))
     report.extend(_generate_duplicate_anomalies_section(duplicate_anomalies, df))
 
@@ -338,7 +400,9 @@ def generate_markdown_report(df: pd.DataFrame, output_path: str) -> str:
     return output_path
 
 
-def generate_report(input_file: str, output_dir: Optional[str] = None, output_format: str = "md") -> str:
+def generate_report(
+    input_file: str, output_dir: Optional[str] = None, output_format: str = "md", quantize_capacity: bool = False
+) -> str:
     """
     Generate a report from a scored GPU dataset.
 
@@ -346,12 +410,50 @@ def generate_report(input_file: str, output_dir: Optional[str] = None, output_fo
         input_file: Path to input CSV file with scored GPU listings
         output_dir: Directory to save the report (default: reports/YYYY-MM-DD/)
         output_format: Output format (md or html, default: md)
+        quantize_capacity: Whether to include quantization capacity in the report (default: False)
 
     Returns:
         str: Path to the generated report
     """
     # Load the input CSV
     df = pd.read_csv(input_file)
+
+    # Apply quantization capacity calculation if requested
+    if quantize_capacity and "vram_gb" in df.columns:
+        from glyphsieve.core.heuristics import (
+            QuantizationCapacityHeuristic,
+            load_quantization_capacity_config,
+        )
+
+        # Create a temporary file for the calculation
+        with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as temp_file:
+            temp_path = temp_file.name
+
+        try:
+            # Load configuration and create heuristic
+            config = load_quantization_capacity_config()
+            heuristic = QuantizationCapacityHeuristic(config)
+
+            # Apply the heuristic to each row
+            for idx, row in df.iterrows():
+                result = heuristic.evaluate(row.to_dict())
+                if "quantization_capacity" in result:
+                    capacity = result["quantization_capacity"]
+                    # Store the capacity values in the DataFrame
+                    df.at[idx, "quantization_capacity.7b"] = capacity.model_7b
+                    df.at[idx, "quantization_capacity.13b"] = capacity.model_13b
+                    df.at[idx, "quantization_capacity.70b"] = capacity.model_70b
+
+            # Clean up the temporary file
+            if os.path.exists(temp_path):
+                os.unlink(temp_path)
+
+        except Exception as e:
+            console = Console()
+            console.print(f"[yellow]Warning: Could not calculate quantization capacity: {e}[/yellow]")
+            # Clean up the temporary file
+            if os.path.exists(temp_path):
+                os.unlink(temp_path)
 
     # Set default output directory if not provided
     if output_dir is None:

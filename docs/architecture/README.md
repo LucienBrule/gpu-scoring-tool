@@ -13,7 +13,7 @@ The current system (v1) consists of:
 - A web frontend (Next.js + Tailwind) consuming OpenAPI-generated clients
 - GPU listings only, with CLI-first workflows and an emphasis on CSV normalization, scoring, and insight generation
 
-See: [v1/README.md](./v1/README.md)
+See: [v1/README.md](v1/README.md)
 
 ## Planned Architecture: v2
 
@@ -25,4 +25,4 @@ The upcoming architecture (v2) will:
 - Keep a unified FastAPI daemon (`glyphd`) that loads plugin pipelines at runtime
 - Retain the same frontend + OpenAPI flow with support for multiple signal domains
 
-See: [v2/README.md](./v2/README.md)
+See: [v2/README.md](v2/README.md)

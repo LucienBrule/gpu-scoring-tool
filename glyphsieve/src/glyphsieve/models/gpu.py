@@ -8,6 +8,8 @@ from typing import Dict, List, Optional
 
 from pydantic import BaseModel, Field
 
+from glyphsieve.models.quantization import QuantizationCapacitySpec
+
 
 class GPUMetadata(BaseModel):
     """
@@ -107,3 +109,8 @@ class EnrichedGPUListingDTO(BaseModel):
     # Notes and warnings
     notes: Optional[str] = Field(None, description="Additional notes about the GPU")
     warnings: Optional[str] = Field(None, description="Warnings about metadata mismatches")
+
+    # Quantization capacity
+    quantization_capacity: Optional[QuantizationCapacitySpec] = Field(
+        None, description="Quantization capacity for different model sizes"
+    )

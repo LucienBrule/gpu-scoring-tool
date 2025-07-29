@@ -21,9 +21,10 @@ Introduce a canonical, structured registry of GPU model metadata to support norm
      - `tdp_w: int`
      - `slots: int`
      - `mig_capable: bool`
-     - `form_factor: Literal["SFF", "Dual", "Triple", "FullHeight", ...]`
+     - `form_factor: str`  (use regex or a custom validator to validate form factor values)
      - `connectivity: Optional[str]` (e.g. PCIe 4.0, NVLink, SXM)
      - `notes: Optional[str]`
+   - **Fields must use native types or `Annotated`, not Python `Enum`/`StrEnum` or raw string literals.**
    - **Registry YAML file must live at** `glyphsieve/resources/gpu_models.yaml`
    - **Access the YAML only via the `ResourceContext` loader**; direct `Path()` or file reads are disallowed (will be flagged by linter).
 
@@ -70,7 +71,7 @@ Introduce a canonical, structured registry of GPU model metadata to support norm
    - All lint and test commands must finish with zero errors.
 
 ## Bonus
-- Add a method to return the closest matching GPU name in the registry (e.g., using Levenshtein distance)
+- **Implement fuzzy-matching alias logic (required)** leveraging existing matcher infrastructure.
 - Implement support for vendor-specific aliases or marketing names (e.g. “RTX 6000 ADA” vs “RTX A6000”)
 
 ## Completion Criteria
@@ -81,4 +82,5 @@ Introduce a canonical, structured registry of GPU model metadata to support norm
 - `glyphsieve registry list` prints the table as specified
 - `ResourceContext` loader is used; no direct file access
 - Linting and tests pass without violations
+- **Tests for fuzzy-match alias functionality must be included, verifying that `closest_match` returns the nearest registry entry.**
 - Bonus alias/closest-match logic, if added, is documented and tested

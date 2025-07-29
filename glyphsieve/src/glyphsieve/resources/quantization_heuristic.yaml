@@ -11,3 +11,12 @@ max_tdp_watts: 300
 
 # Minimum MIG support level (0=none, 1-7=supported)
 min_mig_support: 1
+
+# VRAM overhead in GB (reserved for system)
+overhead_gb: 2
+
+# VRAM requirements for different model sizes (in GB)
+models:
+  7b: 3.5
+  13b: 6.5
+  70b: 35.0

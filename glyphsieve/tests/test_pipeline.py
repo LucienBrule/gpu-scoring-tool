@@ -46,7 +46,9 @@ GPU 2,200.00,RTX 3090,Used"""
                     dedup=False,
                     models_file=None,
                     specs_file=None,
-                    weights_file=None
+                    weights_file=None,
+                    quantize_capacity=False,
+                    force_quantize=False
                 )
 
             # Check that the output file exists
@@ -62,10 +64,7 @@ GPU 2,200.00,RTX 3090,Used"""
 
             # Verify that all expected columns are present
             expected_columns = {
-                "title", "price_usd", "model", "condition",  # From clean
-                "canonical_model", "match_type", "match_score",  # From normalize
-                "vram_gb", "tdp_w", "mig_capable", "nvlink", "generation",  # From enrich
-                "score"  # From score
+                "model", "raw_score", "quantization_score", "final_score"  # New output format from score
             }
 
             assert set(df.columns).issuperset(expected_columns)
@@ -113,7 +112,9 @@ GPU 2,200.00,RTX 3090,Used"""
                     dedup=True,
                     models_file=None,
                     specs_file=None,
-                    weights_file=None
+                    weights_file=None,
+                    quantize_capacity=False,
+                    force_quantize=False
                 )
 
             # Check that the output file exists
@@ -130,10 +131,7 @@ GPU 2,200.00,RTX 3090,Used"""
 
             # Verify that all expected columns are present
             expected_columns = {
-                "title", "price_usd", "model", "condition",  # From clean
-                "canonical_model", "match_type", "match_score",  # From normalize
-                "vram_gb", "tdp_w", "mig_capable", "nvlink", "generation",  # From enrich
-                "score"  # From score
+                "model", "raw_score", "quantization_score", "final_score"  # New output format from score
             }
 
             assert set(df.columns).issuperset(expected_columns)
@@ -213,7 +211,9 @@ GPU 1,100.00,RTX 3080,New"""
                     dedup=False,
                     models_file=None,
                     specs_file=None,
-                    weights_file=None
+                    weights_file=None,
+                    quantize_capacity=False,
+                    force_quantize=False
                 )
 
             # Check that each function was called exactly once

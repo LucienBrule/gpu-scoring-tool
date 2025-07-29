@@ -33,3 +33,35 @@ class QuantizationHeuristicConfig(HeuristicConfig):
         """Pydantic model configuration."""
 
         schema_extra = {"example": {"min_vram_gb": 24, "max_tdp_watts": 300, "min_mig_support": 1}}
+
+
+class ModelSizeConfig(BaseModel):
+    """
+    Configuration for model size VRAM requirements.
+    """
+
+    b7: float = Field(..., alias="7b", description="VRAM required for 7B parameter model (in GB)")
+    b13: float = Field(..., alias="13b", description="VRAM required for 13B parameter model (in GB)")
+    b70: float = Field(..., alias="70b", description="VRAM required for 70B parameter model (in GB)")
+
+    class Config:
+        """Pydantic model configuration."""
+
+        allow_population_by_field_name = True
+
+
+class QuantizationCapacityConfig(HeuristicConfig):
+    """
+    Configuration for the quantization capacity heuristic.
+
+    This model defines the parameters for calculating how many models of different sizes
+    can fit on a GPU based on its VRAM.
+    """
+
+    overhead_gb: float = Field(2.0, description="VRAM overhead in GB (reserved for system)")
+    models: ModelSizeConfig = Field(..., description="VRAM requirements for different model sizes (in GB)")
+
+    class Config:
+        """Pydantic model configuration."""
+
+        schema_extra = {"example": {"overhead_gb": 2.0, "models": {"7b": 3.5, "13b": 6.5, "70b": 35.0}}}

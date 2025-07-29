@@ -20,7 +20,8 @@ console = Console()
 @click.option("--input", "-i", required=True, help="Path to CSV file with scored GPU listings")
 @click.option("--output-dir", "-o", help="Directory to save the report (default: reports/YYYY-MM-DD/)")
 @click.option("--format", "-f", default="md", type=click.Choice(["md", "html"]), help="Output format (md or html)")
-def report(input, output_dir, format):
+@click.option("--quantize-capacity", is_flag=True, help="Include quantization capacity in the report")
+def report(input, output_dir, format, quantize_capacity):
     """
     Generate a human-readable report from a scored GPU dataset.
 
@@ -39,7 +40,7 @@ def report(input, output_dir, format):
             return
 
         # Generate the report
-        output_path = generate_report(input, output_dir, format)
+        output_path = generate_report(input, output_dir, format, quantize_capacity)
 
         # Print success message
         console.print(
@@ -55,7 +56,7 @@ def report(input, output_dir, format):
         console.print("Falling back to Markdown format.")
 
         # Try again with Markdown format
-        output_path = generate_report(input, output_dir, "md")
+        output_path = generate_report(input, output_dir, "md", quantize_capacity)
         console.print(f"[green]Report generated in Markdown format:[/green] {output_path}")
 
     except Exception as e:

@@ -1,0 +1,66 @@
+Running full pipeline
+Input file: ./glyphsieve/demo/input.csv
+Output file: ./glyphsieve/demo/output.csv
+Working directory: ./glyphsieve/demo/intermediate
+
+Step 1: Clean
+Cleaned CSV written to './glyphsieve/demo/intermediate/stage_clean.csv' (0.00s)
+              Detected columns               
+┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━┓
+┃ Original            ┃ Cleaned             ┃
+┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━┩
+│ "model"             │ "model"             │
+│ "condition"         │ "condition"         │
+│ "price"             │ "price"             │
+│ "quantity"          │ "quantity"          │
+│ "seller"            │ "seller"            │
+│ "geographic_region" │ "geographic_region" │
+│ "listing_age"       │ "listing_age"       │
+│ "source_url"        │ "source_url"        │
+│ "source_type"       │ "source_type"       │
+│ "bulk_notes"        │ "bulk_notes"        │
+│ "title"             │ "title"             │
+└─────────────────────┴─────────────────────┘
+
+Step 2: Normalize
+Normalized CSV written to './glyphsieve/demo/intermediate/stage_normalized.csv' (0.01s)
+Normalization Results 
+┏━━━━━━━━━━━━┳━━━━━━━┓
+┃ Match Type ┃ Count ┃
+┡━━━━━━━━━━━━╇━━━━━━━┩
+│ exact      │ 173   │
+└────────────┴───────┘
+
+Step 3: Enrich
+Enriched CSV written to './glyphsieve/demo/intermediate/stage_enriched.csv' (0.03s)
+           Enrichment Results            
+┏━━━━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┓
+┃ Category         ┃ Count ┃ Percentage ┃
+┡━━━━━━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━┩
+│ Enriched Rows    │ 173   │ 100.0%     │
+│ Missing Metadata │ 0     │ 0.0%       │
+│ Total Rows       │ 173   │ 100.0%     │
+└──────────────────┴───────┴────────────┘
+
+Optional Step: Quantization Capacity
+Quantization capacity computed and added to output CSV → ./glyphsieve/demo/intermediate/stage_quantized.csv (0.01s)
+
+Step 4: Score
+Scored CSV written to './glyphsieve/demo/output.csv' (0.01s)
+    Score Statistics     
+┏━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃ Statistic    ┃ Value  ┃
+┡━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ Mean Score   │ 0.4147 │
+│ Median Score │ 0.4901 │
+│ Min Score    │ 0.0000 │
+│ Max Score    │ 0.6354 │
+└──────────────┴────────┘
+
+Top 3 Cards:
+RTX_PRO_6000_BLACKWELL: Score 0.6354, VRAM: 96.0 GB, Price: $8031.08
+RTX_PRO_6000_BLACKWELL: Score 0.6306, VRAM: 96.0 GB, Price: $8299.99
+RTX_6000_ADA: Score 0.6281, VRAM: 48.0 GB, Price: $3199.0
+
+Pipeline completed successfully in 0.07 seconds
+Final output written to: ./glyphsieve/demo/output.csv
