@@ -6,15 +6,11 @@ This module contains tests for the CLI pipeline commands, including normalize, e
 
 import os
 import tempfile
-from pathlib import Path
-from unittest.mock import patch
 
 import pandas as pd
-import pytest
 from click.testing import CliRunner
 
 from glyphsieve.cli.enrich import enrich
-from glyphsieve.cli.main import main
 
 
 def test_enrich_command_success():

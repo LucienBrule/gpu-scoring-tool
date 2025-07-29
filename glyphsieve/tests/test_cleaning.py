@@ -3,15 +3,11 @@ Tests for the cleaning module.
 """
 import os
 import tempfile
-import pandas as pd
 from io import StringIO
-import pytest
 
-from glyphsieve.core.cleaning import (
-    clean_header,
-    standardize_header,
-    clean_csv_headers
-)
+import pandas as pd
+
+from glyphsieve.core.cleaning import clean_csv_headers, clean_header, standardize_header
 
 
 def test_clean_header():

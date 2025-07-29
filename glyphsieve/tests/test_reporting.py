@@ -4,21 +4,19 @@ Tests for the reporting module.
 This module contains tests for the reporting functionality in glyphsieve.
 """
 import os
-import tempfile
+
 import pandas as pd
 import pytest
-from pathlib import Path
-from datetime import datetime
 
 from glyphsieve.core.reporting import (
     calculate_summary_statistics,
+    find_duplicate_anomalies,
+    find_price_anomalies,
+    generate_markdown_report,
+    generate_report,
+    get_best_value_cards_under_price,
     get_top_cards_by_score,
     get_top_cards_by_score_per_dollar,
-    get_best_value_cards_under_price,
-    find_price_anomalies,
-    find_duplicate_anomalies,
-    generate_markdown_report,
-    generate_report
 )
 
 

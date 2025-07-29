@@ -3,16 +3,11 @@ Tests for the pipeline module.
 """
 import os
 import tempfile
+from unittest.mock import MagicMock, patch
+
 import pandas as pd
-from io import StringIO
-import pytest
-from unittest.mock import patch, MagicMock
 
 from glyphsieve.cli.pipeline import pipeline
-from glyphsieve.core.cleaning import clean_csv_headers
-from glyphsieve.core.normalization import normalize_csv
-from glyphsieve.core.enrichment import enrich_csv
-from glyphsieve.core.scoring import score_csv
 
 
 def test_pipeline_integration():

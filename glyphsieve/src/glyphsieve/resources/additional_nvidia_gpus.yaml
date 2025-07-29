@@ -1,0 +1,314 @@
+# Additional NVIDIA GPU Specifications YAML
+
+# This file contains metadata for GPU models not currently tracked in your system.
+# Each entry represents one canonical model with comprehensive specifications.
+
+gpus:
+
+# Consumer RTX Gaming Cards
+
+- canonical_model: RTX_4090
+  vram_gb: 24
+  tdp_watts: 450
+  mig_support: 0
+  nvlink: false
+  generation: Ada
+  cuda_cores: 16384
+  slot_width: 3
+  pcie_generation: 4
+
+- canonical_model: RTX_4090D
+  vram_gb: 24
+  tdp_watts: 425
+  mig_support: 0
+  nvlink: false
+  generation: Ada
+  cuda_cores: 14592
+  slot_width: 3
+  pcie_generation: 4
+
+- canonical_model: RTX_4070_TI_SUPER
+  vram_gb: 16
+  tdp_watts: 285
+  mig_support: 0
+  nvlink: false
+  generation: Ada
+  cuda_cores: 8448
+  slot_width: 2
+  pcie_generation: 4
+
+- canonical_model: RTX_5090
+  vram_gb: 32
+  tdp_watts: 575
+  mig_support: 0
+  nvlink: false
+  generation: Blackwell
+  cuda_cores: 21760
+  slot_width: 2
+  pcie_generation: 5
+
+- canonical_model: RTX_3090
+  vram_gb: 24
+  tdp_watts: 350
+  mig_support: 0
+  nvlink: true
+  generation: Ampere
+  cuda_cores: 10496
+  slot_width: 3
+  pcie_generation: 4
+
+- canonical_model: RTX_3090_TI
+  vram_gb: 24
+  tdp_watts: 450
+  mig_support: 0
+  nvlink: true
+  generation: Ampere
+  cuda_cores: 10752
+  slot_width: 3
+  pcie_generation: 4
+
+- canonical_model: RTX_3080_TI
+  vram_gb: 12
+  tdp_watts: 350
+  mig_support: 0
+  nvlink: false
+  generation: Ampere
+  cuda_cores: 10240
+  slot_width: 2
+  pcie_generation: 4
+
+- canonical_model: RTX_3080
+  vram_gb: 10
+  tdp_watts: 320
+  mig_support: 0
+  nvlink: false
+  generation: Ampere
+  cuda_cores: 8704
+  slot_width: 2
+  pcie_generation: 4
+
+- canonical_model: RTX_3070_TI
+  vram_gb: 8
+  tdp_watts: 290
+  mig_support: 0
+  nvlink: false
+  generation: Ampere
+  cuda_cores: 6144
+  slot_width: 2
+  pcie_generation: 4
+
+- canonical_model: RTX_3070
+  vram_gb: 8
+  tdp_watts: 220
+  mig_support: 0
+  nvlink: false
+  generation: Ampere
+  cuda_cores: 5888
+  slot_width: 2
+  pcie_generation: 4
+
+- canonical_model: RTX_3060_TI
+  vram_gb: 8
+  tdp_watts: 200
+  mig_support: 0
+  nvlink: false
+  generation: Ampere
+  cuda_cores: 4864
+  slot_width: 2
+  pcie_generation: 4
+
+- canonical_model: RTX_3060
+  vram_gb: 12
+  tdp_watts: 170
+  mig_support: 0
+  nvlink: false
+  generation: Ampere
+  cuda_cores: 3584
+  slot_width: 2
+  pcie_generation: 4
+
+# Professional Workstation Cards
+
+- canonical_model: QUADRO_RTX_8000
+  vram_gb: 48
+  tdp_watts: 295
+  mig_support: 0
+  nvlink: true
+  generation: Turing
+  cuda_cores: 4608
+  slot_width: 2
+  pcie_generation: 3
+
+- canonical_model: QUADRO_P6000
+  vram_gb: 24
+  tdp_watts: 250
+  mig_support: 0
+  nvlink: false
+  generation: Pascal
+  cuda_cores: 3840
+  slot_width: 2
+  pcie_generation: 3
+
+- canonical_model: QUADRO_P5000
+  vram_gb: 16
+  tdp_watts: 180
+  mig_support: 0
+  nvlink: false
+  generation: Pascal
+  cuda_cores: 2560
+  slot_width: 2
+  pcie_generation: 3
+
+# Datacenter/Professional Cards
+
+- canonical_model: H200_SXM
+  vram_gb: 141
+  tdp_watts: 700
+  mig_support: 7
+  nvlink: true
+  generation: Hopper
+  cuda_cores: 16896
+  slot_width: 2
+  pcie_generation: 5
+
+- canonical_model: H200_PCIE
+  vram_gb: 141
+  tdp_watts: 600
+  mig_support: 7
+  nvlink: false
+  generation: Hopper
+  cuda_cores: 16896
+  slot_width: 2
+  pcie_generation: 5
+
+- canonical_model: B200
+  vram_gb: 180
+  tdp_watts: 1000
+  mig_support: 7
+  nvlink: true
+  generation: Blackwell
+  cuda_cores: 20480
+  slot_width: 2
+  pcie_generation: 5
+
+- canonical_model: A30
+  vram_gb: 24
+  tdp_watts: 165
+  mig_support: 7
+  nvlink: true
+  generation: Ampere
+  cuda_cores: 6912
+  slot_width: 2
+  pcie_generation: 4
+
+- canonical_model: A10
+  vram_gb: 24
+  tdp_watts: 150
+  mig_support: 7
+  nvlink: false
+  generation: Ampere
+  cuda_cores: 9216
+  slot_width: 1
+  pcie_generation: 4
+
+- canonical_model: A16
+  vram_gb: 64
+  tdp_watts: 250
+  mig_support: 0
+  nvlink: false
+  generation: Ampere
+  cuda_cores: 5120
+  slot_width: 2
+  pcie_generation: 4
+
+- canonical_model: V100_PCIE_16GB
+  vram_gb: 16
+  tdp_watts: 300
+  mig_support: 0
+  nvlink: false
+  generation: Volta
+  cuda_cores: 5120
+  slot_width: 2
+  pcie_generation: 3
+
+- canonical_model: V100_PCIE_32GB
+  vram_gb: 32
+  tdp_watts: 300
+  mig_support: 0
+  nvlink: false
+  generation: Volta
+  cuda_cores: 5120
+  slot_width: 2
+  pcie_generation: 3
+
+- canonical_model: V100_SXM2_16GB
+  vram_gb: 16
+  tdp_watts: 300
+  mig_support: 0
+  nvlink: true
+  generation: Volta
+  cuda_cores: 5120
+  slot_width: 2
+  pcie_generation: 3
+
+- canonical_model: V100_SXM2_32GB
+  vram_gb: 32
+  tdp_watts: 300
+  mig_support: 0
+  nvlink: true
+  generation: Volta
+  cuda_cores: 5120
+  slot_width: 2
+  pcie_generation: 3
+
+- canonical_model: P100_PCIE_16GB
+  vram_gb: 16
+  tdp_watts: 250
+  mig_support: 0
+  nvlink: false
+  generation: Pascal
+  cuda_cores: 3584
+  slot_width: 2
+  pcie_generation: 3
+
+- canonical_model: T4
+  vram_gb: 16
+  tdp_watts: 75
+  mig_support: 7
+  nvlink: false
+  generation: Turing
+  cuda_cores: 2560
+  slot_width: 1
+  pcie_generation: 3
+
+# Legacy Tesla Cards
+
+- canonical_model: M40
+  vram_gb: 24
+  tdp_watts: 250
+  mig_support: 0
+  nvlink: false
+  generation: Maxwell
+  cuda_cores: 3072
+  slot_width: 2
+  pcie_generation: 3
+
+- canonical_model: K80
+  vram_gb: 24
+  tdp_watts: 300
+  mig_support: 0
+  nvlink: false
+  generation: Kepler
+  cuda_cores: 4992
+  slot_width: 2
+  pcie_generation: 3
+
+- canonical_model: K40
+  vram_gb: 12
+  tdp_watts: 235
+  mig_support: 0
+  nvlink: false
+  generation: Kepler
+  cuda_cores: 2880
+  slot_width: 2
+  pcie_generation: 3

@@ -6,7 +6,7 @@ This module defines Pydantic models for GPU metadata, including VRAM, TDP, gener
 
 from typing import Dict, List, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from glyphsieve.models.quantization import QuantizationCapacitySpec
 
@@ -28,10 +28,8 @@ class GPUMetadata(BaseModel):
     slot_width: Optional[int] = Field(None, description="Physical slot width")
     pcie_generation: Optional[int] = Field(None, description="PCIe generation")
 
-    class Config:
-        """Pydantic model configuration."""
-
-        schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "canonical_model": "RTX_A5000",
                 "vram_gb": 24,
@@ -44,6 +42,7 @@ class GPUMetadata(BaseModel):
                 "pcie_generation": 4,
             }
         }
+    )
 
 
 class GPURegistry(BaseModel):

@@ -88,7 +88,7 @@ pytest
 # Linting & formatting
 uv run black glyphd/src
 uv run isort glyphd/src
-uv run ruff glyphd/src
+uv run ruff check glyphd/src
 uv run flake8 glyphd/src
 
 ## Dependency Setup Notes

@@ -6,17 +6,12 @@ configurations and evaluating heuristics on GPU data.
 """
 import os
 import tempfile
+
 import pandas as pd
 import pytest
-from pathlib import Path
 
-from glyphsieve.models.heuristic import HeuristicConfig, QuantizationHeuristicConfig
-from glyphsieve.core.heuristics import (
-    Heuristic,
-    QuantizationHeuristic,
-    load_heuristic_config,
-    apply_heuristics
-)
+from glyphsieve.core.heuristics import QuantizationHeuristic, apply_heuristics, load_heuristic_config
+from glyphsieve.models.heuristic import QuantizationHeuristicConfig
 
 
 def test_load_heuristic_config_default():

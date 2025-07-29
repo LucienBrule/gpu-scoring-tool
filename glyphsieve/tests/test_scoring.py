@@ -5,18 +5,16 @@ This module contains tests for the scoring functionality in glyphsieve.
 """
 import os
 import tempfile
-import json
-import yaml
+
 import pandas as pd
 import pytest
-from pathlib import Path
+import yaml
 
 from glyphsieve.core.scoring import (
-    load_scoring_weights,
-    ScoringStrategy,
-    WeightedAdditiveScorer,
     EnhancedWeightedScorer,
-    score_csv
+    WeightedAdditiveScorer,
+    load_scoring_weights,
+    score_csv,
 )
 from glyphsieve.models.scoring_weights import ScoringWeights
 

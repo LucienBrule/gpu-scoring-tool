@@ -3,17 +3,18 @@ Tests for the normalization module.
 """
 import os
 import tempfile
+
 import pandas as pd
 import pytest
 
 from glyphsieve.core.normalization import (
-    exact_match,
-    regex_match,
-    fuzzy_match,
-    normalize_gpu_model,
-    normalize_csv,
     CANONICAL_MODELS,
-    GPU_REGEX_PATTERNS
+    GPU_REGEX_PATTERNS,
+    exact_match,
+    fuzzy_match,
+    normalize_csv,
+    normalize_gpu_model,
+    regex_match,
 )
 
 # Test data for exact matches

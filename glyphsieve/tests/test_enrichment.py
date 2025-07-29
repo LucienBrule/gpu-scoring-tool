@@ -6,12 +6,12 @@ and enriching GPU listings with metadata.
 """
 import os
 import tempfile
+
 import pandas as pd
 import pytest
-from pathlib import Path
 
-from glyphsieve.core.enrichment import load_gpu_specs, enrich_csv, enrich_listings
-from glyphsieve.models.gpu import GPUMetadata, GPURegistry, GPUListingDTO, EnrichedGPUListingDTO
+from glyphsieve.core.enrichment import enrich_csv, enrich_listings, load_gpu_specs
+from glyphsieve.models.gpu import EnrichedGPUListingDTO, GPUListingDTO, GPUMetadata, GPURegistry
 
 
 def test_load_gpu_specs():

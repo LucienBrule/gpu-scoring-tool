@@ -11,6 +11,7 @@ from glyphsieve.cli.dedup import dedup
 from glyphsieve.cli.enrich import enrich
 from glyphsieve.cli.normalize import normalize
 from glyphsieve.cli.pipeline import pipeline
+from glyphsieve.cli.registry import registry
 from glyphsieve.cli.report import report
 from glyphsieve.cli.score import score
 from glyphsieve.cli.tag import tag
@@ -37,6 +38,7 @@ main.add_command(score)
 main.add_command(enrich)
 main.add_command(dedup)
 main.add_command(pipeline)
+main.add_command(registry)
 main.add_command(report)
 main.add_command(tag)
 

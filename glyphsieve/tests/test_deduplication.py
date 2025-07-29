@@ -3,17 +3,13 @@ Tests for the deduplication functionality.
 """
 import os
 import tempfile
-import pandas as pd
-import pytest
-import numpy as np
 from unittest.mock import patch
 
-from glyphsieve.core.deduplication import (
-    normalize_url,
-    generate_embeddings,
-    find_duplicates,
-    dedup_csv
-)
+import numpy as np
+import pandas as pd
+
+from glyphsieve.core.deduplication import dedup_csv, find_duplicates, generate_embeddings, normalize_url
+
 
 class TestURLNormalization:
     """Tests for URL normalization functionality."""
