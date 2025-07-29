@@ -18,27 +18,30 @@ Compute the maximum number and size of quantized models that can fit on each GPU
 ## Requirements
 
 1. **Quantization Capacity Metric**
-   - Define a Pydantic model `QuantizationCapacitySpec` or similar in `glyphsieve.models.quantization` with fields:
-     ```python
-     class QuantizationCapacitySpec(BaseModel):
-         "7b": int
-         "13b": int
-         "70b": int
-     ```
-   - Store VRAM requirements in `glyphsieve/resources/quantization_heuristic.yaml`:
-     ```yaml
-     overhead_gb: 2
-     models:
-       7b: 3.5
-       13b: 6.5
-       70b: 35.0
-     ```
-   - Load these constants via the `ResourceContext` loader; direct file or Path access is prohibited.
-   - Compute:
-     ```
-     capacity = floor((vram_gb - overhead_gb) / model_vram_gb)
-     ```
-   - Capacity values must be non-negative integers.
+- Define a Pydantic model `QuantizationCapacitySpec` or similar in `glyphsieve.models.quantization` with fields:
+    ```python
+        class QuantizationCapacitySpec(BaseModel):
+             model_7b: int = Field(..., alias="7b")
+             model_13b: int = Field(..., alias="13b")
+             model_70b: int = Field(..., alias="70b")
+            class Config:
+                allow_population_by_field_name = True
+                extra = "forbid"
+    ```
+  - Store VRAM requirements in `glyphsieve/resources/quantization_heuristic.yaml`:
+    ```yaml
+    overhead_gb: 2
+    models:
+      7b: 3.5
+      13b: 6.5
+      70b: 35.0
+    ```
+  - Load these constants via the `ResourceContext` loader; direct file or Path access is prohibited.
+  - Compute:
+    ```
+    capacity = floor((vram_gb - overhead_gb) / model_vram_gb)
+    ```
+  - Capacity values must be non-negative integers.
 
 2. **Implementation**
    - Extend `EnrichedGPUListingDTO` to include a field:
