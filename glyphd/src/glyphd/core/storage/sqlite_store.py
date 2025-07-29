@@ -15,6 +15,7 @@ from sqlalchemy.engine import Engine
 
 from glyphd.api.models import GPUListingDTO, ImportMetadata
 from glyphd.core.storage.interface import ListingStore
+from glyphsieve.core.normalization import fuzzy_match
 
 # Configure logging
 try:
@@ -170,14 +171,16 @@ class SqliteListingStore(ListingStore):
                 )
                 logger.info(f"Deleted existing listings with import ID {import_id}")
 
-            # Insert the listings
-            for listing in listings:
+            # Insert the listings with sequential import_index
+            for import_index, listing in enumerate(listings, start=1):
                 # Ensure the model exists
                 conn.execute(
                     text(
                         """
-                        INSERT OR IGNORE INTO models (model, vram_gb, tdp_watts, mig_support, nvlink, import_id)
-                        VALUES (:model, :vram_gb, :tdp_watts, :mig_support, :nvlink, :import_id)
+                        INSERT OR IGNORE INTO models (
+                            model, vram_gb, tdp_watts, mig_support, nvlink, import_id, import_index
+                        )
+                        VALUES (:model, :vram_gb, :tdp_watts, :mig_support, :nvlink, :import_id, :import_index)
                         """
                     ),
                     {
@@ -187,6 +190,7 @@ class SqliteListingStore(ListingStore):
                         "mig_support": listing.mig_support,
                         "nvlink": 1 if listing.nvlink else 0,
                         "import_id": import_id,
+                        "import_index": import_index,
                     },
                 )
 
@@ -195,10 +199,12 @@ class SqliteListingStore(ListingStore):
                     text(
                         """
                         INSERT INTO scored_listings (
-                            canonical_model, price, vram_gb, tdp_watts, mig_support, nvlink, score, import_id
+                            canonical_model, price, vram_gb, tdp_watts, mig_support, nvlink, score,
+                            import_id, import_index
                         )
                         VALUES (
-                            :model, :price, :vram_gb, :tdp_watts, :mig_support, :nvlink, :score, :import_id
+                            :model, :price, :vram_gb, :tdp_watts, :mig_support, :nvlink, :score,
+                            :import_id, :import_index
                         )
                         """
                     ),
@@ -211,6 +217,7 @@ class SqliteListingStore(ListingStore):
                         "nvlink": 1 if listing.nvlink else 0,
                         "score": listing.score,
                         "import_id": import_id,
+                        "import_index": import_index,
                     },
                 )
 
@@ -219,62 +226,101 @@ class SqliteListingStore(ListingStore):
             logger.info(f"Inserted {len(listings)} listings with import ID {import_id}")
             return len(listings)
 
-    def query_listings(
-        self,
-        model: Optional[str] = None,
-        min_score: Optional[float] = None,
-        max_score: Optional[float] = None,
-        region: Optional[str] = None,
-        after: Optional[datetime] = None,
-    ) -> List[GPUListingDTO]:
+    def _get_fuzzy_matched_models(self, model: str) -> List[str]:
         """
-        Query listings from the store with optional filters.
+        Get fuzzy matched models for the given model name.
 
         Args:
-            model: Filter by canonical model name
-            min_score: Filter by minimum score
-            max_score: Filter by maximum score
-            region: Filter by region
-            after: Filter by listings seen after this timestamp
+            model: Model name to match against
 
         Returns:
-            A list of listings matching the filters
+            List of matched model names, empty if no match found
         """
-        # Build the query
+        # Get all unique models from the database for fuzzy matching
+        with self.engine.connect() as conn:
+            model_result = conn.execute(text("SELECT DISTINCT canonical_model FROM scored_listings"))
+            all_models = [row[0] for row in model_result.fetchall()]
+
+        # Create a models dictionary for fuzzy matching (format expected by fuzzy_match)
+        models_dict = {m: [m] for m in all_models}
+
+        # Apply fuzzy matching
+        matched_model, score = fuzzy_match(model, models_dict, threshold=70.0)
+        if matched_model:
+            return [matched_model]
+        else:
+            logger.info(f"No fuzzy match found for model: {model}")
+            return []
+
+    def _build_query_with_filters(
+        self,
+        fuzzy_matched_models: List[str],
+        min_price: Optional[float],
+        max_price: Optional[float],
+        min_score: Optional[float],
+        max_score: Optional[float],
+        region: Optional[str],
+        after: Optional[datetime],
+        import_id: Optional[str],
+        limit: Optional[int],
+        offset: Optional[int],
+    ) -> tuple[str, dict]:
+        """
+        Build SQL query with filters and return query string and parameters.
+
+        Returns:
+            Tuple of (query_string, parameters_dict)
+        """
         query = """
-            SELECT canonical_model, price, vram_gb, tdp_watts, mig_support, nvlink, score
+            SELECT canonical_model, price, vram_gb, tdp_watts, mig_support, nvlink, score, import_id, import_index
             FROM scored_listings
             WHERE 1=1
         """
         params = {}
 
-        # Add filters
-        if model:
-            query += " AND canonical_model = :model"
-            params["model"] = model
+        # Handle fuzzy matched models
+        if fuzzy_matched_models:
+            placeholders = ", ".join(f":model_{i}" for i in range(len(fuzzy_matched_models)))
+            query += f" AND canonical_model IN ({placeholders})"
+            for i, matched_model in enumerate(fuzzy_matched_models):
+                params[f"model_{i}"] = matched_model
 
-        if min_score is not None:
-            query += " AND score >= :min_score"
-            params["min_score"] = min_score
+        # Declarative filter specs
+        filter_specs = [
+            ("price", ">=", "min_price", min_price),
+            ("price", "<=", "max_price", max_price),
+            ("score", ">=", "min_score", min_score),
+            ("score", "<=", "max_score", max_score),
+            ("region", "=", "region", region),
+            ("seen_at", ">=", "after", after.isoformat() if after else None),
+            ("import_id", "=", "import_id", import_id),
+        ]
 
-        if max_score is not None:
-            query += " AND score <= :max_score"
-            params["max_score"] = max_score
+        for column, op, param_name, value in filter_specs:
+            if value is not None:
+                query += f" AND {column} {op} :{param_name}"
+                params[param_name] = value
 
-        if region:
-            query += " AND region = :region"
-            params["region"] = region
+        if limit is not None:
+            query += " LIMIT :limit"
+            params["limit"] = limit
 
-        if after:
-            query += " AND seen_at >= :after"
-            params["after"] = after.isoformat()
+        if offset is not None:
+            query += " OFFSET :offset"
+            params["offset"] = offset
 
-        # Execute the query
-        with self.engine.connect() as conn:
-            result = conn.execute(text(query), params)
-            rows = result.fetchall()
+        return query, params
 
-        # Convert rows to DTOs
+    def _convert_rows_to_dtos(self, rows) -> List[GPUListingDTO]:
+        """
+        Convert database rows to GPUListingDTO objects.
+
+        Args:
+            rows: Database result rows
+
+        Returns:
+            List of GPUListingDTO objects
+        """
         listings = []
         for row in rows:
             listing = GPUListingDTO(
@@ -285,8 +331,62 @@ class SqliteListingStore(ListingStore):
                 mig_support=row[4],
                 nvlink=bool(row[5]),
                 score=row[6],
+                import_id=row[7],
+                import_index=row[8],
             )
             listings.append(listing)
+        return listings
+
+    def query_listings(
+        self,
+        model: Optional[str] = None,
+        min_price: Optional[float] = None,
+        max_price: Optional[float] = None,
+        min_score: Optional[float] = None,
+        max_score: Optional[float] = None,
+        region: Optional[str] = None,
+        after: Optional[datetime] = None,
+        import_id: Optional[str] = None,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
+    ) -> List[GPUListingDTO]:
+        """
+        Query listings from the store with optional filters.
+
+        Args:
+            model: Filter by canonical model name (supports fuzzy matching)
+            min_price: Filter by minimum price
+            max_price: Filter by maximum price
+            min_score: Filter by minimum score
+            max_score: Filter by maximum score
+            region: Filter by region
+            after: Filter by listings seen after this timestamp
+            import_id: Filter by import batch ID
+            limit: Maximum number of results to return
+            offset: Number of results to skip for pagination
+
+        Returns:
+            A list of listings matching the filters
+        """
+        # Handle fuzzy matching for model if provided
+        fuzzy_matched_models = []
+        if model:
+            fuzzy_matched_models = self._get_fuzzy_matched_models(model)
+            if not fuzzy_matched_models:
+                return []
+
+        # Build the query with filters
+        query, params = self._build_query_with_filters(
+            fuzzy_matched_models, min_price, max_price, min_score, max_score, region, after, import_id, limit, offset
+        )
+
+        # Execute the query
+        with self.engine.connect() as conn:
+            result = conn.execute(text(query), params)
+            rows = result.fetchall()
+
+        # Convert rows to DTOs
+        listings = self._convert_rows_to_dtos(rows)
 
         logger.info(f"Found {len(listings)} listings matching the filters")
         return listings

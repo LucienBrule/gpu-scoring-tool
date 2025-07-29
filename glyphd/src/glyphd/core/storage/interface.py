@@ -37,20 +37,28 @@ class ListingStore(ABC):
     def query_listings(
         self,
         model: Optional[str] = None,
+        min_price: Optional[float] = None,
+        max_price: Optional[float] = None,
         min_score: Optional[float] = None,
         max_score: Optional[float] = None,
         region: Optional[str] = None,
         after: Optional[datetime] = None,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
     ) -> List[GPUListingDTO]:
         """
         Query listings from the store with optional filters.
 
         Args:
-            model: Filter by canonical model name
+            model: Filter by canonical model name (supports fuzzy matching)
+            min_price: Filter by minimum price
+            max_price: Filter by maximum price
             min_score: Filter by minimum score
             max_score: Filter by maximum score
             region: Filter by region
             after: Filter by listings seen after this timestamp
+            limit: Maximum number of results to return
+            offset: Number of results to skip for pagination
 
         Returns:
             A list of listings matching the filters

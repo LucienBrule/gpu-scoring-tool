@@ -4,7 +4,7 @@
 Implement Import Metadata: ID Tracking and Versioning for Listings
 
 ## EPIC Reference
-[EPIC.persist.sqlite-store](../../epics/open/EPIC.persist.sqlite-store.md)
+[EPIC.persist.sqlite-store](../../epics/closed/EPIC.persist.sqlite-store.md)
 
 ## Prerequisites
 - [TASK.persist.01.schema](TASK.persist.01.schema.md)
@@ -64,3 +64,34 @@ curl http://localhost:8080/api/listings?import_id=<import_id>
 This mechanism enables forward chaining into delta-forecasting, provenance tracking, and operator-facing diffing of ingestion cycles.
 
 The `import_id` will later serve as the basis for time-based aggregation, report regeneration, rollback mechanisms, and integration with the forecast epic for delta-history processing.
+
+## ✅ Task Completed
+
+**Changes made:**
+- Updated SQLite schema in both `glyphd/src/glyphd/sqlite/schema.sql` and `glyphd/src/glyphd/resources/sql/schema.sql` to add `import_index INTEGER` columns to all tables (models, listings, scored_listings, quantized_listings)
+- Added appropriate indexes for `import_index` columns for performance optimization
+- Modified `SqliteListingStore.insert_listings()` to assign sequential `import_index` values starting from 1 for each import batch
+- Updated `GPUListingDTO` model to include optional `import_id` and `import_index` fields
+- Enhanced GET `/api/listings` endpoint to support filtering by `import_id` parameter
+- Updated storage layer query methods to return `import_id` and `import_index` in results
+- Fixed code quality issues (line length violations, trailing whitespace, unused noqa directive)
+
+**Outcomes:**
+- POST `/api/import` now generates unique `import_id` (UUID) for each batch and returns it in response
+- Each listing within an import batch gets sequential `import_index` (1, 2, 3, ...)
+- GET `/api/listings?import_id=<uuid>` correctly filters listings by import batch
+- All existing functionality remains backward compatible
+- Comprehensive pytest coverage added for new functionality (11 tests passing)
+- All quality checks pass: flake8, black, ruff
+- Docker Compose deployment works correctly on port 8080
+
+**Lessons learned:**
+- Docker container schema updates require complete rebuild without cache to ensure fresh database
+- Both schema files need to be kept in sync for proper functionality
+- Sequential import_index assignment enables proper lineage tracking within batches
+- Import metadata enables powerful filtering and batch management capabilities
+
+**Follow-up needed:**
+- This completes the ingestion lineage support milestone
+- Foundation is now ready for `forecast.core-delta-history` implementation
+- Import metadata can be used for rollback mechanisms and delta comparisons

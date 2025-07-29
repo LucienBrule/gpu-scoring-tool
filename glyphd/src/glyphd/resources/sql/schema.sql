@@ -53,12 +53,14 @@ CREATE TABLE IF NOT EXISTS models (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     import_id TEXT,                  -- Reference to the import batch
+    import_index INTEGER,            -- Sequential index within the import batch
     
     FOREIGN KEY (import_id) REFERENCES import_batches(import_id) ON DELETE SET NULL
 );
 
 -- Create index on model name for faster lookups
 CREATE INDEX IF NOT EXISTS idx_models_model ON models(model);
+CREATE INDEX IF NOT EXISTS idx_models_import_index ON models(import_index);
 
 -- Raw Listings table (based on GPUListingDTO from glyphsieve)
 -- Stores raw listing metadata parsed from CSV input
@@ -74,6 +76,7 @@ CREATE TABLE IF NOT EXISTS listings (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     import_id TEXT,                  -- Reference to the import batch
+    import_index INTEGER,            -- Sequential index within the import batch
     
     FOREIGN KEY (canonical_model) REFERENCES models(model) ON DELETE CASCADE,
     FOREIGN KEY (import_id) REFERENCES import_batches(import_id) ON DELETE SET NULL
@@ -82,6 +85,7 @@ CREATE TABLE IF NOT EXISTS listings (
 -- Create indexes for faster lookups
 CREATE INDEX IF NOT EXISTS idx_listings_canonical_model ON listings(canonical_model);
 CREATE INDEX IF NOT EXISTS idx_listings_import_id ON listings(import_id);
+CREATE INDEX IF NOT EXISTS idx_listings_import_index ON listings(import_index);
 
 -- Scored Listings table (based on GPUListingDTO from glyphd and EnrichedGPUListingDTO)
 -- Stores enriched and scored GPU listings
@@ -126,6 +130,7 @@ CREATE TABLE IF NOT EXISTS scored_listings (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     import_id TEXT,                  -- Reference to the import batch
+    import_index INTEGER,            -- Sequential index within the import batch
     
     FOREIGN KEY (canonical_model) REFERENCES models(model) ON DELETE CASCADE,
     FOREIGN KEY (import_id) REFERENCES import_batches(import_id) ON DELETE SET NULL
@@ -137,6 +142,7 @@ CREATE INDEX IF NOT EXISTS idx_scored_listings_score ON scored_listings(score);
 CREATE INDEX IF NOT EXISTS idx_scored_listings_region ON scored_listings(region);
 CREATE INDEX IF NOT EXISTS idx_scored_listings_seen_at ON scored_listings(seen_at);
 CREATE INDEX IF NOT EXISTS idx_scored_listings_import_id ON scored_listings(import_id);
+CREATE INDEX IF NOT EXISTS idx_scored_listings_import_index ON scored_listings(import_index);
 
 -- Quantized Listings table (based on QuantizationCapacitySpec)
 -- Stores quantization capacities for GPU listings
@@ -151,6 +157,7 @@ CREATE TABLE IF NOT EXISTS quantized_listings (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     import_id TEXT,                  -- Reference to the import batch
+    import_index INTEGER,            -- Sequential index within the import batch
     
     FOREIGN KEY (scored_listing_id) REFERENCES scored_listings(id) ON DELETE CASCADE,
     FOREIGN KEY (import_id) REFERENCES import_batches(import_id) ON DELETE SET NULL
@@ -158,6 +165,7 @@ CREATE TABLE IF NOT EXISTS quantized_listings (
 
 -- Create index for faster lookups
 CREATE INDEX IF NOT EXISTS idx_quantized_listings_scored_listing_id ON quantized_listings(scored_listing_id);
+CREATE INDEX IF NOT EXISTS idx_quantized_listings_import_index ON quantized_listings(import_index);
 
 -- Triggers to update the updated_at timestamp when records are modified
 
