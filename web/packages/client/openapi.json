@@ -28,14 +28,14 @@
         }
       }
     },
-    "/api/listings": {
+    "/api/listings/legacy": {
       "get": {
         "tags": [
           "Listings"
         ],
-        "summary": "Get GPU Listings",
-        "description": "Retrieve all GPU listings with optional filtering by model and quantization capability",
-        "operationId": "get_listings_api_listings_get",
+        "summary": "Get GPU Listings (Legacy)",
+        "description": "Retrieve all GPU listings with optional filtering by model and quantization capability (legacy endpoint)",
+        "operationId": "get_listings_legacy_api_listings_legacy_get",
         "parameters": [
           {
             "name": "model",
@@ -72,6 +72,159 @@
               "title": "Quantized"
             },
             "description": "Filter by quantization capability"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GPUListingDTO"
+                  },
+                  "title": "Response Get Listings Legacy Api Listings Legacy Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/listings": {
+      "get": {
+        "tags": [
+          "Listings"
+        ],
+        "summary": "Query GPU Listings from Database",
+        "description": "Retrieve GPU listings from SQLite database with filtering, fuzzy matching, and pagination",
+        "operationId": "get_listings_api_listings_get",
+        "parameters": [
+          {
+            "name": "model",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by model name (supports fuzzy matching)",
+              "title": "Model"
+            },
+            "description": "Filter by model name (supports fuzzy matching)"
+          },
+          {
+            "name": "min_price",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Minimum price filter",
+              "title": "Min Price"
+            },
+            "description": "Minimum price filter"
+          },
+          {
+            "name": "max_price",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Maximum price filter",
+              "title": "Max Price"
+            },
+            "description": "Maximum price filter"
+          },
+          {
+            "name": "import_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by import batch ID",
+              "title": "Import Id"
+            },
+            "description": "Filter by import batch ID"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 1000,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Maximum number of results (default: 100, max: 1000)",
+              "default": 100,
+              "title": "Limit"
+            },
+            "description": "Maximum number of results (default: 100, max: 1000)"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Number of results to skip for pagination",
+              "default": 0,
+              "title": "Offset"
+            },
+            "description": "Number of results to skip for pagination"
           }
         ],
         "responses": {
@@ -122,6 +275,52 @@
                   },
                   "type": "array",
                   "title": "Response Get Models Api Models Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/persist/listings": {
+      "post": {
+        "tags": [
+          "Persist"
+        ],
+        "summary": "Import GPU listings into SQLite store",
+        "description": "Import a batch of scored GPU listings into the SQLite database",
+        "operationId": "import_listings_api_persist_listings_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "items": {
+                  "$ref": "#/components/schemas/GPUListingDTO"
+                },
+                "type": "array",
+                "title": "Listings"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImportResultDTO"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
                 }
               }
             }
@@ -190,6 +389,30 @@
             "type": "number",
             "title": "Score",
             "description": "The calculated utility score"
+          },
+          "import_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Import Id",
+            "description": "The import batch ID"
+          },
+          "import_index": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Import Index",
+            "description": "The sequential index within the import batch"
           }
         },
         "type": "object",
@@ -206,6 +429,8 @@
         "description": "Data Transfer Object for GPU listing information.\n\nRepresents a GPU listing with its properties and score.",
         "example": {
           "canonical_model": "H100_PCIE_80GB",
+          "import_id": "550e8400-e29b-41d4-a716-446655440000",
+          "import_index": 1,
           "mig_support": 7,
           "nvlink": true,
           "price": 10000.0,
@@ -396,6 +621,54 @@
           "status"
         ],
         "title": "HealthStatus"
+      },
+      "ImportResultDTO": {
+        "properties": {
+          "import_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Import Id",
+            "description": "Unique identifier for the import batch"
+          },
+          "record_count": {
+            "type": "integer",
+            "title": "Record Count",
+            "description": "Number of records imported"
+          },
+          "first_model": {
+            "type": "string",
+            "title": "First Model",
+            "description": "First model name in the imported batch"
+          },
+          "last_model": {
+            "type": "string",
+            "title": "Last Model",
+            "description": "Last model name in the imported batch"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Timestamp",
+            "description": "Timestamp when the import was completed"
+          }
+        },
+        "type": "object",
+        "required": [
+          "import_id",
+          "record_count",
+          "first_model",
+          "last_model",
+          "timestamp"
+        ],
+        "title": "ImportResultDTO",
+        "description": "Data Transfer Object for import operation results.\n\nRepresents the result of an import operation with metadata.",
+        "example": {
+          "first_model": "H100_PCIE_80GB",
+          "import_id": "550e8400-e29b-41d4-a716-446655440000",
+          "last_model": "A100_SXM4_80GB",
+          "record_count": 3,
+          "timestamp": "2025-07-29T12:12:00"
+        }
       },
       "ReportDTO": {
         "properties": {

@@ -63,6 +63,18 @@ export interface GPUListingDTO {
      * @memberof GPUListingDTO
      */
     score: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GPUListingDTO
+     */
+    importId?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof GPUListingDTO
+     */
+    importIndex?: number | null;
 }
 
 /**
@@ -96,6 +108,8 @@ export function GPUListingDTOFromJSONTyped(json: any, ignoreDiscriminator: boole
         'tdpWatts': json['tdp_watts'],
         'price': json['price'],
         'score': json['score'],
+        'importId': json['import_id'] == null ? undefined : json['import_id'],
+        'importIndex': json['import_index'] == null ? undefined : json['import_index'],
     };
 }
 
@@ -117,6 +131,8 @@ export function GPUListingDTOToJSONTyped(value?: GPUListingDTO | null, ignoreDis
         'tdp_watts': value['tdpWatts'],
         'price': value['price'],
         'score': value['score'],
+        'import_id': value['importId'],
+        'import_index': value['importIndex'],
     };
 }
 

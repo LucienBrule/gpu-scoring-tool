@@ -6,6 +6,7 @@ package.json
 src/apis/HealthApi.ts
 src/apis/ListingsApi.ts
 src/apis/ModelsApi.ts
+src/apis/PersistApi.ts
 src/apis/ReportApi.ts
 src/apis/index.ts
 src/index.ts
@@ -13,6 +14,7 @@ src/models/GPUListingDTO.ts
 src/models/GPUModelDTO.ts
 src/models/HTTPValidationError.ts
 src/models/HealthStatus.ts
+src/models/ImportResultDTO.ts
 src/models/ReportDTO.ts
 src/models/ValidationError.ts
 src/models/ValidationErrorLocInner.ts

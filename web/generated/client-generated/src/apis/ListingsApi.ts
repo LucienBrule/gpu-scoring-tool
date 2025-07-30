@@ -27,6 +27,15 @@ import {
 
 export interface GetListingsApiListingsGetRequest {
     model?: string | null;
+    minPrice?: number | null;
+    maxPrice?: number | null;
+    importId?: string | null;
+    limit?: number | null;
+    offset?: number | null;
+}
+
+export interface GetListingsLegacyApiListingsLegacyGetRequest {
+    model?: string | null;
     quantized?: boolean | null;
 }
 
@@ -36,8 +45,8 @@ export interface GetListingsApiListingsGetRequest {
 export class ListingsApi extends runtime.BaseAPI {
 
     /**
-     * Retrieve all GPU listings with optional filtering by model and quantization capability
-     * Get GPU Listings
+     * Retrieve GPU listings from SQLite database with filtering, fuzzy matching, and pagination
+     * Query GPU Listings from Database
      */
     async getListingsApiListingsGetRaw(requestParameters: GetListingsApiListingsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GPUListingDTO>>> {
         const queryParameters: any = {};
@@ -46,8 +55,24 @@ export class ListingsApi extends runtime.BaseAPI {
             queryParameters['model'] = requestParameters['model'];
         }
 
-        if (requestParameters['quantized'] != null) {
-            queryParameters['quantized'] = requestParameters['quantized'];
+        if (requestParameters['minPrice'] != null) {
+            queryParameters['min_price'] = requestParameters['minPrice'];
+        }
+
+        if (requestParameters['maxPrice'] != null) {
+            queryParameters['max_price'] = requestParameters['maxPrice'];
+        }
+
+        if (requestParameters['importId'] != null) {
+            queryParameters['import_id'] = requestParameters['importId'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -66,11 +91,50 @@ export class ListingsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve all GPU listings with optional filtering by model and quantization capability
-     * Get GPU Listings
+     * Retrieve GPU listings from SQLite database with filtering, fuzzy matching, and pagination
+     * Query GPU Listings from Database
      */
     async getListingsApiListingsGet(requestParameters: GetListingsApiListingsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GPUListingDTO>> {
         const response = await this.getListingsApiListingsGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve all GPU listings with optional filtering by model and quantization capability (legacy endpoint)
+     * Get GPU Listings (Legacy)
+     */
+    async getListingsLegacyApiListingsLegacyGetRaw(requestParameters: GetListingsLegacyApiListingsLegacyGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GPUListingDTO>>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['model'] != null) {
+            queryParameters['model'] = requestParameters['model'];
+        }
+
+        if (requestParameters['quantized'] != null) {
+            queryParameters['quantized'] = requestParameters['quantized'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/listings/legacy`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(GPUListingDTOFromJSON));
+    }
+
+    /**
+     * Retrieve all GPU listings with optional filtering by model and quantization capability (legacy endpoint)
+     * Get GPU Listings (Legacy)
+     */
+    async getListingsLegacyApiListingsLegacyGet(requestParameters: GetListingsLegacyApiListingsLegacyGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GPUListingDTO>> {
+        const response = await this.getListingsLegacyApiListingsLegacyGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
