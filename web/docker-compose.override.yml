@@ -1,0 +1,11 @@
+services:
+  controlpanel:
+    ports:
+      - '3001:3000'  # Runs on a different port to avoid conflict with main stack
+    volumes:
+      - ./web/apps/controlpanel:/app/apps/controlpanel
+      - ./web/packages:/app/packages
+      - ./web/generated:/app/generated
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
