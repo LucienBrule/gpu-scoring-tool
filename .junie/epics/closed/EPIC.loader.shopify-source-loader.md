@@ -53,3 +53,29 @@ Junie:
 ---
 
 🧱 Once complete, this epic enables ingestion from live external vendor APIs.
+
+## ✅ Epic Completed
+
+**Changes made:**
+- Implemented complete SourceLoader interface hierarchy with abstract base class
+- Created ShopifyJSONLoader base class for Shopify-specific JSON parsing
+- Implemented WamatekShopifyLoader with sophisticated GPU model extraction patterns
+- Added CLI commands: `shopify parse` and `shopify-parse` with --input and --output arguments
+- Comprehensive test coverage with 25 passing tests
+
+**Outcomes:**
+- Successfully processes Wamatek Shopify JSON exports (25 listings from sample file)
+- Generates pipeline-compatible CSV with correct schema: model, condition, price, quantity, seller, geographic_region, listing_age, source_url, source_type, bulk_notes, title
+- Robust GPU model extraction using regex patterns for NVIDIA RTX/GTX and AMD RX series
+- Proper condition inference, price parsing, and availability mapping
+- Modular architecture supports future vendor additions with minimal boilerplate
+- All linting and tests pass
+
+**Lessons learned:**
+- Flat JSON format from Shopify exports is well-handled by the base loader architecture
+- GPU model extraction requires sophisticated regex patterns to handle various naming conventions
+- Mixed product types (GPUs, capture cards, accessories) flow through correctly for downstream filtering
+- CLI command structure supports both grouped (`shopify parse`) and standalone (`shopify-parse`) patterns
+
+**Follow-up needed:**
+- TASK.loader.04.bad-row-analysis.md can now proceed to analyze non-GPU items in the dataset

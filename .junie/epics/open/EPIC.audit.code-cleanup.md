@@ -20,8 +20,8 @@ This epic also prepares the system for parallel agent contribution by minimizing
 
 ## Tasks
 
-- `TASK.audit.01.sqloader.md` – Introduce `SqlLoader` class to resolve `.sql` files via `importlib.resources` and integrate with `ResourceContext`.
-- `TASK.audit.02.no-path-file-only-resources.md` – Sweep codebase for direct `Path(__file__)` or manual file path logic and refactor to use appropriate resource loading patterns.
+- `TASK.audit.01.sqloader.md` – Introduce `SqlLoader` class to resolve `.sql` files via `importlib.resources` and integrate with `ResourceContext`. ✅ **COMPLETED** - Implemented BaseSqlLoader and GlyphdSqlLoader, registered in ResourceContext, replaced direct file access in sqlite_store.py, added tests, all tests pass and code is lint-clean.
+- `TASK.audit.02.no-path-file-only-resources.md` – Sweep codebase for direct `Path(__file__)` or manual file path logic and refactor to use appropriate resource loading patterns. ✅ **COMPLETED** - Comprehensive audit found no remaining resource loading violations. All `Path(__file__)`, `__file__`, and hardcoded resource path usage has been eliminated. Custom flake8 rules (GLS001-GLS005) pass cleanly on both glyphsieve and glyphd packages. Resource loading is properly handled through ResourceContext and appropriate loaders.
 
 ## Agent Notes
 
