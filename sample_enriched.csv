@@ -1,6 +1,0 @@
-canonical_model,vram_gb,mig_support,nvlink,tdp_watts,price
-H100_PCIE_80GB,80,7,True,350,10000.0
-A100_40GB_PCIE,40,7,False,250,8000.0
-RTX_4090,24,0,False,450,1500.0
-RTX_3090,24,0,False,350,1000.0
-RTX_A5000,24,0,True,230,2500.0
