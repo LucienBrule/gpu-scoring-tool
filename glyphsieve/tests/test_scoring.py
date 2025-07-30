@@ -369,7 +369,7 @@ def test_score_csv():
 
     try:
         # Score the CSV
-        result_df = score_csv(temp_input.name, temp_output.name)
+        _result_df = score_csv(temp_input.name, temp_output.name)
 
         # Check that the output file exists and has the expected columns
         assert os.path.exists(temp_output.name)
@@ -451,7 +451,7 @@ def test_score_csv_with_weight_overrides(tmp_path):
     }
 
     # Score the CSV with weight overrides
-    result_df = score_csv(input_file, output_file, weight_overrides=weight_overrides)
+    _result_df = score_csv(input_file, output_file, weight_overrides=weight_overrides)
 
     # Check that the output file exists
     assert os.path.exists(output_file)
@@ -472,11 +472,11 @@ def test_score_csv_with_weight_overrides(tmp_path):
 
     # Score without weight overrides for comparison
     output_file_default = tmp_path / "test_output_default.csv"
-    result_df_default = score_csv(input_file, output_file_default)
+    _result_df_default = score_csv(input_file, output_file_default)
     output_df_default = pd.read_csv(output_file_default)
 
     # The H100's score should be higher with the overrides (higher VRAM weight)
-    h100_score_default = output_df_default.loc[output_df_default["model"] == "H100_PCIE_80GB", "final_score"].iloc[0]
+    _h100_score_default = output_df_default.loc[output_df_default["model"] == "H100_PCIE_80GB", "final_score"].iloc[0]
 
     # Note: We can't directly compare the scores because they're normalized to 0-100,
     # but we can check that the relative positions are maintained
@@ -542,7 +542,7 @@ def test_score_csv_with_weights_file(tmp_path):
     test_data.to_csv(input_file, index=False)
 
     # Score the CSV with the custom weights file
-    result_df = score_csv(input_file, output_file, weights_file)
+    _result_df = score_csv(input_file, output_file, weights_file)
 
     # Check that the output file exists and has the expected columns
     assert os.path.exists(output_file)

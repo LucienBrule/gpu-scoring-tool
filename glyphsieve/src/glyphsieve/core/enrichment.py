@@ -77,6 +77,8 @@ def enrich_listings(records: List[GPUListingDTO], specs_file: Optional[str] = No
             "canonical_model": record.canonical_model,
             "match_type": record.match_type,
             "match_score": record.match_score,
+            "is_valid_gpu": record.is_valid_gpu,
+            "unknown_reason": record.unknown_reason,
             "vram_gb": 0,
             "tdp_w": 0,
             "mig_capable": 0,
@@ -159,12 +161,23 @@ def enrich_csv(input_file: str | Path, output_file: str | Path, specs_file: Opti
     records = []
     for _, row in df.iterrows():
         # Create a dictionary with the required fields
+        # Handle NaN values properly for the new fields
+        is_valid_gpu = row.get("is_valid_gpu", True)
+        if pd.isna(is_valid_gpu):
+            is_valid_gpu = True
+
+        unknown_reason = row.get("unknown_reason", None)
+        if pd.isna(unknown_reason):
+            unknown_reason = None
+
         record_data = {
             "title": row.get("title", "Unknown"),
             "price": float(row.get("price", 0.0)),
             "canonical_model": row["canonical_model"],
             "match_type": row.get("match_type", "unknown"),
             "match_score": float(row.get("match_score", 0.0)),
+            "is_valid_gpu": is_valid_gpu,
+            "unknown_reason": unknown_reason,
         }
         records.append(GPUListingDTO(**record_data))
 

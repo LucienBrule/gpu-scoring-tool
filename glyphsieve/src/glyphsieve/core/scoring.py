@@ -289,26 +289,52 @@ def score_csv(
     Returns:
         pd.DataFrame: DataFrame with added score columns
     """
-    # Load the input CSV
+    # Load and prepare data
     df = pd.read_csv(input_file)
+    weights = _prepare_scoring_weights(weights_file, weight_overrides)
+    strategy = strategy or EnhancedWeightedScorer()
 
-    # Load scoring weights
+    # Score the DataFrame
+    scored_df = strategy.score_dataframe(df, weights)
+
+    # Extract and write results
+    scored_gpus = _extract_scored_gpus(scored_df)
+    _write_scored_results(output_file, scored_gpus, scored_df)
+
+    return scored_df
+
+
+def _prepare_scoring_weights(weights_file: Optional[str], weight_overrides: Optional[Dict[str, float]]):
+    """
+    Load and prepare scoring weights with optional overrides.
+
+    Args:
+        weights_file: Path to weights YAML file (optional)
+        weight_overrides: Dictionary of weight overrides (optional)
+
+    Returns:
+        Prepared scoring weights object
+    """
     weights = load_scoring_weights(weights_file)
 
-    # Apply weight overrides if provided
     if weight_overrides:
         for key, value in weight_overrides.items():
             if hasattr(weights, key):
                 setattr(weights, key, value)
 
-    # Use the specified strategy or default to EnhancedWeightedScorer
-    if strategy is None:
-        strategy = EnhancedWeightedScorer()
+    return weights
 
-    # Score the DataFrame
-    scored_df = strategy.score_dataframe(df, weights)
 
-    # Extract ScoredGPU records
+def _extract_scored_gpus(scored_df: pd.DataFrame) -> list[ScoredGPU]:
+    """
+    Extract ScoredGPU records from scored DataFrame.
+
+    Args:
+        scored_df: DataFrame with scoring results
+
+    Returns:
+        List of ScoredGPU objects
+    """
     scored_gpus = []
     for _, row in scored_df.iterrows():
         model = row.get("canonical_model", "Unknown")
@@ -321,16 +347,70 @@ def score_csv(
         )
         scored_gpus.append(scored_gpu)
 
-    # Write the output CSV
+    return scored_gpus
+
+
+def _write_scored_results(output_file: str, scored_gpus: list[ScoredGPU], scored_df: pd.DataFrame) -> None:
+    """
+    Write scored results to CSV file.
+
+    Args:
+        output_file: Path to output CSV file
+        scored_gpus: List of ScoredGPU objects
+        scored_df: Original scored DataFrame for additional fields
+    """
     os.makedirs(os.path.dirname(os.path.abspath(output_file)), exist_ok=True)
 
-    # Write using DictWriter to ensure consistent column order
+    fieldnames = _determine_output_fieldnames(scored_df)
+
     with open(output_file, "w", newline="") as f:
-        fieldnames = ["model", "raw_score", "quantization_score", "final_score"]
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
-        for gpu in scored_gpus:
-            writer.writerow(gpu.model_dump())
 
-    # Return the full scored DataFrame for backward compatibility
-    return scored_df
+        for i, gpu in enumerate(scored_gpus):
+            row_data = _prepare_output_row(gpu, scored_df.iloc[i], fieldnames)
+            writer.writerow(row_data)
+
+
+def _determine_output_fieldnames(scored_df: pd.DataFrame) -> list[str]:
+    """
+    Determine the fieldnames for output CSV based on available columns.
+
+    Args:
+        scored_df: Scored DataFrame to check for additional fields
+
+    Returns:
+        List of fieldnames for CSV output
+    """
+    base_fieldnames = ["model", "raw_score", "quantization_score", "final_score"]
+    additional_fields = []
+
+    if "is_valid_gpu" in scored_df.columns:
+        additional_fields.append("is_valid_gpu")
+    if "unknown_reason" in scored_df.columns:
+        additional_fields.append("unknown_reason")
+
+    return base_fieldnames + additional_fields
+
+
+def _prepare_output_row(gpu: ScoredGPU, original_row: pd.Series, fieldnames: list[str]) -> Dict[str, Any]:
+    """
+    Prepare a single output row with GPU data and additional fields.
+
+    Args:
+        gpu: ScoredGPU object
+        original_row: Original row from scored DataFrame
+        fieldnames: List of expected fieldnames
+
+    Returns:
+        Dictionary representing the output row
+    """
+    row_data = gpu.model_dump()
+
+    # Add additional fields from the original DataFrame if they exist
+    additional_fields = [field for field in fieldnames if field not in row_data]
+    for field in additional_fields:
+        if field in original_row:
+            row_data[field] = original_row[field]
+
+    return row_data

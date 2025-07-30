@@ -101,7 +101,7 @@ def test_quantization_heuristic_evaluate_capable():
 
     # Check that the GPU is flagged as quantization-capable
     assert "quantization_capable" in result
-    assert result["quantization_capable"] is True
+    assert result["quantization_capable"] == True
 
 
 def test_quantization_heuristic_evaluate_not_capable_vram():
@@ -124,7 +124,7 @@ def test_quantization_heuristic_evaluate_not_capable_vram():
 
     # Check that the GPU is flagged as not quantization-capable
     assert "quantization_capable" in result
-    assert result["quantization_capable"] is False
+    assert result["quantization_capable"] == False
 
 
 def test_quantization_heuristic_evaluate_not_capable_tdp():
@@ -147,7 +147,7 @@ def test_quantization_heuristic_evaluate_not_capable_tdp():
 
     # Check that the GPU is flagged as not quantization-capable
     assert "quantization_capable" in result
-    assert result["quantization_capable"] is False
+    assert result["quantization_capable"] == False
 
 
 def test_quantization_heuristic_evaluate_not_capable_mig():
@@ -170,7 +170,7 @@ def test_quantization_heuristic_evaluate_not_capable_mig():
 
     # Check that the GPU is flagged as not quantization-capable
     assert "quantization_capable" in result
-    assert result["quantization_capable"] is False
+    assert result["quantization_capable"] == False
 
 
 def test_quantization_heuristic_evaluate_boundary():
@@ -193,7 +193,7 @@ def test_quantization_heuristic_evaluate_boundary():
 
     # Check that the GPU is flagged as quantization-capable
     assert "quantization_capable" in result
-    assert result["quantization_capable"] is True
+    assert result["quantization_capable"] == True
 
 
 def test_quantization_heuristic_evaluate_missing_fields():
@@ -209,7 +209,7 @@ def test_quantization_heuristic_evaluate_missing_fields():
 
     # Check that the GPU is flagged as not quantization-capable
     assert "quantization_capable" in result
-    assert result["quantization_capable"] is False
+    assert result["quantization_capable"] == False
 
 
 def test_quantization_heuristic_evaluate_null_fields():
@@ -225,7 +225,7 @@ def test_quantization_heuristic_evaluate_null_fields():
 
     # Check that the GPU is flagged as not quantization-capable
     assert "quantization_capable" in result
-    assert result["quantization_capable"] is False
+    assert result["quantization_capable"] == False
 
 
 def test_apply_heuristics():

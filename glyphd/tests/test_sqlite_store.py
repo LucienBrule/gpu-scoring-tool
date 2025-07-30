@@ -7,14 +7,12 @@ the ListingStore interface using SQLite as the storage backend.
 
 import os
 import tempfile
-from datetime import datetime
-from pathlib import Path
 from typing import List
 
 import pytest
 from sqlalchemy import create_engine, text
 
-from glyphd.api.models import GPUListingDTO, ImportMetadata
+from glyphd.api.models import GPUListingDTO
 from glyphd.core.storage import SqliteListingStore
 
 
@@ -83,7 +81,7 @@ def test_init_creates_schema(temp_db_path: str) -> None:
         temp_db_path: Path to a temporary SQLite database
     """
     # Initialize the store
-    store = SqliteListingStore(temp_db_path)
+    _store = SqliteListingStore(temp_db_path)
 
     # Check that the schema was created
     engine = create_engine(f"sqlite:///{temp_db_path}")

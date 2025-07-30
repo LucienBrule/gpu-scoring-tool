@@ -105,36 +105,46 @@ def test_no_match():
 def test_normalize_gpu_model():
     """Test the normalize_gpu_model function."""
     # Test exact match
-    model, match_type, score = normalize_gpu_model("NVIDIA H100 PCIe 80GB")
+    model, match_type, score, is_valid_gpu, unknown_reason = normalize_gpu_model("NVIDIA H100 PCIe 80GB")
     assert model == "H100_PCIE_80GB"
     assert match_type == "exact"
     assert score == 1.0
+    assert is_valid_gpu is True
+    assert unknown_reason is None
 
     # Test regex match
-    model, match_type, score = normalize_gpu_model("NVIDIA H100 PCIe with 80GB memory")
+    model, match_type, score, is_valid_gpu, unknown_reason = normalize_gpu_model("NVIDIA H100 PCIe with 80GB memory")
     assert model == "H100_PCIE_80GB"
     assert match_type == "regex"
     assert score == 0.9
+    assert is_valid_gpu is True
+    assert unknown_reason is None
 
     # Test regex match for hyphenated model number (previously expected to be fuzzy)
-    model, match_type, score = normalize_gpu_model("NVIDIA H-100 PCIE")
+    model, match_type, score, is_valid_gpu, unknown_reason = normalize_gpu_model("NVIDIA H-100 PCIE")
     assert model == "H100_PCIE_80GB"
     assert match_type == "regex"
     assert score == 0.9
+    assert is_valid_gpu is True
+    assert unknown_reason is None
 
     # Test fuzzy match with a different example
-    model, match_type, score = normalize_gpu_model("NVIDIA GeForce RTX 6000 Ada")
+    model, match_type, score, is_valid_gpu, unknown_reason = normalize_gpu_model("NVIDIA GeForce RTX 6000 Ada")
     assert model == "RTX_6000_ADA"
     # This could be matched by either fuzzy or regex, so we're flexible on the match type
     assert match_type in ["fuzzy", "regex"]
     assert score > 0.0
     assert score <= 0.9
+    assert is_valid_gpu is True
+    assert unknown_reason is None
 
     # Test no match
-    model, match_type, score = normalize_gpu_model("Random text with no GPU model")
+    model, match_type, score, is_valid_gpu, unknown_reason = normalize_gpu_model("Random text with no GPU model")
     assert model == "UNKNOWN"
     assert match_type == "none"
     assert score == 0.0
+    assert is_valid_gpu is True
+    assert unknown_reason == "Could not match to any known GPU model"
 
 
 def test_normalize_csv():
@@ -164,7 +174,7 @@ def test_normalize_csv():
 
     try:
         # Normalize the CSV
-        result_df = normalize_csv(temp_input.name, temp_output.name)
+        _result_df = normalize_csv(temp_input.name, temp_output.name)
 
         # Check that the output file exists and has the expected columns
         assert os.path.exists(temp_output.name)
@@ -226,7 +236,7 @@ def test_normalize_csv_with_models_file(tmp_path):
     test_data.to_csv(input_file, index=False)
 
     # Normalize the CSV with the custom models file
-    result_df = normalize_csv(input_file, output_file, models_file)
+    _result_df = normalize_csv(input_file, output_file, models_file)
 
     # Check that the output file exists and has the expected columns
     assert os.path.exists(output_file)

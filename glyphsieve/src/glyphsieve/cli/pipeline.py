@@ -172,8 +172,18 @@ def run_score_step(input_file: str, output_file: str, weights_file: Optional[str
 @click.option(
     "--force-quantize", is_flag=True, help="Force recalculation of quantization capacity if it already exists"
 )
+@click.option("--filter-invalid", is_flag=True, help="Exclude invalid or non-GPU items from the final output")
 def pipeline(
-    input, output, working_dir, dedup, models_file, specs_file, weights_file, quantize_capacity, force_quantize
+    input,
+    output,
+    working_dir,
+    dedup,
+    models_file,
+    specs_file,
+    weights_file,
+    quantize_capacity,
+    force_quantize,
+    filter_invalid,
 ):
     """
     Run the full pipeline: clean → normalize → enrich → score.
@@ -239,7 +249,36 @@ def pipeline(
                 input_for_score = enriched_file
 
             # Step 4: Score
-            run_score_step(input_for_score, output, weights_file)
+            scored_df = run_score_step(input_for_score, output, weights_file)
+
+            # Optional Step: Filter invalid rows
+            if filter_invalid:
+                console.print("\n[bold yellow]Optional Step: Filter Invalid Rows[/bold yellow]")
+                step_start = time.time()
+
+                # Read the scored data to apply filtering
+                if "is_valid_gpu" in scored_df.columns:
+                    original_count = len(scored_df)
+                    valid_df = scored_df[scored_df["is_valid_gpu"]]
+                    filtered_count = len(valid_df)
+                    removed_count = original_count - filtered_count
+
+                    # Write the filtered data back to the output file
+                    valid_df.to_csv(output, index=False)
+
+                    step_duration = time.time() - step_start
+                    console.print(
+                        f"[green]Filtered {removed_count} invalid rows, kept {filtered_count} "
+                        f"valid GPU listings[/green] ({step_duration:.2f}s)"
+                    )
+
+                    if removed_count > 0:
+                        console.print(
+                            "[yellow]Removed items include capture devices, incomplete model names, "
+                            "and other non-GPU products[/yellow]"
+                        )
+                else:
+                    console.print("[yellow]Warning: is_valid_gpu column not found, skipping filtering[/yellow]")
 
             # Calculate total duration
             total_duration = time.time() - start_time

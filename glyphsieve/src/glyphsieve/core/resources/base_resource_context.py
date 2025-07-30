@@ -25,3 +25,11 @@ class ResourceContext(ABC):
 
     def load(self, model: Type[BaseModel], filename: str) -> BaseModel | List[BaseModel]:
         return self.loader_for(filename).load(model, filename)
+
+    def load_text(self, filename: str) -> str:
+        """Load a resource as raw text (for SQL files, etc.)."""
+        loader = self.loader_for(filename)
+        if hasattr(loader, "load_text"):
+            return loader.load_text(filename)
+        else:
+            raise ValueError(f"Loader for {filename} does not support text loading")

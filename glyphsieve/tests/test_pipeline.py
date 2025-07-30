@@ -31,7 +31,7 @@ GPU 2,200.00,RTX 3090,Used"""
     with tempfile.TemporaryDirectory() as working_dir:
         try:
             # Mock the Click context
-            ctx = MagicMock()
+            _ctx = MagicMock()
 
             # Run the pipeline
             with patch("glyphsieve.cli.pipeline.console"):  # Mock the console to avoid output during tests
@@ -45,6 +45,7 @@ GPU 2,200.00,RTX 3090,Used"""
                     weights_file=None,
                     quantize_capacity=False,
                     force_quantize=False,
+                    filter_invalid=False,
                 )
 
             # Check that the output file exists
@@ -100,7 +101,7 @@ GPU 2,200.00,RTX 3090,Used"""
     with tempfile.TemporaryDirectory() as working_dir:
         try:
             # Mock the Click context
-            ctx = MagicMock()
+            _ctx = MagicMock()
 
             # Run the pipeline with dedup enabled
             with patch("glyphsieve.cli.pipeline.console"):  # Mock the console to avoid output during tests
@@ -114,6 +115,7 @@ GPU 2,200.00,RTX 3090,Used"""
                     weights_file=None,
                     quantize_capacity=False,
                     force_quantize=False,
+                    filter_invalid=False,
                 )
 
             # Check that the output file exists
@@ -219,6 +221,7 @@ GPU 1,100.00,RTX 3080,New"""
                     weights_file=None,
                     quantize_capacity=False,
                     force_quantize=False,
+                    filter_invalid=False,
                 )
 
             # Check that each function was called exactly once

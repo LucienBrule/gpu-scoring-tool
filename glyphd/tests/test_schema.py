@@ -393,6 +393,27 @@ class TestSchema(unittest.TestCase):
         self.assertIsNotNone(queried_scored_listing.quantized_listing)
         self.assertEqual(queried_scored_listing.quantized_listing.model_7b, 3)
 
+    def test_sql_loader(self):
+        """Test that schema.sql can be loaded via ResourceContext."""
+        from glyphd.core.resources.resource_context import GlyphdResourceContext
+        
+        # Create a resource context
+        resource_context = GlyphdResourceContext()
+
+        # Load the schema.sql file
+        schema_sql = resource_context.load_text("sql/schema.sql")
+
+        # Verify that the schema SQL was loaded and contains expected content
+        self.assertIsInstance(schema_sql, str)
+        self.assertGreater(len(schema_sql), 0)
+
+        # Check for some expected SQL keywords/statements in the schema
+        self.assertIn("CREATE TABLE", schema_sql)
+        self.assertIn("schema_version", schema_sql)
+        self.assertIn("import_batches", schema_sql)
+        self.assertIn("models", schema_sql)
+        self.assertIn("scored_listings", schema_sql)
+
 
 if __name__ == "__main__":
     unittest.main()

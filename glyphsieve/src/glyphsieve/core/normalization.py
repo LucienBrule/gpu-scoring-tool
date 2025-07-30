@@ -199,7 +199,56 @@ def fuzzy_match(title: str, models: Dict[str, List[str]], threshold: float = 70.
     return None, 0.0
 
 
-def normalize_gpu_model(title: str, models_file: Optional[str] = None) -> Tuple[str, str, float]:
+def _detect_non_gpu_item(title: str) -> Tuple[bool, Optional[str]]:
+    """
+    Detect if an item is clearly not a GPU based on keywords.
+
+    Args:
+        title: The title string to analyze
+
+    Returns:
+        A tuple of (is_non_gpu, reason) where is_non_gpu is True if the item is not a GPU
+    """
+    title_lower = title.lower()
+
+    # Keywords that indicate non-GPU items
+    non_gpu_keywords = {
+        "capture": "capture device",
+        "tvbox": "TV tuner/capture device",
+        "tv box": "TV tuner/capture device",
+        "bridge": "networking/video bridge device",
+        "streamer": "streaming device",
+        "recorder": "recording device",
+        "conferencing": "video conferencing equipment",
+        "onelink": "video bridge device",
+        "hdbaset": "video transmission device",
+        "usb 3.0": "USB device (likely capture card)",
+        "avertv": "TV tuner device",
+        "ezrecorder": "recording device",
+        "vaddio": "video conferencing equipment",
+    }
+
+    for keyword, reason in non_gpu_keywords.items():
+        if keyword in title_lower:
+            return True, f"Contains '{keyword}' - likely {reason}"
+
+    # Check for incomplete GPU model names (common issue)
+    gpu_prefixes = ["rtx", "gtx", "geforce", "quadro", "tesla", "radeon"]
+    has_gpu_prefix = any(prefix in title_lower for prefix in gpu_prefixes)
+
+    if has_gpu_prefix:
+        # Check if it's an incomplete model name
+        if (
+            title_lower.endswith(" rtx")
+            or title_lower.endswith(" geforce")
+            or ("geforce rtx" in title_lower and not any(char.isdigit() for char in title_lower[-10:]))
+        ):
+            return True, "Incomplete GPU model name - missing specific model number"
+
+    return False, None
+
+
+def normalize_gpu_model(title: str, models_file: Optional[str] = None) -> Tuple[str, str, float, bool, Optional[str]]:
     """
     Normalize a GPU model name from a title string.
 
@@ -208,28 +257,33 @@ def normalize_gpu_model(title: str, models_file: Optional[str] = None) -> Tuple[
         models_file: Optional path to a JSON file containing GPU model definitions
 
     Returns:
-        A tuple of (canonical_model, match_type, match_score)
+        A tuple of (canonical_model, match_type, match_score, is_valid_gpu, unknown_reason)
     """
+    # Check if this is clearly not a GPU item
+    is_non_gpu, non_gpu_reason = _detect_non_gpu_item(title)
+    if is_non_gpu:
+        return "UNKNOWN", "none", 0.0, False, non_gpu_reason
+
     # Load models
     models = load_gpu_models(models_file)
 
     # Try exact match first
     model, score = exact_match(title, models)
     if model:
-        return model, "exact", score
+        return model, "exact", score, True, None
 
     # Try regex match next
     model, score = regex_match(title, GPU_REGEX_PATTERNS)
     if model:
-        return model, "regex", score
+        return model, "regex", score, True, None
 
     # Try fuzzy match last
     model, score = fuzzy_match(title, models)
     if model:
-        return model, "fuzzy", score
+        return model, "fuzzy", score, True, None
 
-    # No match found
-    return "UNKNOWN", "none", 0.0
+    # No match found - assume it's a GPU but we couldn't identify the model
+    return "UNKNOWN", "none", 0.0, True, "Could not match to any known GPU model"
 
 
 def normalize_csv(input_path: str, output_path: str, models_file: Optional[str] = None) -> pd.DataFrame:
@@ -255,13 +309,17 @@ def normalize_csv(input_path: str, output_path: str, models_file: Optional[str] 
     df["canonical_model"] = None
     df["match_type"] = None
     df["match_score"] = None
+    df["is_valid_gpu"] = None
+    df["unknown_reason"] = None
 
     # Normalize each title
     for idx, row in df.iterrows():
-        model, match_type, score = normalize_gpu_model(row["title"], models_file)
+        model, match_type, score, is_valid_gpu, unknown_reason = normalize_gpu_model(row["title"], models_file)
         df.at[idx, "canonical_model"] = model
         df.at[idx, "match_type"] = match_type
         df.at[idx, "match_score"] = score
+        df.at[idx, "is_valid_gpu"] = is_valid_gpu
+        df.at[idx, "unknown_reason"] = unknown_reason
 
     # Write the normalized data to the output file
     df.to_csv(output_path, index=False)

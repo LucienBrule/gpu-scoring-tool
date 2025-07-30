@@ -74,8 +74,10 @@ class GPUListingDTO(BaseModel):
     title: str = Field(..., description="Original title of the GPU listing")
     price: float = Field(..., description="Price of the GPU")
     canonical_model: str = Field(..., description="Canonical model name (e.g., RTX_A5000)")
-    match_type: str = Field(..., description="Type of match (exact, regex, fuzzy)")
+    match_type: str = Field(..., description="Type of match (exact, regex, fuzzy, none)")
     match_score: float = Field(..., description="Confidence score of the match")
+    is_valid_gpu: bool = Field(True, description="Whether this appears to be a valid GPU listing")
+    unknown_reason: Optional[str] = Field(None, description="Reason why the item could not be matched to a GPU model")
 
 
 class EnrichedGPUListingDTO(BaseModel):
@@ -89,8 +91,10 @@ class EnrichedGPUListingDTO(BaseModel):
     title: str = Field(..., description="Original title of the GPU listing")
     price: float = Field(..., description="Price of the GPU")
     canonical_model: str = Field(..., description="Canonical model name (e.g., RTX_A5000)")
-    match_type: str = Field(..., description="Type of match (exact, regex, fuzzy)")
+    match_type: str = Field(..., description="Type of match (exact, regex, fuzzy, none)")
     match_score: float = Field(..., description="Confidence score of the match")
+    is_valid_gpu: bool = Field(True, description="Whether this appears to be a valid GPU listing")
+    unknown_reason: Optional[str] = Field(None, description="Reason why the item could not be matched to a GPU model")
 
     # Enriched fields from GPUMetadata
     vram_gb: int = Field(..., description="VRAM capacity in GB")

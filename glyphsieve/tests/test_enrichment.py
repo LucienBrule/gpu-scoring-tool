@@ -41,7 +41,7 @@ def test_load_gpu_specs():
     assert rtx_a6000.vram_gb == 48
     assert rtx_a6000.tdp_watts == 300
     assert rtx_a6000.mig_support == 0
-    assert rtx_a6000.nvlink is True
+    assert rtx_a6000.nvlink == True
     assert rtx_a6000.generation == "Ampere"
 
 
@@ -79,7 +79,7 @@ gpus:
         assert test_gpu.vram_gb == 16
         assert test_gpu.tdp_watts == 150
         assert test_gpu.mig_support == 4
-        assert test_gpu.nvlink is True
+        assert test_gpu.nvlink == True
         assert test_gpu.generation == "Test"
 
     finally:
@@ -124,32 +124,32 @@ def test_enrich_listings():
     assert all(isinstance(listing, EnrichedGPUListingDTO) for listing in enriched_listings)
 
     # Check that the metadata is correctly added for known models
-    rtx_a6000 = next(l for l in enriched_listings if l.canonical_model == "RTX_A6000")
+    rtx_a6000 = next(listing for listing in enriched_listings if listing.canonical_model == "RTX_A6000")
     assert rtx_a6000.vram_gb == 48
     assert rtx_a6000.tdp_w == 300
     assert rtx_a6000.mig_capable == 0
-    assert rtx_a6000.nvlink is True
+    assert rtx_a6000.nvlink == True
     assert rtx_a6000.generation == "Ampere"
     assert rtx_a6000.slots == 2
     assert rtx_a6000.form_factor == "Dual-slot"
     assert rtx_a6000.warnings is None
 
-    rtx_a5000 = next(l for l in enriched_listings if l.canonical_model == "RTX_A5000")
+    rtx_a5000 = next(listing for listing in enriched_listings if listing.canonical_model == "RTX_A5000")
     assert rtx_a5000.vram_gb == 24
     assert rtx_a5000.tdp_w == 230
     assert rtx_a5000.mig_capable == 0
-    assert rtx_a5000.nvlink is True
+    assert rtx_a5000.nvlink == True
     assert rtx_a5000.generation == "Ampere"
     assert rtx_a5000.slots == 2
     assert rtx_a5000.form_factor == "Dual-slot"
     assert rtx_a5000.warnings is None
 
     # Check that unknown models have default values and warnings
-    unknown = next(l for l in enriched_listings if l.canonical_model == "UNKNOWN_GPU")
+    unknown = next(listing for listing in enriched_listings if listing.canonical_model == "UNKNOWN_GPU")
     assert unknown.vram_gb == 0
     assert unknown.tdp_w == 0
     assert unknown.mig_capable == 0
-    assert unknown.nvlink is False
+    assert unknown.nvlink == False
     assert unknown.generation is None
     assert unknown.slots == 1
     assert unknown.form_factor == "Standard"
@@ -195,7 +195,7 @@ def test_enrich_csv():
 
     try:
         # Enrich the CSV
-        df = enrich_csv(input_file, output_file)
+        _df = enrich_csv(input_file, output_file)
 
         # Check that the output file exists and has the expected content
         assert os.path.exists(output_file)

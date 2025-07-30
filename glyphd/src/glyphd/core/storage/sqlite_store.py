@@ -89,11 +89,11 @@ class SqliteListingStore(ListingStore):
 
         This method reads the schema.sql file and executes it to create the database schema.
         """
-        # Read the schema.sql file using importlib.resources
-        from importlib.resources import files
+        # Read the schema.sql file using ResourceContext
+        from glyphd.core.resources.resource_context import GlyphdResourceContext
 
-        schema_path = files("glyphd.resources.sql").joinpath("schema.sql")
-        schema_sql = schema_path.read_text(encoding="utf-8")
+        resource_context = GlyphdResourceContext()
+        schema_sql = resource_context.load_text("sql/schema.sql")
 
         # Execute the schema SQL directly using SQLite's executescript
         # This bypasses SQLAlchemy's statement preparation and allows SQLite to handle
