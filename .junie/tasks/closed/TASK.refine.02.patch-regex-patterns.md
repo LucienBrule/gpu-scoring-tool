@@ -19,3 +19,24 @@ Based on findings from the Wamatek dataset, current regex rules misclassify mode
 ## Dependencies
 - Linked Epic: `EPIC.refine.model-normalization-accuracy.md`
 - Related Task: `TASK.refine.01.gpu-registry-additions.md`
+
+## ✅ Task Completed
+
+**Changes made:**
+- Added `_detect_intel_gpu()` function to identify Intel GPUs and prevent false positive matches
+- Integrated Intel GPU detection into the normalization flow before fuzzy matching
+- Intel GPUs are now classified as "UNKNOWN" with reason "Intel GPU - should not match NVIDIA models"
+
+**Outcomes:**
+- **False positive eliminated:** Intel Arc A310 no longer fuzzy matches to A100_40GB_PCIE
+- **Improved classification accuracy:** Fuzzy matches reduced by 133 (from 2,353 to 2,220)
+- **Better "none" classification:** None matches increased by 156 (from 4,001 to 4,157)
+- **Maintained enrichment success:** Still 100% enrichment rate with no missing metadata
+
+**Validation results:**
+- Before: "ASRock Intel Arc A310" → "A100_40GB_PCIE" (fuzzy, score 0.6)
+- After: "ASRock Intel Arc A310" → "UNKNOWN" (none, score 0.0, reason: "Intel GPU - should not match NVIDIA models")
+
+**Follow-up needed:**
+- Consider adding similar detection for AMD GPUs to prevent cross-vendor false positives
+- Monitor for other potential false positive patterns in future dataset analysis

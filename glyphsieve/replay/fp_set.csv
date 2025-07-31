@@ -1,0 +1,33 @@
+original_title,original_model,matched_canonical,match_type,match_score,issue_type,suggested_action,reason,source
+GEFORCE GT 710 2GB,GEFORCE GT 710 2GB,RTX_5070,fuzzy,0.6400000000000001,low_fuzzy_score,UNKNOWN,Fuzzy score 0.640 too low for reliable match,Wamatek
+GT 1030 4GD4 LP OC,GT 1030 4GD4 LP,H100_PCIE_80GB,fuzzy,0.6000000000000001,low_fuzzy_score,UNKNOWN,Fuzzy score 0.600 too low for reliable match,Wamatek
+MSI NVIDIA GeForce GT 710 Graphic Card - 2 GB DDR3 SDRAM - Low-profile,MSI NVIDIA GeForce GT,RTX_5070,fuzzy,0.6608695652173913,low_fuzzy_score,UNKNOWN,Fuzzy score 0.661 too low for reliable match,Wamatek
+Asus NVIDIA GeForce GT 730 Graphic Card - 2 GB GDDR5 - Low-profile,Asus NVIDIA GeForce GT,RTX_5070,fuzzy,0.6608695652173913,low_fuzzy_score,UNKNOWN,Fuzzy score 0.661 too low for reliable match,Wamatek
+"Eaton Tripp Lite Series USB 2.0 to DVI/VGA External Multi-Monitor Video Card, 128 MB SDRAM, 1920 x 1080 (1080p) @ 60 Hz",1920 x 1080,H100_PCIE_80GB,fuzzy,0.6000000000000001,low_fuzzy_score,UNKNOWN,Fuzzy score 0.600 too low for reliable match,Wamatek
+AMD RADEON PRO W6400,AMD RADEON PRO W6400,T400,fuzzy,0.6857142857142858,low_fuzzy_score,UNKNOWN,Fuzzy score 0.686 too low for reliable match,Wamatek
+NV 1000 8G CARD,NV 1000 8G CARD,A1000,fuzzy,0.6400000000000001,low_fuzzy_score,UNKNOWN,Fuzzy score 0.640 too low for reliable match,Wamatek
+Asus ROG AMD Radeon RX 6600 XT Graphic Card - 8 GB GDDR6,RX 6600 XT,RTX_6000_ADA,fuzzy,0.6000000000000001,low_fuzzy_score,UNKNOWN,Fuzzy score 0.600 too low for reliable match,Wamatek
+"Eaton Tripp Lite Series VGA to HDMI Active Adapter Cable with Audio and USB Power (M/F), 1080p, 6 in. (15.2 cm)",Eaton Tripp Lite Series,H100_PCIE_80GB,fuzzy,0.6000000000000001,low_fuzzy_score,UNKNOWN,Fuzzy score 0.600 too low for reliable match,Wamatek
+Gigabyte NVIDIA GeForce GT 1030 Graphic Card - 2 GB DDR4 SDRAM - Low-profile,GeForce GT 1030,RTX_5090,fuzzy,0.6608695652173913,low_fuzzy_score,UNKNOWN,Fuzzy score 0.661 too low for reliable match,Wamatek
+"SIIG HDMI Over IP Encoder & Decoder Transceiver, TX/RX Mode Switching, Cascading, 1080p, 1 to 1 600ft",SIIG HDMI Over IP,H100_PCIE_80GB,fuzzy,0.6000000000000001,low_fuzzy_score,UNKNOWN,Fuzzy score 0.600 too low for reliable match,Wamatek
+StarTech.com HDMI Audio Extractor - HDMI to 3.5mm Audio Converter - 2.1 Stereo Audio - 1080p,StarTech.com HDMI Audio Extractor,H100_PCIE_80GB,fuzzy,0.6000000000000001,low_fuzzy_score,UNKNOWN,Fuzzy score 0.600 too low for reliable match,Wamatek
+HP NVIDIA Quadro T1000 Graphic Card - 4 GB GDDR6,HP NVIDIA Quadro T1000,A40,fuzzy,0.6400000000000001,low_fuzzy_score,UNKNOWN,Fuzzy score 0.640 too low for reliable match,Wamatek
+StarTech.com EDID Emulator for HDMI Displays - Copy Extended Display Identification Data - 1080p,StarTech.com EDID Emulator for,H100_PCIE_80GB,fuzzy,0.6000000000000001,low_fuzzy_score,UNKNOWN,Fuzzy score 0.600 too low for reliable match,Wamatek
+Zotac NVIDIA GeForce GT 730 Graphic Card - 4 GB DDR3 SDRAM,Zotac NVIDIA GeForce GT,RTX_5070,fuzzy,0.6608695652173913,low_fuzzy_score,UNKNOWN,Fuzzy score 0.661 too low for reliable match,Wamatek
+Zotac NVIDIA GeForce GT 710 Graphic Card - 2 GB DDR3 SDRAM - Low-profile,Zotac NVIDIA GeForce GT,RTX_5070,fuzzy,0.6608695652173913,low_fuzzy_score,UNKNOWN,Fuzzy score 0.661 too low for reliable match,Wamatek
+ASUS TUF NV GEFORCE GTX 1660 TI,GTX 1660 TI,RTX_4060_TI,fuzzy,0.6736842105263158,low_fuzzy_score,UNKNOWN,Fuzzy score 0.674 too low for reliable match,Wamatek
+Asus AMD Radeon RX 7800 XT Graphic Card - 16 GB GDDR6,RX 7800 XT,A800_40GB,fuzzy,0.6000000000000001,low_fuzzy_score,UNKNOWN,Fuzzy score 0.600 too low for reliable match,Wamatek
+ASUS DUAL AMD RADEON RX 6600,RX 6600,RTX_6000_ADA,fuzzy,0.6400000000000001,low_fuzzy_score,UNKNOWN,Fuzzy score 0.640 too low for reliable match,Wamatek
+TUF-RX7800XT-O16G-WHITE-GAMING,RX7800XT,A800_40GB,fuzzy,0.6000000000000001,low_fuzzy_score,UNKNOWN,Fuzzy score 0.600 too low for reliable match,Wamatek
+MSI RTX 5070 12G SHADOW 2X OC,RTX 5070,RTX_5070,regex,0.9,short_model_name,REVIEW,"Very short model name ""RTX 5070"" may be incomplete",Wamatek
+MSI RTX 5070 12G VENTUS 2X OC WHITE,RTX 5070,RTX_5070,regex,0.9,short_model_name,REVIEW,"Very short model name ""RTX 5070"" may be incomplete",Wamatek
+MSI RTX 5080 16G VENTUS 3X OC PLUS,RTX 5080,RTX_5080,regex,0.9,short_model_name,REVIEW,"Very short model name ""RTX 5080"" may be incomplete",Wamatek
+MSI RTX 5090 32G GAMING TRIO OC,RTX 5090,RTX_5090,regex,0.9,short_model_name,REVIEW,"Very short model name ""RTX 5090"" may be incomplete",Wamatek
+MSI RTX 5090 VANGUARD SOC,RTX 5090,RTX_5090,regex,0.9,short_model_name,REVIEW,"Very short model name ""RTX 5090"" may be incomplete",Wamatek
+PNY NVIDIA GeForce RTX 5080 Graphic Card - 16 GB GDDR7,RTX 5080,RTX_5080,regex,0.9,short_model_name,REVIEW,"Very short model name ""RTX 5080"" may be incomplete",Wamatek
+PNY NVIDIA Quadro RTX 4500 Graphic Card - 24 GB GDDR6,RTX 4500,RTX_5000_ADA,fuzzy,0.7000000000000001,short_model_name,REVIEW,"Very short model name ""RTX 4500"" may be incomplete",Wamatek
+Asus ROG NVIDIA GeForce RTX 4060 Graphic Card - 8 GB GDDR6,RTX 4060,RTX_4060,regex,0.9,short_model_name,REVIEW,"Very short model name ""RTX 4060"" may be incomplete",Wamatek
+HP NVIDIA RTX 5000 Ada Graphic Card - 32 GB GDDR6 - Full-height,RTX 5000,RTX_5000_ADA,regex,0.9,short_model_name,REVIEW,"Very short model name ""RTX 5000"" may be incomplete",Wamatek
+DUAL-RTX3050-O6G,RTX3050,RTX_3050,regex,0.9,short_model_name,REVIEW,"Very short model name ""RTX3050"" may be incomplete",Wamatek
+DUAL RTX4060 O8G V2,RTX4060,RTX_4060,regex,0.9,short_model_name,REVIEW,"Very short model name ""RTX4060"" may be incomplete",Wamatek
+ASRock Intel Arc A310 Graphic Card - 4 GB GDDR6 - Low-profile,ASRock Intel Arc A310,A100_40GB_PCIE,fuzzy,0.6,resolved_cross_vendor,UNKNOWN,Intel GPU was incorrectly fuzzy matched to NVIDIA A100 (RESOLVED),Wamatek
