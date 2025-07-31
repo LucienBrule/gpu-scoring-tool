@@ -1,0 +1,3082 @@
+{
+  "products": [
+    {
+      "id": 10024463696056,
+      "title": "MSI RTX 5070 12G SHADOW 2X OC",
+      "handle": "msi-rtx-5070-12g-shadow-2x-oc",
+      "body_html": "<p>MSI RTX 5070 12G SHADOW 2X OC\n<br></p><p><strong>TAKE THE ESSENTIALS</strong></p><p>MSI SHADOW brings a performance-focused design that delivers the gaming experience players want, making it the ideal choice when upgrading or building a gaming rig.</p><p>NVIDIA Blackwell Architecture The Ultimate Platform for Gamers and Creators</p><p><strong>Fifth-Gen Tensor Cores</strong></p><p>Max AI performance with FP4 and DLSS 4</p><p><strong>New Streaming Multiprocessors</strong></p><p>Optimized for neural shaders</p><p><strong>Fourth-Gen Ray Tracing Cores</strong></p><p>Built for Mega Geometry</p><p><strong>AI-Enhanced Graphics and Performance</strong></p><p>NVIDIA DLSS 4 with Multi Frame Generation</p><p><strong>Game-Winning Responsiveness</strong></p><p>NVIDIA Reflex 2 with Frame Warp</p><p><strong>True-to-Life Graphics</strong></p><p>Full ray tracing with neural rendering</p><p><strong>Digital Humans and AI Assistants</strong></p><p>NVIDIA ACE</p><p><strong>Accelerate Your Creativity</strong></p><p>NVIDIA Studio creator tools and technology</p><p><strong>Enhance Any Video with AI</strong></p><p>NVIDIA Broadcast and ninth-gen NVIDIA Encoder</p><p><strong>Performance and Reliability</strong></p><p>NVIDIA app with Game Ready and Studio Drivers and Studio Drivers</p><p><strong>The Ultimate Gaming Display Technologies</strong></p><p>NVIDIA G-SYNC</p><p><strong>DUAL-Fan Thermal Design</strong></p><p>Two fans on a large heatsink ensure great cooling performance with a quieter experience.</p> <p><a>More from the Manufacturer</a></p><ul>\n<br><li>Dual Fan: Two fans and a huge heatsink ensure a cool and quiet experience for you.</li>\n<br><li>TORX FAN 5.0: Fan blades linked by ring arcs and a fan cowl work together to stabilize and maintain high-pressure airflow.</li>\n<br><li>Nickel-plated Copper Baseplate: Heat from the GPU and memory is swiftly captured by a nickelplated copper baseplate and transferred.</li>\n<br><li>Core Pipes: Core Pipes feature a square design to maximize contact with the GPU baseplate for optimal thermal management.</li>\n<br><li>Reinforcing Backplate: The reinforcing backplate features a flow-through design that provides additional ventilation.</li>\n<br><li>Zero Frozr: The fans completely stop when temperatures are relatively low, eliminating all noise.</li>\n<br><li>Fuse: Additional fuses built into the custom PCB provide additional safeguards against electrical damage.</li>\n<br><li>DrMOS: DrMOS power stage solutions provide great efficiency with low power loss and enhanced voltage controls.</li>\n<br><li>MSI Center: The exclusive MSI Center software lets you monitor, tweak and optimize MSI products in real-time.</li>\n<br><li>Afterburner: Take fu</li>\n<br>\n</ul>",
+      "published_at": "2025-07-17T17:45:07-05:00",
+      "created_at": "2025-07-17T17:45:01-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "MSI",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51529643950264,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "824142405772",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "595.99",
+          "grams": 726,
+          "compare_at_price": "599.99",
+          "position": 1,
+          "product_id": 10024463696056,
+          "created_at": "2025-07-17T17:45:01-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 52401325506744,
+          "created_at": "2025-07-17T17:45:01-05:00",
+          "position": 1,
+          "updated_at": "2025-07-17T17:45:03-05:00",
+          "product_id": 10024463696056,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085385469_a659b49c-2c90-451a-9a5b-779b59a9c20a.jpg?v=1752792303",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401325310136,
+          "created_at": "2025-07-17T17:45:01-05:00",
+          "position": 2,
+          "updated_at": "2025-07-17T17:45:03-05:00",
+          "product_id": 10024463696056,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085385469.jpg?v=1752792303",
+          "width": 819,
+          "height": 819
+        },
+        {
+          "id": 52401325539512,
+          "created_at": "2025-07-17T17:45:01-05:00",
+          "position": 3,
+          "updated_at": "2025-07-17T17:45:03-05:00",
+          "product_id": 10024463696056,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085385469_2d0326f1-2768-4c93-9aeb-45a9d925924f.jpg?v=1752792303",
+          "width": 767,
+          "height": 767
+        },
+        {
+          "id": 52401325375672,
+          "created_at": "2025-07-17T17:45:01-05:00",
+          "position": 4,
+          "updated_at": "2025-07-17T17:45:03-05:00",
+          "product_id": 10024463696056,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085385469_ad7094fb-94e3-4e5f-b9b2-6f67d2941830.jpg?v=1752792303",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401325441208,
+          "created_at": "2025-07-17T17:45:01-05:00",
+          "position": 5,
+          "updated_at": "2025-07-17T17:45:03-05:00",
+          "product_id": 10024463696056,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085385469_a0428bae-f761-4df6-924a-ab1c86ed1f5c.jpg?v=1752792303",
+          "width": 652,
+          "height": 652
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10024463630520,
+      "title": "MSI RTX 5070 12G VENTUS 2X OC WHITE",
+      "handle": "msi-rtx-5070-12g-ventus-2x-oc-white",
+      "body_html": "<p>MSI RTX 5070 12G VENTUS 2X OC WHITE\n<br></p><p><strong>TAKE THE ESSENTIALS</strong></p><p>VENTUS focuses on the essentials to tackle any challenge. Its efficient thermal solution is encased in a resilient enclosure with a neutral aesthetic, allowing this sleek graphics card to integrate seamlessly into any build.</p><p>NVIDIA Blackwell Architecture The Ultimate Platform for Gamers and Creators</p><p><strong>Fifth-Gen Tensor Cores</strong></p><p>Max AI performance with FP4 and DLSS 4</p><p><strong>New Streaming Multiprocessors</strong></p><p>Optimized for neural shaders</p><p><strong>Fourth-Gen Ray Tracing Cores</strong></p><p>Built for Mega Geometry</p><p><strong>AI-Enhanced Graphics and Performance</strong></p><p>NVIDIA DLSS 4 with Multi Frame Generation</p><p><strong>Game-Winning Responsiveness</strong></p><p>NVIDIA Reflex 2 with Frame Warp</p><p><strong>True-to-Life Graphics</strong></p><p>Full ray tracing with neural rendering</p><p><strong>Digital Humans and AI Assistants</strong></p><p>NVIDIA ACE</p><p><strong>Accelerate Your Creativity</strong></p><p>NVIDIA Studio creator tools and technology</p><p><strong>Enhance Any Video with AI</strong></p><p>NVIDIA Broadcast and ninth-gen NVIDIA Encoder</p><p><strong>Performance and Reliability</strong></p><p>NVIDIA app with Game Ready and Studio Drivers and Studio Drivers</p><p><strong>The Ultimate Gaming Display Technologies</strong></p><p>NVIDIA G-SYNC</p><p><strong>DUAL-FAN THERMAL DESIGN</strong></p><p>Two fans on a large heatsink ensure great cooling performance with a quieter experience.</p> <p><a>More from the Manufacturer</a></p><ul>\n<br><li>Dual Fan: Two fans and a huge heatsink ensure a cool and quiet experience for you.</li>\n<br><li>TORX FAN 5.0: Fan blades linked by ring arcs and a fan cowl work together to stabilize and maintain high-pressure airflow.</li>\n<br><li>Nickel-plated Copper Baseplate: Heat from the GPU and memory is swiftly captured by a nickelplated copper baseplate and transferred.</li>\n<br><li>Core Pipes: Core Pipes feature a square design to maximize contact with the GPU baseplate for optimal thermal management.</li>\n<br><li>Metal Backplate: A sturdy metal backplate strengthens the graphics card while the airflow vent design reduces excess heat.</li>\n<br><li>Zero Frozr: The fans completely stop when temperatures are relatively low, eliminating all noise.</li>\n<br><li>DrMOS: DrMOS power stage solutions provide great efficiency with low power loss and enhanced voltage controls.</li>\n<br><li>Fuse: Additional fuses built into the custom PCB provide additional safeguards against electrical damage.</li>\n<br><li>MSI Center: The exclusive MSI Center software lets you monitor, tweak and optimize MSI products in real-time.</li>\n<br><li>Afterburner: Ta</li>\n<br>\n</ul>",
+      "published_at": "2025-07-17T17:44:58-05:00",
+      "created_at": "2025-07-17T17:44:52-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "MSI",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51529643622584,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "824142405703",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "627.99",
+          "grams": 776,
+          "compare_at_price": "629.99",
+          "position": 1,
+          "product_id": 10024463630520,
+          "created_at": "2025-07-17T17:44:52-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 52401323475128,
+          "created_at": "2025-07-17T17:44:52-05:00",
+          "position": 1,
+          "updated_at": "2025-07-17T17:44:54-05:00",
+          "product_id": 10024463630520,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085385473_c1f51e1f-85b4-48f3-ba34-779cd7b11ea7.jpg?v=1752792294",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401323376824,
+          "created_at": "2025-07-17T17:44:52-05:00",
+          "position": 2,
+          "updated_at": "2025-07-17T17:44:54-05:00",
+          "product_id": 10024463630520,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085385473.jpg?v=1752792294",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401323606200,
+          "created_at": "2025-07-17T17:44:52-05:00",
+          "position": 3,
+          "updated_at": "2025-07-17T17:44:54-05:00",
+          "product_id": 10024463630520,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085385473_2d8c5c6a-4c4d-40f0-aeb9-998d027a508d.jpg?v=1752792294",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401323573432,
+          "created_at": "2025-07-17T17:44:52-05:00",
+          "position": 4,
+          "updated_at": "2025-07-17T17:44:54-05:00",
+          "product_id": 10024463630520,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085385473_47514bc7-6a22-490c-8f79-0837d7b9ca6e.jpg?v=1752792294",
+          "width": 848,
+          "height": 848
+        },
+        {
+          "id": 52401323671736,
+          "created_at": "2025-07-17T17:44:52-05:00",
+          "position": 5,
+          "updated_at": "2025-07-17T17:44:54-05:00",
+          "product_id": 10024463630520,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085385473_a3bc31a5-b1bb-46a8-8090-4fe84c1ff8c6.jpg?v=1752792294",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401323737272,
+          "created_at": "2025-07-17T17:44:52-05:00",
+          "position": 6,
+          "updated_at": "2025-07-17T17:44:54-05:00",
+          "product_id": 10024463630520,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085385473_7b6a752d-ce0b-469b-9f08-66dbd8ba401d.jpg?v=1752792294",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401323409592,
+          "created_at": "2025-07-17T17:44:52-05:00",
+          "position": 7,
+          "updated_at": "2025-07-17T17:44:54-05:00",
+          "product_id": 10024463630520,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085385473_a4ffd473-0787-4934-a58f-e4fcac8932ad.jpg?v=1752792294",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401323540664,
+          "created_at": "2025-07-17T17:44:52-05:00",
+          "position": 8,
+          "updated_at": "2025-07-17T17:44:54-05:00",
+          "product_id": 10024463630520,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085385473_a2e0bac8-cb48-48df-9861-59788c130e7a.jpg?v=1752792294",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401323442360,
+          "created_at": "2025-07-17T17:44:52-05:00",
+          "position": 9,
+          "updated_at": "2025-07-17T17:44:54-05:00",
+          "product_id": 10024463630520,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085385473_2915ecd7-eef4-459c-b144-00363aa16df4.jpg?v=1752792294",
+          "width": 900,
+          "height": 900
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10024463597752,
+      "title": "MSI RTX 5080 16G VENTUS 3X OC PLUS",
+      "handle": "msi-rtx-5080-16g-ventus-3x-oc-plus",
+      "body_html": "<p>MSI RTX 5080 16G VENTUS 3X OC PLUS\n<br></p><p><strong>TAKE THE ESSENTIALS</strong></p><p>VENTUS focuses on the essentials to tackle any challenge. Its efficient thermal solution is encased in a resilient enclosure with a neutral aesthetic, allowing this sleek graphics card to integrate seamlessly into any build.</p><p>NVIDIA Blackwell Architecture The Ultimate Platform for Gamers and Creators</p><p><strong>Fifth-Gen Tensor Cores</strong></p><p>Max AI performance with FP4 and DLSS 4</p><p><strong>New Streaming Multiprocessors</strong></p><p>Optimized for neural shaders</p><p><strong>Fourth-Gen Ray Tracing Cores</strong></p><p>Built for Mega Geometry</p><p><strong>AI-Enhanced Graphics and Performance</strong></p><p>NVIDIA DLSS 4 with Multi Frame Generation</p><p><strong>Game-Winning Responsiveness</strong></p><p>NVIDIA Reflex 2 with Frame Warp</p><p><strong>True-to-Life Graphics</strong></p><p>Full ray tracing with neural rendering</p><p><strong>Digital Humans and AI Assistants</strong></p><p>NVIDIA ACE</p><p><strong>Accelerate Your Creativity</strong></p><p>NVIDIA Studio creator tools and technology</p><p><strong>Enhance Any Video with AI</strong></p><p>NVIDIA Broadcast and ninth-gen NVIDIA Encoder</p><p><strong>Performance and Reliability</strong></p><p>NVIDIA app with Game Ready and Studio Drivers and Studio Drivers</p><p><strong>The Ultimate Gaming Display Technologies</strong></p><p>NVIDIA G-SYNC</p><p><strong>Triple-Fan Thermal Design</strong></p><p>Three fans on a large heatsink deliver both superior and quieter cooling.</p> <p><a>More from the Manufacturer</a></p><ul>\n<br><li>Triple Fan:</li>\n<br><li>Three fans and a huge heatsink ensure a cool and quiet experience for you.</li>\n<br><li>TORX FAN 5.0:</li>\n<br><li>Fan blades linked by ring arcs and a fan cowl work together to stabilize and maintain high-pressure airflow.</li>\n<br><li>Nickel-plated Copper Baseplate:</li>\n<br><li>Heat from the GPU and memory is swiftly captured by a nickelplated copper baseplate and transferred.</li>\n<br><li>Core Pipes:</li>\n<br><li>Core Pipes feature a square design to maximize contact with the GPU baseplate for optimal thermal management.</li>\n<br><li>Metal Backplate:</li>\n<br><li>A sturdy metal backplate strengthens the graphics card while the airflow vent design reduces excess heat.</li>\n<br><li>Zero Frozr:</li>\n<br><li>The fans completely stop when temperatures are relatively low, eliminating all noise.</li>\n<br><li>DrMOS:</li>\n<br><li>DrMOS power stage solutions provide great efficiency with low power loss and enhanced voltage controls.</li>\n<br><li>Fuse:</li>\n<br><li>Additional fuses built into the custom PCB provide additional safeguards against electrical damage.</li>\n<br><li>MSI Center:</li>\n<br><li>The exclusive MSI Center software lets you monitor, tweak and optimize MSI products in real-time.</li>\n<br><li>Afterburner</li>\n<br>\n</ul>",
+      "published_at": "2025-07-17T17:44:48-05:00",
+      "created_at": "2025-07-17T17:44:43-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "MSI",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51529643524280,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "824142395851",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "1386.99",
+          "grams": 1107,
+          "compare_at_price": "1409.99",
+          "position": 1,
+          "product_id": 10024463597752,
+          "created_at": "2025-07-17T17:44:43-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 52401321935032,
+          "created_at": "2025-07-17T17:44:43-05:00",
+          "position": 1,
+          "updated_at": "2025-07-17T17:44:45-05:00",
+          "product_id": 10024463597752,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290319_dbce6bec-0d49-4d70-9bf0-553ed342417e.jpg?v=1752792285",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401321902264,
+          "created_at": "2025-07-17T17:44:43-05:00",
+          "position": 2,
+          "updated_at": "2025-07-17T17:44:45-05:00",
+          "product_id": 10024463597752,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290319.jpg?v=1752792285",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401322033336,
+          "created_at": "2025-07-17T17:44:43-05:00",
+          "position": 3,
+          "updated_at": "2025-07-17T17:44:45-05:00",
+          "product_id": 10024463597752,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290319_4c7f60ad-0511-45ba-bf10-ed6649366b06.jpg?v=1752792285",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401322197176,
+          "created_at": "2025-07-17T17:44:43-05:00",
+          "position": 4,
+          "updated_at": "2025-07-17T17:44:45-05:00",
+          "product_id": 10024463597752,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290319_b2d5046c-e29b-4c8c-bc2b-0fdb0f5d6d74.jpg?v=1752792285",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401322131640,
+          "created_at": "2025-07-17T17:44:43-05:00",
+          "position": 5,
+          "updated_at": "2025-07-17T17:44:45-05:00",
+          "product_id": 10024463597752,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290319_1bc0087f-a082-45f0-a4bd-1776d9a795f9.jpg?v=1752792285",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401322164408,
+          "created_at": "2025-07-17T17:44:43-05:00",
+          "position": 6,
+          "updated_at": "2025-07-17T17:44:45-05:00",
+          "product_id": 10024463597752,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290319_df65d4c7-5bd6-49d7-b7a9-bc778419435e.jpg?v=1752792285",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401321967800,
+          "created_at": "2025-07-17T17:44:43-05:00",
+          "position": 7,
+          "updated_at": "2025-07-17T17:44:45-05:00",
+          "product_id": 10024463597752,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290319_5e3e2259-e042-4ed7-a4a4-5a7c8179a587.jpg?v=1752792285",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401322066104,
+          "created_at": "2025-07-17T17:44:43-05:00",
+          "position": 8,
+          "updated_at": "2025-07-17T17:44:45-05:00",
+          "product_id": 10024463597752,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290319_91513a85-d8c5-43dc-9622-9d348b1a0b4e.jpg?v=1752792285",
+          "width": 775,
+          "height": 775
+        },
+        {
+          "id": 52401322000568,
+          "created_at": "2025-07-17T17:44:43-05:00",
+          "position": 9,
+          "updated_at": "2025-07-17T17:44:45-05:00",
+          "product_id": 10024463597752,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290319_1e963164-190a-400f-8f1d-3eb3b7fcfff6.jpg?v=1752792285",
+          "width": 900,
+          "height": 900
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10024463532216,
+      "title": "MSI RTX 5090 32G GAMING TRIO OC",
+      "handle": "msi-rtx-5090-32g-gaming-trio-oc",
+      "body_html": "<p>MSI RTX 5090 32G GAMING TRIO OC\n<br></p><p>Fearless and bold, GAMING TRIO delivers strong performance to both gaming and content creation. It blends a fierce look with advanced cooling technologies, making it an unwavering ally on the gaming battlefield. GAMING TRIO is the ideal choice for gamers who strive to give their all.</p><p><strong>Strength and Artistry</strong></p><p>Building on MSI's heritage, GAMING TRIO embodies the passion of gamers with a sleek exterior that erupts with vibrant lights amidst bold lines and sharp edges. LED lighting is diffused through a frosted cover and a dragon totem that radiate energy.</p><p>NVIDIA Blackwell Architecture The Ultimate Platform for Gamers and Creators</p><p><strong>Fifth-Gen Tensor Cores</strong></p><p>Max AI performance with FP4 and DLSS 4</p><p><strong>New Streaming Multiprocessors</strong></p><p>Optimized for neural shaders</p><p><strong>Fourth-Gen Ray Tracing Cores</strong></p><p>Built for Mega Geometry</p><p><strong>AI-Enhanced Graphics and Performance</strong></p><p>NVIDIA DLSS 4 with Multi Frame Generation</p><p><strong>Game-Winning Responsiveness</strong></p><p>NVIDIA Reflex 2 with Frame Warp</p><p><strong>True-to-Life Graphics</strong></p><p>Full ray tracing with neural rendering</p><p><strong>Digital Humans and AI Assistants</strong></p><p>NVIDIA ACE</p><p><strong>Accelerate Your Creativity</strong></p><p>NVIDIA Studio creator tools and technology</p><p><strong>Enhance Any Video with AI</strong></p><p>NVIDIA Broadcast and ninth-gen NVIDIA Encoder</p><p><strong>Performance and Reliability</strong></p><p>NVIDIA app with Game Ready and Studio Drivers and Studio Drivers</p><p><strong>The Ultimate Gaming Display Technologies</strong></p><p>NVIDIA G-SYNC</p><p><strong>TRI FROZR 4 THERMAL DESIGN</strong></p><p>Upgraded fans, improved airflow control, and advanced thermal innovations delivering superior cooling and quieter operation that elevate the graphics card's overall performance.</p> <p><a>More from the Manufacturer</a></p><ul>\n<br><li>TRI FROZR 4:</li>\n<br><li>Upgraded fans, airflow control, and thermal design deliver superior cooling and quieter operation.</li>\n<br><li>STORMFORCE FAN:</li>\n<br><li>Seven fan blades, claw texturing, and a circular arc are designed for optimal airflow with minimal noise.</li>\n<br><li>Nickel-plated Copper Baseplate:</li>\n<br><li>Heat from the GPU and memory is swiftly captured by a nickel plated copper baseplate and transferred.</li>\n<br><li>Core Pipes:</li>\n<br><li>Core Pipes feature a square design to maximize contact with the GPU baseplate for optimal thermal management.</li>\n<br><li>Wave Curved 4.0:</li>\n<br><li>Precision-engineered wave edges with a high-low fin design enhance airflow and reduce turbulence.</li>\n<br><li>Air Antegrade Fin 2.0:</li>\n<br><li>The fins feature a V-shaped cutout and a high-low design at the airflow passthrough to optimize flow efficiency.</li>\n<br><li>Metal Backplate:</li>\n<br><li>A reinforcing metal backplate with airflow vents and thermal pads enhances cooling.</li>\n<br><li>Dual BIOS:</li>\n<br><li>Dual BIOS lets you set the priority to full performance in GAMING mode or low noise in SILENT mode.</li>\n<br><li>MSI Center:</li>\n<br><li>The exclusive MSI Center software lets you monitor, tweak a</li>\n<br>\n</ul>",
+      "published_at": "2025-07-17T17:44:39-05:00",
+      "created_at": "2025-07-17T17:44:33-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "MSI",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51529643458744,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "824142403266",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "2932.99",
+          "grams": 2118,
+          "compare_at_price": "3049.99",
+          "position": 1,
+          "product_id": 10024463532216,
+          "created_at": "2025-07-17T17:44:33-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 52401319379128,
+          "created_at": "2025-07-17T17:44:33-05:00",
+          "position": 1,
+          "updated_at": "2025-07-17T17:44:35-05:00",
+          "product_id": 10024463532216,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084126677_b48cd04b-14e6-4a9b-a722-79703947ca25.jpg?v=1752792275",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401319313592,
+          "created_at": "2025-07-17T17:44:33-05:00",
+          "position": 2,
+          "updated_at": "2025-07-17T17:44:35-05:00",
+          "product_id": 10024463532216,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084126677_5f588ea3-c457-461d-92a6-e795911c6ed4.jpg?v=1752792275",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401319149752,
+          "created_at": "2025-07-17T17:44:33-05:00",
+          "position": 3,
+          "updated_at": "2025-07-17T17:44:35-05:00",
+          "product_id": 10024463532216,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084126677_c1567490-aa55-4edf-a8c8-cba38b03b564.jpg?v=1752792275",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401319215288,
+          "created_at": "2025-07-17T17:44:33-05:00",
+          "position": 4,
+          "updated_at": "2025-07-17T17:44:35-05:00",
+          "product_id": 10024463532216,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084126677_48fa19ae-cfab-4689-8e95-08e3cdb60089.jpg?v=1752792275",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401319182520,
+          "created_at": "2025-07-17T17:44:33-05:00",
+          "position": 5,
+          "updated_at": "2025-07-17T17:44:35-05:00",
+          "product_id": 10024463532216,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084126677_d864c1fb-cf4a-41f0-8500-733619454ea2.jpg?v=1752792275",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401319116984,
+          "created_at": "2025-07-17T17:44:33-05:00",
+          "position": 6,
+          "updated_at": "2025-07-17T17:44:35-05:00",
+          "product_id": 10024463532216,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084126677.jpg?v=1752792275",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401319280824,
+          "created_at": "2025-07-17T17:44:33-05:00",
+          "position": 7,
+          "updated_at": "2025-07-17T17:44:35-05:00",
+          "product_id": 10024463532216,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084126677_e4d77824-2991-4417-b612-ddf57eb376ed.jpg?v=1752792275",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401319411896,
+          "created_at": "2025-07-17T17:44:33-05:00",
+          "position": 8,
+          "updated_at": "2025-07-17T17:44:35-05:00",
+          "product_id": 10024463532216,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084126677_7f0dc7a4-28ef-4fab-a53a-61f73beff5c6.jpg?v=1752792275",
+          "width": 600,
+          "height": 600
+        },
+        {
+          "id": 52401319248056,
+          "created_at": "2025-07-17T17:44:33-05:00",
+          "position": 9,
+          "updated_at": "2025-07-17T17:44:35-05:00",
+          "product_id": 10024463532216,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084126677_efbbc96d-8f86-4225-9dd4-74df7acfed53.jpg?v=1752792275",
+          "width": 617,
+          "height": 617
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10024463499448,
+      "title": "MSI RTX 5090 VANGUARD SOC",
+      "handle": "msi-rtx-5090-vanguard-soc",
+      "body_html": "<p>MSI RTX 5090 VANGUARD SOC\n<br></p><p><strong>Your Journey, Your Rules.</strong></p><p>MSI Vanguard series graphics card embodies the spirit of exploration. Premium gaming craftsmanship is expressed with aerodynamic edges, fractured lines, and futuristic RGB lights that empower players to push the limits of adventure while exploring uncharted worlds.</p><p>NVIDIA Blackwell Architecture The Ultimate Platform for Gamers and Creators</p><p><strong>Fifth-Gen Tensor Cores</strong></p><p>Max AI performance with FP4 and DLSS 4</p><p><strong>New Streaming Multiprocessors</strong></p><p>Optimized for neural shaders</p><p><strong>Fourth-Gen Ray Tracing Cores</strong></p><p>Built for Mega Geometry</p><p><strong>AI-Enhanced Graphics and Performance</strong></p><p>NVIDIA DLSS 4 with Multi Frame Generation</p><p><strong>Game-Winning Responsiveness</strong></p><p>NVIDIA Reflex 2 with Frame Warp</p><p><strong>True-to-Life Graphics</strong></p><p>Full ray tracing with neural rendering</p><p><strong>Digital Humans and AI Assistants</strong></p><p>NVIDIA ACE</p><p><strong>Accelerate Your Creativity</strong></p><p>NVIDIA Studio creator tools and technology</p><p><strong>Enhance Any Video with AI</strong></p><p>NVIDIA Broadcast and ninth-gen NVIDIA Encoder</p><p><strong>Performance and Reliability</strong></p><p>NVIDIA app with Game Ready and Studio Drivers and Studio Drivers</p><p><strong>The Ultimate Gaming Display Technologies</strong></p><p>NVIDIA G-SYNC</p><p><strong>HYPER FROZR THERMAL DESIGN</strong></p><p>An apex evolution of advanced thermal design that combines fans, core pipes, vapor chamber, and fin shape to unleash unparalleled cooling efficiency and silent performance.</p> <p><a>More from the Manufacturer</a></p><ul>\n<br><li>HYPER FROZR THERMAL DESIGN:</li>\n<br><li>An apex evolution of advanced thermal design that delivers unparalleled cooling and quiet operation.</li>\n<br><li>STORMFORCE FAN:</li>\n<br><li>Seven fan blades, claw texturing, and a circular arc are designed for optimal airflow with minimal noise.</li>\n<br><li>Advanced Vapor Chamber:</li>\n<br><li>Built-in Vapor Chamber swiftly transfers heat from the GPU and VRAM to the core pipe for optimal dissipation.</li>\n<br><li>Core Pipes:</li>\n<br><li>Core Pipes feature a square design to maximize contact with the GPU baseplate for optimal thermal management.</li>\n<br><li>Filled Fins:</li>\n<br><li>Updated heat pipe pathing has allowed more space for additional heatsink fins.</li>\n<br><li>Air Antegrade Fin 2.0:</li>\n<br><li>The fins feature a V-shaped cutout and a high-low design at the airflow passthrough to optimize flow efficiency.</li>\n<br><li>Wave Curved 4.0:</li>\n<br><li>Precision-engineered wave edges with a high-low fin design enhance airflow and reduce turbulence.</li>\n<br><li>Metal Backplate:</li>\n<br><li>A reinforcing metal backplate with airflow vents and thermal pads enhances cooling.</li>\n<br><li>Dual BIOS:</li>\n<br><li>Dual BIOS lets you set the priority to full performance in GAM</li>\n<br>\n</ul>",
+      "published_at": "2025-07-17T17:44:29-05:00",
+      "created_at": "2025-07-17T17:44:22-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "MSI",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51529643425976,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "824142403143",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "2932.99",
+          "grams": 2409,
+          "compare_at_price": "3049.99",
+          "position": 1,
+          "product_id": 10024463499448,
+          "created_at": "2025-07-17T17:44:22-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 52401317281976,
+          "created_at": "2025-07-17T17:44:22-05:00",
+          "position": 1,
+          "updated_at": "2025-07-17T17:44:24-05:00",
+          "product_id": 10024463499448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290304_332e4177-bfe8-492c-a5bc-d1fd33b15c28.jpg?v=1752792264",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401317478584,
+          "created_at": "2025-07-17T17:44:22-05:00",
+          "position": 2,
+          "updated_at": "2025-07-17T17:44:25-05:00",
+          "product_id": 10024463499448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290304_9b2b2d3d-48c9-4121-afb6-913fff26a384.jpg?v=1752792265",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401317380280,
+          "created_at": "2025-07-17T17:44:22-05:00",
+          "position": 3,
+          "updated_at": "2025-07-17T17:44:24-05:00",
+          "product_id": 10024463499448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290304_cdf44255-b7f6-452a-b286-fe964be8d512.jpg?v=1752792264",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401317314744,
+          "created_at": "2025-07-17T17:44:22-05:00",
+          "position": 4,
+          "updated_at": "2025-07-17T17:44:24-05:00",
+          "product_id": 10024463499448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290304_70add9c2-83a8-456a-83ec-f4e8cd80b3d1.jpg?v=1752792264",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401317216440,
+          "created_at": "2025-07-17T17:44:22-05:00",
+          "position": 5,
+          "updated_at": "2025-07-17T17:44:24-05:00",
+          "product_id": 10024463499448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290304.jpg?v=1752792264",
+          "width": 898,
+          "height": 898
+        },
+        {
+          "id": 52401317249208,
+          "created_at": "2025-07-17T17:44:22-05:00",
+          "position": 6,
+          "updated_at": "2025-07-17T17:44:24-05:00",
+          "product_id": 10024463499448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290304_770ae686-fbcf-4ff9-8cc2-0fe2e366c604.jpg?v=1752792264",
+          "width": 897,
+          "height": 897
+        },
+        {
+          "id": 52401317347512,
+          "created_at": "2025-07-17T17:44:22-05:00",
+          "position": 7,
+          "updated_at": "2025-07-17T17:44:24-05:00",
+          "product_id": 10024463499448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290304_22c5c9bc-ca7e-4b18-9418-5d1ca44c2359.jpg?v=1752792264",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401317413048,
+          "created_at": "2025-07-17T17:44:22-05:00",
+          "position": 8,
+          "updated_at": "2025-07-17T17:44:24-05:00",
+          "product_id": 10024463499448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290304_1647b76d-a83d-4e25-b735-9acbe59e0b77.jpg?v=1752792264",
+          "width": 672,
+          "height": 672
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10024462876856,
+      "title": "MSI RTX 5070 TI 16G INSPIRE 3X OC",
+      "handle": "msi-rtx-5070-ti-16g-inspire-3x-oc",
+      "body_html": "<p>MSI RTX 5070 TI 16G INSPIRE 3X OC\n<br></p><p><strong>BIG VISION, SMALL FORM</strong></p><p>INSPIRE seamlessly fuses a sleek, compact design with cutting-edge performance, offering advanced capabilities while ensuring seamless compatibility with creative and professional builds.</p><p>NVIDIA Blackwell Architecture The Ultimate Platform for Gamers and Creators</p><p><strong>Fifth-Gen Tensor Cores</strong></p><p>Max AI performance with FP4 and DLSS 4</p><p><strong>New Streaming Multiprocessors</strong></p><p>Optimized for neural shaders</p><p><strong>Fourth-Gen Ray Tracing Cores</strong></p><p>Built for Mega Geometry</p><p><strong>AI-Enhanced Graphics and Performance</strong></p><p>NVIDIA DLSS 4 with Multi Frame Generation</p><p><strong>Game-Winning Responsiveness</strong></p><p>NVIDIA Reflex 2 with Frame Warp</p><p><strong>True-to-Life Graphics</strong></p><p>Full ray tracing with neural rendering</p><p><strong>Digital Humans and AI Assistants</strong></p><p>NVIDIA ACE</p><p><strong>Accelerate Your Creativity</strong></p><p>NVIDIA Studio creator tools and technology</p><p><strong>Enhance Any Video with AI</strong></p><p>NVIDIA Broadcast and ninth-gen NVIDIA Encoder</p><p><strong>Performance and Reliability</strong></p><p>NVIDIA app with Game Ready and Studio Drivers and Studio Drivers</p><p><strong>The Ultimate Gaming Display Technologies</strong></p><p>NVIDIA G-SYNC</p><p><strong>Compact Design, Boundless Creativity</strong></p><p>INSPIRE combines a small form factor with enhanced performance, making it the perfect fit for creative professionals seeking efficiency.</p><p><strong>Triple-Fan Thermal Design</strong></p><p>Three fans on a large heatsink deliver both superior and quieter cooling.</p> <p><a>More from the Manufacturer</a></p><ul>\n<br><li>Triple Fan: Three fans and a huge heatsink ensure a cool and quiet experience for you.</li>\n<br><li>STORMFORCE FAN: Seven fan blades, claw texturing, and a circular arc are designed for optimal airflow with minimal noise.</li>\n<br><li>Nickel-plated Copper Baseplate: Heat from the GPU and memory is swiftly captured by a nickelplated copper baseplate and transferred.</li>\n<br><li>Core Pipes: Core Pipes feature a square design to maximize contact with the GPU baseplate for optimal thermal management.</li>\n<br><li>Metal Backplate: A sturdy metal backplate strengthens the graphics card while the airflow vent design reduces excess heat.</li>\n<br><li>Zero Frozr: The fans completely stop when temperatures are relatively low, eliminating all noise.</li>\n<br><li>Air Antegrade Fin: Fins with a V-shaped cutout are located at the airflow passthrough to improve flow efficiency.</li>\n<br><li>Wave Curved 3.0: Additional efficiency is gained by adjusting the size of the wave edges under the fan motor and other spots where there is less airflow.</li>\n<br><li>MSI Center: The exclusive MSI Center software lets you monitor, tweak a</li>\n<br>\n</ul>",
+      "published_at": "2025-07-17T17:42:22-05:00",
+      "created_at": "2025-07-17T17:42:15-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "MSI",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51529640902840,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "824142408469",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "920.99",
+          "grams": 903,
+          "compare_at_price": "929.99",
+          "position": 1,
+          "product_id": 10024462876856,
+          "created_at": "2025-07-17T17:42:16-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 52401295786168,
+          "created_at": "2025-07-17T17:42:15-05:00",
+          "position": 1,
+          "updated_at": "2025-07-17T17:42:18-05:00",
+          "product_id": 10024462876856,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085561587.jpg?v=1752792138",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401296048312,
+          "created_at": "2025-07-17T17:42:15-05:00",
+          "position": 2,
+          "updated_at": "2025-07-17T17:42:18-05:00",
+          "product_id": 10024462876856,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085561587_0b55fe51-ba22-47e3-acde-c6003a7d91bb.jpg?v=1752792138",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401296113848,
+          "created_at": "2025-07-17T17:42:15-05:00",
+          "position": 3,
+          "updated_at": "2025-07-17T17:42:18-05:00",
+          "product_id": 10024462876856,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085561587_8dafed7a-073e-486d-9fe3-a99754bdd90e.jpg?v=1752792138",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401295884472,
+          "created_at": "2025-07-17T17:42:15-05:00",
+          "position": 4,
+          "updated_at": "2025-07-17T17:42:18-05:00",
+          "product_id": 10024462876856,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085561587_9691092d-33ca-4ee7-8718-21a88a4d4e85.jpg?v=1752792138",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401295950008,
+          "created_at": "2025-07-17T17:42:15-05:00",
+          "position": 5,
+          "updated_at": "2025-07-17T17:42:18-05:00",
+          "product_id": 10024462876856,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085561587_fafabbbc-fd4c-44d4-8087-222868006535.jpg?v=1752792138",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401295818936,
+          "created_at": "2025-07-17T17:42:16-05:00",
+          "position": 6,
+          "updated_at": "2025-07-17T17:42:18-05:00",
+          "product_id": 10024462876856,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085561587_44e27feb-b9a4-4030-9f1e-8f1c4240653a.jpg?v=1752792138",
+          "width": 544,
+          "height": 544
+        },
+        {
+          "id": 52401296015544,
+          "created_at": "2025-07-17T17:42:16-05:00",
+          "position": 7,
+          "updated_at": "2025-07-17T17:42:18-05:00",
+          "product_id": 10024462876856,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085561587_5d1fee43-264a-44a1-8c98-7dde76bf0d0d.jpg?v=1752792138",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401295917240,
+          "created_at": "2025-07-17T17:42:16-05:00",
+          "position": 8,
+          "updated_at": "2025-07-17T17:42:18-05:00",
+          "product_id": 10024462876856,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085561587_f34c8d33-572d-4076-bd3e-7d7231902ed1.jpg?v=1752792138",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 52401295851704,
+          "created_at": "2025-07-17T17:42:16-05:00",
+          "position": 9,
+          "updated_at": "2025-07-17T17:42:18-05:00",
+          "product_id": 10024462876856,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085561587_172550b9-334e-4092-9f66-6b8d4ddad73d.jpg?v=1752792138",
+          "width": 900,
+          "height": 900
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9999023276216,
+      "title": "GEFORCE GT 710 2GB",
+      "handle": "geforce-gt-710-2gb",
+      "body_html": "<p>MSI NVIDIA GeForce GT 710 Graphic Card - 2 GB DDR3 SDRAM - Low-profile\n<br></p><p>Step up to dedicated graphics for accelerated app running and more responsive overall experience. This MSI GeForce GT 710 2GD3 LP video card with single-fan design is based on advanced GPU architecture and delivers more awesome features and superior performance over integrated graphics. You'll enjoy faster web browsing, video editing, photo editing plus smoother and more detailed gaming without annoying glitches. It's also equipped with three outputs, eligible for two-display settings for expanded on-screen real estate and enhanced productivity. It can fit in systems of various sizes with a low profile design.</p>  <li>954 MHz Core</li> <li>2048MB DDR3 1600 MHz</li> <li>Dual-link DVI-D x 1</li> <li>HDMI x 1 (Version 1.4a)</li> <li>D-Sub x 1</li> <li>Low profile design saves more spaces.</li> <li>Free bundle within Afterburner.</li> <li>Support real-time video capturing.</li> <li>Multi-thread supported.</li> <p><a>More from the Manufacturer</a></p><ul>\n<br><li>Support wireless control by android/iOS handheld devices.</li>\n<br><li>Support in-game video recording.</li>\n<br><li>Afterburner Overclocking Utility:</li>\n<br><li>User can build slim or smaller system easier.</li>\n<br><li>Low profile design saves more spaces.</li>\n<br><li>Low Profile Design:</li>\n<br><li>Extreme low ESR.</li>\n<br><li>Lower temperature and higher efficiency.</li>\n<br><li>10 years ultra-long lifetime (under full load).</li>\n<br><li>All Solid Capacitors</li>\n<br>\n</ul>",
+      "published_at": "2025-06-14T10:45:22-05:00",
+      "created_at": "2025-06-14T10:45:22-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "MSI - NVIDIA",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51440262381752,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "0824142126905",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "58.99",
+          "grams": 141,
+          "compare_at_price": null,
+          "position": 1,
+          "product_id": 9999023276216,
+          "created_at": "2025-06-14T10:45:22-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51789864435896,
+          "created_at": "2025-06-14T10:45:22-05:00",
+          "position": 1,
+          "updated_at": "2025-06-14T10:45:25-05:00",
+          "product_id": 9999023276216,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1041353521_1b08b06f-45bc-4580-ae2d-4f4d6c0cfc18.jpg?v=1749915925",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51789864403128,
+          "created_at": "2025-06-14T10:45:22-05:00",
+          "position": 2,
+          "updated_at": "2025-06-14T10:45:25-05:00",
+          "product_id": 9999023276216,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1041353521_17457d36-2c2d-4615-a186-a0e6c9625f02.jpg?v=1749915925",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51789864337592,
+          "created_at": "2025-06-14T10:45:22-05:00",
+          "position": 3,
+          "updated_at": "2025-06-14T10:45:25-05:00",
+          "product_id": 9999023276216,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1041353521_f99ef79b-84b6-458e-8a9d-e110baa81e4f.jpg?v=1749915925",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51789864763576,
+          "created_at": "2025-06-14T10:45:22-05:00",
+          "position": 4,
+          "updated_at": "2025-06-14T10:45:26-05:00",
+          "product_id": 9999023276216,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1041353521_26516040-b843-4f70-9190-4970c433879c.jpg?v=1749915926",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51789864468664,
+          "created_at": "2025-06-14T10:45:22-05:00",
+          "position": 5,
+          "updated_at": "2025-06-14T10:45:25-05:00",
+          "product_id": 9999023276216,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1041353521_9acd57cf-60eb-40f9-ad52-5ca634851902.jpg?v=1749915925",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51789864534200,
+          "created_at": "2025-06-14T10:45:22-05:00",
+          "position": 6,
+          "updated_at": "2025-06-14T10:45:25-05:00",
+          "product_id": 9999023276216,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1041353521_4673cc49-f787-4e17-ba19-292e843c6487.jpg?v=1749915925",
+          "width": 900,
+          "height": 900
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9998988050616,
+      "title": "RADEON RX 550 2GB GDDR5 4X MDP",
+      "handle": "radeon-rx-550-2gb-gddr5-4x-mdp",
+      "body_html": "<p>VisionTek AMD Radeon RX 550 Graphic Card - 2 GB GDDR5 - Full-height\n<br></p><p><b>Radeon RX 550 4M 2GB GDDR5 Graphics Card (4x mDP)<br></b></p> <p>The VisionTek AMD Radeon RX 550 4M 2GB GDDR5 graphics card is ideal for businesses looking to increase productivity by supporting up to four displays. With 4K resolution support, the RX 550 is perfect for digital signage in a corporate office or high resolution menus in restaurants. Turn your system into a marketing, trading or training power house.<br><br>No additional power is required, making this card ideal for small or full sized systems with limited power supply options. With the small form factor card size and brackets for both SFF and regular ATX cases, this card fits most common business and personal systems on the market today keeping this a versatile option for nearly any environment</p> <p><b>Applications</b></p> <p>The VisionTek RX 550 4M Graphics Card gives you the power and performance you need to take business to the next level. From showcasing your company with a Reception Video Wall, to your restaurant installing Live Action Menus or you the Professional looking to stay on the cutting edge and keeping all of your information in front of you, we have you covered.</p> <p><b>Single Slot</b></p> <p>The RX 550 4M fits a full height or small form factor system an featuring 4 mini DisplayPort ports in a single slot.</p> <p><b>High Speed Memory</b></p> <p>While consumer grade cards use common DDR3 memory, the RX 550 4M uses 2GB of higher bandwidth GDDR5 memory to deliver lag-free content with the highest resolution possible.</p> <p><b>Low Power</b></p> <p>Thanks to an energy efficient design, the RX 550 4M requires only 50 watts of power so it can be run off the system power bus. With most systems featuring a factory-installed 350 watt or higher power supply, you don't have to purchase and install a larger power supply.</p> <p><b>HD Audio</b></p> <p>By incorporating Discrete Digital Multi-Point Audio technology into its chipset, the RX 550 4M is able to deliver HD 7.1 surround sound independently to four displays via the four interfaces on the card.</p> <p><b>Multi Monitor</b></p> <p>The RX 550 4M 2GB GDDR5 graphics card supports up to four displays with 4K resolutions with direct DisplayPort connections. For other display connections, you may need to purchase the appropriate active adapters.</p><ul>\n<br><li>Whether you want to power a convenience store display, a multi-monitor display   wall in a public venue, feed four individual monitors to separate rooms in your   business office environment, the RX550 4M is ready to present your desired   message or content from a single PC.</li>\n<br><li>Short/Small Form Factor (SFF) design fits in today's Low-Profile desktops and   workstations via the short bracket mounted on card. The card is convertible to   standard ATX design with the included tall bracket for standard chassis as well.? While consumer grade cards use common DDR3 memory, the RX550 4M uses   2GB of higher bandwidth GDDR5 memory to deliver lag-free content with the   highest resolution possible.</li>\n<br><li>Thanks to an energy efficient design, the RX550 4M requires only 50 watts of   power so it can be run off the system power bus. With most systems featuring   a factory-installed 350 watt or higher power supply, you don't have to purchase   and install a larger power supply.</li>\n<br><li>By incorporating Discrete Digital Multi-Point Audio technology into its chipset,   the RX550 4M is able to deliver HD 7.1 surround sound independently to four   displays via the four interfaces on the card.</li>\n<br><li>The RX550 4M 2GB GDDR5 graphics card supports up to four displays with 4K   resolutions. The included adapters will support your four display configuration if using at least two DisplayPort displays and two DVI displays. For other display   connections, you may need to purchase the appropriate active adapters.</li>\n<br><li>mDP secure screw ports are compatible with both screw and non-screw mDP   cables and adapters.</li>\n<br>\n</ul>",
+      "published_at": "2025-06-14T08:47:37-05:00",
+      "created_at": "2025-06-14T08:47:37-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "VISIONTEK",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51440195469496,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "0810078050131",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "136.99",
+          "grams": 154,
+          "compare_at_price": "285.99",
+          "position": 1,
+          "product_id": 9998988050616,
+          "created_at": "2025-06-14T08:47:37-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51787976147128,
+          "created_at": "2025-06-14T08:47:37-05:00",
+          "position": 1,
+          "updated_at": "2025-06-14T08:47:40-05:00",
+          "product_id": 9998988050616,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070835830_e61b5bc2-caf3-4602-be5b-84539e3f7ec8.jpg?v=1749908860",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51787976114360,
+          "created_at": "2025-06-14T08:47:37-05:00",
+          "position": 2,
+          "updated_at": "2025-06-14T08:47:40-05:00",
+          "product_id": 9998988050616,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070835830_e603c629-1b0b-4ad5-af92-011656a9a55c.jpg?v=1749908860",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51787976212664,
+          "created_at": "2025-06-14T08:47:37-05:00",
+          "position": 3,
+          "updated_at": "2025-06-14T08:47:40-05:00",
+          "product_id": 9998988050616,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070835830_d92bc2c5-aae7-4e69-8db9-67ef8dff89e2.jpg?v=1749908860",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51787976048824,
+          "created_at": "2025-06-14T08:47:37-05:00",
+          "position": 4,
+          "updated_at": "2025-06-14T08:47:39-05:00",
+          "product_id": 9998988050616,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070835830_11fa5e48-4b39-4c75-a62a-fb0efa10654f.jpg?v=1749908859",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51787976016056,
+          "created_at": "2025-06-14T08:47:37-05:00",
+          "position": 5,
+          "updated_at": "2025-06-14T08:47:39-05:00",
+          "product_id": 9998988050616,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070835830_ecd4c341-4e8d-4cb4-a5e2-ebbe7a57cb8b.jpg?v=1749908859",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51787976179896,
+          "created_at": "2025-06-14T08:47:37-05:00",
+          "position": 6,
+          "updated_at": "2025-06-14T08:47:40-05:00",
+          "product_id": 9998988050616,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070835830_f5408b01-aeeb-44f1-86eb-5e37606ce8cd.jpg?v=1749908860",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51787976081592,
+          "created_at": "2025-06-14T08:47:37-05:00",
+          "position": 7,
+          "updated_at": "2025-06-14T08:47:40-05:00",
+          "product_id": 9998988050616,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070835830_4412f98a-290b-455b-8f54-c69b6cb8e6c2.jpg?v=1749908860",
+          "width": 880,
+          "height": 880
+        },
+        {
+          "id": 51787975950520,
+          "created_at": "2025-06-14T08:47:37-05:00",
+          "position": 8,
+          "updated_at": "2025-06-14T08:47:39-05:00",
+          "product_id": 9998988050616,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070835830.jpg?v=1749908859",
+          "width": 900,
+          "height": 900
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9996874449080,
+      "title": "AVerTV Hybrid TVBox 13",
+      "handle": "avertv-hybrid-tvbox-13",
+      "body_html": "<p>AVerTV Hybrid TVBox 13. Your monitor becomes a TV. You can watch analog or digital TV (ATSC / Clear QAM) in your display with AVerTV Hybrid TVBox 13. The AVerTV Hybrid TVBox 13 features built in multi-I/O with VGA, HDMI, Component and composite port. The video source from DVD, Projector, VHS and etc. can be transferred into different displays via AVerTV Hybrid TVBox 13. Through the advanced 3D Y / C and Noise Reduction, edge enhancement and color adjustment technology, eliminates jagged edges on TV and DVD movies to improve the clarity and sharpness of the overall image.\n<br></p><p><b>Multi I/O converter function<br></b>The AVerTV Hybrid TVBox 13 features built-in multi-I/O with VGA, HDMI, Component and composite port. The video source from DVD, Projector, VHS and more can be transferred into different sources on various dispalys via AVerTV Hybrid TVBox 13.<br> With the video scalar function, it can upscale a signal from a lower resolution upscale to 1080p. Additionally, you can place it anywhere and it is still convenient to control with the included IR extender and remote control.<br><br></p> <p><b>Perfect video Image up to 1080p<br></b>Through the advanced 3D de-interlace and noise reduction, edge enhancement and color adjustment technology, the AVerTV Hybrid TVBox 13 eliminates jagged edges on TV and DVD movies to improve the clarity and sharpness of the overall image.<br><br></p> <p><b>Support Dual Screen Output<br></b>Whatever what kind of screens you have, the AVerTV Hybrid TVBox 13 can be outputted the same image into two screens via different I/O port.</p><ul>\n<br><li>Allround solution for viewing, controlling and recording video and TV on your PC</li>\n<br><li>To fulfill your needs, this tv tuning function is a perfect choice</li>\n<br><li>The External form factor allocates you simple and easy installation for your tv/video input device</li>\n<br>\n</ul>",
+      "published_at": "2025-06-12T17:57:22-05:00",
+      "created_at": "2025-06-12T17:57:22-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "AVerMedia Technologies, Inc",
+      "product_type": "Home page",
+      "tags": [
+        "Video Cards",
+        "Video Processing/Capturing Modules"
+      ],
+      "variants": [
+        {
+          "id": 51436828524728,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "795522964755",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "212.99",
+          "grams": 227,
+          "compare_at_price": "249.00",
+          "position": 1,
+          "product_id": 9996874449080,
+          "created_at": "2025-06-12T17:57:22-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51756773703864,
+          "created_at": "2025-06-12T17:57:22-05:00",
+          "position": 1,
+          "updated_at": "2025-06-12T17:57:24-05:00",
+          "product_id": 9996874449080,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1031692742_90886ea9-c0a9-42d9-a1a5-7b30afeaf0cc.jpg?v=1749769044",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51756773671096,
+          "created_at": "2025-06-12T17:57:22-05:00",
+          "position": 2,
+          "updated_at": "2025-06-12T17:57:24-05:00",
+          "product_id": 9996874449080,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1031692742_7eea2579-b403-4170-be55-11fe8bb9fa6d.jpg?v=1749769044",
+          "width": 607,
+          "height": 607
+        },
+        {
+          "id": 51756773736632,
+          "created_at": "2025-06-12T17:57:22-05:00",
+          "position": 3,
+          "updated_at": "2025-06-12T17:57:24-05:00",
+          "product_id": 9996874449080,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1031692742_c5fe3250-a630-450f-a6af-b38747d2f3be.jpg?v=1749769044",
+          "width": 431,
+          "height": 431
+        },
+        {
+          "id": 51756773638328,
+          "created_at": "2025-06-12T17:57:22-05:00",
+          "position": 4,
+          "updated_at": "2025-06-12T17:57:24-05:00",
+          "product_id": 9996874449080,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1031692742.jpg?v=1749769044",
+          "width": 900,
+          "height": 900
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9995078762680,
+      "title": "NVIDIA RTX A1000 8GB 4MDP GFX",
+      "handle": "nvidia-rtx-a1000-8gb-4mdp-gfx",
+      "body_html": "<p>HP NVIDIA RTX A1000 Graphic Card - 8 GB GDDR6\n<br></p><ul>\n<br><li>PCI Express 4.0 host interface ensures dependable data transfer for maximum efficiency</li>\n<br><li>With GDDR6 memory technology get efficient data transfer rate and enhanced computer's performance</li>\n<br><li>Plug-in Card form factor allows hassle-free and easy usage with increased efficiency</li>\n<br><li>8 GB VRAM to hold highly-textured images and perform the rendering at super-fast speed</li>\n<br>\n</ul>",
+      "published_at": "2025-06-11T00:22:23-05:00",
+      "created_at": "2025-06-11T00:22:23-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "HP INC. - NSB OPTIONS",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51432685666488,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "198701689928",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "485.99",
+          "grams": 0,
+          "compare_at_price": "589.00",
+          "position": 1,
+          "product_id": 9995078762680,
+          "created_at": "2025-06-11T00:22:23-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51719240122552,
+          "created_at": "2025-06-11T00:22:23-05:00",
+          "position": 1,
+          "updated_at": "2025-06-11T00:22:26-05:00",
+          "product_id": 9995078762680,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1082564398_1060875b-37f7-4e19-90ed-b7f97c3b16f2.jpg?v=1749619346",
+          "width": 300,
+          "height": 300
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9994713432248,
+      "title": "PNY NVIDIA GeForce RTX 5080 Graphic Card - 16 GB GDDR7",
+      "handle": "pny-nvidia-geforce-rtx-5080-graphic-card-16-gb-gddr7",
+      "body_html": "<p>PNY NVIDIA GeForce RTX 5080 Graphic Card - 16 GB GDDR7\n<br></p><p><strong>GAME CHANGER</strong></p><p>Gear up for game-changing experiences with the NVIDIA GeForce RTX™ 5080 and AI-powered DLSS 4. Built with NVIDIA® Blackwell and equipped with blistering-fast GDDR7 memory, it lets you run the most graphically demanding games and creative applications with stunning fidelity and performance. With NVIDIA Studio you can bring your creative projects to life faster than ever.</p><p><strong>NVIDIA Blackwell Architecture </strong></p><p>The Ultimate Platform for Gamers and Creators</p><p><strong>Fifth-Gen Tensor Cores </strong></p><p>Max AI performance with FP4 and DLSS 4</p><p><strong>Fourth-Gen Ray</strong></p><p>Tracing Cores Built for Mega Geometry</p><ul>\n<br><li>NVIDIA DLSS 4</li>\n<br><li>NVIDIA Reflex 2</li>\n<br><li>GDDR7 Graphics Memory</li>\n<br><li>NVIDIA® App</li>\n<br><li>PCI Express® Gen 5</li>\n<br><li>NVIDIA  Broadcast</li>\n<br>\n</ul>",
+      "published_at": "2025-06-10T15:02:37-05:00",
+      "created_at": "2025-06-10T15:02:37-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "PNY Technologies",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51431950811320,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "0751492794273",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "1280.99",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 1,
+          "product_id": 9994713432248,
+          "created_at": "2025-06-10T15:02:37-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51713713701048,
+          "created_at": "2025-06-10T15:02:37-05:00",
+          "position": 1,
+          "updated_at": "2025-06-10T15:02:40-05:00",
+          "product_id": 9994713432248,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084130057_f16258bd-a9bf-4cc2-91e9-98fab7105d6b.jpg?v=1749585760",
+          "width": 798,
+          "height": 798
+        },
+        {
+          "id": 51713713537208,
+          "created_at": "2025-06-10T15:02:37-05:00",
+          "position": 2,
+          "updated_at": "2025-06-10T15:02:39-05:00",
+          "product_id": 9994713432248,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084130057.jpg?v=1749585759",
+          "width": 793,
+          "height": 793
+        },
+        {
+          "id": 51713713766584,
+          "created_at": "2025-06-10T15:02:37-05:00",
+          "position": 3,
+          "updated_at": "2025-06-10T15:02:40-05:00",
+          "product_id": 9994713432248,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084130057_0b6eab2b-1595-4ee5-b16a-1a3b362ec59f.jpg?v=1749585760",
+          "width": 793,
+          "height": 793
+        },
+        {
+          "id": 51713713602744,
+          "created_at": "2025-06-10T15:02:37-05:00",
+          "position": 4,
+          "updated_at": "2025-06-10T15:02:40-05:00",
+          "product_id": 9994713432248,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084130057_82623d6b-f6b2-445e-bfc8-619824982fbe.jpg?v=1749585760",
+          "width": 794,
+          "height": 794
+        },
+        {
+          "id": 51713713635512,
+          "created_at": "2025-06-10T15:02:37-05:00",
+          "position": 5,
+          "updated_at": "2025-06-10T15:02:40-05:00",
+          "product_id": 9994713432248,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084130057_cda5dcbd-d0d5-40c1-a7e4-91d4afc47459.jpg?v=1749585760",
+          "width": 798,
+          "height": 798
+        },
+        {
+          "id": 51713713733816,
+          "created_at": "2025-06-10T15:02:37-05:00",
+          "position": 6,
+          "updated_at": "2025-06-10T15:02:40-05:00",
+          "product_id": 9994713432248,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084130057_ee6296c7-a488-4962-ae29-66daf56460ad.jpg?v=1749585760",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "id": 51713713668280,
+          "created_at": "2025-06-10T15:02:37-05:00",
+          "position": 7,
+          "updated_at": "2025-06-10T15:02:40-05:00",
+          "product_id": 9994713432248,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084130057_57d94ae3-18b3-496f-b4ab-1764f8974562.jpg?v=1749585760",
+          "width": 799,
+          "height": 799
+        },
+        {
+          "id": 51713713832120,
+          "created_at": "2025-06-10T15:02:37-05:00",
+          "position": 8,
+          "updated_at": "2025-06-10T15:02:40-05:00",
+          "product_id": 9994713432248,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084130057_00c2636a-82d2-41a5-9e90-e6577f140f37.jpg?v=1749585760",
+          "width": 807,
+          "height": 807
+        },
+        {
+          "id": 51713713799352,
+          "created_at": "2025-06-10T15:02:37-05:00",
+          "position": 9,
+          "updated_at": "2025-06-10T15:02:40-05:00",
+          "product_id": 9994713432248,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084130057_4a5f99d1-79da-4c18-a793-2a5fe32132b0.jpg?v=1749585760",
+          "width": 811,
+          "height": 811
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9994685808824,
+      "title": "ASUS TUF GAMING GEFORCE RTX",
+      "handle": "asus-tuf-gaming-geforce-rtx-2",
+      "body_html": "<p>TUF NVIDIA GeForce RTX 5090 Graphic Card - 32 GB GDDR7\n<br></p><p><strong>Game TUF. Built to Last. | ASUS TUF Gaming GeForce RTX™ 5090</strong></p><p>NVIDIA Blackwell architecture is elevated by enhanced cooling and power delivery, fortified with rugged reinforcements for exceptional durability. Lock, load, and dominate with the TUF Gaming GeForce RTX™ 5090, designed to withstand the harshest conditions and deliver unparalleled performance.</p><p>NVIDIA Blackwell Architecture The Ultimate Platform for Gamers and Creators</p><p><strong>Fifth-Gen Tensor Cores</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>Max AI performance with FP4 and DLSS 4</li></ul><p><strong>New Streaming Multiprocessors</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>Optimized for neural shaders</li></ul><p><strong>Fourth-Gen Ray Tracing Cores</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>Built for Mega Geometry</li></ul><p><strong>AI-Enhanced Graphics and Performance</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA DLSS 4 with Multi Frame Generation</li></ul><p><strong>Game-Winning Responsiveness</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA Reflex 2 with Frame Warp</li></ul><p><strong>True-to-Life Graphics</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>Full ray tracing with neural rendering</li></ul><p><strong>Digital Humans and AI Assistants</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA ACE</li></ul><p><strong>Accelerate Your Creativity</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA Studio creator tools and technology</li></ul><p><strong>Enhance Any Video with AI</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA Broadcast and ninth-gen NVIDIA Encoder</li></ul><p><strong>Performance and Reliability</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA app with Game Ready and Studio Drivers and Studio Drivers</li></ul><p><strong>The Ultimate Gaming Display Technologies</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA G-SYNC</li></ul><p><strong>Military-Grade Components | TUF Chokes &amp; MOSFETs</strong></p><p>Certified military-grade TUF chokes and MOSFETs deliver rock-solid power to the GPU, which can help improve system stability.</p><p><strong>TUF Capacitors</strong></p><p>TUF 5K black metallic capacitors provide 52% wider temperature tolerance and a 2.5X longer lifespan than standard capacitors.</p><p><strong>Phase-Change GPU Thermal Pad</strong></p><p>By melting to effectively fill the gaps between the GPU and the thermal module, a premium phase-change GPU thermal pad provides superior thermal conductivity and enhanced heat dissipation, ensuring optimal performance and longevity for graphics cards under heavy loads.</p><p><strong>Protective PCB Coating</strong></p><p>A protective conformal coating envelops the circuit board to help protect against short-circuits caused by moisture, dust or debris.</p><p><strong>Dual-ball Fan Bearings</strong></p><p>Dual-ball bearings offer an extensive lifespan of up to 80,000 hours, double the longevity of sleeve bearings and surpassing fluid dynamic bearings. This helps ensure long-lasting, reliable and quiet cooling.</p><ul>\n<br><li>Enjoy optimal gaming experience and ultra-rich content with NVIDIA GeForce RTX 5090</li>\n<br><li>OpenGL 4.6 API support for reliable graphic design flow to programme heavy-duty tasks</li>\n<br><li>PCI Express 5.0 host interface ensures dependable data transfer for maximum efficiency</li>\n<br><li>GDDR7 memory technology effectively enables data to be moved at various points in a CPU clock cycle to allow maximum productivity</li>\n<br><li>HDMI interface allows you to connect to a variety of HD devices including gaming consoles, Blu-ray players, laptop PCs, digital cameras and many others for the ultimate true high-definition display</li>\n<br><li>Plug-in Card form factor for added reliability and dependability</li>\n<br><li>Comes in 2.8\" height for maximum productivity and easy carrying</li>\n<br><li>Comes in 5.7\" width for better reliance and maximum efficiency</li>\n<br><li>Built-in 32 GB memory for a crisp and detail display</li>\n<br><li>Loaded with a power-efficient fan to dissipate heat and as a result, you get enduring usability</li>\n<br>\n</ul>",
+      "published_at": "2025-06-10T14:18:23-05:00",
+      "created_at": "2025-06-10T14:18:23-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "ASUS - VGA NVIDIA",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51431868858552,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "197105890336",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "2907.99",
+          "grams": 0,
+          "compare_at_price": "2999.99",
+          "position": 1,
+          "product_id": 9994685808824,
+          "created_at": "2025-06-10T14:18:23-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51713329299640,
+          "created_at": "2025-06-10T14:18:23-05:00",
+          "position": 1,
+          "updated_at": "2025-06-10T14:18:26-05:00",
+          "product_id": 9994685808824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290436_21601dd3-8d98-4877-84e5-37b4b1a3e6f3.jpg?v=1749583106",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713329332408,
+          "created_at": "2025-06-10T14:18:23-05:00",
+          "position": 2,
+          "updated_at": "2025-06-10T14:18:26-05:00",
+          "product_id": 9994685808824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290436_b5b01102-74b8-4f9e-b216-533225d90762.jpg?v=1749583106",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713329266872,
+          "created_at": "2025-06-10T14:18:23-05:00",
+          "position": 3,
+          "updated_at": "2025-06-10T14:18:26-05:00",
+          "product_id": 9994685808824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290436_f138e1cc-8ead-49a4-ab6a-81b0cda848d7.jpg?v=1749583106",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713329070264,
+          "created_at": "2025-06-10T14:18:23-05:00",
+          "position": 4,
+          "updated_at": "2025-06-10T14:18:25-05:00",
+          "product_id": 9994685808824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290436_53296428-9879-4db4-acb9-0a3ae2954795.jpg?v=1749583105",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713329037496,
+          "created_at": "2025-06-10T14:18:23-05:00",
+          "position": 5,
+          "updated_at": "2025-06-10T14:18:25-05:00",
+          "product_id": 9994685808824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290436_9c684aab-1f70-4671-992c-c0fe601f7c79.jpg?v=1749583105",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713329135800,
+          "created_at": "2025-06-10T14:18:23-05:00",
+          "position": 6,
+          "updated_at": "2025-06-10T14:18:25-05:00",
+          "product_id": 9994685808824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290436_30acc7f1-de5d-42b6-85d7-412bd608467d.jpg?v=1749583105",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713329529016,
+          "created_at": "2025-06-10T14:18:23-05:00",
+          "position": 7,
+          "updated_at": "2025-06-10T14:18:27-05:00",
+          "product_id": 9994685808824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290436_eab0ee0d-e3d6-4d69-8a79-fb3d76aaff63.jpg?v=1749583107",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713329168568,
+          "created_at": "2025-06-10T14:18:23-05:00",
+          "position": 8,
+          "updated_at": "2025-06-10T14:18:25-05:00",
+          "product_id": 9994685808824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290436_a5f6ac06-648d-45b2-8b20-c903ccd59a24.jpg?v=1749583105",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713329234104,
+          "created_at": "2025-06-10T14:18:23-05:00",
+          "position": 9,
+          "updated_at": "2025-06-10T14:18:26-05:00",
+          "product_id": 9994685808824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290436_e3adc3f4-fa48-458c-83bf-20f162fb5144.jpg?v=1749583106",
+          "width": 900,
+          "height": 900
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9994685579448,
+      "title": "THE SFF-READY ASUS PRIMEGEFORCE",
+      "handle": "the-sff-ready-asus-primegeforce-1",
+      "body_html": "<p>Asus NVIDIA GeForce RTX 5080 Graphic Card - 16 GB GDDR7\n<br></p><p><strong>Primed for Power</strong></p><p>Experience Primal performance with the Prime GeForce RTX 5080, an SFF-Ready Enthusiast GeForce Card featuring a 2.5-slot design for expansive compatibility, enhanced by a triple-fan setup for supreme airflow and vapor chamber design for supreme cooling.</p><p>NVIDIA Blackwell Architecture The Ultimate Platform for Gamers and Creators</p><p><strong>Fifth-Gen Tensor Cores</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>Max AI performance with FP4 and DLSS 4</li></ul><p><strong>New Streaming Multiprocessors</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>Optimized for neural shaders</li></ul><p><strong>Fourth-Gen Ray Tracing Cores</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>Built for Mega Geometry</li></ul><p><strong>AI-Enhanced Graphics and Performance</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA DLSS 4 with Multi Frame Generation</li></ul><p><strong>Game-Winning Responsiveness</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA Reflex 2 with Frame Warp</li></ul><p><strong>True-to-Life Graphics</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>Full ray tracing with neural rendering</li></ul><p><strong>Digital Humans and AI Assistants</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA ACE</li></ul><p><strong>Accelerate Your Creativity</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA Studio creator tools and technology</li></ul><p><strong>Enhance Any Video with AI</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA Broadcast and ninth-gen NVIDIA Encoder</li></ul><p><strong>Performance and Reliability</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA app with Game Ready and Studio Drivers and Studio Drivers</li></ul><p><strong>The Ultimate Gaming Display Technologies</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA G-SYNC</li></ul><p><strong>Build Small. Play Big.</strong></p><p>You can pack high performance into a smaller footprint with this SFF-Ready Enthusiast GeForce card. Look for cases that are compatible with SFF-Ready Enthusiast GeForce Cards to get a sure fit and streamline your PC build.</p><p><strong>Cooling 2.5-slot Design</strong></p><p>The Prime GeForce RTX 5080 features a 2.5 slot design with a carefully arranged layout for the shroud, heatsink and heat pipes to let the three Axial-tech fans leverage chassis side-panel ventilation and deliver optimal thermal performance.</p><ul>\n<br><li>Cost-efficient NVIDIA GeForce RTX 5080 provides effective Blu-ray playback acceleration and great gaming experience</li>\n<br><li>OpenGL 4.6 API support for dependable, multi-functional graphic output</li>\n<br><li>PCI Express 5.0 host interface allows quick transmission of data at a higher rate for your convenience</li>\n<br><li>With GDDR7 memory technology get efficient data transfer rate and enhanced computer's performance</li>\n<br><li>HDMI interface allows you to connect to a variety of HD devices including gaming consoles, Blu-ray players, laptop PCs, digital cameras and many others for the ultimate true high-definition display</li>\n<br><li>Plug-in Card form factor for your convenience and simplicity of usage</li>\n<br><li>Comes in 2\" height for maximum productivity and easy carrying</li>\n<br><li>Comes in 5\" width for maximum productivity and easy carrying</li>\n<br><li>Built-in 16 GB GDDR7 memory for a crisp and detail display</li>\n<br><li>Loaded with a power-efficient fan to dissipate heat and as a result, you get enduring usability</li>\n<br>\n</ul>",
+      "published_at": "2025-06-10T14:17:59-05:00",
+      "created_at": "2025-06-10T14:17:59-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "ASUS - VGA NVIDIA",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51431868596408,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "197105868397",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "1357.99",
+          "grams": 0,
+          "compare_at_price": "1399.99",
+          "position": 1,
+          "product_id": 9994685579448,
+          "created_at": "2025-06-10T14:17:59-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51713323696312,
+          "created_at": "2025-06-10T14:17:59-05:00",
+          "position": 1,
+          "updated_at": "2025-06-10T14:18:01-05:00",
+          "product_id": 9994685579448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290437_891f5cae-ea1f-42b0-8f3a-886d5323df0c.jpg?v=1749583081",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713323729080,
+          "created_at": "2025-06-10T14:17:59-05:00",
+          "position": 2,
+          "updated_at": "2025-06-10T14:18:01-05:00",
+          "product_id": 9994685579448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290437_fcc9f83a-e2ac-49e7-ae74-fb0c48fcb63c.jpg?v=1749583081",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713323925688,
+          "created_at": "2025-06-10T14:17:59-05:00",
+          "position": 3,
+          "updated_at": "2025-06-10T14:18:01-05:00",
+          "product_id": 9994685579448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290437_2ffbe994-eecd-4d72-83d9-382acacf843f.jpg?v=1749583081",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713323860152,
+          "created_at": "2025-06-10T14:17:59-05:00",
+          "position": 4,
+          "updated_at": "2025-06-10T14:18:01-05:00",
+          "product_id": 9994685579448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290437_a1379315-c140-439b-a3be-126fe4f605cf.jpg?v=1749583081",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713323892920,
+          "created_at": "2025-06-10T14:17:59-05:00",
+          "position": 5,
+          "updated_at": "2025-06-10T14:18:01-05:00",
+          "product_id": 9994685579448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290437_54442467-68ca-432e-a123-582583fa2d7e.jpg?v=1749583081",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713324023992,
+          "created_at": "2025-06-10T14:17:59-05:00",
+          "position": 6,
+          "updated_at": "2025-06-10T14:18:02-05:00",
+          "product_id": 9994685579448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290437_1b59c77a-2d95-4be0-85a9-56e4b9101212.jpg?v=1749583082",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713323794616,
+          "created_at": "2025-06-10T14:17:59-05:00",
+          "position": 7,
+          "updated_at": "2025-06-10T14:18:01-05:00",
+          "product_id": 9994685579448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290437_518ae5b5-33f0-407c-98ca-cc1a32fadae0.jpg?v=1749583081",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713324056760,
+          "created_at": "2025-06-10T14:17:59-05:00",
+          "position": 8,
+          "updated_at": "2025-06-10T14:18:02-05:00",
+          "product_id": 9994685579448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290437_b4218e42-f71c-4947-9be8-f4a92da68539.jpg?v=1749583082",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713323761848,
+          "created_at": "2025-06-10T14:17:59-05:00",
+          "position": 9,
+          "updated_at": "2025-06-10T14:18:01-05:00",
+          "product_id": 9994685579448,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290437_4ec2de10-7f9f-43f5-a3a5-a209f09fcdf2.jpg?v=1749583081",
+          "width": 900,
+          "height": 900
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9994685448376,
+      "title": "ASUS TUF GAMING GEFORCE RTX",
+      "handle": "asus-tuf-gaming-geforce-rtx-1",
+      "body_html": "<p>TUF NVIDIA GeForce RTX 5090 Graphic Card - 32 GB GDDR7\n<br></p><p><strong>Game TUF. Built to Last. | ASUS TUF Gaming GeForce RTX™ 5090</strong></p><p>NVIDIA Blackwell architecture is elevated by enhanced cooling and power delivery, fortified with rugged reinforcements for exceptional durability. Lock, load, and dominate with the TUF Gaming GeForce RTX™ 5090, designed to withstand the harshest conditions and deliver unparalleled performance.</p><p>NVIDIA Blackwell Architecture The Ultimate Platform for Gamers and Creators</p><p><strong>Fifth-Gen Tensor Cores</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>Max AI performance with FP4 and DLSS 4</li></ul><p><strong>New Streaming Multiprocessors</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>Optimized for neural shaders</li></ul><p><strong>Fourth-Gen Ray Tracing Cores</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>Built for Mega Geometry</li></ul><p><strong>AI-Enhanced Graphics and Performance</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA DLSS 4 with Multi Frame Generation</li></ul><p><strong>Game-Winning Responsiveness</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA Reflex 2 with Frame Warp</li></ul><p><strong>True-to-Life Graphics</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>Full ray tracing with neural rendering</li></ul><p><strong>Digital Humans and AI Assistants</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA ACE</li></ul><p><strong>Accelerate Your Creativity</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA Studio creator tools and technology</li></ul><p><strong>Enhance Any Video with AI</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA Broadcast and ninth-gen NVIDIA Encoder</li></ul><p><strong>Performance and Reliability</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA app with Game Ready and Studio Drivers and Studio Drivers</li></ul><p><strong>The Ultimate Gaming Display Technologies</strong></p><ul><li>\n<br><span class=\"ql-ui\"></span>NVIDIA G-SYNC</li></ul><p><strong>Military-Grade Components | TUF Chokes &amp; MOSFETs</strong></p><p>Certified military-grade TUF chokes and MOSFETs deliver rock-solid power to the GPU, which can help improve system stability.</p><p><strong>TUF Capacitors</strong></p><p>TUF 5K black metallic capacitors provide 52% wider temperature tolerance and a 2.5X longer lifespan than standard capacitors.</p><p><strong>Phase-Change GPU Thermal Pad</strong></p><p>By melting to effectively fill the gaps between the GPU and the thermal module, a premium phase-change GPU thermal pad provides superior thermal conductivity and enhanced heat dissipation, ensuring optimal performance and longevity for graphics cards under heavy loads.</p><p><strong>Protective PCB Coating</strong></p><p>A protective conformal coating envelops the circuit board to help protect against short-circuits caused by moisture, dust or debris.</p><p><strong>Dual-ball Fan Bearings</strong></p><p>Dual-ball bearings offer an extensive lifespan of up to 80,000 hours, double the longevity of sleeve bearings and surpassing fluid dynamic bearings. This helps ensure long-lasting, reliable and quiet cooling.</p><ul>\n<br><li>Cost-efficient NVIDIA GeForce provides effective Blu-ray playback acceleration and great gaming experience</li>\n<br><li>OpenGL 4.6 API support for dependable, multi-functional graphic output</li>\n<br><li>PCI Express 5.0 host interface allows quick transmission of data at a higher rate for your convenience</li>\n<br><li>GDDR7 memory technology effectively enables data to be moved at various points in a CPU clock cycle to allow maximum productivity</li>\n<br><li>HDMI interface allows you to connect to a variety of HD devices including gaming consoles, Blu-ray players, laptop PCs, digital cameras and many others for the ultimate true high-definition display</li>\n<br><li>Plug-in Card form factor allows hassle-free and easy usage with increased efficiency</li>\n<br><li>Comes in 2.8\" height for convenient carrying and dependable usability</li>\n<br><li>Comes in 5.7\" width for convenient carrying and dependable usability</li>\n<br><li>Built-in 32 GB memory to hold textures, frame buffer, shadow maps, bump maps, and lightning info that allows the GPU to perform rapid rendering</li>\n<br><li>Built-in low-power fan keeps the board cool and ensures a long-lasting usability</li>\n<br>\n</ul>",
+      "published_at": "2025-06-10T14:17:37-05:00",
+      "created_at": "2025-06-10T14:17:37-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "ASUS - VGA NVIDIA",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51431868465336,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "197105890350",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "2674.99",
+          "grams": 0,
+          "compare_at_price": "2759.99",
+          "position": 1,
+          "product_id": 9994685448376,
+          "created_at": "2025-06-10T14:17:37-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51713319796920,
+          "created_at": "2025-06-10T14:17:37-05:00",
+          "position": 1,
+          "updated_at": "2025-06-10T14:17:40-05:00",
+          "product_id": 9994685448376,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290435_bf2d5005-982f-4e34-a5ae-bc40a4d78d6f.jpg?v=1749583060",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713319698616,
+          "created_at": "2025-06-10T14:17:37-05:00",
+          "position": 2,
+          "updated_at": "2025-06-10T14:17:39-05:00",
+          "product_id": 9994685448376,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290435_f74a4ca2-8269-4d03-ac56-1ad61196ab9b.jpg?v=1749583059",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713319633080,
+          "created_at": "2025-06-10T14:17:37-05:00",
+          "position": 3,
+          "updated_at": "2025-06-10T14:17:39-05:00",
+          "product_id": 9994685448376,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290435_a0072e3a-b73b-479a-82c9-e6b99655b712.jpg?v=1749583059",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713319665848,
+          "created_at": "2025-06-10T14:17:37-05:00",
+          "position": 4,
+          "updated_at": "2025-06-10T14:17:39-05:00",
+          "product_id": 9994685448376,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290435_349f43a0-f279-448a-bf70-eff3bfa680c5.jpg?v=1749583059",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713319829688,
+          "created_at": "2025-06-10T14:17:37-05:00",
+          "position": 5,
+          "updated_at": "2025-06-10T14:17:40-05:00",
+          "product_id": 9994685448376,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290435_264b3893-f557-48f3-9cdf-c03e711fd83c.jpg?v=1749583060",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713319731384,
+          "created_at": "2025-06-10T14:17:37-05:00",
+          "position": 6,
+          "updated_at": "2025-06-10T14:17:39-05:00",
+          "product_id": 9994685448376,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290435_4591c09c-2132-4d75-bc0e-7b7d772395b2.jpg?v=1749583059",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713319502008,
+          "created_at": "2025-06-10T14:17:37-05:00",
+          "position": 7,
+          "updated_at": "2025-06-10T14:17:39-05:00",
+          "product_id": 9994685448376,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290435_d183433d-4ecb-4067-8a85-250c64c83a4f.jpg?v=1749583059",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713319567544,
+          "created_at": "2025-06-10T14:17:37-05:00",
+          "position": 8,
+          "updated_at": "2025-06-10T14:17:39-05:00",
+          "product_id": 9994685448376,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290435_d2402d2e-fdb2-41f1-8159-a797b4d3ecf0.jpg?v=1749583059",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51713319469240,
+          "created_at": "2025-06-10T14:17:37-05:00",
+          "position": 9,
+          "updated_at": "2025-06-10T14:17:39-05:00",
+          "product_id": 9994685448376,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1084290435_48d18a79-f475-4489-af12-8e0633b4b2e0.jpg?v=1749583059",
+          "width": 900,
+          "height": 900
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9994297999544,
+      "title": "PNY GeForce RTX 5070 Ti Graphic Card - 16 GB GDDR7 - Full-height",
+      "handle": "pny-geforce-rtx-5070-ti-graphic-card-16-gb-gddr7-full-height",
+      "body_html": "<p>PNY GeForce RTX 5070 Ti Graphic Card - 16 GB GDDR7 - Full-height\n<br></p><p>Get game-changing performance with the GeForce RTX™ 5070 Ti GPU, powered by NVIDIA® Blackwell. Powered by NVIDIA Blackwell. Game at high frame rates with DLSS 4, supercharge your creativity with NVIDIA Studio, and enable new experiences with the power of AI.</p><p><strong>Triple Fan Cooling: </strong>With three fans working together heat is distributed and dissipated more efficiently across the GPU surface.</p><p><strong>metal back plate: </strong>Adds additional support to prevent the card from sagging and vents that enhance passive cooling.</p><p><strong>Velocity X™ Software:</strong> Gain full control over your PNY graphic cards to maximize its performance.</p><ul>\n<br><li>4th Gen Ray Tracing Cores</li>\n<br><li>5th Gen Tensor Cores</li>\n<br><li>NVIDIA DLSS 4</li>\n<br><li>NVIDIA Reflex 2</li>\n<br><li>3 Slots</li>\n<br><li>Memory bandwidth 896 Gb/s</li>\n<br><li>Memory interface 256 Bit</li>\n<br><li>Power 300 W</li>\n<br><li>Output: 3x Display Port 2.1b + HDMI 2.1b</li>\n<br>\n</ul>",
+      "published_at": "2025-06-10T03:02:09-05:00",
+      "created_at": "2025-06-10T03:02:09-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "PNY Technologies",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51431056572600,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "0751492794600",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "781.99",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 1,
+          "product_id": 9994297999544,
+          "created_at": "2025-06-10T03:02:10-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51701819637944,
+          "created_at": "2025-06-10T03:02:09-05:00",
+          "position": 1,
+          "updated_at": "2025-06-10T03:02:12-05:00",
+          "product_id": 9994297999544,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085111130_dbf5f1ec-ed7b-4eb4-b1eb-9074aa6abc08.jpg?v=1749542532",
+          "width": 794,
+          "height": 794
+        },
+        {
+          "id": 51701819474104,
+          "created_at": "2025-06-10T03:02:09-05:00",
+          "position": 2,
+          "updated_at": "2025-06-10T03:02:12-05:00",
+          "product_id": 9994297999544,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085111130.jpg?v=1749542532",
+          "width": 794,
+          "height": 794
+        },
+        {
+          "id": 51701820096696,
+          "created_at": "2025-06-10T03:02:09-05:00",
+          "position": 3,
+          "updated_at": "2025-06-10T03:02:12-05:00",
+          "product_id": 9994297999544,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085111130_59bbe1e5-6396-4b0a-a1fd-d212c356c6e5.jpg?v=1749542532",
+          "width": 794,
+          "height": 794
+        },
+        {
+          "id": 51701820326072,
+          "created_at": "2025-06-10T03:02:09-05:00",
+          "position": 4,
+          "updated_at": "2025-06-10T03:02:12-05:00",
+          "product_id": 9994297999544,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085111130_cd7460aa-7762-4565-ac2b-7ff50c7205d6.jpg?v=1749542532",
+          "width": 794,
+          "height": 794
+        },
+        {
+          "id": 51701820063928,
+          "created_at": "2025-06-10T03:02:10-05:00",
+          "position": 5,
+          "updated_at": "2025-06-10T03:02:12-05:00",
+          "product_id": 9994297999544,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085111130_265a11d2-3cc0-4a31-ace9-a2b86e12a084.jpg?v=1749542532",
+          "width": 794,
+          "height": 794
+        },
+        {
+          "id": 51701820260536,
+          "created_at": "2025-06-10T03:02:10-05:00",
+          "position": 6,
+          "updated_at": "2025-06-10T03:02:12-05:00",
+          "product_id": 9994297999544,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085111130_2a074438-bcf5-45aa-9ac6-202f71b959d8.jpg?v=1749542532",
+          "width": 794,
+          "height": 794
+        },
+        {
+          "id": 51701819998392,
+          "created_at": "2025-06-10T03:02:10-05:00",
+          "position": 7,
+          "updated_at": "2025-06-10T03:02:12-05:00",
+          "product_id": 9994297999544,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085111130_41b02d88-741c-4212-874d-e1287c0709e8.jpg?v=1749542532",
+          "width": 794,
+          "height": 794
+        },
+        {
+          "id": 51701819900088,
+          "created_at": "2025-06-10T03:02:10-05:00",
+          "position": 8,
+          "updated_at": "2025-06-10T03:02:12-05:00",
+          "product_id": 9994297999544,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085111130_d5abe49d-0539-49d7-8612-33b145a12c24.jpg?v=1749542532",
+          "width": 809,
+          "height": 809
+        },
+        {
+          "id": 51701820391608,
+          "created_at": "2025-06-10T03:02:10-05:00",
+          "position": 9,
+          "updated_at": "2025-06-10T03:02:13-05:00",
+          "product_id": 9994297999544,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1085111130_23233f5c-827b-4dd2-a5d3-64c2985c2bb3.jpg?v=1749542533",
+          "width": 794,
+          "height": 794
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9992733851832,
+      "title": "PNY NVIDIA Quadro RTX 4500 Graphic Card - 24 GB GDDR6",
+      "handle": "pny-nvidia-quadro-rtx-4500-graphic-card-24-gb-gddr6",
+      "body_html": "<p>PNY NVIDIA Quadro RTX 4500 Graphic Card - 24 GB GDDR6\n<br></p><p>The NVIDIA RTX 4500 Ada Generation unifies 60 Gen3 RT Cores, 240 Gen 4 Tensor Cores, and 7680 CUDA cores with 24GB of GPU memory, to deliver fast ray tracing and AI-powered graphics. Benefit from incredible workflow acceleration with RTX 4500. </p><ul>\n<br><li>NVIDIA Ada Lovelace Architecture</li>\n<br><li>GPU Memory: 24GB GDDR6 ECC</li>\n<br><li>NVIDIA Quadro Sync II compatibility</li>\n<br><li>RT Cores: 60 Gen 3</li>\n<br><li>Tensor Cores: 240 Gen 4</li>\n<br><li>CUDA cores: 7680</li>\n<br>\n</ul>",
+      "published_at": "2025-06-08T06:57:02-05:00",
+      "created_at": "2025-06-08T06:57:02-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "PNY Technologies",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51426945663160,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "751492779317",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "2230.99",
+          "grams": 0,
+          "compare_at_price": "2999.00",
+          "position": 1,
+          "product_id": 9992733851832,
+          "created_at": "2025-06-08T06:57:02-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51665558044856,
+          "created_at": "2025-06-08T06:57:02-05:00",
+          "position": 1,
+          "updated_at": "2025-06-08T06:57:04-05:00",
+          "product_id": 9992733851832,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1077915414.jpg?v=1749383824",
+          "width": 500,
+          "height": 500
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9992703869112,
+      "title": "RADEON 7750 SFF 2GB DDR3 2X DP",
+      "handle": "radeon-7750-sff-2gb-ddr3-2x-dp",
+      "body_html": "<p>VisionTek AMD Radeon HD 7750 Graphic Card - 2 GB GDDR5\n<br></p><p>The VisionTek Radeon 7750 SFF 2GB GDDR5 2x DP allows you to power the latest monitors at the highest resolutions. With full support for 4K monitors you can view even more content than ever. Independent resolutions allow you to have one 4k monitor and one high definition (1080p) or any combination of the two. A short form factor design allows you to add additional monitors to Short Form Factor, Mini ATX, and other small cases. Bus powered design means you don't have to worry about additional power pins</p> <p><b>HIGHLIGHTS</b></p> <ul> <li>Short Form Factor Dual DisplayPort output</li> <li>Supports 2 monitors at 4096 x 2160 at 60 Hz @ 10-bit color</li> <li>Independent monitor resolutions and refresh rates can be selected</li> <li>65W Max Power Draw</li> <li>2 GB of GDDR5 memory delivers more speed and higher bandwidths</li> <li>Ships with Tall bracket in box</li> </ul><ul>\n<br><li>The cutting-edge AMD Radeon lets you experience video games with realism</li>\n<br><li>PCI Express x16 interface is hot-swappable and easy to use</li>\n<br><li>The GDDR5 memory technology efficiently move data across electric components and provide smooth PC performance</li>\n<br><li>Plug-in Card form factor for added reliability and dependability</li>\n<br><li>2 GB GDDR5 on-board memory renders detailed images in a flash</li>\n<br><li>Built-in low-power fan keeps the board cool and ensures a long-lasting usability</li>\n<br><li>2 monitors supported to ensure maximum productivity without compromising on quality</li>\n<br>\n</ul>",
+      "published_at": "2025-06-08T03:32:13-05:00",
+      "created_at": "2025-06-08T03:32:13-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "VISIONTEK",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51426906865848,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "784090035387",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "122.99",
+          "grams": 0,
+          "compare_at_price": "139.99",
+          "position": 1,
+          "product_id": 9992703869112,
+          "created_at": "2025-06-08T03:32:13-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51662616690872,
+          "created_at": "2025-06-08T03:32:13-05:00",
+          "position": 1,
+          "updated_at": "2025-06-08T03:32:15-05:00",
+          "product_id": 9992703869112,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1037581189_6e4cabbd-d405-4ce9-af18-71ce771dd96f.jpg?v=1749371535",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51662617149624,
+          "created_at": "2025-06-08T03:32:13-05:00",
+          "position": 2,
+          "updated_at": "2025-06-08T03:32:15-05:00",
+          "product_id": 9992703869112,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1037581189_f5de0863-ae8b-479b-87ef-3e2c2f16cc51.jpg?v=1749371535",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51662616953016,
+          "created_at": "2025-06-08T03:32:13-05:00",
+          "position": 3,
+          "updated_at": "2025-06-08T03:32:15-05:00",
+          "product_id": 9992703869112,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1037581189_27e0897f-8c81-40a3-8757-25bf88d0df28.jpg?v=1749371535",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51662617018552,
+          "created_at": "2025-06-08T03:32:13-05:00",
+          "position": 4,
+          "updated_at": "2025-06-08T03:32:15-05:00",
+          "product_id": 9992703869112,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1037581189_1215d0fa-5c99-428c-afc0-de6e84729aaf.jpg?v=1749371535",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51662617084088,
+          "created_at": "2025-06-08T03:32:13-05:00",
+          "position": 5,
+          "updated_at": "2025-06-08T03:32:15-05:00",
+          "product_id": 9992703869112,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1037581189_462977d8-4bc5-4d54-b30e-9005a4d143f4.jpg?v=1749371535",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51662616756408,
+          "created_at": "2025-06-08T03:32:13-05:00",
+          "position": 6,
+          "updated_at": "2025-06-08T03:32:15-05:00",
+          "product_id": 9992703869112,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1037581189_fdd1deac-4e67-4ab9-9085-c9e180a2d09e.jpg?v=1749371535",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51662617116856,
+          "created_at": "2025-06-08T03:32:13-05:00",
+          "position": 7,
+          "updated_at": "2025-06-08T03:32:15-05:00",
+          "product_id": 9992703869112,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1037581189_866e6138-d6a7-45ae-ae38-9eb856a16292.jpg?v=1749371535",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51662616985784,
+          "created_at": "2025-06-08T03:32:13-05:00",
+          "position": 8,
+          "updated_at": "2025-06-08T03:32:15-05:00",
+          "product_id": 9992703869112,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1037581189_e097fd9f-cbec-4a8b-af8d-3f0a511918ad.jpg?v=1749371535",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51662617051320,
+          "created_at": "2025-06-08T03:32:13-05:00",
+          "position": 9,
+          "updated_at": "2025-06-08T03:32:15-05:00",
+          "product_id": 9992703869112,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1037581189_d2351977-4395-4ec9-87cb-483b29d94128.jpg?v=1749371535",
+          "width": 900,
+          "height": 900
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9992087994552,
+      "title": "NVIDIA RTX A1000 RETAIL PACK",
+      "handle": "nvidia-rtx-a1000-retail-pack",
+      "body_html": "<p>NVIDIA RTX™ A1000 Professional Graphics Board\n<br></p><p><b>Small Size, Big Impact-The Ultimate Compact Power </b></p><p>The NVIDIA RTX™ A1000 is a powerful, low-profile GPU that brings RTX-powered real time ray tracing and AI acceleration to a whole new audience. Built on the NVIDIA Ampere GPU architecture, it combines 2,304 CUDA® Cores, 72 third-generation Tensor Cores, and 18 second-generation RT Cores, and 8GB of GDDR6 graphics memory. With the RTX A1000, you can create more compelling visuals, explore new AI-powered workflows, and boost your productivity, all from a small-form-factor solution.</p><p>NVIDIA RTX professional graphics cards are certified for a broad range of professional applications, tested by leading independent software vendors (ISVs) and workstation manufacturers, and backed by a global team of support specialists. Get the peace of mind to focus on what matters with the premier visual computing solution for mission-critical business.</p><ul>\n<br><li>Architecture: NVIDIA Ampere</li>\n<br><li>CUDA® cores: 2,304</li>\n<br><li>Tensor Cores: 72 3rd-gen</li>\n<br><li>RT Cores: 18 2nd-gen</li>\n<br><li>GPU memory: 8GB GDDR6</li>\n<br><li>1x NVENC</li>\n<br><li>2x NVDEC + AV1 decode</li>\n<br><li>PCIe Express PCI Express 4.0 x83</li>\n<br><li>Form factor: Small Form Factor, Single-slot PCIe GPU</li>\n<br><li>Cooling: Active Fan</li>\n<br><li>Power Consumption: 50 W total</li>\n<br>\n</ul>",
+      "published_at": "2025-06-06T15:00:43-05:00",
+      "created_at": "2025-06-06T15:00:43-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "PNY QUADRO",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51425159676088,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "751492788043",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "388.99",
+          "grams": 0,
+          "compare_at_price": "569.00",
+          "position": 1,
+          "product_id": 9992087994552,
+          "created_at": "2025-06-06T15:00:44-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51638096167096,
+          "created_at": "2025-06-06T15:00:43-05:00",
+          "position": 1,
+          "updated_at": "2025-06-06T15:00:46-05:00",
+          "product_id": 9992087994552,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1081308872.jpg?v=1749240046",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "id": 51638096462008,
+          "created_at": "2025-06-06T15:00:43-05:00",
+          "position": 2,
+          "updated_at": "2025-06-06T15:00:46-05:00",
+          "product_id": 9992087994552,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1081308872_492329c4-fdb1-43c3-9c02-cd73047dce94.jpg?v=1749240046",
+          "width": 588,
+          "height": 588
+        },
+        {
+          "id": 51638096265400,
+          "created_at": "2025-06-06T15:00:43-05:00",
+          "position": 3,
+          "updated_at": "2025-06-06T15:00:46-05:00",
+          "product_id": 9992087994552,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1081308872_30f1b267-41d6-4d82-b4c5-6c2e98889bd1.jpg?v=1749240046",
+          "width": 799,
+          "height": 799
+        },
+        {
+          "id": 51638096396472,
+          "created_at": "2025-06-06T15:00:43-05:00",
+          "position": 4,
+          "updated_at": "2025-06-06T15:00:46-05:00",
+          "product_id": 9992087994552,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1081308872_1b6ebbcf-dc2f-4851-85b3-e806945d5037.jpg?v=1749240046",
+          "width": 798,
+          "height": 798
+        },
+        {
+          "id": 51638096232632,
+          "created_at": "2025-06-06T15:00:43-05:00",
+          "position": 5,
+          "updated_at": "2025-06-06T15:00:46-05:00",
+          "product_id": 9992087994552,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1081308872_256b01a4-665c-4075-aed0-5543a434b3ee.jpg?v=1749240046",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "id": 51638096363704,
+          "created_at": "2025-06-06T15:00:43-05:00",
+          "position": 6,
+          "updated_at": "2025-06-06T15:00:46-05:00",
+          "product_id": 9992087994552,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1081308872_c88a3750-1d11-441e-8e5d-748b8314aaa4.jpg?v=1749240046",
+          "width": 782,
+          "height": 782
+        },
+        {
+          "id": 51638096330936,
+          "created_at": "2025-06-06T15:00:44-05:00",
+          "position": 7,
+          "updated_at": "2025-06-06T15:00:46-05:00",
+          "product_id": 9992087994552,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1081308872_f0533a7e-4518-46c0-b73e-53d8686776fe.jpg?v=1749240046",
+          "width": 798,
+          "height": 798
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9991059734712,
+      "title": "Asus ROG NVIDIA GeForce RTX 4060 Graphic Card - 8 GB GDDR6",
+      "handle": "asus-rog-nvidia-geforce-rtx-4060-graphic-card-8-gb-gddr6",
+      "body_html": "<p>Asus ROG NVIDIA GeForce RTX 4060 Graphic Card - 8 GB GDDR6\n<br></p><p>ROG Strix GeForce RTX 4060 OC Edition 8GB GDDR6 with DLSS 3 and chart-topping thermal performance</p><p><b>WITH THE INCREDIBLE SUM OF ITS PARTS</b></p><p>The ROG Strix GeForce RTX 4060 brings a whole new meaning to going with the flow. Inside and out, every element of the card gives the monstrous GPU headroom to breathe freely and achieveultimate performance. The unleashed reign of the NVIDIA Ada Lovelace architecture is here.</p><p>The Ultimate Platform for Gamers and Creators Powered by GeForce RTX 40 Series and DLSS 3</p><p><b>New Streaming Multiprocessors</b></p><ul><li>  Up to 2x performance and power efficiency</li></ul><p><b>Fourth-Gen Tensor Cores</b></p><ul>\n<br><li>  Up to 4x performance with DLSS 3</li>\n<br><li>  vs. brute-force rendering</li>\n<br>\n</ul><p><b>Third-Gen RT Cores</b></p><ul><li>  Up to 2x ray tracing performance</li></ul><p><b>Cutting-Edge GPUs</b></p><p>NVIDIA Ada Lovelace architecture</p><p><b>Realistic andImmersive Graphics</b></p><p>Dedicated Ray Tracing Cores</p><p><b>AI-Accelerated Performance</b></p><p>NVIDIA DLSS 3</p><p><b>Game-Winning Responsiveness</b></p><p>NVIDIA Reflex low-latency platform</p><p><b>Built for Live Streaming</b></p><p>NVIDIA Encoder</p><p><b>AI-Enhanced Voiceand Video</b></p><p>NVIDIA Broadcast app</p><p><b>Fast-Track Your Creativity</b></p><p>NVIDIA Studio</p><p><b>Performance and Reliability</b></p><p>Game Ready and Studio Drivers</p><p><b>Axial-tech Upgrades A Fresh Spin</b></p><p>Bigger and better. Axial-tech fans spin on dual-ball bearings and have been scaled up to propel 21% more air through the card, setting the stage for lower temperatures, less noise, and higher performance.</p><p><b>Reverse Rotation and 0dB Technology Orchestrated Chill</b></p><p>The two side fans spin counterclockwise to minimize turbulence and maximize air dispersion through the heatsink. Both two fans come to a standstill when GPU temps are below 45 Celsius, letting you play less-demanding games or perform light tasks in relative silence. Fans start up again when temps are over 50 C, referencing a speed curve that balances performance and acoustics for work or play.</p><p><b>3.1-slot Design Through Thick and Fin</b></p><p>The custom sink is generously sized and structured to soak up heat from the GeForce RTX 4060 GPU so that it can be efficiently whisked away by the three Axial-tech fans.</p><p><b>Premium Power Delivery 1st Responder</b></p><p>Digital power control, an array of high-current power stages, and a lineup of 15K caps ensure massive reserves to reliably push performance boundaries.</p><p><b>Compact PCB Packs a Punch</b></p><p>Component and trace layouts have been optimized onto<b>a short PCB</b>to reduce power losses and let heat escape through<b>a massive backplate vent</b>.</p><p><b>VENTED EXOSKELETON Stay Frosty</b></p><p>The backplate is made of sturdy aluminium to brace the PCB and sink heat away from onboard components.</p><p><b>GO WITH THE FLOW</b></p><p>It all comes together to effortlessly drive GeForce RTX 4060 performance to the max.</p><ul>\n<br><li>Cost-efficient NVIDIA GeForce provides effective Blu-ray playback acceleration and great gaming experience</li>\n<br><li>OpenGL 4.6 API support for dependable, multi-functional graphic output</li>\n<br><li>PCI Express 4.0 host interface allows quick transmission of data at a higher rate for your convenience</li>\n<br><li>GDDR6 memory technology effectively enables data to be moved at various points in a CPU clock cycle to allow maximum productivity</li>\n<br><li>Features HDMI input to get connected with the top of the line PCs, Blu-ray players, and cutting edge gaming consoles</li>\n<br><li>Plug-in Card form factor for your convenience and simplicity of usage</li>\n<br><li>Comes in 2.4\" height for convenient carrying and dependable usability</li>\n<br><li>Comes in 5.3\" width for maximum productivity and easy carrying</li>\n<br><li>8 GB GDDR6 VRAM to hold highly-textured images and perform the rendering at super-fast speed</li>\n<br><li>Fan Cooler cooler type for dependable and long-term cooling to ensure maximum productivity</li>\n<br>\n</ul>",
+      "published_at": "2025-06-05T14:01:54-05:00",
+      "created_at": "2025-06-05T14:01:54-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "ASUS Computer International",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51412343750840,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "197105246447",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "416.99",
+          "grams": 0,
+          "compare_at_price": "429.99",
+          "position": 1,
+          "product_id": 9991059734712,
+          "created_at": "2025-06-05T14:01:55-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51617051279544,
+          "created_at": "2025-06-05T14:01:55-05:00",
+          "position": 1,
+          "updated_at": "2025-06-05T14:01:57-05:00",
+          "product_id": 9991059734712,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1077702127_f833f8ef-2541-4b26-ab24-328a1c1ac6f0.jpg?v=1749150117",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51617051246776,
+          "created_at": "2025-06-05T14:01:55-05:00",
+          "position": 2,
+          "updated_at": "2025-06-05T14:01:57-05:00",
+          "product_id": 9991059734712,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1077702127_9396286c-5507-4310-a5a4-428f80af36ea.jpg?v=1749150117",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51617051181240,
+          "created_at": "2025-06-05T14:01:55-05:00",
+          "position": 3,
+          "updated_at": "2025-06-05T14:01:57-05:00",
+          "product_id": 9991059734712,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1077702127.jpg?v=1749150117",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51617051639992,
+          "created_at": "2025-06-05T14:01:55-05:00",
+          "position": 4,
+          "updated_at": "2025-06-05T14:01:58-05:00",
+          "product_id": 9991059734712,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1077702127_dd421925-fec6-42b6-9eb3-0ad9d2c37834.jpg?v=1749150118",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51617051214008,
+          "created_at": "2025-06-05T14:01:55-05:00",
+          "position": 5,
+          "updated_at": "2025-06-05T14:01:57-05:00",
+          "product_id": 9991059734712,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1077702127_ddb7aa99-decf-4ee4-867d-f2816e4e715c.jpg?v=1749150117",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51617051443384,
+          "created_at": "2025-06-05T14:01:55-05:00",
+          "position": 6,
+          "updated_at": "2025-06-05T14:01:57-05:00",
+          "product_id": 9991059734712,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1077702127_7484c12e-95bf-415f-bd66-06c693f59554.jpg?v=1749150117",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51617051312312,
+          "created_at": "2025-06-05T14:01:55-05:00",
+          "position": 7,
+          "updated_at": "2025-06-05T14:01:57-05:00",
+          "product_id": 9991059734712,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1077702127_35e8c2a1-5e48-4a99-a402-fb033a87ade1.jpg?v=1749150117",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51617051410616,
+          "created_at": "2025-06-05T14:01:55-05:00",
+          "position": 8,
+          "updated_at": "2025-06-05T14:01:57-05:00",
+          "product_id": 9991059734712,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1077702127_d5c75dc5-c82f-4e9d-a3a9-c9f510a77e03.jpg?v=1749150117",
+          "width": 900,
+          "height": 900
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9990929678520,
+      "title": "HP NVIDIA RTX 5000 Ada Graphic Card - 32 GB GDDR6 - Full-height",
+      "handle": "hp-nvidia-rtx-5000-ada-graphic-card-32-gb-gddr6-full-height",
+      "body_html": "<p>HP NVIDIA RTX 5000 Ada Graphic Card - 32 GB GDDR6 - Full-height\n<br></p><ul>\n<br><li>PCI Express 4.0 x16 host interface ensures dependable data transfer for maximum efficiency</li>\n<br><li>With GDDR6 memory technology get efficient data transfer rate and enhanced computer's performance</li>\n<br><li>Plug-in Card form factor for your convenience and simplicity of usage</li>\n<br><li>Comes in 5\" height for convenient carrying and dependable usability</li>\n<br><li>Built-in 32 GB memory for a crisp and detail display</li>\n<br><li>250 W power supply wattage for reliable productivity and power efficiency</li>\n<br>\n</ul>",
+      "published_at": "2025-06-05T11:44:32-05:00",
+      "created_at": "2025-06-05T11:44:33-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "HP Inc.",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51407314485432,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "196548771929",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "6139.99",
+          "grams": 1089,
+          "compare_at_price": "7524.00",
+          "position": 1,
+          "product_id": 9990929678520,
+          "created_at": "2025-06-05T11:44:33-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51615626199224,
+          "created_at": "2025-06-05T11:44:33-05:00",
+          "position": 1,
+          "updated_at": "2025-06-05T11:44:39-05:00",
+          "product_id": 9990929678520,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1079587142.jpg?v=1749141879",
+          "width": 3000,
+          "height": 3000
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9990635192504,
+      "title": "Ezrecorder 330 Capture",
+      "handle": "ezrecorder-330-capture",
+      "body_html": "<p>Avermedia Ezrecorder 330 Capturing ER330\n<br></p><p><b>1080p Recording with 4K Gaming</b></p><p>There's no need for a high-end computer. Enjoy 4K ultra HD gaming while recording at 1080p Full HD with EzRecorder 330-perfectly record every gameplay.</p><p><b>PC-Free Streaming</b></p><p>The EzRecorder 330 delivers the easiest live streaming experience. It only needs one button to stream and there's no complex software or hardware setup. Simply connect a game console, camcorder or DSLR to your EzRecorder 330, and stream to YouTube, Facebook or Twitch without a computer. Live streaming is no longer a difficult task.</p><p><b>Flexible Storage Options</b></p><p>The EzRecorder 330 supports recording to external hard drives, micro SD cards, and NAS. You can choose a suitable storage device according to your needs.</p><p><b>From Classic to Next-Gen</b></p><p>The EzRecorder 330 has HDMI and composite A/V inputs, which support new and old game consoles like PS5 and Nintendo Famicom. You can even use it to convert VHS videos to mp4s for permanent storage.</p><p><b>Never Miss A Play</b></p><p>Whether in video games or sports, there are always moments of epic plays or game-winning shots worth re-watching. In order not to miss any of those precious moments, the EzRecorder 330's Instant Highlight function lets you relive and preserve them for good.</p><p><b>Schedule Your Recording</b></p><p>Set a time to record a TV program or sporting event even when you're not in front of the TV. The EzRecorder 330 supports routine scheduling to eliminate repeated setups. After a one-time setup, you can effortlessly record your favorite TV shows or team games and enjoy them later.</p><p><b>High Efficiency Video Coding</b></p><p>Compared with H.264 encoding, H.265 encoding has up to 2X the video compression rate, which means the same file size can contain twice the image data. So video quality will be substantially improved without taking more space.</p> <p><a>More from the Manufacturer</a></p><ul>\n<br><li>Transfer and store audio and video from a VCR, camcorder, or any other video recording device, to your computer for future use</li>\n<br><li>To fulfill your needs, this video streaming function is a perfect choice</li>\n<br><li>No hassle of internal installation, install externally</li>\n<br>\n</ul>",
+      "published_at": "2025-06-05T08:55:20-05:00",
+      "created_at": "2025-06-05T08:55:20-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "AVermedia Technology",
+      "product_type": "Home page",
+      "tags": [
+        "Video Cards",
+        "Video Processing/Capturing Modules"
+      ],
+      "variants": [
+        {
+          "id": 51401123496120,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "795522966575",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "109.99",
+          "grams": 150,
+          "compare_at_price": null,
+          "position": 1,
+          "product_id": 9990635192504,
+          "created_at": "2025-06-05T08:55:20-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51611112341688,
+          "created_at": "2025-06-05T08:55:20-05:00",
+          "position": 1,
+          "updated_at": "2025-06-05T08:55:22-05:00",
+          "product_id": 9990635192504,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1077016292_79e4eca8-3605-4f3f-a76c-f1b20094e973.jpg?v=1749131722",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51611112374456,
+          "created_at": "2025-06-05T08:55:20-05:00",
+          "position": 2,
+          "updated_at": "2025-06-05T08:55:22-05:00",
+          "product_id": 9990635192504,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1077016292_f185f121-3db6-4ce9-b598-ab968680177f.jpg?v=1749131722",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51611112472760,
+          "created_at": "2025-06-05T08:55:20-05:00",
+          "position": 3,
+          "updated_at": "2025-06-05T08:55:22-05:00",
+          "product_id": 9990635192504,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1077016292_8b34c722-cb01-45a8-9bd3-ee39d6d77957.jpg?v=1749131722",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51611112407224,
+          "created_at": "2025-06-05T08:55:20-05:00",
+          "position": 4,
+          "updated_at": "2025-06-05T08:55:22-05:00",
+          "product_id": 9990635192504,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1077016292_edda0076-8105-4e7a-8d33-ea23acff454a.jpg?v=1749131722",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51611112439992,
+          "created_at": "2025-06-05T08:55:20-05:00",
+          "position": 5,
+          "updated_at": "2025-06-05T08:55:22-05:00",
+          "product_id": 9990635192504,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1077016292_b846fa11-7af6-477a-a94d-94c1bb289b0c.jpg?v=1749131722",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51611112505528,
+          "created_at": "2025-06-05T08:55:20-05:00",
+          "position": 6,
+          "updated_at": "2025-06-05T08:55:22-05:00",
+          "product_id": 9990635192504,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1077016292_8d78c789-9c4d-4e4a-aec3-b5b713ae3801.jpg?v=1749131722",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51611112308920,
+          "created_at": "2025-06-05T08:55:20-05:00",
+          "position": 7,
+          "updated_at": "2025-06-05T08:55:22-05:00",
+          "product_id": 9990635192504,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1077016292.jpg?v=1749131722",
+          "width": 900,
+          "height": 900
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9990491570360,
+      "title": "Live Streamer CAP 4K USB 3.0",
+      "handle": "live-streamer-cap-4k-usb-3-0",
+      "body_html": "<p>AVerMedia Live Streamer CAP 4K - USB 3.0 Live broadcasting HDMI video capture device. Record mirrorless camera, DSLR, camcorder and action camera at 1080p60 or 4K 30 FPS. Turn your camera into a pro webcam. (BU113).\n<br></p><p><b>Stream with YOUR Camera</b></p> <p>With Live Streamer CAP 4K, simply hook up your video camera or camcorder to create the highest video quality contents for your 4Kp60(HDR) live stream and 4Kp30 video recording.</p> <p><b>Video Capture</b></p> <p>The external uncompressed 4Kp60 video capture device can help you unleash the power of a video camera.</p> <p><b>Plug and Play</b></p> <p>WE MAKE IT SIMPLE for all creators. Connect a camera directly to Live Streamer CAP 4K without any complicated steps.</p> <p><b>ePTZ and AI Framing</b></p> <p>When combined with the CamEngine app, you can use advanced functions such as ePTZ and AI Framing, which will automatically frame a group or person from your video sources.</p> <p><b>Hybrid WORK</b></p> <p>Nowadays, people show their demo or ideas online; Live Streamer CAP 4K can provide the highest video quality for all of your projects.</p> <p><a>More from the Manufacturer</a></p><ul>\n<br><li>Transfer and store audio and video from a VCR, camcorder, or any other video recording device, to your computer for future use</li>\n<br><li>Converts an analog video signal to digital form</li>\n<br><li>Plug and Play your video capturing device with the PC and go</li>\n<br><li>No hassle of internal installation, install externally</li>\n<br>\n</ul>",
+      "published_at": "2025-06-05T05:37:54-05:00",
+      "created_at": "2025-06-05T05:37:55-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "AVermedia Technology",
+      "product_type": "Home page",
+      "tags": [
+        "Video Cards",
+        "Video Processing/Capturing Modules"
+      ],
+      "variants": [
+        {
+          "id": 51394075427000,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "795522966964",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "99.99",
+          "grams": 45,
+          "compare_at_price": null,
+          "position": 1,
+          "product_id": 9990491570360,
+          "created_at": "2025-06-05T05:37:55-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51609096323256,
+          "created_at": "2025-06-05T05:37:55-05:00",
+          "position": 1,
+          "updated_at": "2025-06-05T05:37:57-05:00",
+          "product_id": 9990491570360,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070245864_6a39a2cd-e775-4d5b-b300-ddbc1ca6da4d.jpg?v=1749119877",
+          "width": 552,
+          "height": 552
+        },
+        {
+          "id": 51609096421560,
+          "created_at": "2025-06-05T05:37:55-05:00",
+          "position": 2,
+          "updated_at": "2025-06-05T05:37:57-05:00",
+          "product_id": 9990491570360,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070245864_23c310c8-e4e4-4d57-9fe3-eaa7d1da7eae.jpg?v=1749119877",
+          "width": 591,
+          "height": 591
+        },
+        {
+          "id": 51609096126648,
+          "created_at": "2025-06-05T05:37:55-05:00",
+          "position": 3,
+          "updated_at": "2025-06-05T05:37:57-05:00",
+          "product_id": 9990491570360,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070245864_2773ea09-16a3-4bdf-a76b-27e5d762340e.jpg?v=1749119877",
+          "width": 760,
+          "height": 760
+        },
+        {
+          "id": 51609096061112,
+          "created_at": "2025-06-05T05:37:55-05:00",
+          "position": 4,
+          "updated_at": "2025-06-05T05:37:57-05:00",
+          "product_id": 9990491570360,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070245864_445fb56a-10e7-4f5a-ad3b-828e54e4468f.jpg?v=1749119877",
+          "width": 760,
+          "height": 760
+        },
+        {
+          "id": 51609096257720,
+          "created_at": "2025-06-05T05:37:55-05:00",
+          "position": 5,
+          "updated_at": "2025-06-05T05:37:57-05:00",
+          "product_id": 9990491570360,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070245864_9e3ef07a-23dc-4d58-a11e-224d6ed09dbd.jpg?v=1749119877",
+          "width": 760,
+          "height": 760
+        },
+        {
+          "id": 51609096028344,
+          "created_at": "2025-06-05T05:37:55-05:00",
+          "position": 6,
+          "updated_at": "2025-06-05T05:37:57-05:00",
+          "product_id": 9990491570360,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070245864.jpg?v=1749119877",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51609096224952,
+          "created_at": "2025-06-05T05:37:55-05:00",
+          "position": 7,
+          "updated_at": "2025-06-05T05:37:57-05:00",
+          "product_id": 9990491570360,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070245864_25e730dc-a3eb-418a-b922-b0e3dedd9682.jpg?v=1749119877",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51609096356024,
+          "created_at": "2025-06-05T05:37:55-05:00",
+          "position": 8,
+          "updated_at": "2025-06-05T05:37:57-05:00",
+          "product_id": 9990491570360,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070245864_c7bbd421-31fd-46c9-a8a3-23bf1e859cfb.jpg?v=1749119877",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51609096159416,
+          "created_at": "2025-06-05T05:37:55-05:00",
+          "position": 9,
+          "updated_at": "2025-06-05T05:37:57-05:00",
+          "product_id": 9990491570360,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1070245864_a438ff89-56b0-4efc-8f55-1cd894249d09.jpg?v=1749119877",
+          "width": 880,
+          "height": 880
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9990344310968,
+      "title": "DUAL-RTX3050-O6G",
+      "handle": "dual-rtx3050-o6g",
+      "body_html": "<p>ASUS Dual NVIDIA GeForce RTX 3050 6GB OC Edition Gaming Graphics Card - PCIe 4.0, 6GB GDDR6 Memory, HDMI 2.1, DisplayPort 1.4a, 2-slot Design, Axial-tech Fan Design, 0dB Technology, Steel Bracket\n<br></p><p>ASUS Dual GeForce RTX 3050 OC Edition 6GB GDDR6 with two powerful fans AAA gaming performance and ray tracing</p><ul>\n<br><li>  <b>NVIDIA Ampere Streaming Multiprocessors: </b>The all-new Ampere SM brings 2X the FP32 throughput and improved power efficiency.</li>\n<br><li>  <b>2nd Generation RT Cores: </b>Experience 2X the throughput of 1st gen RT Cores, plus concurrent RT and shading for a whole new level of ray-tracing performance.</li>\n<br><li>  <b>3rd Generation Tensor Cores: </b>Get up to 2X the throughput with structural sparsity and advanced AI algorithms such as DLSS. These cores deliver a massive boost in game performance and all-new AI capabilities.</li>\n<br><li>  <b>OC edition: Boost Clock 1537MHz (OC Mode)/1507 MHz (Default Mode)</b>\n<br>\n</li>\n<br><li>  <b>IP5X dust resistance </b>offers protection from particle ingress for better durability.</li>\n<br><li>  A<b>2-slot design </b>maximizes compatibility and cooling efficiency for superior performance in small chassis.</li>\n<br><li>  A<b>stainless steel bracket </b>is harder and more resistant to corrosion.</li>\n<br><li>  <b>Auto-Extreme technology </b>uses automation to enhance reliability.</li>\n<br><li>  <b>GPU Tweak III </b>provides intuitive performance tweaking, thermal controls, and system monitoring.</li>\n<br>\n</ul><p><b>2x Fans. 2x Fun.</b></p><p>Featuring the latest NVIDIA Ampere architecture, ASUS Dual GeForce RTX 3050 6G fuses dynamic thermal performance with broad compatibility. Advanced cooling solutions from flagship graphics cards are packed into the 20 cm long, 2-slot card, delivering more power in less space. These enhancements make ASUS Dual the perfect choice for gamers who want heavyweight graphics performance in a compact build.</p><p><b>Only on GeForce RTX | Cutting-Edge GPUs</b></p><ul><li>  NVIDIA Ampere Architecture</li></ul><p><b>Realistic &amp; Immersive Graphics</b></p><ul><li>  Ray Tracing</li></ul><p><b>AI-Accelerated Performance</b></p><ul><li>  NVIDIA DLSS</li></ul><p><b>LowestSystem Latency</b></p><ul><li>  NVIDIA Reflex</li></ul><p><b>Performance &amp; Reliability</b></p><ul><li>  Game Ready andStudio Drivers</li></ul><p><b>Built forLive Streaming</b></p><ul><li>  NVIDIA Encoder</li></ul><p><b>AI-EnhancedVoice &amp; Video</b></p><ul><li>  NVIDIA Broadcast App</li></ul><p><b>Fast-TrackYour Creativity</b></p><ul><li>  NVIDIA Studio</li></ul><ul>\n<br><li>Cost-efficient NVIDIA GeForce RTX 3050 provides effective Blu-ray playback acceleration and great gaming experience</li>\n<br><li>OpenGL 4.6 API support for reliable graphic design flow to programme heavy-duty tasks</li>\n<br><li>PCI Express 4.0 host interface ensures dependable data transfer for maximum efficiency</li>\n<br><li>With GDDR6 memory technology get efficient data transfer rate and enhanced computer's performance</li>\n<br><li>HDMI interface allows you to connect to a variety of HD devices including gaming consoles, Blu-ray players, laptop PCs, digital cameras and many others for the ultimate true high-definition display</li>\n<br><li>Plug-in Card form factor for added reliability and dependability</li>\n<br><li>Comes in 1.5\" height for convenient carrying and dependable usability</li>\n<br><li>Comes in 4.7\" width for maximum productivity and easy carrying</li>\n<br><li>6 GB GDDR6 memory works well with most of the graphics-demanding games and with its nimble rendering, you can experience movies with crystal clear display</li>\n<br><li>Fan Cooler cooler type for dependable and long-term cooling to ensure maximum productivity</li>\n<br>\n</ul>",
+      "published_at": "2025-06-04T23:55:08-05:00",
+      "created_at": "2025-06-04T23:55:08-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "ASUS",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51387116093624,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "197105470644",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "199.99",
+          "grams": 0,
+          "compare_at_price": "199.99",
+          "position": 1,
+          "product_id": 9990344310968,
+          "created_at": "2025-06-04T23:55:09-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51603151814840,
+          "created_at": "2025-06-04T23:55:08-05:00",
+          "position": 1,
+          "updated_at": "2025-06-04T23:55:11-05:00",
+          "product_id": 9990344310968,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1080446920_fa4e900b-8170-4a0d-a779-733aefb7a7f9.jpg?v=1749099311",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51603151749304,
+          "created_at": "2025-06-04T23:55:08-05:00",
+          "position": 2,
+          "updated_at": "2025-06-04T23:55:11-05:00",
+          "product_id": 9990344310968,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1080446920_a67dea47-36d1-4087-9732-4035643b2059.jpg?v=1749099311",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51603151782072,
+          "created_at": "2025-06-04T23:55:08-05:00",
+          "position": 3,
+          "updated_at": "2025-06-04T23:55:11-05:00",
+          "product_id": 9990344310968,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1080446920_ec79c415-8756-4410-86e3-5c9ed8c505f8.jpg?v=1749099311",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51603151651000,
+          "created_at": "2025-06-04T23:55:08-05:00",
+          "position": 4,
+          "updated_at": "2025-06-04T23:55:11-05:00",
+          "product_id": 9990344310968,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1080446920.jpg?v=1749099311",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51603151880376,
+          "created_at": "2025-06-04T23:55:08-05:00",
+          "position": 5,
+          "updated_at": "2025-06-04T23:55:11-05:00",
+          "product_id": 9990344310968,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1080446920_88a06e4a-fa58-4e9d-b9ce-5f9ee7b7154e.jpg?v=1749099311",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51603151716536,
+          "created_at": "2025-06-04T23:55:08-05:00",
+          "position": 6,
+          "updated_at": "2025-06-04T23:55:11-05:00",
+          "product_id": 9990344310968,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1080446920_66928641-3486-4bcc-a795-9b7f41d59fb1.jpg?v=1749099311",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51603151683768,
+          "created_at": "2025-06-04T23:55:08-05:00",
+          "position": 7,
+          "updated_at": "2025-06-04T23:55:11-05:00",
+          "product_id": 9990344310968,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1080446920_0b043923-a45a-4ede-aa57-08f3d3688edd.jpg?v=1749099311",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51603151847608,
+          "created_at": "2025-06-04T23:55:08-05:00",
+          "position": 8,
+          "updated_at": "2025-06-04T23:55:11-05:00",
+          "product_id": 9990344310968,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1080446920_15dabbaa-de52-4561-9921-22cd9c443f1d.jpg?v=1749099311",
+          "width": 900,
+          "height": 900
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9990344048824,
+      "title": "DUAL RTX4060 O8G V2",
+      "handle": "dual-rtx4060-o8g-v2",
+      "body_html": "<p>ASUS Dual GeForce RTX 4060 V2 OC Edition (PCIe 4.0, 8GB GDDR6, DLSS 3, HDMI 2.1a, DisplayPort 1.4a, 2-slot design, Axial-tech fan design, 0dB technology, and more)\n<br></p><p>ASUS Dual GeForce RTX™ 4060 V2 OC Edition 8GB GDDR6 with two powerful Axial-tech fans and a 2-slot design for broad compatibility</p><ul>\n<br><li>  <b>AI Performance: 246 AI TOPS</b>\n<br>\n</li>\n<br><li>  Powered by <b>NVIDIA DLSS3</b>, ultra-efficient Ada Lovelace arch, and full ray tracing</li>\n<br><li>  <b>4th Generation Tensor Cores: </b>Up to 4x performance with DLSS 3 vs. brute-force rendering</li>\n<br><li>  <b>3rd Generation RT Cores: </b>Up to 2x ray tracing performance</li>\n<br><li>  <b>OC edition</b>: Boost Clock 2535 MHz (OC Mode)/ 2505 MHz (Default Mode)</li>\n<br><li>  <b>Axial-tech fan design </b>features a smaller fan hub to increase airflow through the cooling array</li>\n<br><li>  A<b>2-slot design </b>maximizes compatibility and cooling efficiency for superior performance in small chassis.</li>\n<br><li>  <b>Dual ball fan bearings </b>can last up to twice as long as sleeve bearing designs</li>\n<br><li>  <b>0dB technology </b>lets you enjoy light gaming in relative silence</li>\n<br>\n</ul><p><br></p><p><b>2x Fans. 2x Fun.</b></p><p>ASUS Dual GeForce RTX™ 4060 V2 fuses dynamic thermal performance with broad compatibility. Advanced cooling solutions from flagship graphics cards - including two Axial-tech fans for maximizing airflow to the heatsink - are packed into the 20.2 cm long, 2-slot card, delivering more power in less space. These enhancements make ASUS Dual the perfect choice for gamers who want heavyweight graphics performance in a compact build</p><p><b>The Ultimate Platform for Gamers and Creators | Powered by GeForce RTX 40 Series and DLSS 3</b></p><p><b>New Streaming Multiprocessors</b></p><ul><li>  Up to 2x performance and power efficiency</li></ul><p><b>Fourth-Gen Tensor Cores</b></p><ul><li>  Up to 4x performance with DLSS 3 vs. brute-force rendering</li></ul><p><b>Third-Gen RT Cores</b></p><ul><li>  Up to 2x ray tracing performance</li></ul><p><b>Axial-tech Fan Design Better, faster, stronger</b></p><p>Two tried-and-true Axial-tech fans feature a smaller hub that facilitates longer blades and a barrier ring to increase downward air pressure</p><p><b>Auto-Extreme Technology Precision automated manufacturing</b></p><p>Auto-Extreme Technology is an automated manufacturing process that sets new standards in the industry by allowing all soldering to be completed in a single pass. This reduces thermal strain on components and avoids the use of harsh cleaning chemicals, resulting in less environmental impact, lower manufacturing power consumption, and a more reliable product overall</p><p><b>GPU TWEAK III</b></p><p><b>Monitor, tweak, and tune</b></p><p>The ASUS GPU Tweak III utility takes graphics card tuning to the next level. It allows you to tweak critical parameters including GPU core clocks, memory frequency, and voltage settings, with the option to monitor everything in real-time through a customizable on-screen display. Advanced fan control is also included along with many more features to help you get the most out of your graphics card</p><ul>\n<br><li>Cost-efficient NVIDIA GeForce RTX 4060 provides effective Blu-ray playback acceleration and great gaming experience</li>\n<br><li>OpenGL 4.6 API support for reliable graphic design flow to programme heavy-duty tasks</li>\n<br><li>PCI Express 4.0 host interface for reliable data transfer and enhanced performance</li>\n<br><li>With GDDR6 memory technology get efficient data transfer rate and enhanced computer's performance</li>\n<br><li>HDMI interface allows you to connect to a variety of HD devices including gaming consoles, Blu-ray players, laptop PCs, digital cameras and many others for the ultimate true high-definition display</li>\n<br><li>Plug-in Card form factor for your convenience and simplicity of usage</li>\n<br><li>Comes in 1.6\" height for maximum productivity and easy carrying</li>\n<br><li>Comes in 4.7\" width for convenient carrying and dependable usability</li>\n<br><li>8 GB memory works well for games and with its nimble rendering, you can experience movies with crystal clear display</li>\n<br><li>Fan Cooler cooler type for dependable and long-term cooling to ensure maximum productivity</li>\n<br>\n</ul>",
+      "published_at": "2025-06-04T23:54:20-05:00",
+      "created_at": "2025-06-04T23:54:20-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "ASUS",
+      "product_type": "Home page",
+      "tags": [
+        "Graphic Cards",
+        "Video Cards"
+      ],
+      "variants": [
+        {
+          "id": 51387103215800,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "197105392212",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "329.99",
+          "grams": 0,
+          "compare_at_price": "339.99",
+          "position": 1,
+          "product_id": 9990344048824,
+          "created_at": "2025-06-04T23:54:20-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51603145130168,
+          "created_at": "2025-06-04T23:54:20-05:00",
+          "position": 1,
+          "updated_at": "2025-06-04T23:54:22-05:00",
+          "product_id": 9990344048824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1081907948_941a09ea-f34e-4313-a960-03d54146903f.jpg?v=1749099262",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51603145097400,
+          "created_at": "2025-06-04T23:54:20-05:00",
+          "position": 2,
+          "updated_at": "2025-06-04T23:54:22-05:00",
+          "product_id": 9990344048824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1081907948.jpg?v=1749099262",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51603145064632,
+          "created_at": "2025-06-04T23:54:20-05:00",
+          "position": 3,
+          "updated_at": "2025-06-04T23:54:22-05:00",
+          "product_id": 9990344048824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1081907948_0a295dbe-a80e-4eb5-bcc9-5e469839e25a.jpg?v=1749099262",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51603145195704,
+          "created_at": "2025-06-04T23:54:20-05:00",
+          "position": 4,
+          "updated_at": "2025-06-04T23:54:22-05:00",
+          "product_id": 9990344048824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1081907948_397620cb-42bd-407d-9d9c-3e6b67455ac4.jpg?v=1749099262",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51603145031864,
+          "created_at": "2025-06-04T23:54:20-05:00",
+          "position": 5,
+          "updated_at": "2025-06-04T23:54:22-05:00",
+          "product_id": 9990344048824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1081907948_bee9aaae-bd62-41fb-b1ca-6270111ab6fc.jpg?v=1749099262",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51603145162936,
+          "created_at": "2025-06-04T23:54:20-05:00",
+          "position": 6,
+          "updated_at": "2025-06-04T23:54:22-05:00",
+          "product_id": 9990344048824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1081907948_5fb17d42-61d3-4445-a7de-29e174a2d4d9.jpg?v=1749099262",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51603145228472,
+          "created_at": "2025-06-04T23:54:20-05:00",
+          "position": 7,
+          "updated_at": "2025-06-04T23:54:22-05:00",
+          "product_id": 9990344048824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1081907948_95e64014-20ef-41b2-8b31-361e3db487e0.jpg?v=1749099262",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51603145261240,
+          "created_at": "2025-06-04T23:54:20-05:00",
+          "position": 8,
+          "updated_at": "2025-06-04T23:54:22-05:00",
+          "product_id": 9990344048824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1081907948_5ea7dad3-7850-4e92-9ff3-c34d0e53d303.jpg?v=1749099262",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": 51603145294008,
+          "created_at": "2025-06-04T23:54:20-05:00",
+          "position": 9,
+          "updated_at": "2025-06-04T23:54:22-05:00",
+          "product_id": 9990344048824,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1081907948_ad0b93a2-6928-46de-ac75-59e2c369d21a.jpg?v=1749099262",
+          "width": 900,
+          "height": 900
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9990271172792,
+      "title": "Vaddio OneLINK Bridge for Vaddio HDBaseT Cameras - For Video Conferencing",
+      "handle": "vaddio-onelink-bridge-for-vaddio-hdbaset-cameras-for-video-conferencing",
+      "body_html": "<p>Vaddio OneLINK Bridge for Vaddio HDBaseT Cameras - For Video Conferencing\n<br></p><ul>\n<br><li>Transfer and store audio and video from a VCR, camcorder, or any other video recording device, to your computer for future use</li>\n<br><li>Capture signals from outside the PC, like recording the microphone input to a sound file</li>\n<br>\n</ul>",
+      "published_at": "2025-06-04T21:32:03-05:00",
+      "created_at": "2025-06-04T21:32:03-05:00",
+      "updated_at": "2025-07-29T17:26:18-05:00",
+      "vendor": "Vaddio",
+      "product_type": "Home page",
+      "tags": [
+        "Video Cards",
+        "Video Processing/Capturing Modules"
+      ],
+      "variants": [
+        {
+          "id": 51386827997368,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "840077502287",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "2610.00",
+          "grams": 798,
+          "compare_at_price": "3046.00",
+          "position": 1,
+          "product_id": 9990271172792,
+          "created_at": "2025-06-04T21:32:03-05:00",
+          "updated_at": "2025-07-29T17:26:18-05:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 51601666867384,
+          "created_at": "2025-06-04T21:32:03-05:00",
+          "position": 1,
+          "updated_at": "2025-06-04T21:32:05-05:00",
+          "product_id": 9990271172792,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0874/6686/8920/files/1041338368.jpg?v=1749090725",
+          "width": 900,
+          "height": 900
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
+    }
+  ]
+}
