@@ -53,6 +53,28 @@ Use `.junie/scripts/safe-run.sh` instead of raw foreground processes:
 
 *No* `uv`, *no* Python, *no* Docker required for normal frontend work (unless explicitly tasked).
 
+### Using saferun with the dockerstack command
+
+Use '.junie/scripts/dockerstack.sh' to interact with a wrapped version of docker compose.
+```bash
+# Start the stack and build
+./.junie/scripts/safe-run.sh -n dockerstack -b -- .junie/scripts/docker-stack.sh up --build
+
+# Inspect logs from the stack output
+tail -n 20 .junie/logs/dockerstack.log 
+
+# Wait for approximately 30 seconds (if building)
+sleep 30
+
+# Inspect the logs from the stack output again (to make sure its running)
+tail -n 20 .junie/logs/dockerstack.log 
+
+# Stop it later
+./.junie/scripts/safe-run.sh -n dockerstack -b -- .junie/scripts/docker-stack.sh down
+```
+
+The docker stack supports hot reloading of code on change via volume mount. You do not necessarily need to rebuild on code changes.
+If you make a large change or need to reinstall node_modules, you may find you need to restart the stack (down and up)
 ---
 
 ## 🧪 Testing
@@ -62,7 +84,7 @@ Use `.junie/scripts/safe-run.sh` instead of raw foreground processes:
 - You can run unit tests only with:
 
 ```bash
-pnpm run test:unit
+pnpm run --filter controlpanel test:unit
 ```
 
 > Junie‑Web must run **only unit tests** by default.  
@@ -71,9 +93,19 @@ pnpm run test:unit
 - All tests must pass in CI and locally before closing a task:
 
 ```bash
-pnpm run test:e2e       # Playwright integration tests (backend must be running)
-pnpm run test:unit      # Component/unit tests only
+pnpm run --filter controlpanel test:e2e       # Playwright integration tests (backend must be running)
+pnpm run --filter controlpanel test:unit      # Component/unit tests only
 ```
+
+### Playwright Usage Guidelines
+
+When using Playwright for integration testing or debugging:
+
+- **Screenshots are not supported** in this environment. Do not attempt to use `page.screenshot()` or similar methods for debugging.
+- Use Playwright's accessibility snapshot (`browser_snapshot`) instead of screenshots for inspecting page state.
+- Playwright can navigate pages, interact with elements, and verify content, but cannot capture visual output as images.
+- Always ensure the backend is running before executing Playwright tests (`test:e2e`).
+- Use console logs and DOM inspection methods for debugging instead of visual captures.
 
 ---
 

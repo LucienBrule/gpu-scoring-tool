@@ -1,4 +1,3 @@
-
 {
   "name": "@repo/client",
   "version": "0.0.0",
@@ -21,9 +20,9 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "typescript": "^5.8.2",
-    "@repo/client-generated":"workspace:*"
-
+    "@repo/client-generated": "workspace:*",
+    "@tanstack/react-query": "^5.83.0",
+    "typescript": "^5.8.2"
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.13.17",

@@ -1,11 +1,8 @@
 services:
   controlpanel:
-    ports:
-      - '3001:3000'  # Runs on a different port to avoid conflict with main stack
+    command: "pnpm --filter controlpanel run dev"
     volumes:
-      - ./web/apps/controlpanel:/app/apps/controlpanel
-      - ./web/packages:/app/packages
-      - ./web/generated:/app/generated
+      - ./web:/app
       - /app/node_modules
     environment:
       - NODE_ENV=development

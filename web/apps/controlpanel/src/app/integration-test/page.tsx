@@ -1,9 +1,9 @@
 'use client';
 
-import { useHealth } from '../../hooks/useHealth';
+import { hooks } from '@repo/client';
 
 export default function IntegrationTestPage() {
-  const { status, error, loading, refetch } = useHealth();
+  const { status, error, loading, refetch } = hooks.useHealthCheck();
 
   return (
     <div className="p-8">
@@ -35,6 +35,13 @@ export default function IntegrationTestPage() {
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
             <p className="font-bold">Error:</p>
             <p>{error}</p>
+          </div>
+        )}
+        
+        {!loading && !status && !error && (
+          <div className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded">
+            <p className="font-bold">Warning:</p>
+            <p>No status information received from the server. The server might be running but returning an unexpected response.</p>
           </div>
         )}
       </div>
