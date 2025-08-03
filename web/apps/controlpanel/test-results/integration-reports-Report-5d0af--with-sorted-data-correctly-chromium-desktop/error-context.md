@@ -1,0 +1,229 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - text: GPU Scoring Tool
+  - link "Home":
+    - /url: /
+  - link "Listings":
+    - /url: /listings
+  - link "Models":
+    - /url: /models
+  - link "Reports":
+    - /url: /reports
+  - link "Forecast":
+    - /url: /forecast
+  - link "ML Playground":
+    - /url: /ml-playground
+  - link "Import":
+    - /url: /import
+  - link "About":
+    - /url: /about
+  - link "Dev Harness":
+    - /url: /dev-harness
+- main:
+  - heading "GPU Market Reports" [level=1]
+  - button "Refresh Reports"
+  - text: Filter by Model
+  - textbox "Filter by Model"
+  - text: Number of Reports
+  - button "10":
+    - text: "10"
+    - img
+  - heading "GPU Model:" [level=3]
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price ↓ $/GB Score TDP MIG NVLink":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price ↓"
+        - cell "$/GB"
+        - cell "Score"
+        - cell "TDP"
+        - cell "MIG"
+        - cell "NVLink"
+    - rowgroup:
+      - row "$1,599.99 $NaN 9.20 Yes":
+        - cell
+        - cell
+        - cell "$1,599.99"
+        - cell "$NaN"
+        - cell "9.20"
+        - cell
+        - cell
+        - cell "Yes"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - heading "GPU Model:" [level=3]
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓ TDP MIG NVLink":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+        - cell "TDP"
+        - cell "MIG"
+        - cell "NVLink"
+    - rowgroup:
+      - row "$699.99 $NaN 8.50 No":
+        - cell
+        - cell
+        - cell "$699.99"
+        - cell "$NaN"
+        - cell "8.50"
+        - cell
+        - cell
+        - cell "No"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - heading "GPU Model:" [level=3]
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓ TDP MIG NVLink":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+        - cell "TDP"
+        - cell "MIG"
+        - cell "NVLink"
+    - rowgroup:
+      - row "$999.99 $NaN 7.80 No":
+        - cell
+        - cell
+        - cell "$999.99"
+        - cell "$NaN"
+        - cell "7.80"
+        - cell
+        - cell
+        - cell "No"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - heading "GPU Model:" [level=3]
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓ TDP MIG NVLink":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+        - cell "TDP"
+        - cell "MIG"
+        - cell "NVLink"
+    - rowgroup:
+      - row "$4,999.99 $NaN 6.50 Yes":
+        - cell
+        - cell
+        - cell "$4,999.99"
+        - cell "$NaN"
+        - cell "6.50"
+        - cell
+        - cell
+        - cell "Yes"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - heading "GPU Model:" [level=3]
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓ TDP MIG NVLink":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+        - cell "TDP"
+        - cell "MIG"
+        - cell "NVLink"
+    - rowgroup:
+      - row "$329.99 $NaN 7.20 No":
+        - cell
+        - cell
+        - cell "$329.99"
+        - cell "$NaN"
+        - cell "7.20"
+        - cell
+        - cell
+        - cell "No"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+- alert
+```

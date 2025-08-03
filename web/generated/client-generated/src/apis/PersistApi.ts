@@ -18,6 +18,7 @@ import type {
   GPUListingDTO,
   HTTPValidationError,
   ImportResultDTO,
+  PipelineImportRequestDTO,
 } from '../models/index';
 import {
     GPUListingDTOFromJSON,
@@ -26,7 +27,13 @@ import {
     HTTPValidationErrorToJSON,
     ImportResultDTOFromJSON,
     ImportResultDTOToJSON,
+    PipelineImportRequestDTOFromJSON,
+    PipelineImportRequestDTOToJSON,
 } from '../models/index';
+
+export interface ImportFromPipelineApiImportsFromPipelinePostRequest {
+    pipelineImportRequestDTO: PipelineImportRequestDTO;
+}
 
 export interface ImportListingsApiPersistListingsPostRequest {
     gPUListingDTO: Array<GPUListingDTO>;
@@ -36,6 +43,47 @@ export interface ImportListingsApiPersistListingsPostRequest {
  * 
  */
 export class PersistApi extends runtime.BaseAPI {
+
+    /**
+     * Import a fully normalized and enriched CSV from the glyphsieve pipeline into the SQLite database
+     * Import enriched CSV from glyphsieve pipeline output
+     */
+    async importFromPipelineApiImportsFromPipelinePostRaw(requestParameters: ImportFromPipelineApiImportsFromPipelinePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ImportResultDTO>> {
+        if (requestParameters['pipelineImportRequestDTO'] == null) {
+            throw new runtime.RequiredError(
+                'pipelineImportRequestDTO',
+                'Required parameter "pipelineImportRequestDTO" was null or undefined when calling importFromPipelineApiImportsFromPipelinePost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/imports/from-pipeline`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PipelineImportRequestDTOToJSON(requestParameters['pipelineImportRequestDTO']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ImportResultDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Import a fully normalized and enriched CSV from the glyphsieve pipeline into the SQLite database
+     * Import enriched CSV from glyphsieve pipeline output
+     */
+    async importFromPipelineApiImportsFromPipelinePost(requestParameters: ImportFromPipelineApiImportsFromPipelinePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ImportResultDTO> {
+        const response = await this.importFromPipelineApiImportsFromPipelinePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
 
     /**
      * Import a batch of scored GPU listings into the SQLite database

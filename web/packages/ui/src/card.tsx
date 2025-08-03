@@ -1,27 +1,73 @@
-import { type JSX } from "react";
+import React from "react";
 
-export function Card({
-  className,
-  title,
-  children,
-  href,
-}: {
+// Main Card component
+export const Card: React.FC<{
   className?: string;
-  title: string;
   children: React.ReactNode;
-  href: string;
-}): JSX.Element {
+}> = ({ className = "", children }) => {
   return (
-    <a
-      className={className}
-      href={`${href}?utm_source=create-turbo&utm_medium=basic&utm_campaign=create-turbo"`}
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <h2>
-        {title} <span>-&gt;</span>
-      </h2>
-      <p>{children}</p>
-    </a>
+      <div className={`rounded-lg border bg-card text-card-foreground shadow-sm ${className}`}>
+        {children}
+      </div>
   );
-}
+};
+
+// Card Header component
+export const CardHeader: React.FC<{
+  className?: string;
+  children: React.ReactNode;
+}> = ({ className = "", children }) => {
+  return (
+      <div className={`flex flex-col space-y-1.5 p-6 ${className}`}>
+        {children}
+      </div>
+  );
+};
+
+// Card Title component
+export const CardTitle: React.FC<{
+  className?: string;
+  children: React.ReactNode;
+}> = ({ className = "", children }) => {
+  return (
+      <h3 className={`text-2xl font-semibold leading-none tracking-tight ${className}`}>
+        {children}
+      </h3>
+  );
+};
+
+// Card Description component
+export const CardDescription: React.FC<{
+  className?: string;
+  children: React.ReactNode;
+}> = ({ className = "", children }) => {
+  return (
+      <p className={`text-sm text-muted-foreground ${className}`}>
+        {children}
+      </p>
+  );
+};
+
+// Card Content component
+export const CardContent: React.FC<{
+  className?: string;
+  children: React.ReactNode;
+}> = ({ className = "", children }) => {
+  return (
+      <div className={`p-6 pt-0 ${className}`}>
+        {children}
+      </div>
+  );
+};
+
+// Card Footer component (additional component that might be useful)
+export const CardFooter: React.FC<{
+  className?: string;
+  children: React.ReactNode;
+}> = ({ className = "", children }) => {
+  return (
+      <div className={`flex items-center p-6 pt-0 ${className}`}>
+        {children}
+      </div>
+  );
+};

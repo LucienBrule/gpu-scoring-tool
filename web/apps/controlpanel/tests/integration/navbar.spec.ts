@@ -10,9 +10,9 @@ test.describe('Navbar', () => {
     await expect(navbar).toBeVisible();
     
     // Check if all links are present
-    await expect(page.getByRole('link', { name: 'Home' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Reports' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'About' })).toBeVisible();
+    await expect(page.locator('a:has-text("Home")')).toBeVisible();
+    await expect(page.locator('a:has-text("Reports")')).toBeVisible();
+    await expect(page.locator('a:has-text("About")')).toBeVisible();
   });
 
   test('should indicate active page', async ({ page }) => {
@@ -20,12 +20,12 @@ test.describe('Navbar', () => {
     await page.goto('/');
     
     // Check if Home link is marked as active
-    const homeLink = page.getByRole('link', { name: 'Home' });
+    const homeLink = page.locator('a:has-text("Home")');
     await expect(homeLink).toHaveAttribute('aria-current', 'page');
     
     // Other links should not be marked as active
-    const reportsLink = page.getByRole('link', { name: 'Reports' });
-    const aboutLink = page.getByRole('link', { name: 'About' });
+    const reportsLink = page.locator('a:has-text("Reports")');
+    const aboutLink = page.locator('a:has-text("About")');
     
     await expect(reportsLink).not.toHaveAttribute('aria-current', 'page');
     await expect(aboutLink).not.toHaveAttribute('aria-current', 'page');
@@ -36,25 +36,25 @@ test.describe('Navbar', () => {
     await page.goto('/');
     
     // Click on Reports link and check URL
-    await page.getByRole('link', { name: 'Reports' }).click();
+    await page.locator('a:has-text("Reports")').click();
     await expect(page).toHaveURL('/reports');
     
     // Reports link should now be active
-    await expect(page.getByRole('link', { name: 'Reports' })).toHaveAttribute('aria-current', 'page');
+    await expect(page.locator('a:has-text("Reports")')).toHaveAttribute('aria-current', 'page');
     
     // Click on About link and check URL
-    await page.getByRole('link', { name: 'About' }).click();
+    await page.locator('a:has-text("About")').click();
     await expect(page).toHaveURL('/about');
     
     // About link should now be active
-    await expect(page.getByRole('link', { name: 'About' })).toHaveAttribute('aria-current', 'page');
+    await expect(page.locator('a:has-text("About")')).toHaveAttribute('aria-current', 'page');
     
     // Click on Home link and check URL
-    await page.getByRole('link', { name: 'Home' }).click();
+    await page.locator('a:has-text("Home")').click();
     await expect(page).toHaveURL('/');
     
     // Home link should now be active
-    await expect(page.getByRole('link', { name: 'Home' })).toHaveAttribute('aria-current', 'page');
+    await expect(page.locator('a:has-text("Home")')).toHaveAttribute('aria-current', 'page');
   });
 
   test('should display mobile menu when hamburger icon is clicked', async ({ page }) => {
@@ -69,14 +69,14 @@ test.describe('Navbar', () => {
     await expect(mobileMenu).not.toBeVisible();
     
     // Click hamburger icon
-    await page.getByRole('button', { name: 'Open main menu' }).click();
+    await page.locator('button[aria-controls="mobile-menu"]').click();
     
     // Mobile menu should now be visible
     await expect(mobileMenu).toBeVisible();
     
     // All links should be visible in the mobile menu
-    await expect(page.getByRole('link', { name: 'Home' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Reports' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'About' })).toBeVisible();
+    await expect(page.locator('a:has-text("Home")')).toBeVisible();
+    await expect(page.locator('a:has-text("Reports")')).toBeVisible();
+    await expect(page.locator('a:has-text("About")')).toBeVisible();
   });
 });

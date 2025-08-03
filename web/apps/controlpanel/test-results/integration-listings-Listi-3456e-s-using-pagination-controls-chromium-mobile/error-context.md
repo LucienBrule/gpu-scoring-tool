@@ -1,0 +1,100 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - text: GPU Scoring Tool
+  - button "Open main menu"
+- main:
+  - heading "GPU Listings" [level=1]
+  - button "Refresh Data"
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. More search fields will be available in future updates.
+  - table:
+    - rowgroup:
+      - row "Model Price (USD) ↓ Score VRAM (GB) TDP (Watts) NVLink":
+        - cell "Model"
+        - cell "Price (USD) ↓"
+        - cell "Score"
+        - cell "VRAM (GB)"
+        - cell "TDP (Watts)"
+        - cell "NVLink"
+    - rowgroup:
+      - row "RTX_5090 $2,932.99 44.01 32 575 No":
+        - cell "RTX_5090"
+        - cell "$2,932.99"
+        - cell "44.01"
+        - cell "32"
+        - cell "575"
+        - cell "No"
+      - row "RTX_5090 $2,932.99 44.01 32 575 No":
+        - cell "RTX_5090"
+        - cell "$2,932.99"
+        - cell "44.01"
+        - cell "32"
+        - cell "575"
+        - cell "No"
+      - row "RTX_5080 $1,386.99 47.66 16 360 No":
+        - cell "RTX_5080"
+        - cell "$1,386.99"
+        - cell "47.66"
+        - cell "16"
+        - cell "360"
+        - cell "No"
+      - row "RTX_5070_TI $920.99 51.41 16 300 No":
+        - cell "RTX_5070_TI"
+        - cell "$920.99"
+        - cell "51.41"
+        - cell "16"
+        - cell "300"
+        - cell "No"
+      - row "RTX_5070 $627.99 51.90 12 250 No":
+        - cell "RTX_5070"
+        - cell "$627.99"
+        - cell "51.90"
+        - cell "12"
+        - cell "250"
+        - cell "No"
+      - row "RTX_5070 $595.99 51.99 12 250 No":
+        - cell "RTX_5070"
+        - cell "$595.99"
+        - cell "51.99"
+        - cell "12"
+        - cell "250"
+        - cell "No"
+      - row "A1000 $485.99 58.05 8 50 No":
+        - cell "A1000"
+        - cell "$485.99"
+        - cell "58.05"
+        - cell "8"
+        - cell "50"
+        - cell "No"
+      - row "UNKNOWN $212.99 27.76 0 0 No":
+        - cell "UNKNOWN"
+        - cell "$212.99"
+        - cell "27.76"
+        - cell "0"
+        - cell "0"
+        - cell "No"
+      - row "UNKNOWN $136.99 27.97 0 0 No":
+        - cell "UNKNOWN"
+        - cell "$136.99"
+        - cell "27.97"
+        - cell "0"
+        - cell "0"
+        - cell "No"
+      - row "GT_710 $58.99 56.97 2 19 No":
+        - cell "GT_710"
+        - cell "$58.99"
+        - cell "56.97"
+        - cell "2"
+        - cell "19"
+        - cell "No"
+  - text: Showing 1 to 10 of 10 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - paragraph: "Note: This table displays GPU listings data with calculated utility scores."
+  - paragraph: Click on column headers to sort the data.
+- alert
+```

@@ -13,10 +13,32 @@
  */
 
 import { mapValues } from '../runtime';
+import type { SchemaVersion } from './SchemaVersion';
+import {
+    SchemaVersionFromJSON,
+    SchemaVersionFromJSONTyped,
+    SchemaVersionToJSON,
+    SchemaVersionToJSONTyped,
+} from './SchemaVersion';
+import type { ImportSummaryStatsDTO } from './ImportSummaryStatsDTO';
+import {
+    ImportSummaryStatsDTOFromJSON,
+    ImportSummaryStatsDTOFromJSONTyped,
+    ImportSummaryStatsDTOToJSON,
+    ImportSummaryStatsDTOToJSONTyped,
+} from './ImportSummaryStatsDTO';
+import type { RowErrorDTO } from './RowErrorDTO';
+import {
+    RowErrorDTOFromJSON,
+    RowErrorDTOFromJSONTyped,
+    RowErrorDTOToJSON,
+    RowErrorDTOToJSONTyped,
+} from './RowErrorDTO';
+
 /**
  * Data Transfer Object for import operation results.
  * 
- * Represents the result of an import operation with metadata.
+ * Represents the result of an import operation with metadata and error reporting.
  * @export
  * @interface ImportResultDTO
  */
@@ -51,7 +73,75 @@ export interface ImportResultDTO {
      * @memberof ImportResultDTO
      */
     timestamp: Date;
+    /**
+     * 
+     * @type {Array<RowErrorDTO>}
+     * @memberof ImportResultDTO
+     */
+    rowsWithErrors?: Array<RowErrorDTO> | null;
+    /**
+     * 
+     * @type {ImportSummaryStatsDTO}
+     * @memberof ImportResultDTO
+     */
+    summaryStats?: ImportSummaryStatsDTO | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ImportResultDTO
+     */
+    validationErrors?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ImportResultDTO
+     */
+    warnings?: Array<string> | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ImportResultDTO
+     */
+    filename?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof ImportResultDTO
+     */
+    totalRows?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof ImportResultDTO
+     */
+    validRows?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof ImportResultDTO
+     */
+    invalidRows?: number | null;
+    /**
+     * 
+     * @type {Array<any>}
+     * @memberof ImportResultDTO
+     */
+    scoreRange?: Array<any> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ImportResultDTO
+     */
+    topModels?: Array<string> | null;
+    /**
+     * API schema version for this response
+     * @type {SchemaVersion}
+     * @memberof ImportResultDTO
+     */
+    schemaVersion?: SchemaVersion;
 }
+
+
 
 /**
  * Check if a given object implements the ImportResultDTO interface.
@@ -80,6 +170,17 @@ export function ImportResultDTOFromJSONTyped(json: any, ignoreDiscriminator: boo
         'firstModel': json['first_model'],
         'lastModel': json['last_model'],
         'timestamp': (new Date(json['timestamp'])),
+        'rowsWithErrors': json['rows_with_errors'] == null ? undefined : ((json['rows_with_errors'] as Array<any>).map(RowErrorDTOFromJSON)),
+        'summaryStats': json['summary_stats'] == null ? undefined : ImportSummaryStatsDTOFromJSON(json['summary_stats']),
+        'validationErrors': json['validation_errors'] == null ? undefined : json['validation_errors'],
+        'warnings': json['warnings'] == null ? undefined : json['warnings'],
+        'filename': json['filename'] == null ? undefined : json['filename'],
+        'totalRows': json['total_rows'] == null ? undefined : json['total_rows'],
+        'validRows': json['valid_rows'] == null ? undefined : json['valid_rows'],
+        'invalidRows': json['invalid_rows'] == null ? undefined : json['invalid_rows'],
+        'scoreRange': json['score_range'] == null ? undefined : json['score_range'],
+        'topModels': json['top_models'] == null ? undefined : json['top_models'],
+        'schemaVersion': json['schema_version'] == null ? undefined : SchemaVersionFromJSON(json['schema_version']),
     };
 }
 
@@ -99,6 +200,17 @@ export function ImportResultDTOToJSONTyped(value?: ImportResultDTO | null, ignor
         'first_model': value['firstModel'],
         'last_model': value['lastModel'],
         'timestamp': ((value['timestamp']).toISOString()),
+        'rows_with_errors': value['rowsWithErrors'] == null ? undefined : ((value['rowsWithErrors'] as Array<any>).map(RowErrorDTOToJSON)),
+        'summary_stats': ImportSummaryStatsDTOToJSON(value['summaryStats']),
+        'validation_errors': value['validationErrors'],
+        'warnings': value['warnings'],
+        'filename': value['filename'],
+        'total_rows': value['totalRows'],
+        'valid_rows': value['validRows'],
+        'invalid_rows': value['invalidRows'],
+        'score_range': value['scoreRange'],
+        'top_models': value['topModels'],
+        'schema_version': SchemaVersionToJSON(value['schemaVersion']),
     };
 }
 

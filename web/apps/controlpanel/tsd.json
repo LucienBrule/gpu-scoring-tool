@@ -1,0 +1,16 @@
+{
+  "directory": "test/types",
+  "compilerOptions": {
+    "strict": true,
+    "jsx": "react-jsx",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "paths": {
+      "@repo/client": ["../../packages/client/src"],
+      "@repo/ui": ["../../packages/ui/src"]
+    }
+  }
+}

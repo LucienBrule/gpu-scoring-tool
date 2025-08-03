@@ -1,153 +1,122 @@
 'use client';
 
-import { useState } from 'react';
-import { hooks } from '@repo/client';
-import type { GpuReportRow } from '@repo/client';
+import React, { useState } from 'react';
+import { useGpuReports } from '@/hooks/useGpuReports';
+import { MarkdownReport } from '@/components/reports/MarkdownReport';
+import { Skeleton } from '@/components/ui/skeleton';
+import { ErrorBanner } from '@/components/ui/error-banner';
+import { Button } from '@repo/ui/button';
+import { Input } from '@repo/ui/input';
+import { Label } from '@repo/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@repo/ui/select';
+
+// This disables static generation for this page
+export const dynamic = 'force-dynamic';
+// This disables prerendering for this page
+export const runtime = 'edge';
 
 export default function ReportsPage() {
-  const [sortField, setSortField] = useState<keyof GpuReportRow>('score');
-  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('desc');
+  // State for filters
+  const [modelFilter, setModelFilter] = useState<string | undefined>(undefined);
+  const [limit, setLimit] = useState<number>(10);
   
-  const { data, isLoading, isError, refetch } = hooks.useReports({
-    limit: 100, // Fetch up to 100 reports
+  // Fetch reports using the useGpuReports hook
+  const { 
+    data, 
+    isLoading, 
+    isError, 
+    error, 
+    refetch 
+  } = useGpuReports({
+    model: modelFilter,
+    limit,
   });
-
-  // Function to handle sorting
-  const handleSort = (field: keyof GpuReportRow) => {
-    if (field === sortField) {
-      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
-    } else {
-      setSortField(field);
-      setSortDirection('desc'); // Default to descending for new sort field
-    }
-  };
-
-  // Sort the data based on the current sort field and direction
-  const sortedData = data ? [...data].sort((a, b) => {
-    const aValue = a[sortField];
-    const bValue = b[sortField];
-    
-    if (aValue === undefined || bValue === undefined) return 0;
-    
-    const comparison = aValue < bValue ? -1 : aValue > bValue ? 1 : 0;
-    return sortDirection === 'asc' ? comparison : -comparison;
-  }) : [];
-
-  // Render sort indicator
-  const renderSortIndicator = (field: keyof GpuReportRow) => {
-    if (field !== sortField) return null;
-    return sortDirection === 'asc' ? ' ↑' : ' ↓';
-  };
 
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">GPU Reports</h1>
-        <button 
+        <h1 className="text-2xl font-bold">GPU Market Reports</h1>
+        <Button 
           onClick={() => refetch()} 
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
           disabled={isLoading}
+          data-testid="refresh-button"
         >
-          {isLoading ? 'Refreshing...' : 'Refresh Data'}
-        </button>
+          {isLoading ? 'Refreshing...' : 'Refresh Reports'}
+        </Button>
       </div>
 
+      {/* Filters */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        <div className="space-y-2">
+          <Label htmlFor="modelFilter">Filter by Model</Label>
+          <Input 
+            id="modelFilter" 
+            placeholder="e.g., RTX 3080" 
+            value={modelFilter || ''}
+            onChange={(e) => setModelFilter(e.target.value || undefined)}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="limit">Number of Reports</Label>
+          <Select 
+            value={limit.toString()} 
+            onValueChange={(value) => setLimit(parseInt(value))}
+          >
+            <SelectTrigger id="limit">
+              <SelectValue placeholder="Select limit" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="1">1 Report</SelectItem>
+              <SelectItem value="5">5 Reports</SelectItem>
+              <SelectItem value="10">10 Reports</SelectItem>
+              <SelectItem value="25">25 Reports</SelectItem>
+              <SelectItem value="50">50 Reports</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
+      {/* Loading state */}
       {isLoading && (
-        <div className="text-center py-8">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500 mb-2"></div>
-          <p>Loading reports data...</p>
+        <div className="space-y-6">
+          <Skeleton variant="card" height={400} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Skeleton variant="card" height={150} />
+            <Skeleton variant="card" height={150} />
+            <Skeleton variant="card" height={150} />
+          </div>
         </div>
       )}
 
+      {/* Error state */}
       {isError && (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-          <p className="font-bold">Error loading reports</p>
-          <p>There was a problem fetching the reports data. Please try again later.</p>
-        </div>
+        <ErrorBanner
+          title="Error loading reports"
+          message={typeof error === 'string' ? error : error?.message || "There was a problem fetching the reports. Please try again later."}
+          severity="error"
+          onRetry={() => refetch()}
+        />
       )}
 
-      {!isLoading && !isError && sortedData.length === 0 && (
-        <div className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4">
-          <p className="font-bold">No reports available</p>
-          <p>There are currently no GPU reports in the system.</p>
-        </div>
+      {/* Empty state */}
+      {!isLoading && !isError && (!data || data.length === 0) && (
+        <ErrorBanner
+          title="No reports available"
+          message="There are currently no GPU market reports matching your criteria."
+          severity="warning"
+        />
       )}
 
-      {!isLoading && !isError && sortedData.length > 0 && (
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-white border border-gray-200 shadow-md rounded-lg overflow-hidden">
-            <thead className="bg-gray-50">
-              <tr>
-                <th 
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
-                  onClick={() => handleSort('canonicalModel')}
-                >
-                  Model{renderSortIndicator('canonicalModel')}
-                </th>
-                <th 
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
-                  onClick={() => handleSort('vramGb')}
-                >
-                  VRAM (GB){renderSortIndicator('vramGb')}
-                </th>
-                <th 
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
-                  onClick={() => handleSort('price')}
-                >
-                  Price (USD){renderSortIndicator('price')}
-                </th>
-                <th 
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
-                  onClick={() => handleSort('score')}
-                >
-                  Score{renderSortIndicator('score')}
-                </th>
-                <th 
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
-                  onClick={() => handleSort('tdpWatts')}
-                >
-                  TDP (Watts){renderSortIndicator('tdpWatts')}
-                </th>
-                <th 
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
-                  onClick={() => handleSort('nvlink')}
-                >
-                  NVLink{renderSortIndicator('nvlink')}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-200">
-              {sortedData.map((report, index) => (
-                <tr key={index} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    {report.canonicalModel}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {report.vramGb}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    ${report.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {report.score.toFixed(2)}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {report.tdpWatts}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {report.nvlink ? 'Yes' : 'No'}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      {/* Reports */}
+      {!isLoading && !isError && data && data.length > 0 && (
+        <div className="space-y-8">
+          {data.map((report, index) => (
+            <div key={index} className="border border-gray-700 rounded-lg p-6" data-testid="report-row">
+              <MarkdownReport report={report} />
+            </div>
+          ))}
         </div>
       )}
-
-      <div className="mt-4 text-sm text-gray-500">
-        <p>Note: This table displays GPU listings data with calculated utility scores.</p>
-        <p>Click on column headers to sort the data.</p>
-      </div>
     </div>
   );
 }

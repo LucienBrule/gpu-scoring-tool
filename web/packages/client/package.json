@@ -17,15 +17,22 @@
     "codegen": "node scripts/codegen.js",
     "codegen:manual": "node scripts/generate-client.js",
     "clean": "rm -rf dist src/generated",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "test:unit": "pnpm exec vitest run"
   },
   "dependencies": {
     "@repo/client-generated": "workspace:*",
     "@tanstack/react-query": "^5.83.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "typescript": "^5.8.2"
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.13.17",
-    "@repo/typescript-config": "workspace:*"
+    "@repo/typescript-config": "workspace:*",
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "jsdom": "^26.1.0",
+    "vitest": "^3.2.4"
   }
 }

@@ -1,0 +1,424 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - text: GPU Scoring Tool
+  - link "Home":
+    - /url: /
+  - link "Listings":
+    - /url: /listings
+  - link "Models":
+    - /url: /models
+  - link "Reports":
+    - /url: /reports
+  - link "Forecast":
+    - /url: /forecast
+  - link "ML Playground":
+    - /url: /ml-playground
+  - link "Import":
+    - /url: /import
+  - link "About":
+    - /url: /about
+  - link "Dev Harness":
+    - /url: /dev-harness
+- main:
+  - heading "GPU Market Reports" [level=1]
+  - button "Refresh Reports"
+  - text: Filter by Model
+  - textbox "Filter by Model"
+  - text: Number of Reports
+  - button "10":
+    - text: "10"
+    - img
+  - 'heading "GPU Model: RTX_5070" [level=3]'
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option "RTX_5070"
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓ TDP MIG NVLink":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+        - cell "TDP"
+        - cell "MIG"
+        - cell "NVLink"
+    - rowgroup:
+      - row "RTX_5070 12 $595.99 $49.67 51.99 250 0 No":
+        - cell "RTX_5070"
+        - cell "12"
+        - cell "$595.99"
+        - cell "$49.67"
+        - cell "51.99"
+        - cell "250"
+        - cell "0"
+        - cell "No"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - 'heading "GPU Model: RTX_5070" [level=3]'
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option "RTX_5070"
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓ TDP MIG NVLink":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+        - cell "TDP"
+        - cell "MIG"
+        - cell "NVLink"
+    - rowgroup:
+      - row "RTX_5070 12 $627.99 $52.33 51.90 250 0 No":
+        - cell "RTX_5070"
+        - cell "12"
+        - cell "$627.99"
+        - cell "$52.33"
+        - cell "51.90"
+        - cell "250"
+        - cell "0"
+        - cell "No"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - 'heading "GPU Model: RTX_5080" [level=3]'
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option "RTX_5080"
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓ TDP MIG NVLink":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+        - cell "TDP"
+        - cell "MIG"
+        - cell "NVLink"
+    - rowgroup:
+      - row "RTX_5080 16 $1,386.99 $86.69 47.66 360 0 No":
+        - cell "RTX_5080"
+        - cell "16"
+        - cell "$1,386.99"
+        - cell "$86.69"
+        - cell "47.66"
+        - cell "360"
+        - cell "0"
+        - cell "No"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - 'heading "GPU Model: RTX_5090" [level=3]'
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option "RTX_5090"
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓ TDP MIG NVLink":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+        - cell "TDP"
+        - cell "MIG"
+        - cell "NVLink"
+    - rowgroup:
+      - row "RTX_5090 32 $2,932.99 $91.66 44.01 575 0 No":
+        - cell "RTX_5090"
+        - cell "32"
+        - cell "$2,932.99"
+        - cell "$91.66"
+        - cell "44.01"
+        - cell "575"
+        - cell "0"
+        - cell "No"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - 'heading "GPU Model: RTX_5090" [level=3]'
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option "RTX_5090"
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓ TDP MIG NVLink":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+        - cell "TDP"
+        - cell "MIG"
+        - cell "NVLink"
+    - rowgroup:
+      - row "RTX_5090 32 $2,932.99 $91.66 44.01 575 0 No":
+        - cell "RTX_5090"
+        - cell "32"
+        - cell "$2,932.99"
+        - cell "$91.66"
+        - cell "44.01"
+        - cell "575"
+        - cell "0"
+        - cell "No"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - 'heading "GPU Model: RTX_5070_TI" [level=3]'
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option "RTX_5070_TI"
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓ TDP MIG NVLink":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+        - cell "TDP"
+        - cell "MIG"
+        - cell "NVLink"
+    - rowgroup:
+      - row "RTX_5070_TI 16 $920.99 $57.56 51.41 300 0 No":
+        - cell "RTX_5070_TI"
+        - cell "16"
+        - cell "$920.99"
+        - cell "$57.56"
+        - cell "51.41"
+        - cell "300"
+        - cell "0"
+        - cell "No"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - 'heading "GPU Model: GT_710" [level=3]'
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option "GT_710"
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓ TDP MIG NVLink":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+        - cell "TDP"
+        - cell "MIG"
+        - cell "NVLink"
+    - rowgroup:
+      - row "GT_710 2 $58.99 $29.50 56.97 19 0 No":
+        - cell "GT_710"
+        - cell "2"
+        - cell "$58.99"
+        - cell "$29.50"
+        - cell "56.97"
+        - cell "19"
+        - cell "0"
+        - cell "No"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - 'heading "GPU Model: UNKNOWN" [level=3]'
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option "UNKNOWN"
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓ TDP MIG NVLink":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+        - cell "TDP"
+        - cell "MIG"
+        - cell "NVLink"
+    - rowgroup:
+      - row "UNKNOWN 0 $136.99 $∞ 27.97 0 0 No":
+        - cell "UNKNOWN"
+        - cell "0"
+        - cell "$136.99"
+        - cell "$∞"
+        - cell "27.97"
+        - cell "0"
+        - cell "0"
+        - cell "No"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - 'heading "GPU Model: UNKNOWN" [level=3]'
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option "UNKNOWN"
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓ TDP MIG NVLink":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+        - cell "TDP"
+        - cell "MIG"
+        - cell "NVLink"
+    - rowgroup:
+      - row "UNKNOWN 0 $212.99 $∞ 27.76 0 0 No":
+        - cell "UNKNOWN"
+        - cell "0"
+        - cell "$212.99"
+        - cell "$∞"
+        - cell "27.76"
+        - cell "0"
+        - cell "0"
+        - cell "No"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - 'heading "GPU Model: A1000" [level=3]'
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option "A1000"
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓ TDP MIG NVLink":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+        - cell "TDP"
+        - cell "MIG"
+        - cell "NVLink"
+    - rowgroup:
+      - row "A1000 8 $485.99 $60.75 58.05 50 0 No":
+        - cell "A1000"
+        - cell "8"
+        - cell "$485.99"
+        - cell "$60.75"
+        - cell "58.05"
+        - cell "50"
+        - cell "0"
+        - cell "No"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+- alert
+```

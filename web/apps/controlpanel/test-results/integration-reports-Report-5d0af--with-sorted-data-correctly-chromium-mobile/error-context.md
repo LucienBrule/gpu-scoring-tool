@@ -1,0 +1,184 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - text: GPU Scoring Tool
+  - button "Open main menu"
+- main:
+  - heading "GPU Market Reports" [level=1]
+  - button "Refresh Reports"
+  - text: Filter by Model
+  - textbox "Filter by Model"
+  - text: Number of Reports
+  - button "10":
+    - text: "10"
+    - img
+  - heading "GPU Model:" [level=3]
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price ↓ Current market price in USD $/GB Score":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price ↓ Current market price in USD":
+          - text: Price ↓
+          - tooltip "Current market price in USD"
+        - cell "$/GB"
+        - cell "Score"
+    - rowgroup:
+      - row "$1,599.99 $NaN 9.20":
+        - cell
+        - cell
+        - cell "$1,599.99"
+        - cell "$NaN"
+        - cell "9.20"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - heading "GPU Model:" [level=3]
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+    - rowgroup:
+      - row "$699.99 $NaN 8.50":
+        - cell
+        - cell
+        - cell "$699.99"
+        - cell "$NaN"
+        - cell "8.50"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - heading "GPU Model:" [level=3]
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+    - rowgroup:
+      - row "$999.99 $NaN 7.80":
+        - cell
+        - cell
+        - cell "$999.99"
+        - cell "$NaN"
+        - cell "7.80"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - heading "GPU Model:" [level=3]
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+    - rowgroup:
+      - row "$4,999.99 $NaN 6.50":
+        - cell
+        - cell
+        - cell "$4,999.99"
+        - cell "$NaN"
+        - cell "6.50"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+  - heading "GPU Model:" [level=3]
+  - textbox "Search by model..."
+  - img
+  - paragraph: Search by model name. Use filters below for more specific results.
+  - text: Price Range (USD)
+  - spinbutton
+  - spinbutton
+  - text: Score Range
+  - spinbutton
+  - spinbutton
+  - text: Model Filter
+  - combobox:
+    - option "All Models" [selected]
+    - option
+  - table:
+    - rowgroup:
+      - row "Model VRAM Price $/GB Score ↓":
+        - cell "Model"
+        - cell "VRAM"
+        - cell "Price"
+        - cell "$/GB"
+        - cell "Score ↓"
+    - rowgroup:
+      - row "$329.99 $NaN 7.20":
+        - cell
+        - cell
+        - cell "$329.99"
+        - cell "$NaN"
+        - cell "7.20"
+  - text: Showing 1 to 1 of 1 results
+  - button "Previous" [disabled]
+  - button "1"
+  - button "Next" [disabled]
+- alert
+```

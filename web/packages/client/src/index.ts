@@ -1,5 +1,73 @@
-import {ApiClient, getHealth, getReports, GpuReportRow} from "./client.js";
-import * as hooks from "./hooks/index.js";
+import {
+    ApiClient,
+    getHealth,
+    getReports,
+    getListings,
+    getModels,
+    getForecastDeltas,
+    getForecastDeltaById,
+    classifyGpu,
+    getSchemaVersions,
+    getSchemaVersionDetails,
+    importCsv,
+    importFromPipeline,
+    validateArtifact,
+    persistListings,
+    // Import domain-aligned type aliases
+    GpuReportRow,
+    ArtifactValidationResult,
+    GpuListing,
+    GpuModel,
+    GpuReport,
+    HttpValidationError,
+    HealthStatus,
+    ImportResult,
+    ImportSummaryStats,
+    MlPredictionRequest,
+    MlPredictionResponse,
+    PipelineImportRequest,
+    ApiValidationError,
+    RowError,
+    SchemaVersion,
+    SchemaVersionInfo,
+    ValidationErrorLocation
+} from "./client.js";
 
-export {ApiClient, getHealth, getReports, hooks};
-export type {GpuReportRow};
+// Export the ApiClient class and utility functions
+export {
+    ApiClient,
+    getHealth,
+    getReports,
+    getListings,
+    getModels,
+    getForecastDeltas,
+    getForecastDeltaById,
+    classifyGpu,
+    importCsv,
+    getSchemaVersions,
+    getSchemaVersionDetails,
+    importFromPipeline,
+    validateArtifact,
+    persistListings
+};
+
+// Export domain-aligned type aliases
+export type {
+    GpuReportRow,
+    ArtifactValidationResult,
+    GpuListing,
+    GpuModel,
+    GpuReport,
+    HttpValidationError,
+    HealthStatus,
+    ImportResult,
+    ImportSummaryStats,
+    MlPredictionRequest,
+    MlPredictionResponse,
+    PipelineImportRequest,
+    ApiValidationError,
+    RowError,
+    SchemaVersion,
+    SchemaVersionInfo,
+    ValidationErrorLocation,
+};

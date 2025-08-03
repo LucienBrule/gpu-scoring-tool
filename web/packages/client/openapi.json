@@ -6,6 +6,176 @@
     "version": "0.1.0"
   },
   "paths": {
+    "/api/forecast/deltas": {
+      "get": {
+        "tags": [
+          "Forecast"
+        ],
+        "summary": "Get listing price deltas",
+        "description": "Retrieve computed deltas between successive listing snapshots for price volatility analysis",
+        "operationId": "get_listing_deltas_api_forecast_deltas_get",
+        "parameters": [
+          {
+            "name": "model",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by GPU model name",
+              "title": "Model"
+            },
+            "description": "Filter by GPU model name"
+          },
+          {
+            "name": "min_price_change_pct",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Minimum price change percentage",
+              "title": "Min Price Change Pct"
+            },
+            "description": "Minimum price change percentage"
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter deltas after this timestamp",
+              "title": "After"
+            },
+            "description": "Filter deltas after this timestamp"
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by region",
+              "title": "Region"
+            },
+            "description": "Filter by region"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 1000,
+              "description": "Maximum number of results to return",
+              "default": 100,
+              "title": "Limit"
+            },
+            "description": "Maximum number of results to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "title": "Response Get Listing Deltas Api Forecast Deltas Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/forecast/deltas/{delta_id}": {
+      "get": {
+        "tags": [
+          "Forecast"
+        ],
+        "summary": "Get specific listing delta",
+        "description": "Retrieve a specific delta by ID with full snapshot details",
+        "operationId": "get_listing_delta_api_forecast_deltas__delta_id__get",
+        "parameters": [
+          {
+            "name": "delta_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Delta Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Get Listing Delta Api Forecast Deltas  Delta Id  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/health": {
       "get": {
         "tags": [
@@ -21,6 +191,90 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/HealthStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/import/csv": {
+      "post": {
+        "tags": [
+          "Import"
+        ],
+        "summary": "Import and process raw CSV file",
+        "description": "Upload a raw CSV file that will be processed through the glyphsieve normalization and scoring pipeline",
+        "operationId": "import_csv_api_import_csv_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_import_csv_api_import_csv_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImportResultDTO"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/imports/from-pipeline": {
+      "post": {
+        "tags": [
+          "Persist"
+        ],
+        "summary": "Import enriched CSV from glyphsieve pipeline output",
+        "description": "Import a fully normalized and enriched CSV from the glyphsieve pipeline into the SQLite database",
+        "operationId": "import_from_pipeline_api_imports_from_pipeline_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PipelineImportRequestDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImportResultDTO"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
                 }
               }
             }
@@ -255,6 +509,48 @@
         }
       }
     },
+    "/api/ml/is-gpu": {
+      "post": {
+        "tags": [
+          "ML"
+        ],
+        "summary": "GPU Classification Prediction",
+        "description": "Classify whether a listing title represents an NVIDIA GPU using ML model",
+        "operationId": "predict_gpu_classification_api_ml_is_gpu_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MLPredictionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MLPredictionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/models": {
       "get": {
         "tags": [
@@ -349,10 +645,265 @@
           }
         }
       }
+    },
+    "/api/schema/versions": {
+      "get": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Get supported schema versions",
+        "description": "Retrieve information about supported API schema versions and defaults",
+        "operationId": "get_schema_versions_api_schema_versions_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchemaVersionInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/schema/versions/{version}": {
+      "get": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Check if schema version is supported",
+        "description": "Check if a specific schema version is supported by the API",
+        "operationId": "check_schema_version_api_schema_versions__version__get",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Version"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Check Schema Version Api Schema Versions  Version  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ingest/upload-artifact": {
+      "post": {
+        "tags": [
+          "Validation"
+        ],
+        "summary": "Upload and validate artifact file",
+        "description": "Upload a file (CSV, JSON, or YAML) and validate its schema without persisting the data",
+        "operationId": "upload_artifact_api_ingest_upload_artifact_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_upload_artifact_api_ingest_upload_artifact_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArtifactValidationResultDTO"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "ArtifactValidationResultDTO": {
+        "properties": {
+          "valid": {
+            "type": "boolean",
+            "title": "Valid",
+            "description": "Whether the artifact passed validation"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type",
+            "description": "Detected artifact type (e.g., 'gpu_listing', 'report')"
+          },
+          "rows": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rows",
+            "description": "Number of rows/records in the artifact"
+          },
+          "schema_version": {
+            "type": "string",
+            "title": "Schema Version",
+            "description": "Schema version used for validation"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "description": "Non-fatal validation warnings"
+          },
+          "errors": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Errors",
+            "description": "Validation errors that caused failure"
+          },
+          "filename": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filename",
+            "description": "Original filename of the uploaded artifact"
+          },
+          "file_size": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File Size",
+            "description": "Size of the uploaded file in bytes"
+          },
+          "saved_to_disk": {
+            "type": "boolean",
+            "title": "Saved To Disk",
+            "description": "Whether the file was saved to disk for debugging",
+            "default": false
+          },
+          "saved_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Saved Path",
+            "description": "Path where the file was saved (if saved_to_disk=True)"
+          }
+        },
+        "type": "object",
+        "required": [
+          "valid",
+          "type",
+          "schema_version"
+        ],
+        "title": "ArtifactValidationResultDTO",
+        "description": "Data Transfer Object for artifact validation results.\n\nRepresents the result of validating an uploaded file without persisting it.",
+        "example": {
+          "errors": [],
+          "file_size": 12345,
+          "filename": "gpu_listings.csv",
+          "rows": 150,
+          "saved_to_disk": false,
+          "schema_version": "v1.1",
+          "type": "gpu_listing",
+          "valid": true,
+          "warnings": [
+            "Missing optional field 'condition' in 5 rows"
+          ]
+        }
+      },
+      "Body_import_csv_api_import_csv_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File",
+            "description": "CSV file to upload"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_import_csv_api_import_csv_post"
+      },
+      "Body_upload_artifact_api_ingest_upload_artifact_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File",
+            "description": "Artifact file to validate"
+          },
+          "save_to_disk": {
+            "type": "boolean",
+            "title": "Save To Disk",
+            "description": "Whether to save the file to disk for debugging",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_upload_artifact_api_ingest_upload_artifact_post"
+      },
       "GPUListingDTO": {
         "properties": {
           "canonical_model": {
@@ -650,6 +1201,152 @@
             "format": "date-time",
             "title": "Timestamp",
             "description": "Timestamp when the import was completed"
+          },
+          "rows_with_errors": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/RowErrorDTO"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rows With Errors",
+            "description": "Detailed information about failed rows"
+          },
+          "summary_stats": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImportSummaryStatsDTO"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Aggregate statistics about the import"
+          },
+          "validation_errors": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Validation Errors",
+            "description": "File-level validation errors"
+          },
+          "warnings": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Warnings",
+            "description": "Non-fatal issues that didn't prevent import"
+          },
+          "filename": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filename",
+            "description": "Name of the imported file"
+          },
+          "total_rows": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Rows",
+            "description": "Total number of rows processed"
+          },
+          "valid_rows": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Valid Rows",
+            "description": "Number of valid rows"
+          },
+          "invalid_rows": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Invalid Rows",
+            "description": "Number of invalid rows"
+          },
+          "score_range": {
+            "anyOf": [
+              {
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array",
+                "maxItems": 2,
+                "minItems": 2
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score Range",
+            "description": "Range of scores in the import"
+          },
+          "top_models": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Top Models",
+            "description": "Most common models in the import"
+          },
+          "schema_version": {
+            "$ref": "#/components/schemas/SchemaVersion",
+            "description": "API schema version for this response",
+            "default": "v1.1"
           }
         },
         "type": "object",
@@ -661,13 +1358,175 @@
           "timestamp"
         ],
         "title": "ImportResultDTO",
-        "description": "Data Transfer Object for import operation results.\n\nRepresents the result of an import operation with metadata.",
+        "description": "Data Transfer Object for import operation results.\n\nRepresents the result of an import operation with metadata and error reporting.",
         "example": {
+          "filename": "pipeline_output.csv",
           "first_model": "H100_PCIE_80GB",
           "import_id": "550e8400-e29b-41d4-a716-446655440000",
+          "invalid_rows": 2,
           "last_model": "A100_SXM4_80GB",
           "record_count": 3,
-          "timestamp": "2025-07-29T12:12:00"
+          "rows_with_errors": [],
+          "schema_version": "v1.1",
+          "score_range": [
+            0.65,
+            0.85
+          ],
+          "summary_stats": {
+            "failed_rows": 2,
+            "processing_time_ms": 150,
+            "successful_rows": 3,
+            "total_rows": 5,
+            "warnings_count": 0
+          },
+          "timestamp": "2025-07-29T12:12:00",
+          "top_models": [
+            "H100_PCIE_80GB",
+            "A100_SXM4_80GB"
+          ],
+          "total_rows": 5,
+          "valid_rows": 3,
+          "validation_errors": [],
+          "warnings": []
+        }
+      },
+      "ImportSummaryStatsDTO": {
+        "properties": {
+          "total_rows": {
+            "type": "integer",
+            "title": "Total Rows",
+            "description": "Total number of rows processed"
+          },
+          "successful_rows": {
+            "type": "integer",
+            "title": "Successful Rows",
+            "description": "Number of rows successfully imported"
+          },
+          "failed_rows": {
+            "type": "integer",
+            "title": "Failed Rows",
+            "description": "Number of rows that failed validation"
+          },
+          "warnings_count": {
+            "type": "integer",
+            "title": "Warnings Count",
+            "description": "Number of non-fatal warnings generated",
+            "default": 0
+          },
+          "processing_time_ms": {
+            "type": "integer",
+            "title": "Processing Time Ms",
+            "description": "Total processing time in milliseconds"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_rows",
+          "successful_rows",
+          "failed_rows",
+          "processing_time_ms"
+        ],
+        "title": "ImportSummaryStatsDTO",
+        "description": "Data Transfer Object for import summary statistics.\n\nRepresents aggregate statistics about an import operation.",
+        "example": {
+          "failed_rows": 5,
+          "processing_time_ms": 1250,
+          "successful_rows": 95,
+          "total_rows": 100,
+          "warnings_count": 2
+        }
+      },
+      "MLPredictionRequest": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "GPU listing title to classify"
+          }
+        },
+        "type": "object",
+        "required": [
+          "title"
+        ],
+        "title": "MLPredictionRequest",
+        "description": "Request model for ML GPU prediction."
+      },
+      "MLPredictionResponse": {
+        "properties": {
+          "ml_is_gpu": {
+            "type": "boolean",
+            "title": "Ml Is Gpu",
+            "description": "Whether the listing is predicted to be a GPU"
+          },
+          "ml_score": {
+            "type": "number",
+            "title": "Ml Score",
+            "description": "Confidence score (0.0-1.0) for GPU classification"
+          }
+        },
+        "type": "object",
+        "required": [
+          "ml_is_gpu",
+          "ml_score"
+        ],
+        "title": "MLPredictionResponse",
+        "description": "Response model for ML GPU prediction."
+      },
+      "PipelineImportRequestDTO": {
+        "properties": {
+          "input_csv_path": {
+            "type": "string",
+            "title": "Input Csv Path",
+            "description": "Full path to the pipeline output file"
+          },
+          "source_label": {
+            "type": "string",
+            "title": "Source Label",
+            "description": "Human-readable tag for this data source"
+          },
+          "campaign_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Campaign Id",
+            "description": "Optional campaign linkage"
+          },
+          "metadata": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Metadata",
+            "description": "Freeform structured metadata"
+          }
+        },
+        "type": "object",
+        "required": [
+          "input_csv_path",
+          "source_label"
+        ],
+        "title": "PipelineImportRequestDTO",
+        "description": "Data Transfer Object for pipeline import requests.\n\nRepresents a request to import enriched CSV from glyphsieve pipeline output.",
+        "example": {
+          "campaign_id": "wamatek-q3-2025",
+          "input_csv_path": "tmp/wamatek_final.csv",
+          "metadata": {
+            "region": "US",
+            "vendor": "wamatek"
+          },
+          "source_label": "Wamatek July 2025"
         }
       },
       "ReportDTO": {
@@ -736,6 +1595,106 @@
             "RTX_A5000",
             "RTX_3090",
             "RTX_4090"
+          ]
+        }
+      },
+      "RowErrorDTO": {
+        "properties": {
+          "row_index": {
+            "type": "integer",
+            "title": "Row Index",
+            "description": "Zero-based index of the row in the input"
+          },
+          "row_data": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Row Data",
+            "description": "Original row data that failed validation"
+          },
+          "errors": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Errors",
+            "description": "List of specific validation errors for this row"
+          },
+          "field_errors": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Field Errors",
+            "description": "Field-specific error messages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "row_index",
+          "row_data",
+          "errors"
+        ],
+        "title": "RowErrorDTO",
+        "description": "Data Transfer Object for row-level error information.\n\nRepresents detailed error information for a specific row that failed validation.",
+        "example": {
+          "errors": [
+            "Invalid canonical_model format",
+            "Price must be a number"
+          ],
+          "field_errors": {
+            "price": "Expected float, got string"
+          },
+          "row_data": {
+            "canonical_model": "InvalidGPU",
+            "price": "not_a_number"
+          },
+          "row_index": 5
+        }
+      },
+      "SchemaVersion": {
+        "type": "string",
+        "enum": [
+          "v1.0",
+          "v1.1"
+        ],
+        "title": "SchemaVersion",
+        "description": "Supported API schema versions.\n\nThis enum defines all supported schema versions for the ingestion API,\nenabling backward compatibility and controlled evolution."
+      },
+      "SchemaVersionInfo": {
+        "properties": {
+          "supported_versions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Supported Versions",
+            "description": "List of supported schema versions"
+          },
+          "default_version": {
+            "type": "string",
+            "title": "Default Version",
+            "description": "Default schema version for new requests"
+          },
+          "current_version": {
+            "type": "string",
+            "title": "Current Version",
+            "description": "Latest available schema version"
+          }
+        },
+        "type": "object",
+        "required": [
+          "supported_versions",
+          "default_version",
+          "current_version"
+        ],
+        "title": "SchemaVersionInfo",
+        "description": "DTO for schema version information endpoint.\n\nProvides information about supported schema versions and their capabilities.",
+        "example": {
+          "current_version": "v1.1",
+          "default_version": "v1.1",
+          "supported_versions": [
+            "v1.0",
+            "v1.1"
           ]
         }
       },

@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ThemeToggle Component > renders correctly in dark mode 1`] = `
+<div>
+  <button
+    aria-label="Switch to light mode"
+    class="px-4 py-2 rounded-md bg-surface1 text-foreground hover:bg-surface2 transition-colors"
+  >
+    ☀️ Light Mode
+  </button>
+</div>
+`;
+
+exports[`ThemeToggle Component > renders correctly in light mode 1`] = `
+<div>
+  <button
+    aria-label="Switch to dark mode"
+    class="px-4 py-2 rounded-md bg-surface1 text-foreground hover:bg-surface2 transition-colors"
+  >
+    🌙 Dark Mode
+  </button>
+</div>
+`;

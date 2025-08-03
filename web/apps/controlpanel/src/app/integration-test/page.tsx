@@ -1,6 +1,13 @@
 'use client';
 
-import { hooks } from '@repo/client';
+import * as hooks from '@/hooks';
+import { Skeleton } from '@/components/ui/skeleton';
+import { ErrorBanner } from '@/components/ui/error-banner';
+
+// This disables static generation for this page
+export const dynamic = 'force-dynamic';
+// This disables prerendering for this page
+export const runtime = 'edge';
 
 export default function IntegrationTestPage() {
   const { status, error, loading, refetch } = hooks.useHealthCheck();
@@ -22,27 +29,32 @@ export default function IntegrationTestPage() {
         </div>
 
         {loading && (
-          <div className="text-gray-500">Loading health status...</div>
+          <Skeleton variant="text" count={2} className="w-full max-w-md" />
         )}
 
         {!loading && status && (
-          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
-            <p className="font-bold">Status: {status}</p>
-          </div>
+          <ErrorBanner
+            title="Status"
+            message={status}
+            severity="success"
+          />
         )}
 
         {!loading && error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-            <p className="font-bold">Error:</p>
-            <p>{error}</p>
-          </div>
+          <ErrorBanner
+            title="Error"
+            message={error}
+            severity="error"
+            onRetry={() => refetch()}
+          />
         )}
         
         {!loading && !status && !error && (
-          <div className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded">
-            <p className="font-bold">Warning:</p>
-            <p>No status information received from the server. The server might be running but returning an unexpected response.</p>
-          </div>
+          <ErrorBanner
+            title="Warning"
+            message="No status information received from the server. The server might be running but returning an unexpected response."
+            severity="warning"
+          />
         )}
       </div>
 

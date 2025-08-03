@@ -1,0 +1,33 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - text: GPU Scoring Tool
+  - button "Open main menu"
+- main:
+  - heading "Import Tools" [level=1]
+  - tab "CSV Import" [selected]
+  - tab "Pipeline Import"
+  - tab "Artifact Validation"
+  - tabpanel:
+    - heading "CSV Import" [level=3]
+    - paragraph: Import GPU listings from a CSV file. The file should contain columns for title, price, model, and other relevant data.
+    - button "Choose File"
+    - paragraph: Drag and drop a CSV file here, or click to select a file
+    - paragraph: "Maximum file size: 10MB"
+    - heading "Column Mapping" [level=3]
+    - paragraph: Select which columns to import from your CSV file.
+    - checkbox "title" [checked]
+    - text: title
+    - checkbox "price" [checked]
+    - text: price
+    - checkbox "model" [checked]
+    - text: model
+    - checkbox "url" [checked]
+    - text: url
+    - checkbox "description" [checked]
+    - text: description
+    - button "Import CSV" [disabled]
+    - button "Reset"
+- alert
+```

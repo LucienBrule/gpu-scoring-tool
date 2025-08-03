@@ -1,45 +1,30 @@
-import { useState, useEffect } from 'react';
-import { getHealth } from '@repo/client';
-
-interface UseHealthResult {
-  status: string | null;
-  error: string | null;
-  loading: boolean;
-  refetch: () => Promise<void>;
-}
+import { useQuery } from '@tanstack/react-query';
+import { getHealth} from '@repo/client';
+import type { HealthStatus } from '@repo/client';
 
 /**
- * Custom hook to fetch health status from the API
- * @returns {UseHealthResult} Object containing status, error, loading state, and refetch function
+ * Hook to fetch API health status
+ * 
+ * @returns Object containing the health status data, loading state, error state, and refetch function
+ * 
+ * @example
+ * ```tsx
+ * const { data, isLoading, isError, error } = useHealth();
+ * 
+ * if (isLoading) return <div>Loading...</div>;
+ * if (isError) return <div>Error: {error}</div>;
+ * 
+ * return (
+ *   <div>
+ *     API Status: {data?.status === 'ok' ? 'Healthy' : 'Unhealthy'}
+ *   </div>
+ * );
+ * ```
  */
-export function useHealth(): UseHealthResult {
-  const [status, setStatus] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+export const useHealth = () =>
+  useQuery<HealthStatus, Error>({
+    queryKey: ['health'],
+    queryFn: () => getHealth()
+  });
 
-  const fetchHealth = async () => {
-    try {
-      setLoading(true);
-      const response = await getHealth();
-      setStatus(response.status);
-      setError(null);
-    } catch (err) {
-      console.error('Error fetching health status:', err);
-      setError('Failed to fetch health status');
-      setStatus(null);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchHealth();
-  }, []);
-
-  return {
-    status,
-    error,
-    loading,
-    refetch: fetchHealth,
-  };
-}
+export default useHealth;

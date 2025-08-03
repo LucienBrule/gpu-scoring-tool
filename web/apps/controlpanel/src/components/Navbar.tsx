@@ -5,11 +5,23 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
-const navItems = [
+// Define base navigation items
+const baseNavItems = [
   { name: "Home", href: "/" },
-  { name: "Reports", href: "/reports" }, // TODO: Implement Reports page
+  { name: "Listings", href: "/listings" },
+  { name: "Models", href: "/models" },
+  { name: "Reports", href: "/reports" },
+  { name: "Forecast", href: "/forecast" },
+  { name: "ML Playground", href: "/ml-playground" },
+  { name: "Import", href: "/import" },
   { name: "About", href: "/about" }, // TODO: Implement About page
 ];
+
+// Add dev-harness link only in development mode
+const isDevelopment = process.env.NODE_ENV === 'development';
+const navItems = isDevelopment 
+  ? [...baseNavItems, { name: "Dev Harness", href: "/dev-harness" }]
+  : baseNavItems;
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -20,7 +32,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white shadow-sm">
+    <nav className="bg-background shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -39,8 +51,8 @@ export default function Navbar() {
                   href={item.href}
                   className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
                     isActive
-                      ? "border-indigo-500 text-gray-900"
-                      : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                      ? "border-indigo-500 text-gray-100"
+                      : "border-transparent text-gray-30000 hover:border-blue-300 hover:text-blue-300"
                   }`}
                   aria-current={isActive ? "page" : undefined}
                 >

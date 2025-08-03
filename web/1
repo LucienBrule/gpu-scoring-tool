@@ -1,0 +1,1010 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/app/reports/__tests__/page.test.tsx [ src/app/reports/__tests__/page.test.tsx ]
+ FAIL  src/app/reports/__tests__/page.test.tsx [ src/app/reports/__tests__/page.test.tsx ]
+Error: Failed to resolve import "clsx" from "../../packages/ui/src/utils.ts". Does the file exist?
+Error: Failed to resolve import "clsx" from "../../packages/ui/src/utils.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/lucienbrule/Developer/src/gpu-scoring-tool/web/packages/ui/src/utils.ts:1:38
+  1  |  import { clsx } from "clsx";
+     |                        ^
+  2  |  import { twMerge } from "tailwind-merge";
+  3  |  export function cn(...inputs) {
+  Plugin: vite:import-analysis
+  File: /Users/lucienbrule/Developer/src/gpu-scoring-tool/web/packages/ui/src/utils.ts:1:38
+  1  |  import { clsx } from "clsx";
+     |                        ^
+  2  |  import { twMerge } from "tailwind-merge";
+  3  |  export function cn(...inputs) {
+ ❯ TransformPluginContext._formatLog ../../node_modules/.pnpm/vite@7.0.6_@types+node@20.19.9_jiti@2.5.1_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:31460:43
+ ❯ TransformPluginContext._formatLog ../../node_modules/.pnpm/vite@7.0.6_@types+node@20.19.9_jiti@2.5.1_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:31460:43
+ ❯ TransformPluginContext.error ../../node_modules/.pnpm/vite@7.0.6_@types+node@20.19.9_jiti@2.5.1_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:31457:14
+ ❯ TransformPluginContext.error ../../node_modules/.pnpm/vite@7.0.6_@types+node@20.19.9_jiti@2.5.1_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:31457:14
+ ❯ normalizeUrl ../../node_modules/.pnpm/vite@7.0.6_@types+node@20.19.9_jiti@2.5.1_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:29999:18
+ ❯ normalizeUrl ../../node_modules/.pnpm/vite@7.0.6_@types+node@20.19.9_jiti@2.5.1_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:29999:18
+ ❯ ../../node_modules/.pnpm/vite@7.0.6_@types+node@20.19.9_jiti@2.5.1_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:30057:32
+ ❯ ../../node_modules/.pnpm/vite@7.0.6_@types+node@20.19.9_jiti@2.5.1_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:30057:32
+ ❯ TransformPluginContext.transform ../../node_modules/.pnpm/vite@7.0.6_@types+node@20.19.9_jiti@2.5.1_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:30025:4
+ ❯ TransformPluginContext.transform ../../node_modules/.pnpm/vite@7.0.6_@types+node@20.19.9_jiti@2.5.1_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:30025:4
+ ❯ EnvironmentPluginContainer.transform ../../node_modules/.pnpm/vite@7.0.6_@types+node@20.19.9_jiti@2.5.1_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:31274:14
+ ❯ EnvironmentPluginContainer.transform ../../node_modules/.pnpm/vite@7.0.6_@types+node@20.19.9_jiti@2.5.1_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:31274:14
+ ❯ loadAndTransform ../../node_modules/.pnpm/vite@7.0.6_@types+node@20.19.9_jiti@2.5.1_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:26451:26
+ ❯ loadAndTransform ../../node_modules/.pnpm/vite@7.0.6_@types+node@20.19.9_jiti@2.5.1_lightningcss@1.30.1/node_modules/vite/dist/node/chunks/dep-BHkUv4Z8.js:26451:26
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/18]⎯
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/18]⎯
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 17 ⎯⎯⎯⎯⎯⎯⎯
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 17 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/app/__tests__/layout.test.tsx > RootLayout > should have dark class on html element
+ FAIL  src/app/__tests__/layout.test.tsx > RootLayout > should have dark class on html element
+ FAIL  src/app/__tests__/layout.test.tsx > RootLayout > should include script to prevent FOUC
+ FAIL  src/app/__tests__/layout.test.tsx > RootLayout > should render children correctly
+ FAIL  src/app/__tests__/layout.test.tsx > RootLayout > should include script to prevent FOUC
+ FAIL  src/app/__tests__/layout.test.tsx > RootLayout > should render children correctly
+ FAIL  src/app/__tests__/layout.test.tsx > RootLayout > should include proper background and text colors
+ FAIL  src/app/__tests__/layout.test.tsx > RootLayout > should include proper background and text colors
+ReferenceError: React is not defined
+ReferenceError: React is not defined
+ ❯ RootLayout src/app/layout.tsx:28:3
+ ❯ RootLayout src/app/layout.tsx:28:3
+     26|   children: React.ReactNode;
+     27| }>) {
+     28|   return (
+       |   ^
+     29|     <html lang="en" className="dark">
+     30|       <head>
+     26|   children: React.ReactNode;
+     27| }>) {
+     28|   return (
+       |   ^
+     29|     <html lang="en" className="dark">
+     30|       <head>
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+ ❯ renderRootSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11
+ ❯ renderRootSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11
+ ❯ performWorkOnRoot ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44
+ ❯ performWorkOnRoot ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/18]⎯
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/18]⎯
+
+ FAIL  src/hooks/__tests__/useGpuReports.test.ts > useGpuReports > should call ApiClient.getReports with correct parameters
+ FAIL  src/hooks/__tests__/useGpuReports.test.ts > useGpuReports > should call ApiClient.getReports with correct parameters
+AssertionError: expected "spy" to be called with arguments: [ { model: 'RTX 4090', …(4) } ][90m
+
+Number of calls: [1m0[22m
+[39m
+AssertionError: expected "spy" to be called with arguments: [ { model: 'RTX 4090', …(4) } ][90m
+
+Number of calls: [1m0[22m
+[39m
+ ❯ src/hooks/__tests__/useGpuReports.test.ts:110:34
+ ❯ src/hooks/__tests__/useGpuReports.test.ts:110:34
+    108|     const queryFnArg = (useQuery as ReturnType<typeof vi.fn>).mock.cal…
+    109|     queryFnArg();
+    110|     expect(ApiClient.getReports).toHaveBeenCalledWith(params);
+       |                                  ^
+    111|   });
+    112| 
+    108|     const queryFnArg = (useQuery as ReturnType<typeof vi.fn>).mock.cal…
+    109|     queryFnArg();
+    110|     expect(ApiClient.getReports).toHaveBeenCalledWith(params);
+       |                                  ^
+    111|   });
+    112| 
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/18]⎯
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/18]⎯
+
+ FAIL  src/hooks/__tests__/useGpuReports.test.ts > useGpuReports > should use default values when parameters are not provided
+ FAIL  src/hooks/__tests__/useGpuReports.test.ts > useGpuReports > should use default values when parameters are not provided
+AssertionError: expected "spy" to be called with arguments: [ { model: undefined, …(4) } ][90m
+
+Number of calls: [1m0[22m
+[39m
+AssertionError: expected "spy" to be called with arguments: [ { model: undefined, …(4) } ][90m
+
+Number of calls: [1m0[22m
+[39m
+ ❯ src/hooks/__tests__/useGpuReports.test.ts:125:34
+ ❯ src/hooks/__tests__/useGpuReports.test.ts:125:34
+    123|     const queryFnArg = (useQuery as ReturnType<typeof vi.fn>).mock.cal…
+    124|     queryFnArg();
+    125|     expect(ApiClient.getReports).toHaveBeenCalledWith({
+       |                                  ^
+    126|       model: undefined,
+    127|       minPrice: undefined,
+    123|     const queryFnArg = (useQuery as ReturnType<typeof vi.fn>).mock.cal…
+    124|     queryFnArg();
+    125|     expect(ApiClient.getReports).toHaveBeenCalledWith({
+       |                                  ^
+    126|       model: undefined,
+    127|       minPrice: undefined,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/18]⎯
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/18]⎯
+
+ FAIL  src/hooks/__tests__/usePersistListings.test.ts > usePersistListings > should call useMutation with correct parameters
+ FAIL  src/hooks/__tests__/usePersistListings.test.ts > usePersistListings > should call useMutation with correct parameters
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ Module.usePersistListings src/hooks/usePersistListings.ts:242:45
+ ❯ Module.usePersistListings src/hooks/usePersistListings.ts:242:45
+    240|   
+    241|   // State for validation errors
+    242|   const [validationError, setValidationError] = useState<string | null…
+       |                                             ^
+    243|   
+    244|   // Reset validation error when starting a new persistence operation
+    240|   
+    241|   // State for validation errors
+    242|   const [validationError, setValidationError] = useState<string | null…
+       |                                             ^
+    243|   
+    244|   // Reset validation error when starting a new persistence operation
+ ❯ src/hooks/__tests__/usePersistListings.test.ts:121:22
+ ❯ src/hooks/__tests__/usePersistListings.test.ts:121:22
+ ❯ TestComponent ../../node_modules/.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.1_@types+react-dom@19.1.1_@types+reac_yfpm5hidx6wqyq64253sgibqy4/node_modules/@testing-library/react/dist/pure.js:331:27
+ ❯ TestComponent ../../node_modules/.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.1_@types+react-dom@19.1.1_@types+reac_yfpm5hidx6wqyq64253sgibqy4/node_modules/@testing-library/react/dist/pure.js:331:27
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/18]⎯
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/18]⎯
+
+ FAIL  src/hooks/__tests__/usePersistListings.test.ts > usePersistListings > should pass onSuccess and onError callbacks to useMutation
+ FAIL  src/hooks/__tests__/usePersistListings.test.ts > usePersistListings > should pass onSuccess and onError callbacks to useMutation
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ Module.usePersistListings src/hooks/usePersistListings.ts:242:45
+ ❯ Module.usePersistListings src/hooks/usePersistListings.ts:242:45
+    240|   
+    241|   // State for validation errors
+    242|   const [validationError, setValidationError] = useState<string | null…
+       |                                             ^
+    243|   
+    244|   // Reset validation error when starting a new persistence operation
+    240|   
+    241|   // State for validation errors
+    242|   const [validationError, setValidationError] = useState<string | null…
+       |                                             ^
+    243|   
+    244|   // Reset validation error when starting a new persistence operation
+ ❯ src/hooks/__tests__/usePersistListings.test.ts:144:22
+ ❯ src/hooks/__tests__/usePersistListings.test.ts:144:22
+ ❯ TestComponent ../../node_modules/.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.1_@types+react-dom@19.1.1_@types+reac_yfpm5hidx6wqyq64253sgibqy4/node_modules/@testing-library/react/dist/pure.js:331:27
+ ❯ TestComponent ../../node_modules/.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.1_@types+react-dom@19.1.1_@types+reac_yfpm5hidx6wqyq64253sgibqy4/node_modules/@testing-library/react/dist/pure.js:331:27
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/18]⎯
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/18]⎯
+
+ FAIL  src/hooks/__tests__/usePersistListings.test.ts > usePersistListings > should return the expected structure
+ FAIL  src/hooks/__tests__/usePersistListings.test.ts > usePersistListings > should return the expected structure
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ Module.usePersistListings src/hooks/usePersistListings.ts:242:45
+ ❯ Module.usePersistListings src/hooks/usePersistListings.ts:242:45
+    240|   
+    241|   // State for validation errors
+    242|   const [validationError, setValidationError] = useState<string | null…
+       |                                             ^
+    243|   
+    244|   // Reset validation error when starting a new persistence operation
+    240|   
+    241|   // State for validation errors
+    242|   const [validationError, setValidationError] = useState<string | null…
+       |                                             ^
+    243|   
+    244|   // Reset validation error when starting a new persistence operation
+ ❯ src/hooks/__tests__/usePersistListings.test.ts:158:41
+ ❯ src/hooks/__tests__/usePersistListings.test.ts:158:41
+ ❯ TestComponent ../../node_modules/.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.1_@types+react-dom@19.1.1_@types+reac_yfpm5hidx6wqyq64253sgibqy4/node_modules/@testing-library/react/dist/pure.js:331:27
+ ❯ TestComponent ../../node_modules/.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.1_@types+react-dom@19.1.1_@types+reac_yfpm5hidx6wqyq64253sgibqy4/node_modules/@testing-library/react/dist/pure.js:331:27
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/18]⎯
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/18]⎯
+
+ FAIL  src/hooks/__tests__/usePersistListings.test.ts > usePersistListings > should call mutate when persistListings is called
+ FAIL  src/hooks/__tests__/usePersistListings.test.ts > usePersistListings > should call mutate when persistListings is called
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ Module.usePersistListings src/hooks/usePersistListings.ts:242:45
+ ❯ Module.usePersistListings src/hooks/usePersistListings.ts:242:45
+    240|   
+    241|   // State for validation errors
+    242|   const [validationError, setValidationError] = useState<string | null…
+       |                                             ^
+    243|   
+    244|   // Reset validation error when starting a new persistence operation
+    240|   
+    241|   // State for validation errors
+    242|   const [validationError, setValidationError] = useState<string | null…
+       |                                             ^
+    243|   
+    244|   // Reset validation error when starting a new persistence operation
+ ❯ src/hooks/__tests__/usePersistListings.test.ts:182:41
+ ❯ src/hooks/__tests__/usePersistListings.test.ts:182:41
+ ❯ TestComponent ../../node_modules/.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.1_@types+react-dom@19.1.1_@types+reac_yfpm5hidx6wqyq64253sgibqy4/node_modules/@testing-library/react/dist/pure.js:331:27
+ ❯ TestComponent ../../node_modules/.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.1_@types+react-dom@19.1.1_@types+reac_yfpm5hidx6wqyq64253sgibqy4/node_modules/@testing-library/react/dist/pure.js:331:27
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/18]⎯
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/18]⎯
+
+ FAIL  src/hooks/__tests__/usePersistListings.test.ts > usePersistListings > should call reset when reset is called
+ FAIL  src/hooks/__tests__/usePersistListings.test.ts > usePersistListings > should call reset when reset is called
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ Module.usePersistListings src/hooks/usePersistListings.ts:242:45
+ ❯ Module.usePersistListings src/hooks/usePersistListings.ts:242:45
+    240|   
+    241|   // State for validation errors
+    242|   const [validationError, setValidationError] = useState<string | null…
+       |                                             ^
+    243|   
+    244|   // Reset validation error when starting a new persistence operation
+    240|   
+    241|   // State for validation errors
+    242|   const [validationError, setValidationError] = useState<string | null…
+       |                                             ^
+    243|   
+    244|   // Reset validation error when starting a new persistence operation
+ ❯ src/hooks/__tests__/usePersistListings.test.ts:199:41
+ ❯ src/hooks/__tests__/usePersistListings.test.ts:199:41
+ ❯ TestComponent ../../node_modules/.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.1_@types+react-dom@19.1.1_@types+reac_yfpm5hidx6wqyq64253sgibqy4/node_modules/@testing-library/react/dist/pure.js:331:27
+ ❯ TestComponent ../../node_modules/.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.1_@types+react-dom@19.1.1_@types+reac_yfpm5hidx6wqyq64253sgibqy4/node_modules/@testing-library/react/dist/pure.js:331:27
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/18]⎯
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/18]⎯
+
+ FAIL  src/hooks/__tests__/usePersistListings.test.ts > usePersistListings > should use default options when not provided
+ FAIL  src/hooks/__tests__/usePersistListings.test.ts > usePersistListings > should use default options when not provided
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ Module.usePersistListings src/hooks/usePersistListings.ts:242:45
+ ❯ Module.usePersistListings src/hooks/usePersistListings.ts:242:45
+    240|   
+    241|   // State for validation errors
+    242|   const [validationError, setValidationError] = useState<string | null…
+       |                                             ^
+    243|   
+    244|   // Reset validation error when starting a new persistence operation
+    240|   
+    241|   // State for validation errors
+    242|   const [validationError, setValidationError] = useState<string | null…
+       |                                             ^
+    243|   
+    244|   // Reset validation error when starting a new persistence operation
+ ❯ src/hooks/__tests__/usePersistListings.test.ts:216:41
+ ❯ src/hooks/__tests__/usePersistListings.test.ts:216:41
+ ❯ TestComponent ../../node_modules/.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.1_@types+react-dom@19.1.1_@types+reac_yfpm5hidx6wqyq64253sgibqy4/node_modules/@testing-library/react/dist/pure.js:331:27
+ ❯ TestComponent ../../node_modules/.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.1_@types+react-dom@19.1.1_@types+reac_yfpm5hidx6wqyq64253sgibqy4/node_modules/@testing-library/react/dist/pure.js:331:27
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/18]⎯
+
+ FAIL  src/hooks/__tests__/usePersistListings.test.ts > usePersistListings > should use provided options instead of defaults
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/18]⎯
+
+ FAIL  src/hooks/__tests__/usePersistListings.test.ts > usePersistListings > should use provided options instead of defaults
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ Module.usePersistListings src/hooks/usePersistListings.ts:242:45
+ ❯ Module.usePersistListings src/hooks/usePersistListings.ts:242:45
+    240|   
+    241|   // State for validation errors
+    242|   const [validationError, setValidationError] = useState<string | null…
+       |                                             ^
+    243|   
+    244|   // Reset validation error when starting a new persistence operation
+    240|   
+    241|   // State for validation errors
+    242|   const [validationError, setValidationError] = useState<string | null…
+       |                                             ^
+    243|   
+    244|   // Reset validation error when starting a new persistence operation
+ ❯ src/hooks/__tests__/usePersistListings.test.ts:246:41
+ ❯ src/hooks/__tests__/usePersistListings.test.ts:246:41
+ ❯ TestComponent ../../node_modules/.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.1_@types+react-dom@19.1.1_@types+reac_yfpm5hidx6wqyq64253sgibqy4/node_modules/@testing-library/react/dist/pure.js:331:27
+ ❯ TestComponent ../../node_modules/.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.1_@types+react-dom@19.1.1_@types+reac_yfpm5hidx6wqyq64253sgibqy4/node_modules/@testing-library/react/dist/pure.js:331:27
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/18]⎯
+
+ FAIL  src/hooks/__tests__/usePersistListings.test.ts > usePersistListings > should validate listings before submission
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/18]⎯
+
+ FAIL  src/hooks/__tests__/usePersistListings.test.ts > usePersistListings > should validate listings before submission
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ Module.usePersistListings src/hooks/usePersistListings.ts:242:45
+ ❯ Module.usePersistListings src/hooks/usePersistListings.ts:242:45
+    240|   
+    241|   // State for validation errors
+    242|   const [validationError, setValidationError] = useState<string | null…
+       |                                             ^
+    243|   
+    244|   // Reset validation error when starting a new persistence operation
+    240|   
+    241|   // State for validation errors
+    242|   const [validationError, setValidationError] = useState<string | null…
+       |                                             ^
+    243|   
+    244|   // Reset validation error when starting a new persistence operation
+ ❯ src/hooks/__tests__/usePersistListings.test.ts:290:41
+ ❯ src/hooks/__tests__/usePersistListings.test.ts:290:41
+ ❯ TestComponent ../../node_modules/.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.1_@types+react-dom@19.1.1_@types+reac_yfpm5hidx6wqyq64253sgibqy4/node_modules/@testing-library/react/dist/pure.js:331:27
+ ❯ TestComponent ../../node_modules/.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.1_@types+react-dom@19.1.1_@types+reac_yfpm5hidx6wqyq64253sgibqy4/node_modules/@testing-library/react/dist/pure.js:331:27
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/18]⎯
+
+ FAIL  src/app/import/__tests__/page.test.tsx > ImportToolsPage > should render with correct container spacing and title size
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/18]⎯
+
+ FAIL  src/app/import/__tests__/page.test.tsx > ImportToolsPage > should render with correct container spacing and title size
+ FAIL  src/app/import/__tests__/page.test.tsx > ImportToolsPage > should render tabs for different import methods
+ FAIL  src/app/import/__tests__/page.test.tsx > ImportToolsPage > should render tabs for different import methods
+ReferenceError: React is not defined
+ReferenceError: React is not defined
+ ❯ ImportToolsPage src/app/import/page.tsx:23:3
+ ❯ ImportToolsPage src/app/import/page.tsx:23:3
+     21|   const [activeTab, setActiveTab] = useState("csv");
+     22| 
+     23|   return (
+       |   ^
+     24|     <div className="container mx-auto px-4 py-8">
+     25|       <h1 className="text-2xl font-bold mb-6">Import Tools</h1>
+     21|   const [activeTab, setActiveTab] = useState("csv");
+     22| 
+     23|   return (
+       |   ^
+     24|     <div className="container mx-auto px-4 py-8">
+     25|       <h1 className="text-2xl font-bold mb-6">Import Tools</h1>
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ Object.react-stack-bottom-frame ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ renderWithHooks ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ updateFunctionComponent ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19
+ ❯ beginWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ runWithFiberInDEV ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ performUnitOfWork ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+ ❯ workLoopSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41
+ ❯ renderRootSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11
+ ❯ performWorkOnRoot ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44
+ ❯ renderRootSync ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11
+ ❯ performWorkOnRoot ../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/18]⎯
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/18]⎯
+
+ FAIL  src/app/listings/__tests__/ListingsTable.test.tsx > ListingsPage > renders loading state
+ FAIL  src/app/listings/__tests__/ListingsTable.test.tsx > ListingsPage > renders loading state
+TestingLibraryElementError: Unable to find an element with the text: Loading listings data.... This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"container mx-auto px-4 py-8"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"flex justify-between items-center mb-6"[39m
+      [36m>[39m
+        [36m<h1[39m
+          [33mclass[39m=[32m"text-2xl font-bold"[39m
+        [36m>[39m
+          [0mGPU Listings[0m
+        [36m</h1>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"[39m
+          [33mdisabled[39m=[32m""[39m
+        [36m>[39m
+          [0mRefreshing...[0m
+        [36m</button>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"mb-6"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"relative"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33mclass[39m=[32m"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"[39m
+            [33mplaceholder[39m=[32m"Search by model..."[39m
+            [33mtype[39m=[32m"text"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mclass[39m=[32m"h-5 w-5 text-gray-400"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"[39m
+                [33mstroke-linecap[39m=[32m"round"[39m
+                [33mstroke-linejoin[39m=[32m"round"[39m
+                [33mstroke-width[39m=[32m"2"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"mt-1 text-sm text-gray-500"[39m
+        [36m>[39m
+          [0mSearch by model name. More search fields will be available in future updates.[0m
+        [36m</p>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"py-8"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33maria-hidden[39m=[32m"true"[39m
+          [33mclass[39m=[32m"w-full mb-4"[39m
+          [33mdata-testid[39m=[32m"skeleton-table"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"
+    bg-gray-200 dark:bg-gray-700
+    animate-pulse
+   flex items-center h-12 mb-2 rounded"[39m
+            [33mstyle[39m=[32m"border-radius: 0.25rem;"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+          [36m</div>[39m
+   TestingLibraryElementError: Unable to find an element with the text: Loading listings data.... This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"container mx-auto px-4 py-8"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"flex justify-between items-center mb-6"[39m
+      [36m>[39m
+        [36m<h1[39m
+          [33mclass[39m=[32m"text-2xl font-bold"[39m
+        [36m>[39m
+          [0mGPU Listings[0m
+        [36m</h1>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"[39m
+          [33mdisabled[39m=[32m""[39m
+        [36m>[39m
+          [0mRefreshing...[0m
+        [36m</button>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"mb-6"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"relative"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33mclass[39m=[32m"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"[39m
+            [33mplaceholder[39m=[32m"Search by model..."[39m
+            [33mtype[39m=[32m"text"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mclass[39m=[32m"h-5 w-5 text-gray-400"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"[39m
+                [33mstroke-linecap[39m=[32m"round"[39m
+                [33mstroke-linejoin[39m=[32m"round"[39m
+                [33mstroke-width[39m=[32m"2"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"mt-1 text-sm text-gray-500"[39m
+        [36m>[39m
+          [0mSearch by model name. More search fields will be available in future updates.[0m
+        [36m</p>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"py-8"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33maria-hidden[39m=[32m"true"[39m
+          [33mclass[39m=[32m"w-full mb-4"[39m
+          [33mdata-testid[39m=[32m"skeleton-table"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"
+    bg-gray-200 dark:bg-gray-700
+    animate-pulse
+   flex items-center h-12 mb-2 rounded"[39m
+            [33mstyle[39m=[32m"border-radius: 0.25rem;"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"
+    bg-gray-200 dark:bg-gray-700
+    animate-pulse
+   flex items-center h-12 mb-2 rounded"[39m
+            [33mstyle[39m=[32m"border-radius: 0.25rem;"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"
+    bg-gray-200 dark:bg-gray-700
+    animate-pulse
+   flex items-center h-12 mb-2 rounded"[39m
+            [33mstyle[39m=[32m"border-radius: 0.25rem;"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"
+    bg-gray-200 dark:bg-gray-700
+    animate-pulse
+   flex items-center h-12 mb-2 rounded"[39m
+            [33mstyle[39m=[32m"border-radius: 0.25rem;"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"
+    bg-gray-200 dark:bg-gray-700
+    animate-pulse
+   flex items-center h-12 mb-2 rounded"[39m
+            [33mstyle[39m=[32m"border-radius: 0.25rem;"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mst       [36m<div[39m
+            [33mclass[39m=[32m"
+    bg-gray-200 dark:bg-gray-700
+    animate-pulse
+   flex items-center h-12 mb-2 rounded"[39m
+            [33mstyle[39m=[32m"border-radius: 0.25rem;"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"
+    bg-gray-200 dark:bg-gray-700
+    animate-pulse
+   flex items-center h-12 mb-2 rounded"[39m
+            [33mstyle[39m=[32m"border-radius: 0.25rem;"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"
+    bg-gray-200 dark:bg-gray-700
+    animate-pulse
+   flex items-center h-12 mb-2 rounded"[39m
+            [33mstyle[39m=[32m"border-radius: 0.25rem;"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"
+    bg-gray-200 dark:bg-gray-700
+    animate-pulse
+   flex items-center h-12 mb-2 rounded"[39m
+            [33mstyle[39m=[32m"border-radius: 0.25rem;"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"mt-4 text-sm text-gray-500"[39m
+      [36m>[39m
+        [36m<p>[39m
+          [0mNote: This table displays GPU listings data with calculated utility scores.[0m
+        [36m</p>[39m
+        [36m<p>[39m
+          [0mClick on column headers to sort the data.[0m
+        [36m</p>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+yle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"h-4 bg-gray-300 dark:bg-gray-600 rounded mx-4"[39m
+              [33mstyle[39m=[32m"width: 14%;"[39m
+            [36m/>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"mt-4 text-sm text-gray-500"[39m
+      [36m>[39m
+        [36m<p>[39m
+          [0mNote: This table displays GPU listings data with calculated utility scores.[0m
+        [36m</p>[39m
+        [36m<p>[39m
+          [0mClick on column headers to sort the data.[0m
+        [36m</p>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/app/listings/__tests__/ListingsTable.test.tsx:118:19
+ ❯ src/app/listings/__tests__/ListingsTable.test.tsx:118:19
+    116|     render(<ListingsPage />, { wrapper: createWrapper() });
+    117|     
+    118|     expect(screen.getByText('Loading listings data...')).toBeInTheDocu…
+       |                   ^
+    119|   });
+    120| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/18]⎯
+
+    116|     render(<ListingsPage />, { wrapper: createWrapper() });
+    117|     
+    118|     expect(screen.getByText('Loading listings data...')).toBeInTheDocu…
+       |                   ^
+    119|   });
+    120| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/18]⎯
+
