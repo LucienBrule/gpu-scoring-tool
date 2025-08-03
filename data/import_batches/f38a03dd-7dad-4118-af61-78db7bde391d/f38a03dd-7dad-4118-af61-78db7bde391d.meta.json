@@ -1,0 +1,9 @@
+{
+  "batch_id": "f38a03dd-7dad-4118-af61-78db7bde391d",
+  "filename": "test_raw_pipeline.csv",
+  "uploaded_at": "2025-08-01T20:32:45.064161+00:00",
+  "row_count": 4,
+  "rejected_rows": 0,
+  "file_size": 282,
+  "status": "uploaded"
+}

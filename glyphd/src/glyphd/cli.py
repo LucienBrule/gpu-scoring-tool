@@ -120,7 +120,17 @@ def init_db(db_path: str, force: bool):
         sys.exit(1)
 
     # Create the database
-    from glyphd.sqlite.models import Base, SchemaVersion
+    from glyphd.sqlite.models import (
+        Base, 
+        SchemaVersion, 
+        ImportBatch, 
+        Model, 
+        Listing, 
+        ScoredListing, 
+        QuantizedListing,
+        ListingSnapshot,
+        ListingDelta
+    )
 
     engine = create_engine(f"sqlite:///{db_path}")
     Base.metadata.create_all(engine)

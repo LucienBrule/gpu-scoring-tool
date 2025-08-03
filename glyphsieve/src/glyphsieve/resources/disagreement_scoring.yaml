@@ -1,0 +1,29 @@
+# Disagreement scoring configuration for ML-Rules disagreement analysis
+# These parameters control how disagreements between rule-based and ML classification are scored and prioritized
+
+# Confidence level thresholds for ML predictions
+high_confidence_threshold: 0.8    # ML scores > 0.8 are considered high confidence
+medium_confidence_threshold: 0.6  # ML scores 0.6-0.8 are considered medium confidence
+                                  # ML scores < 0.6 are considered low confidence
+
+# Priority scoring weights (must sum to 1.0)
+# These determine the relative importance of different factors in priority calculation
+confidence_weight: 0.4           # Weight for ML confidence score (higher confidence = higher priority)
+disagreement_type_weight: 0.3    # Weight for disagreement type (some types more important than others)
+text_complexity_weight: 0.2      # Weight for text complexity (complex cases may need more review)
+frequency_weight: 0.1            # Weight for pattern frequency (rare patterns may be more interesting)
+
+# Type-specific priority multipliers
+# These adjust priority based on the type of disagreement
+rules_unknown_ml_gpu_multiplier: 1.2    # Rules=UNKNOWN, ML=GPU cases (potential missed GPUs)
+rules_gpu_ml_unknown_multiplier: 1.0    # Rules=GPU, ML=UNKNOWN cases (potential false positives)
+
+# Text complexity scoring parameters
+# Used to normalize text length features in priority calculation
+max_title_length: 200            # Maximum title length for normalization
+max_bulk_notes_length: 1000      # Maximum bulk notes length for normalization
+
+# Priority score scaling
+# Final priority scores are scaled to this range
+min_priority_score: 1.0          # Minimum priority score (lowest priority)
+max_priority_score: 10.0         # Maximum priority score (highest priority)

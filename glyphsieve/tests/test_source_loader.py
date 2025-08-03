@@ -83,9 +83,17 @@ class TestDummySourceLoader:
 
         # Check that all expected fields are present
         expected_fields = {
-            "model", "condition", "price", "quantity", "seller",
-            "geographic_region", "listing_age", "source_url",
-            "source_type", "bulk_notes", "title"
+            "model",
+            "condition",
+            "price",
+            "quantity",
+            "seller",
+            "geographic_region",
+            "listing_age",
+            "source_url",
+            "source_type",
+            "bulk_notes",
+            "title",
         }
 
         for item in data:
@@ -151,14 +159,22 @@ class TestDummySourceLoader:
             output_path = Path(temp_dir) / "test_output.csv"
             self.loader.to_input_csv(data, output_path)
 
-            with open(output_path, 'r', encoding='utf-8') as csvfile:
+            with open(output_path, "r", encoding="utf-8") as csvfile:
                 reader = csv.reader(csvfile)
                 headers = next(reader)
 
                 expected_headers = [
-                    "model", "condition", "price", "quantity", "seller",
-                    "geographic_region", "listing_age", "source_url",
-                    "source_type", "bulk_notes", "title"
+                    "model",
+                    "condition",
+                    "price",
+                    "quantity",
+                    "seller",
+                    "geographic_region",
+                    "listing_age",
+                    "source_url",
+                    "source_type",
+                    "bulk_notes",
+                    "title",
                 ]
 
                 assert headers == expected_headers
@@ -171,7 +187,7 @@ class TestDummySourceLoader:
             output_path = Path(temp_dir) / "test_output.csv"
             self.loader.to_input_csv(data, output_path)
 
-            with open(output_path, 'r', encoding='utf-8') as csvfile:
+            with open(output_path, "r", encoding="utf-8") as csvfile:
                 reader = csv.DictReader(csvfile)
                 csv_data = list(reader)
 
@@ -204,7 +220,7 @@ class TestDummySourceLoader:
             self.loader.to_input_csv(data, output_path)
 
             # Verify the file can be read back correctly
-            with open(output_path, 'r', encoding='utf-8') as csvfile:
+            with open(output_path, "r", encoding="utf-8") as csvfile:
                 reader = csv.DictReader(csvfile)
                 csv_data = list(reader)
 
@@ -213,9 +229,17 @@ class TestDummySourceLoader:
 
                 # All records should have all required fields
                 expected_fields = {
-                    "model", "condition", "price", "quantity", "seller",
-                    "geographic_region", "listing_age", "source_url",
-                    "source_type", "bulk_notes", "title"
+                    "model",
+                    "condition",
+                    "price",
+                    "quantity",
+                    "seller",
+                    "geographic_region",
+                    "listing_age",
+                    "source_url",
+                    "source_type",
+                    "bulk_notes",
+                    "title",
                 }
 
                 for row in csv_data:
@@ -238,7 +262,7 @@ class TestDummySourceLoader:
             # File should exist with just headers
             assert output_path.exists()
 
-            with open(output_path, 'r', encoding='utf-8') as csvfile:
+            with open(output_path, "r", encoding="utf-8") as csvfile:
                 reader = csv.reader(csvfile)
                 headers = next(reader)
 

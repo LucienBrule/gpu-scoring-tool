@@ -11,7 +11,11 @@ import tempfile
 import pandas as pd
 import pytest
 
-from glyphsieve.core.heuristics import QuantizationHeuristic, apply_heuristics, load_heuristic_config
+from glyphsieve.core.heuristics import (
+    QuantizationHeuristic,
+    apply_heuristics,
+    load_heuristic_config,
+)
 from glyphsieve.models.heuristic import QuantizationHeuristicConfig
 
 
@@ -101,7 +105,7 @@ def test_quantization_heuristic_evaluate_capable():
 
     # Check that the GPU is flagged as quantization-capable
     assert "quantization_capable" in result
-    assert result["quantization_capable"] == True
+    assert result["quantization_capable"]
 
 
 def test_quantization_heuristic_evaluate_not_capable_vram():
@@ -124,7 +128,7 @@ def test_quantization_heuristic_evaluate_not_capable_vram():
 
     # Check that the GPU is flagged as not quantization-capable
     assert "quantization_capable" in result
-    assert result["quantization_capable"] == False
+    assert not result["quantization_capable"]
 
 
 def test_quantization_heuristic_evaluate_not_capable_tdp():
@@ -147,7 +151,7 @@ def test_quantization_heuristic_evaluate_not_capable_tdp():
 
     # Check that the GPU is flagged as not quantization-capable
     assert "quantization_capable" in result
-    assert result["quantization_capable"] == False
+    assert not result["quantization_capable"]
 
 
 def test_quantization_heuristic_evaluate_not_capable_mig():
@@ -170,7 +174,7 @@ def test_quantization_heuristic_evaluate_not_capable_mig():
 
     # Check that the GPU is flagged as not quantization-capable
     assert "quantization_capable" in result
-    assert result["quantization_capable"] == False
+    assert not result["quantization_capable"]
 
 
 def test_quantization_heuristic_evaluate_boundary():
@@ -193,7 +197,7 @@ def test_quantization_heuristic_evaluate_boundary():
 
     # Check that the GPU is flagged as quantization-capable
     assert "quantization_capable" in result
-    assert result["quantization_capable"] == True
+    assert result["quantization_capable"]
 
 
 def test_quantization_heuristic_evaluate_missing_fields():
@@ -209,7 +213,7 @@ def test_quantization_heuristic_evaluate_missing_fields():
 
     # Check that the GPU is flagged as not quantization-capable
     assert "quantization_capable" in result
-    assert result["quantization_capable"] == False
+    assert not result["quantization_capable"]
 
 
 def test_quantization_heuristic_evaluate_null_fields():
@@ -225,7 +229,7 @@ def test_quantization_heuristic_evaluate_null_fields():
 
     # Check that the GPU is flagged as not quantization-capable
     assert "quantization_capable" in result
-    assert result["quantization_capable"] == False
+    assert not result["quantization_capable"]
 
 
 def test_apply_heuristics():
@@ -269,16 +273,16 @@ RTX_4500_ADA,24,210,4,false,Ada
 
         # Check that the heuristic is correctly applied
         h100_row = output_df[output_df["canonical_model"] == "H100_PCIE_80GB"].iloc[0]
-        assert h100_row["quantization_capable"] == False  # TDP > 300
+        assert not h100_row["quantization_capable"]  # TDP > 300
 
         rtx_a6000_row = output_df[output_df["canonical_model"] == "RTX_A6000"].iloc[0]
-        assert rtx_a6000_row["quantization_capable"] == False  # MIG = 0
+        assert not rtx_a6000_row["quantization_capable"]  # MIG = 0
 
         rtx_a4000_row = output_df[output_df["canonical_model"] == "RTX_A4000"].iloc[0]
-        assert rtx_a4000_row["quantization_capable"] == False  # VRAM < 24, MIG = 0
+        assert not rtx_a4000_row["quantization_capable"]  # VRAM < 24, MIG = 0
 
         rtx_4500_ada_row = output_df[output_df["canonical_model"] == "RTX_4500_ADA"].iloc[0]
-        assert rtx_4500_ada_row["quantization_capable"] == True  # Meets all criteria
+        assert rtx_4500_ada_row["quantization_capable"]  # Meets all criteria
 
     finally:
         # Clean up the temporary files
@@ -328,7 +332,7 @@ min_mig_support: 7
 
         # Check that the heuristic is correctly applied with the custom configuration
         rtx_4500_ada_row = output_df[output_df["canonical_model"] == "RTX_4500_ADA"].iloc[0]
-        assert rtx_4500_ada_row["quantization_capable"] == False  # VRAM < 32, TDP > 200, MIG < 7
+        assert not rtx_4500_ada_row["quantization_capable"]  # VRAM < 32, TDP > 200, MIG < 7
 
     finally:
         # Clean up the temporary files

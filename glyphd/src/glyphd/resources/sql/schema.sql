@@ -196,3 +196,60 @@ AFTER UPDATE ON quantized_listings
 BEGIN
     UPDATE quantized_listings SET updated_at = CURRENT_TIMESTAMP WHERE id = NEW.id;
 END;
+
+-- Listing Snapshots table for forecasting and price history tracking
+-- Stores point-in-time snapshots of listing data to enable delta computation
+CREATE TABLE IF NOT EXISTS listing_snapshots (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    model TEXT NOT NULL,             -- GPU model name
+    price_usd REAL NOT NULL,         -- Price in USD at time of snapshot
+    score REAL NOT NULL,             -- Score at time of snapshot
+    quantization_capacity TEXT,      -- JSON data for quantization capacity
+    seen_at TIMESTAMP NOT NULL,      -- When the listing was observed
+    seller TEXT,                     -- Seller name
+    region TEXT,                     -- Region (e.g., 'US', 'EU')
+    source_url TEXT,                 -- Source URL of the listing
+    heuristics TEXT,                 -- JSON data for heuristics
+    
+    -- Metadata
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create indexes for faster lookups
+CREATE INDEX IF NOT EXISTS idx_listing_snapshots_model ON listing_snapshots(model);
+CREATE INDEX IF NOT EXISTS idx_listing_snapshots_seen_at ON listing_snapshots(seen_at);
+CREATE INDEX IF NOT EXISTS idx_listing_snapshots_source_url ON listing_snapshots(source_url);
+
+-- Listing Deltas table for storing computed deltas between successive snapshots
+-- Enables price volatility analysis, trend detection, and forecasting
+CREATE TABLE IF NOT EXISTS listing_deltas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    
+    -- Foreign keys to snapshots
+    current_snapshot_id INTEGER NOT NULL,
+    previous_snapshot_id INTEGER NOT NULL,
+    
+    -- Delta computations
+    price_delta REAL NOT NULL,       -- curr.price_usd - prev.price_usd
+    price_delta_pct REAL NOT NULL,   -- price_delta / prev.price_usd * 100
+    score_delta REAL NOT NULL,       -- curr.score - prev.score
+    
+    -- Context fields from snapshots
+    model TEXT NOT NULL,             -- GPU model name
+    region TEXT,                     -- Region
+    source_url TEXT,                 -- Source URL
+    
+    -- Metadata
+    timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (current_snapshot_id) REFERENCES listing_snapshots(id) ON DELETE CASCADE,
+    FOREIGN KEY (previous_snapshot_id) REFERENCES listing_snapshots(id) ON DELETE CASCADE
+);
+
+-- Create indexes for faster lookups and filtering
+CREATE INDEX IF NOT EXISTS idx_listing_deltas_model ON listing_deltas(model);
+CREATE INDEX IF NOT EXISTS idx_listing_deltas_timestamp ON listing_deltas(timestamp);
+CREATE INDEX IF NOT EXISTS idx_listing_deltas_price_delta_pct ON listing_deltas(price_delta_pct);
+CREATE INDEX IF NOT EXISTS idx_listing_deltas_current_snapshot ON listing_deltas(current_snapshot_id);
+CREATE INDEX IF NOT EXISTS idx_listing_deltas_previous_snapshot ON listing_deltas(previous_snapshot_id);

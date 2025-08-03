@@ -1,0 +1,152 @@
+evaluation_timestamp: '2025-07-31T18:56:50.605673Z'
+dataset_info:
+  total_samples: 173
+  positive_predictions: 123
+  negative_predictions: 50
+  positive_ratio: 0.7109826589595376
+score_statistics:
+  mean: 0.6348134561145957
+  median: 0.7016678319342347
+  std: 0.27814000577093556
+  min: 0.0964821131433004
+  max: 0.990759200194641
+  q25: 0.4798168623272997
+  q75: 0.9037528033634012
+confidence_distribution:
+  high_confidence_0.8+: 55
+  medium_confidence_0.6-0.8: 49
+  low_confidence_0.4-0.6: 32
+  very_low_confidence_<0.4: 37
+top_10_predictions:
+- title: NVIDIA RTX 6000 Ada
+  ml_score: 0.990759200194641
+  ml_is_gpu: 1
+- title: NVIDIA RTX 6000 Ada
+  ml_score: 0.990759200194641
+  ml_is_gpu: 1
+- title: NVIDIA RTX 6000 Ada
+  ml_score: 0.9871116781750688
+  ml_is_gpu: 1
+- title: NVIDIA RTX 6000 Ada
+  ml_score: 0.9871116781750688
+  ml_is_gpu: 1
+- title: NVIDIA RTX 6000 Ada
+  ml_score: 0.9871116781750688
+  ml_is_gpu: 1
+- title: NVIDIA RTX 6000 Ada
+  ml_score: 0.9871116781750688
+  ml_is_gpu: 1
+- title: NVIDIA RTX 6000 Ada
+  ml_score: 0.9871116781750688
+  ml_is_gpu: 1
+- title: NVIDIA RTX 6000 Ada
+  ml_score: 0.9869983595843216
+  ml_is_gpu: 1
+- title: NVIDIA RTX 6000 Ada
+  ml_score: 0.9861193760752242
+  ml_is_gpu: 1
+- title: NVIDIA RTX 6000 Ada
+  ml_score: 0.9856492055950951
+  ml_is_gpu: 1
+ambiguous_predictions:
+  count: 32
+  cases:
+  - title: RTX A6000
+    ml_score: 0.5103757267675546
+    ml_is_gpu: 1
+  - title: NVIDIA A40
+    ml_score: 0.5325333143097057
+    ml_is_gpu: 1
+  - title: NVIDIA A40
+    ml_score: 0.4798168623272997
+    ml_is_gpu: 0
+  - title: NVIDIA A40
+    ml_score: 0.5002799216887241
+    ml_is_gpu: 1
+  - title: NVIDIA A40
+    ml_score: 0.4798168623272997
+    ml_is_gpu: 0
+  - title: NVIDIA A40
+    ml_score: 0.4798168623272997
+    ml_is_gpu: 0
+  - title: NVIDIA A40
+    ml_score: 0.4798168623272997
+    ml_is_gpu: 0
+  - title: NVIDIA A40
+    ml_score: 0.4961705828169954
+    ml_is_gpu: 0
+  - title: NVIDIA A40
+    ml_score: 0.4621273159792579
+    ml_is_gpu: 0
+  - title: NVIDIA A40
+    ml_score: 0.4798168623272997
+    ml_is_gpu: 0
+  - title: NVIDIA A40
+    ml_score: 0.4798168623272997
+    ml_is_gpu: 0
+  - title: RTX A4000
+    ml_score: 0.5308408659438807
+    ml_is_gpu: 1
+  - title: RTX A4000
+    ml_score: 0.5355905937659696
+    ml_is_gpu: 1
+  - title: RTX A4000
+    ml_score: 0.5539243695580929
+    ml_is_gpu: 1
+  - title: RTX A4000
+    ml_score: 0.539845129662076
+    ml_is_gpu: 1
+  - title: RTX A4000
+    ml_score: 0.4965947635776185
+    ml_is_gpu: 0
+  - title: NVIDIA A2
+    ml_score: 0.45819113126955097
+    ml_is_gpu: 0
+  - title: NVIDIA A2
+    ml_score: 0.5255018782925426
+    ml_is_gpu: 1
+  - title: NVIDIA A2
+    ml_score: 0.5286688710312596
+    ml_is_gpu: 1
+  - title: NVIDIA A2
+    ml_score: 0.5432006716772865
+    ml_is_gpu: 1
+  - title: NVIDIA A2
+    ml_score: 0.5506055100267413
+    ml_is_gpu: 1
+  - title: NVIDIA A2
+    ml_score: 0.45819113126955097
+    ml_is_gpu: 0
+  - title: NVIDIA A2
+    ml_score: 0.5255018782925426
+    ml_is_gpu: 1
+  - title: NVIDIA A2
+    ml_score: 0.5286688710312596
+    ml_is_gpu: 1
+  - title: NVIDIA A100 40GB PCIe
+    ml_score: 0.5413539343120918
+    ml_is_gpu: 1
+  - title: NVIDIA A100 40GB PCIe
+    ml_score: 0.4953697021633952
+    ml_is_gpu: 0
+  - title: NVIDIA A800 Active 40GB
+    ml_score: 0.5264345584387431
+    ml_is_gpu: 1
+  - title: NVIDIA A800 Active 40GB
+    ml_score: 0.5264345584387431
+    ml_is_gpu: 1
+  - title: NVIDIA A800 Active 40GB
+    ml_score: 0.5961364972604059
+    ml_is_gpu: 1
+  - title: NVIDIA A800 Active 40GB
+    ml_score: 0.5961364972604059
+    ml_is_gpu: 1
+  - title: NVIDIA A800 Active 40GB
+    ml_score: 0.5509983283997028
+    ml_is_gpu: 1
+  - title: NVIDIA A800 Active 40GB
+    ml_score: 0.4312084174558789
+    ml_is_gpu: 0
+model_info:
+  model_path: ../models/gpu_classifier.pkl
+  model_type: TF-IDF + Logistic Regression

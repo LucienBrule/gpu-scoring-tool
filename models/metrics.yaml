@@ -1,0 +1,97 @@
+model_info:
+  model_type: TF-IDF + Logistic Regression
+  training_timestamp: '2025-08-01T01:43:39.054470Z'
+  model_path: models/gpu_classifier_v2.pkl
+  cv_folds: 5
+  random_state: 42
+hyperparameters:
+  classifier__C: 1.0
+  classifier__solver: liblinear
+  tfidf__max_df: 0.95
+  tfidf__max_features: 5000
+  tfidf__min_df: 2
+  tfidf__ngram_range: !!python/tuple
+  - 1
+  - 2
+performance:
+  test_accuracy: 1.0
+  test_precision: 1.0
+  test_recall: 1.0
+  test_f1: 1.0
+  train_accuracy: 1.0
+  train_precision: 1.0
+  train_recall: 1.0
+  train_f1: 1.0
+training_data:
+  samples: 8424
+  class_distribution:
+    gpu_count: 3583
+    non_gpu_count: 4841
+    gpu_ratio: 0.425332383665717
+cross_validation:
+  best_f1_score: !!python/object/apply:numpy._core.multiarray.scalar
+  - !!python/object/apply:numpy.dtype
+    args:
+    - f8
+    - false
+    - true
+    state: !!python/tuple
+    - 3
+    - <
+    - null
+    - null
+    - null
+    - -1
+    - -1
+    - 0
+  - !!binary |
+    AAAAAAAA8D8=
+  detailed_scores:
+    test_accuracy:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    test_precision:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    test_recall:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    test_f1:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    train_accuracy:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    train_precision:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    train_recall:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    train_f1:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0

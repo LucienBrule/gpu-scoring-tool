@@ -18,8 +18,8 @@ from glyphd.sqlite.models import (
     Listing,
     Model,
     QuantizedListing,
-    ScoredListing,
     SchemaVersion,
+    ScoredListing,
 )
 
 
@@ -396,7 +396,7 @@ class TestSchema(unittest.TestCase):
     def test_sql_loader(self):
         """Test that schema.sql can be loaded via ResourceContext."""
         from glyphd.core.resources.resource_context import GlyphdResourceContext
-        
+
         # Create a resource context
         resource_context = GlyphdResourceContext()
 

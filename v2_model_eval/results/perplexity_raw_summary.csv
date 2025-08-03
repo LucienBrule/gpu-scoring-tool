@@ -1,0 +1,10 @@
+metric,value
+Total Samples,173
+Agreement Count,149
+Agreement Rate,0.8613
+Disagreement Count,24
+Disagreement Rate,0.1387
+V1 GPU Predictions,123
+V1 GPU Rate,0.7110
+V2 GPU Predictions,147
+V2 GPU Rate,0.8497

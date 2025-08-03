@@ -34,10 +34,7 @@ def get_default_output_path(input_file: str) -> str:
 
 def get_scoring_strategy(strategy_name: str) -> Any:
     """Get the scoring strategy based on the strategy name."""
-    from glyphsieve.core.scoring import (
-        EnhancedWeightedScorer,
-        WeightedAdditiveScorer,
-    )
+    from glyphsieve.core.scoring import EnhancedWeightedScorer, WeightedAdditiveScorer
 
     if strategy_name == "weighted":
         return WeightedAdditiveScorer()

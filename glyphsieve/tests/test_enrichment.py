@@ -12,7 +12,12 @@ import pandas as pd
 import pytest
 
 from glyphsieve.core.enrichment import enrich_csv, enrich_listings, load_gpu_specs
-from glyphsieve.models.gpu import EnrichedGPUListingDTO, GPUListingDTO, GPUMetadata, GPURegistry
+from glyphsieve.models.gpu import (
+    EnrichedGPUListingDTO,
+    GPUListingDTO,
+    GPUMetadata,
+    GPURegistry,
+)
 
 
 def test_load_gpu_specs():
@@ -41,7 +46,7 @@ def test_load_gpu_specs():
     assert rtx_a6000.vram_gb == 48
     assert rtx_a6000.tdp_watts == 300
     assert rtx_a6000.mig_support == 0
-    assert rtx_a6000.nvlink == True
+    assert rtx_a6000.nvlink
     assert rtx_a6000.generation == "Ampere"
 
 
@@ -79,7 +84,7 @@ gpus:
         assert test_gpu.vram_gb == 16
         assert test_gpu.tdp_watts == 150
         assert test_gpu.mig_support == 4
-        assert test_gpu.nvlink == True
+        assert test_gpu.nvlink
         assert test_gpu.generation == "Test"
 
     finally:
@@ -128,7 +133,7 @@ def test_enrich_listings():
     assert rtx_a6000.vram_gb == 48
     assert rtx_a6000.tdp_w == 300
     assert rtx_a6000.mig_capable == 0
-    assert rtx_a6000.nvlink == True
+    assert rtx_a6000.nvlink
     assert rtx_a6000.generation == "Ampere"
     assert rtx_a6000.slots == 2
     assert rtx_a6000.form_factor == "Dual-slot"
@@ -138,7 +143,7 @@ def test_enrich_listings():
     assert rtx_a5000.vram_gb == 24
     assert rtx_a5000.tdp_w == 230
     assert rtx_a5000.mig_capable == 0
-    assert rtx_a5000.nvlink == True
+    assert rtx_a5000.nvlink
     assert rtx_a5000.generation == "Ampere"
     assert rtx_a5000.slots == 2
     assert rtx_a5000.form_factor == "Dual-slot"
@@ -149,7 +154,7 @@ def test_enrich_listings():
     assert unknown.vram_gb == 0
     assert unknown.tdp_w == 0
     assert unknown.mig_capable == 0
-    assert unknown.nvlink == False
+    assert not unknown.nvlink
     assert unknown.generation is None
     assert unknown.slots == 1
     assert unknown.form_factor == "Standard"
@@ -228,7 +233,7 @@ def test_enrich_csv():
         assert rtx_a6000_row["mig_capable"] == 0
         assert rtx_a6000_row["slots"] == 2
         assert rtx_a6000_row["form_factor"] == "Dual-slot"
-        assert rtx_a6000_row["nvlink"] == True
+        assert rtx_a6000_row["nvlink"]
         assert rtx_a6000_row["generation"] == "Ampere"
 
         rtx_a5000_row = output_df[output_df["canonical_model"] == "RTX_A5000"].iloc[0]
@@ -237,7 +242,7 @@ def test_enrich_csv():
         assert rtx_a5000_row["mig_capable"] == 0
         assert rtx_a5000_row["slots"] == 2
         assert rtx_a5000_row["form_factor"] == "Dual-slot"
-        assert rtx_a5000_row["nvlink"] == True
+        assert rtx_a5000_row["nvlink"]
         assert rtx_a5000_row["generation"] == "Ampere"
 
         # Check that unknown models have default values and warnings
@@ -247,7 +252,7 @@ def test_enrich_csv():
         assert unknown_row["mig_capable"] == 0
         assert unknown_row["slots"] == 1
         assert unknown_row["form_factor"] == "Standard"
-        assert unknown_row["nvlink"] == False
+        assert not unknown_row["nvlink"]
         assert pd.isna(unknown_row["generation"])
         assert "not found in GPU registry" in unknown_row["warnings"]
 

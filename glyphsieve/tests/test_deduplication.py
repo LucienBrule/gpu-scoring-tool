@@ -9,7 +9,12 @@ from unittest.mock import patch
 import numpy as np
 import pandas as pd
 
-from glyphsieve.core.deduplication import dedup_csv, find_duplicates, generate_embeddings, normalize_url
+from glyphsieve.core.deduplication import (
+    dedup_csv,
+    find_duplicates,
+    generate_embeddings,
+    normalize_url,
+)
 
 
 class TestURLNormalization:

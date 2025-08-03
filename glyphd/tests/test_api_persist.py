@@ -161,3 +161,101 @@ def test_import_endpoint_single_listing(client: TestClient) -> None:
     assert result_data["record_count"] == 1
     assert result_data["first_model"] == "H100_PCIE_80GB"
     assert result_data["last_model"] == "H100_PCIE_80GB"
+
+
+def test_ml_is_gpu_endpoint_valid_input(client: TestClient) -> None:
+    """Test the ML GPU classification endpoint with valid input."""
+    # Test with a typical GPU title
+    request_data = {"title": "NVIDIA GeForce RTX 4090 24GB GDDR6X"}
+
+    response = client.post("/api/ml/is-gpu", json=request_data)
+
+    # Verify response status
+    assert response.status_code == 200
+
+    # Parse response data
+    result_data = response.json()
+
+    # Verify response structure
+    assert "ml_is_gpu" in result_data
+    assert "ml_score" in result_data
+
+    # Verify response types
+    assert isinstance(result_data["ml_is_gpu"], bool)
+    assert isinstance(result_data["ml_score"], float)
+
+    # Verify score is in valid range
+    assert 0.0 <= result_data["ml_score"] <= 1.0
+
+
+def test_ml_is_gpu_endpoint_non_gpu_input(client: TestClient) -> None:
+    """Test the ML GPU classification endpoint with non-GPU input."""
+    # Test with a non-GPU title
+    request_data = {"title": "Dell OptiPlex 7090 Desktop Computer"}
+
+    response = client.post("/api/ml/is-gpu", json=request_data)
+
+    # Verify response status
+    assert response.status_code == 200
+
+    # Parse response data
+    result_data = response.json()
+
+    # Verify response structure
+    assert "ml_is_gpu" in result_data
+    assert "ml_score" in result_data
+
+    # Verify response types
+    assert isinstance(result_data["ml_is_gpu"], bool)
+    assert isinstance(result_data["ml_score"], float)
+
+    # Verify score is in valid range
+    assert 0.0 <= result_data["ml_score"] <= 1.0
+
+
+def test_ml_is_gpu_endpoint_empty_title(client: TestClient) -> None:
+    """Test the ML GPU classification endpoint with empty title."""
+    request_data = {"title": ""}
+
+    response = client.post("/api/ml/is-gpu", json=request_data)
+
+    # Should still return 200 with valid response structure
+    assert response.status_code == 200
+
+    result_data = response.json()
+    assert "ml_is_gpu" in result_data
+    assert "ml_score" in result_data
+    assert isinstance(result_data["ml_is_gpu"], bool)
+    assert isinstance(result_data["ml_score"], float)
+    assert 0.0 <= result_data["ml_score"] <= 1.0
+
+
+def test_ml_is_gpu_endpoint_missing_title(client: TestClient) -> None:
+    """Test the ML GPU classification endpoint with missing title field."""
+    request_data = {}
+
+    response = client.post("/api/ml/is-gpu", json=request_data)
+
+    # Should return 422 for validation error
+    assert response.status_code == 422
+
+
+def test_ml_is_gpu_endpoint_invalid_payload(client: TestClient) -> None:
+    """Test the ML GPU classification endpoint with invalid payload."""
+    # Test with wrong field name
+    request_data = {"name": "NVIDIA GeForce RTX 4090"}
+
+    response = client.post("/api/ml/is-gpu", json=request_data)
+
+    # Should return 422 for validation error
+    assert response.status_code == 422
+
+
+def test_ml_is_gpu_endpoint_non_string_title(client: TestClient) -> None:
+    """Test the ML GPU classification endpoint with non-string title."""
+    request_data = {"title": 12345}
+
+    response = client.post("/api/ml/is-gpu", json=request_data)
+
+    # Should return 422 for validation error
+    assert response.status_code == 422

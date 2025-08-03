@@ -13,6 +13,7 @@ from sqlalchemy import (
     Float,
     ForeignKey,
     Integer,
+    JSON,
     String,
     Text,
 )
@@ -85,6 +86,7 @@ class Model(Base):
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
     updated_at = Column(DateTime, nullable=False, default=datetime.utcnow)
     import_id = Column(String, ForeignKey("import_batches.import_id", ondelete="SET NULL"))
+    import_index = Column(Integer)  # Sequential index within import batch
 
     # Relationships
     import_batch = relationship("ImportBatch", back_populates="models")
@@ -167,6 +169,7 @@ class ScoredListing(Base):
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
     updated_at = Column(DateTime, nullable=False, default=datetime.utcnow)
     import_id = Column(String, ForeignKey("import_batches.import_id", ondelete="SET NULL"))
+    import_index = Column(Integer)  # Sequential index within import batch
 
     # Relationships
     model = relationship("Model", back_populates="scored_listings")
@@ -197,3 +200,67 @@ class QuantizedListing(Base):
     # Relationships
     scored_listing = relationship("ScoredListing", back_populates="quantized_listing")
     import_batch = relationship("ImportBatch", back_populates="quantized_listings")
+
+
+class ListingSnapshot(Base):
+    """
+    Model for capturing historical snapshots of GPU listings for forecasting.
+    
+    Stores point-in-time snapshots of listing data to enable delta computation
+    and price volatility analysis.
+    """
+
+    __tablename__ = "listing_snapshots"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    model = Column(String, nullable=False)
+    price_usd = Column(Float, nullable=False)
+    score = Column(Float, nullable=False)
+    quantization_capacity = Column(JSON)  # Match QuantizationCapacitySpec
+    seen_at = Column(DateTime, nullable=False)
+    seller = Column(String)
+    region = Column(String)
+    source_url = Column(String)
+    heuristics = Column(JSON)
+
+    # Metadata
+    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+
+    # Relationships
+    deltas_as_current = relationship("ListingDelta", foreign_keys="ListingDelta.current_snapshot_id", back_populates="current_snapshot")
+    deltas_as_previous = relationship("ListingDelta", foreign_keys="ListingDelta.previous_snapshot_id", back_populates="previous_snapshot")
+
+
+class ListingDelta(Base):
+    """
+    Model for storing computed deltas between successive listing snapshots.
+    
+    Enables price volatility analysis, trend detection, and forecasting
+    by tracking changes between snapshots.
+    """
+
+    __tablename__ = "listing_deltas"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    
+    # Foreign keys to snapshots
+    current_snapshot_id = Column(Integer, ForeignKey("listing_snapshots.id", ondelete="CASCADE"), nullable=False)
+    previous_snapshot_id = Column(Integer, ForeignKey("listing_snapshots.id", ondelete="CASCADE"), nullable=False)
+    
+    # Delta computations
+    price_delta = Column(Float, nullable=False)  # curr.price_usd - prev.price_usd
+    price_delta_pct = Column(Float, nullable=False)  # price_delta / prev.price_usd * 100
+    score_delta = Column(Float, nullable=False)  # curr.score - prev.score
+    
+    # Context fields from snapshots
+    model = Column(String, nullable=False)
+    region = Column(String)
+    source_url = Column(String)
+    
+    # Metadata
+    timestamp = Column(DateTime, nullable=False, default=datetime.utcnow)
+    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+
+    # Relationships
+    current_snapshot = relationship("ListingSnapshot", foreign_keys=[current_snapshot_id], back_populates="deltas_as_current")
+    previous_snapshot = relationship("ListingSnapshot", foreign_keys=[previous_snapshot_id], back_populates="deltas_as_previous")

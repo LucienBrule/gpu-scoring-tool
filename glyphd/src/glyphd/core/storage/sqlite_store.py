@@ -14,7 +14,9 @@ from sqlalchemy import create_engine, text
 from sqlalchemy.engine import Engine
 
 from glyphd.api.models import GPUListingDTO, ImportMetadata
+from glyphd.core.forecast import compute_delta, create_snapshot_from_listing
 from glyphd.core.storage.interface import ListingStore
+from glyphd.sqlite.models import ListingDelta, ListingSnapshot
 from glyphsieve.core.normalization import fuzzy_match
 
 # Configure logging
@@ -221,10 +223,77 @@ class SqliteListingStore(ListingStore):
                     },
                 )
 
+                # Create snapshot for forecasting
+                self._create_listing_snapshot(conn, listing, import_id)
+
             # Commit the transaction
             conn.commit()
             logger.info(f"Inserted {len(listings)} listings with import ID {import_id}")
             return len(listings)
+
+    def _create_listing_snapshot(self, conn, listing: GPUListingDTO, import_id: str) -> None:
+        """
+        Create a listing snapshot and compute delta if previous snapshot exists.
+        
+        Args:
+            conn: Database connection
+            listing: GPU listing data
+            import_id: Import batch ID
+        """
+        from sqlalchemy.orm import sessionmaker
+        
+        # Create session from connection
+        Session = sessionmaker(bind=conn)
+        session = Session()
+        
+        try:
+            # Create snapshot data
+            snapshot_data = {
+                'canonical_model': listing.canonical_model,
+                'model': listing.canonical_model,
+                'price': listing.price,
+                'score': listing.score,
+                'seller': getattr(listing, 'seller', None),
+                'region': getattr(listing, 'region', None),
+                'source_url': getattr(listing, 'source_url', None),
+                'quantization_capacity': getattr(listing, 'quantization_capacity', None),
+                'heuristics': getattr(listing, 'heuristics', None),
+            }
+            
+            # Create new snapshot
+            current_snapshot = create_snapshot_from_listing(snapshot_data)
+            session.add(current_snapshot)
+            session.flush()  # Get the ID
+            
+            # Look up most recent previous snapshot for the same source_url
+            if current_snapshot.source_url:
+                previous_snapshot = session.query(ListingSnapshot).filter(
+                    ListingSnapshot.source_url == current_snapshot.source_url,
+                    ListingSnapshot.model == current_snapshot.model,
+                    ListingSnapshot.id != current_snapshot.id
+                ).order_by(ListingSnapshot.seen_at.desc()).first()
+                
+                # Compute and store delta if previous snapshot exists
+                if previous_snapshot:
+                    try:
+                        delta = compute_delta(previous_snapshot, current_snapshot)
+                        session.add(delta)
+                        logger.debug(
+                            f"Created delta for {current_snapshot.model}: "
+                            f"price_delta={delta.price_delta:.2f} "
+                            f"({delta.price_delta_pct:.1f}%)"
+                        )
+                    except Exception as e:
+                        logger.warning(f"Failed to compute delta: {e}")
+            
+            session.commit()
+            
+        except Exception as e:
+            session.rollback()
+            logger.error(f"Failed to create snapshot: {e}")
+            raise
+        finally:
+            session.close()
 
     def _get_fuzzy_matched_models(self, model: str) -> List[str]:
         """
@@ -245,7 +314,7 @@ class SqliteListingStore(ListingStore):
         models_dict = {m: [m] for m in all_models}
 
         # Apply fuzzy matching
-        matched_model, score = fuzzy_match(model, models_dict, threshold=70.0)
+        matched_model, score, match_notes = fuzzy_match(model, models_dict, threshold=70.0)
         if matched_model:
             return [matched_model]
         else:

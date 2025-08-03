@@ -1,0 +1,56 @@
+overall_metrics:
+  accuracy: 1.0
+  precision: 1.0
+  recall: 1.0
+  f1_score: 1.0
+  specificity: 1.0
+  npv: 1.0
+  roc_auc: 1.0
+  average_precision: 1.0
+per_class_metrics:
+  non_gpu:
+    precision: 1.0
+    recall: 1.0
+    f1_score: 1.0
+  gpu:
+    precision: 1.0
+    recall: 1.0
+    f1_score: 1.0
+confusion_matrix:
+  tn: 1210
+  fp: 0
+  fn: 0
+  tp: 896
+  matrix:
+  - - 1210
+    - 0
+  - - 0
+    - 896
+classification_report:
+  '0':
+    precision: 1.0
+    recall: 1.0
+    f1-score: 1.0
+    support: 1210.0
+  '1':
+    precision: 1.0
+    recall: 1.0
+    f1-score: 1.0
+    support: 896.0
+  accuracy: 1.0
+  macro avg:
+    precision: 1.0
+    recall: 1.0
+    f1-score: 1.0
+    support: 2106.0
+  weighted avg:
+    precision: 1.0
+    recall: 1.0
+    f1-score: 1.0
+    support: 2106.0
+evaluation_timestamp: '2025-08-01T00:37:32.792038Z'
+dataset_info:
+  test_samples: 2106
+  gpu_samples: 896
+  non_gpu_samples: 1210
+  gpu_ratio: 0.4254510921177588

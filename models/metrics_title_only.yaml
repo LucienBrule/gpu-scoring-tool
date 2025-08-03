@@ -1,0 +1,27 @@
+model_info:
+  type: title_only_gpu_classifier
+  training_timestamp: '2025-07-31T14:09:20.030783'
+  model_path: models/gpu_classifier_v2.pkl
+  cv_folds: 5
+  random_state: 42
+best_hyperparameters:
+  classifier__C: 10.0
+  classifier__solver: liblinear
+  tfidf__max_df: 0.95
+  tfidf__max_features: 5000
+  tfidf__min_df: 1
+  tfidf__ngram_range: !!python/tuple
+  - 1
+  - 2
+cross_validation_scores:
+  precision_mean: 0.9668014425106654
+  precision_std: 0.027127188864338837
+  recall_mean: 0.9676179668794893
+  recall_std: 0.04010723353582798
+  f1_mean: 0.9669609371940453
+  f1_std: 0.030645132479579687
+  accuracy_mean: 0.9720797720797719
+  accuracy_std: 0.025650520559196303
+hyperparameter_search:
+  param_combinations_tested: 288
+  total_fits: 1440

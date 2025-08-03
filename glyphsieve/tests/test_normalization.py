@@ -61,7 +61,7 @@ NO_MATCH_CASES = [
 def test_exact_match():
     """Test exact matching of GPU model names."""
     for title, expected in EXACT_MATCH_CASES:
-        model, score = exact_match(title, CANONICAL_MODELS)
+        model, score, match_notes = exact_match(title, CANONICAL_MODELS)
         assert model == expected
         assert score == 1.0
 
@@ -69,7 +69,7 @@ def test_exact_match():
 def test_regex_match():
     """Test regex matching of GPU model names."""
     for title, expected in REGEX_MATCH_CASES:
-        model, score = regex_match(title, GPU_REGEX_PATTERNS)
+        model, score, match_notes = regex_match(title, GPU_REGEX_PATTERNS)
         assert model == expected
         assert score == 0.9
 
@@ -77,7 +77,7 @@ def test_regex_match():
 def test_fuzzy_match():
     """Test fuzzy matching of GPU model names."""
     for title, expected in FUZZY_MATCH_CASES:
-        model, score = fuzzy_match(title, CANONICAL_MODELS)
+        model, score, match_notes = fuzzy_match(title, CANONICAL_MODELS)
         assert model == expected
         assert score > 0.0
         assert score <= 0.8
@@ -87,17 +87,17 @@ def test_no_match():
     """Test cases where no match should be found."""
     for title in NO_MATCH_CASES:
         # Exact match
-        model, score = exact_match(title, CANONICAL_MODELS)
+        model, score, match_notes = exact_match(title, CANONICAL_MODELS)
         assert model is None
         assert score == 0.0
 
         # Regex match
-        model, score = regex_match(title, GPU_REGEX_PATTERNS)
+        model, score, match_notes = regex_match(title, GPU_REGEX_PATTERNS)
         assert model is None
         assert score == 0.0
 
         # Fuzzy match (with high threshold to ensure no match)
-        model, score = fuzzy_match(title, CANONICAL_MODELS, threshold=95.0)
+        model, score, match_notes = fuzzy_match(title, CANONICAL_MODELS, threshold=95.0)
         assert model is None
         assert score == 0.0
 
@@ -105,7 +105,7 @@ def test_no_match():
 def test_normalize_gpu_model():
     """Test the normalize_gpu_model function."""
     # Test exact match
-    model, match_type, score, is_valid_gpu, unknown_reason = normalize_gpu_model("NVIDIA H100 PCIe 80GB")
+    model, match_type, score, is_valid_gpu, unknown_reason, match_notes = normalize_gpu_model("NVIDIA H100 PCIe 80GB")
     assert model == "H100_PCIE_80GB"
     assert match_type == "exact"
     assert score == 1.0
@@ -113,7 +113,9 @@ def test_normalize_gpu_model():
     assert unknown_reason is None
 
     # Test regex match
-    model, match_type, score, is_valid_gpu, unknown_reason = normalize_gpu_model("NVIDIA H100 PCIe with 80GB memory")
+    model, match_type, score, is_valid_gpu, unknown_reason, match_notes = normalize_gpu_model(
+        "NVIDIA H100 PCIe with 80GB memory"
+    )
     assert model == "H100_PCIE_80GB"
     assert match_type == "regex"
     assert score == 0.9
@@ -121,7 +123,7 @@ def test_normalize_gpu_model():
     assert unknown_reason is None
 
     # Test regex match for hyphenated model number (previously expected to be fuzzy)
-    model, match_type, score, is_valid_gpu, unknown_reason = normalize_gpu_model("NVIDIA H-100 PCIE")
+    model, match_type, score, is_valid_gpu, unknown_reason, match_notes = normalize_gpu_model("NVIDIA H-100 PCIE")
     assert model == "H100_PCIE_80GB"
     assert match_type == "regex"
     assert score == 0.9
@@ -129,7 +131,9 @@ def test_normalize_gpu_model():
     assert unknown_reason is None
 
     # Test fuzzy match with a different example
-    model, match_type, score, is_valid_gpu, unknown_reason = normalize_gpu_model("NVIDIA GeForce RTX 6000 Ada")
+    model, match_type, score, is_valid_gpu, unknown_reason, match_notes = normalize_gpu_model(
+        "NVIDIA GeForce RTX 6000 Ada"
+    )
     assert model == "RTX_6000_ADA"
     # This could be matched by either fuzzy or regex, so we're flexible on the match type
     assert match_type in ["fuzzy", "regex"]
@@ -139,7 +143,9 @@ def test_normalize_gpu_model():
     assert unknown_reason is None
 
     # Test no match
-    model, match_type, score, is_valid_gpu, unknown_reason = normalize_gpu_model("Random text with no GPU model")
+    model, match_type, score, is_valid_gpu, unknown_reason, match_notes = normalize_gpu_model(
+        "Random text with no GPU model"
+    )
     assert model == "UNKNOWN"
     assert match_type == "none"
     assert score == 0.0

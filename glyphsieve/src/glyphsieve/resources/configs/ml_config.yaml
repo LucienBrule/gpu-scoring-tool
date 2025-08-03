@@ -1,0 +1,14 @@
+# ML Configuration for GPU Classification
+# This file configures the machine learning inference parameters for GPU classification
+# during the normalization process.
+
+# Path to the trained ML model file (relative to glyphsieve resources)
+model_path: models/gpu_classifier_v2.pkl
+
+# Confidence threshold for ML predictions (0.0 - 1.0)
+# Predictions with confidence >= threshold will be classified as GPU
+threshold: 0.2
+
+# Whether ML inference is enabled
+# If false, ML stage will be skipped entirely
+enabled: true

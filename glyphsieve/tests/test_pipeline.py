@@ -46,6 +46,7 @@ GPU 2,200.00,RTX 3090,Used"""
                     quantize_capacity=False,
                     force_quantize=False,
                     filter_invalid=False,
+                    min_confidence_score=80.0,
                 )
 
             # Check that the output file exists
@@ -116,6 +117,7 @@ GPU 2,200.00,RTX 3090,Used"""
                     quantize_capacity=False,
                     force_quantize=False,
                     filter_invalid=False,
+                    min_confidence_score=80.0,
                 )
 
             # Check that the output file exists
@@ -222,6 +224,7 @@ GPU 1,100.00,RTX 3080,New"""
                     quantize_capacity=False,
                     force_quantize=False,
                     filter_invalid=False,
+                    min_confidence_score=80.0,
                 )
 
             # Check that each function was called exactly once

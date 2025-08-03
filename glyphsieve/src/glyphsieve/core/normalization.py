@@ -7,10 +7,15 @@ This module provides functions for normalizing GPU model names.
 import json
 import os
 import re
-from typing import Dict, List, Optional, Tuple
+
+# Import ML predictor (lazy import to avoid performance impact when not using ML)
+from typing import TYPE_CHECKING, Dict, List, Optional, Tuple
 
 import pandas as pd
 from rapidfuzz import fuzz
+
+if TYPE_CHECKING:
+    pass
 
 # Define canonical GPU model names based on the Final_Market_Value_GPU_Summary.csv
 # These are transformed into enum-like strings (e.g., RTX_A5000)
@@ -31,34 +36,34 @@ CANONICAL_MODELS = {
     "A16": ["NVIDIA A16", "A16"],
     "RTX_A4000": ["RTX A4000", "A4000"],
     "RTX_A2000_12GB": ["NVIDIA Rtx A2000 12Gb", "RTX A2000", "A2000 12GB", "A2000"],
-    
     # Professional Ada Generation Cards
     "RTX_5000_ADA": ["NVIDIA RTX 5000 Ada", "RTX 5000 Ada", "RTX 5000"],
     "RTX_4500_ADA": ["NVIDIA RTX 4500 Ada", "RTX 4500 Ada", "RTX 4500"],
     "RTX_2000_ADA": ["NVIDIA RTX 2000 Ada", "RTX 2000 Ada", "RTX 2000"],
     "A1000": ["NVIDIA RTX A1000", "RTX A1000", "A1000"],
     "T400": ["NVIDIA T400", "T400"],
-    
     # Professional Ampere Cards
     "RTX_A5500": ["NVIDIA RTX A5500", "RTX A5500", "A5500"],
-    
     # RTX 50 Series Consumer Cards
     "RTX_5090": ["NVIDIA GeForce RTX 5090", "RTX 5090", "RTX5090", "GeForce RTX 5090"],
     "RTX_5080": ["NVIDIA GeForce RTX 5080", "RTX 5080", "RTX5080", "GeForce RTX 5080"],
     "RTX_5070_TI": ["NVIDIA GeForce RTX 5070 Ti", "RTX 5070 Ti", "RTX5070TI", "RTX 5070 TI", "GeForce RTX 5070 Ti"],
     "RTX_5070": ["NVIDIA GeForce RTX 5070", "RTX 5070", "RTX5070", "GeForce RTX 5070"],
-    
     # RTX 40 Series Consumer Cards
     "RTX_4090": ["NVIDIA GeForce RTX 4090", "RTX 4090", "RTX4090", "GeForce RTX 4090"],
     "RTX_4080_SUPER": ["NVIDIA GeForce RTX 4080 SUPER", "RTX 4080 SUPER", "RTX4080SUPER", "GeForce RTX 4080 SUPER"],
     "RTX_4080": ["NVIDIA GeForce RTX 4080", "RTX 4080", "RTX4080", "GeForce RTX 4080"],
-    "RTX_4070_TI_SUPER": ["NVIDIA GeForce RTX 4070 Ti SUPER", "RTX 4070 Ti SUPER", "RTX4070TISUPER", "GeForce RTX 4070 Ti SUPER"],
+    "RTX_4070_TI_SUPER": [
+        "NVIDIA GeForce RTX 4070 Ti SUPER",
+        "RTX 4070 Ti SUPER",
+        "RTX4070TISUPER",
+        "GeForce RTX 4070 Ti SUPER",
+    ],
     "RTX_4070_TI": ["NVIDIA GeForce RTX 4070 Ti", "RTX 4070 Ti", "RTX4070TI", "RTX 4070 TI", "GeForce RTX 4070 Ti"],
     "RTX_4070_SUPER": ["NVIDIA GeForce RTX 4070 SUPER", "RTX 4070 SUPER", "RTX4070SUPER", "GeForce RTX 4070 SUPER"],
     "RTX_4070": ["NVIDIA GeForce RTX 4070", "RTX 4070", "RTX4070", "GeForce RTX 4070"],
     "RTX_4060_TI": ["NVIDIA GeForce RTX 4060 Ti", "RTX 4060 Ti", "RTX4060TI", "RTX 4060 TI", "GeForce RTX 4060 Ti"],
     "RTX_4060": ["NVIDIA GeForce RTX 4060", "RTX 4060", "RTX4060", "GeForce RTX 4060"],
-    
     # RTX 30 Series Consumer Cards
     "RTX_3090_TI": ["NVIDIA GeForce RTX 3090 Ti", "RTX 3090 Ti", "RTX3090TI", "RTX 3090 TI", "GeForce RTX 3090 Ti"],
     "RTX_3090": ["NVIDIA GeForce RTX 3090", "RTX 3090", "RTX3090", "GeForce RTX 3090"],
@@ -69,7 +74,6 @@ CANONICAL_MODELS = {
     "RTX_3060_TI": ["NVIDIA GeForce RTX 3060 Ti", "RTX 3060 Ti", "RTX3060TI", "RTX 3060 TI", "GeForce RTX 3060 Ti"],
     "RTX_3060": ["NVIDIA GeForce RTX 3060", "RTX 3060", "RTX3060", "GeForce RTX 3060"],
     "RTX_3050": ["NVIDIA GeForce RTX 3050", "RTX 3050", "RTX3050", "GeForce RTX 3050"],
-    
     # RTX 20 Series Consumer Cards
     "RTX_2080_TI": ["NVIDIA GeForce RTX 2080 Ti", "RTX 2080 Ti", "RTX2080TI", "RTX 2080 TI", "GeForce RTX 2080 Ti"],
     "RTX_2080_SUPER": ["NVIDIA GeForce RTX 2080 SUPER", "RTX 2080 SUPER", "RTX2080SUPER", "GeForce RTX 2080 SUPER"],
@@ -78,7 +82,6 @@ CANONICAL_MODELS = {
     "RTX_2070": ["NVIDIA GeForce RTX 2070", "RTX 2070", "RTX2070", "GeForce RTX 2070"],
     "RTX_2060_SUPER": ["NVIDIA GeForce RTX 2060 SUPER", "RTX 2060 SUPER", "RTX2060SUPER", "GeForce RTX 2060 SUPER"],
     "RTX_2060": ["NVIDIA GeForce RTX 2060", "RTX 2060", "RTX2060", "GeForce RTX 2060"],
-    
     # GTX 10/16 Series Consumer Cards
     "GTX_1070": ["NVIDIA GeForce GTX 1070", "GTX 1070", "GTX1070", "GeForce GTX 1070"],
     "GTX_1660_TI": ["NVIDIA GeForce GTX 1660 Ti", "GTX 1660 Ti", "GTX1660TI", "GTX 1660 TI", "GeForce GTX 1660 Ti"],
@@ -86,30 +89,23 @@ CANONICAL_MODELS = {
     "GTX_1660": ["NVIDIA GeForce GTX 1660", "GTX 1660", "GTX1660", "GeForce GTX 1660"],
     "GTX_1650_SUPER": ["NVIDIA GeForce GTX 1650 SUPER", "GTX 1650 SUPER", "GTX1650SUPER", "GeForce GTX 1650 SUPER"],
     "GTX_1650": ["NVIDIA GeForce GTX 1650", "GTX 1650", "GTX1650", "GeForce GTX 1650"],
-    
     # GT Series Legacy Cards
     "GT_1030": ["NVIDIA GeForce GT 1030", "GT 1030", "GT1030", "GeForce GT 1030"],
     "GT_730": ["NVIDIA GeForce GT 730", "GT 730", "GT730", "GeForce GT 730"],
     "GT_710": ["NVIDIA GeForce GT 710", "GT 710", "GT710", "GeForce GT 710"],
-    
     # Quadro T Series Professional Cards
     "T2000": ["NVIDIA Quadro T2000", "Quadro T2000", "T2000"],
     "T1000": ["NVIDIA Quadro T1000", "Quadro T1000", "T1000"],
     "T600": ["NVIDIA Quadro T600", "Quadro T600", "T600"],
-    
     # Quadro Legacy Professional Cards
     "QUADRO_M5000": ["NVIDIA Quadro M5000", "Quadro M5000", "M5000"],
     "QUADRO_K5200": ["NVIDIA Quadro K5200", "Quadro K5200", "K5200"],
-    
     # Grid/Tesla Legacy Cards
     "GRID_P4": ["NVIDIA GRID P4", "GRID P4", "P4"],
-    
     # RTX A Series Professional Cards
     "RTX_A400": ["NVIDIA RTX A400", "RTX A400", "A400"],
-    
     # Quadro RTX Series Professional Cards
     "RTX_8000": ["NVIDIA Quadro RTX 8000", "Quadro RTX 8000", "RTX 8000", "RTX8000"],
-    
     # Tesla Series Legacy Cards
     "T4": ["NVIDIA Tesla T4", "Tesla T4", "T4"],
     "K1": ["NVIDIA Tesla K1", "Tesla K1", "GRID K1", "K1"],
@@ -118,7 +114,6 @@ CANONICAL_MODELS = {
     "M60": ["NVIDIA Tesla M60", "Tesla M60", "M60"],
     "P40": ["NVIDIA Tesla P40", "Tesla P40", "P40"],
     "V100": ["NVIDIA Tesla V100", "Tesla V100", "V100"],
-    
     # Legacy GeForce Cards (for better low-confidence fuzzy match handling)
     "GEFORCE_210": ["NVIDIA GeForce 210", "GeForce 210", "210"],
     "GEFORCE_GT_1030": ["NVIDIA GeForce GT 1030", "GeForce GT 1030", "GT 1030"],
@@ -130,7 +125,10 @@ GPU_REGEX_PATTERNS = {
         r"(?i)h[\s-]*100.*(?:pcie|pci).*(?:80gb|memory)|" r"h[\s-]*100.*(?:80gb|memory)|" r"h[\s-]*100.*(?:pcie|pci)"
     ),
     "A100_40GB_PCIE": (
-        r"(?i)(?:cisco\s+)?(?:nvidia\s+)?(?:tesla\s+)?a[\s-]*100.*(?:pcie|pci).*(?:40gb|80gb|memory)|" r"(?:cisco\s+)?(?:nvidia\s+)?(?:tesla\s+)?a[\s-]*100.*(?:40gb|80gb|memory)|" r"(?:cisco\s+)?(?:nvidia\s+)?(?:tesla\s+)?a[\s-]*100.*(?:pcie|pci)|" r"(?:cisco\s+)?(?:nvidia\s+)?(?:tesla\s+)?a[\s-]*100\b(?!\s*0)"
+        r"(?i)(?:cisco\s+)?(?:nvidia\s+)?(?:tesla\s+)?a[\s-]*100.*(?:pcie|pci).*(?:40gb|80gb|memory)|"
+        r"(?:cisco\s+)?(?:nvidia\s+)?(?:tesla\s+)?a[\s-]*100.*(?:40gb|80gb|memory)|"
+        r"(?:cisco\s+)?(?:nvidia\s+)?(?:tesla\s+)?a[\s-]*100.*(?:pcie|pci)|"
+        r"(?:cisco\s+)?(?:nvidia\s+)?(?:tesla\s+)?a[\s-]*100\b(?!\s*0)"
     ),
     "A800_40GB": r"(?i)a[\s-]*800.*(?:40gb|memory)|a[\s-]*800.*active",
     "RTX_PRO_6000_BLACKWELL": r"(?i)(?:rtx|nvidia).*pro.*60+0\b",
@@ -146,23 +144,19 @@ GPU_REGEX_PATTERNS = {
     "A16": r"(?i)(?:nvidia\s+)?a[\s-]*16\b",
     "RTX_A4000": r"(?i)(?:rtx\s+)?a[\s-]*40+0\b",
     "RTX_A2000_12GB": r"(?i)(?:rtx\s+)?a[\s-]*20+0.*(?:12gb|12g\s*b)|rtx.*a[\s-]*20+0",
-    
     # Professional Ada Generation Cards
     "RTX_5000_ADA": r"(?i)(?:rtx|nvidia).*5000.*(?:ada|generation)|rtx.*5000.*ada",
     "RTX_4500_ADA": r"(?i)(?:rtx|nvidia).*4500.*(?:ada|generation)|rtx.*4500",
     "RTX_2000_ADA": r"(?i)(?:rtx|nvidia).*20+0.*(?:ada|generation)|rtx.*20+0.*ada",
     "A1000": r"(?i)(?:nvidia\s+)?(?:rtx\s+)?a[\s-]*10+0\b(?!.*a100)",
     "T400": r"(?i)(?:nvidia\s+)?t[\s-]*40+0\b",
-    
     # Professional Ampere Cards
     "RTX_A5500": r"(?i)(?:nvidia\s+)?(?:rtx\s+)?a[\s-]*55+0\b",
-    
     # RTX 50 Series Consumer Cards
     "RTX_5090": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*50+90\b",
     "RTX_5080": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*50+80\b",
     "RTX_5070_TI": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*50+70[\s-]*ti\b",
     "RTX_5070": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*50+70\b(?!\s*ti)",
-    
     # RTX 40 Series Consumer Cards
     "RTX_4090": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*40+90\b",
     "RTX_4080_SUPER": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*40+80[\s-]*super\b",
@@ -173,7 +167,6 @@ GPU_REGEX_PATTERNS = {
     "RTX_4070": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*40+70\b(?!\s*(?:ti|super))",
     "RTX_4060_TI": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*40+60[\s-]*ti\b",
     "RTX_4060": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*40+60\b(?!\s*ti)",
-    
     # RTX 30 Series Consumer Cards
     "RTX_3090_TI": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*30+90[\s-]*ti\b",
     "RTX_3090": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*30+90\b(?!\s*ti)",
@@ -184,7 +177,6 @@ GPU_REGEX_PATTERNS = {
     "RTX_3060_TI": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*30+60[\s-]*ti\b",
     "RTX_3060": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*30+60\b(?!\s*ti)",
     "RTX_3050": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*30+50\b",
-    
     # RTX 20 Series Consumer Cards
     "RTX_2080_TI": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*20+80[\s-]*ti\b",
     "RTX_2080_SUPER": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*20+80[\s-]*super\b",
@@ -193,7 +185,6 @@ GPU_REGEX_PATTERNS = {
     "RTX_2070": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*20+70\b(?!\s*super)",
     "RTX_2060_SUPER": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*20+60[\s-]*super\b",
     "RTX_2060": r"(?i)(?:geforce\s+)?(?:rtx|nvidia)[\s-]*20+60\b(?!\s*super)",
-    
     # GTX 10/16 Series Consumer Cards
     "GTX_1070": r"(?i)(?:geforce\s+)?(?:gtx|nvidia)[\s-]*10+70\b",
     "GTX_1660_TI": r"(?i)(?:geforce\s+)?(?:gtx|nvidia)[\s-]*16+60[\s-]*ti\b",
@@ -201,30 +192,23 @@ GPU_REGEX_PATTERNS = {
     "GTX_1660": r"(?i)(?:geforce\s+)?(?:gtx|nvidia)[\s-]*16+60\b(?!\s*(?:ti|super))",
     "GTX_1650_SUPER": r"(?i)(?:geforce\s+)?(?:gtx|nvidia)[\s-]*16+50[\s-]*super\b",
     "GTX_1650": r"(?i)(?:geforce\s+)?(?:gtx|nvidia)[\s-]*16+50\b(?!\s*super)",
-    
     # GT Series Legacy Cards
     "GT_1030": r"(?i)(?:geforce\s+)?(?:gt|nvidia)[\s-]*10+30\b",
     "GT_730": r"(?i)(?:geforce\s+)?(?:gt|nvidia)[\s-]*7+30\b",
     "GT_710": r"(?i)(?:geforce\s+)?(?:gt|nvidia)[\s-]*7+10\b",
-    
     # Quadro T Series Professional Cards
     "T2000": r"(?i)(?:nvidia\s+)?(?:quadro\s+)?t[\s-]*20+0\b",
     "T1000": r"(?i)(?:nvidia\s+)?(?:quadro\s+)?t[\s-]*10+0\b",
     "T600": r"(?i)(?:nvidia\s+)?(?:quadro\s+)?t[\s-]*60+0\b",
-    
     # Quadro Legacy Professional Cards
     "QUADRO_M5000": r"(?i)(?:nvidia\s+)?(?:quadro\s+)?m[\s-]*50+0\b",
     "QUADRO_K5200": r"(?i)(?:nvidia\s+)?(?:quadro\s+)?k[\s-]*52+0\b",
-    
     # Grid/Tesla Legacy Cards
     "GRID_P4": r"(?i)(?:nvidia\s+)?(?:grid\s+)?p[\s-]*4\b",
-    
     # RTX A Series Professional Cards
     "RTX_A400": r"(?i)(?:nvidia\s+)?(?:rtx\s+)?a[\s-]*40+0\b(?!.*(?:rtx\s+a40+0|a40+0))",
-    
     # Quadro RTX Series Professional Cards
     "RTX_8000": r"(?i)(?:nvidia\s+)?(?:quadro\s+)?(?:rtx\s+)?8[\s-]*0+0+\b",
-    
     # Tesla Series Legacy Cards
     "T4": r"(?i)(?:nvidia\s+)?(?:tesla\s+)?t[\s-]*4\b",
     "K1": r"(?i)(?:nvidia\s+)?(?:tesla\s+|grid\s+)?k[\s-]*1\b",
@@ -233,7 +217,6 @@ GPU_REGEX_PATTERNS = {
     "M60": r"(?i)(?:nvidia\s+)?(?:tesla\s+)?m[\s-]*60\b",
     "P40": r"(?i)(?:nvidia\s+)?(?:tesla\s+)?p[\s-]*40\b",
     "V100": r"(?i)(?:nvidia\s+)?(?:tesla\s+)?v[\s-]*100\b",
-    
     # Legacy GeForce Cards (for better low-confidence fuzzy match handling)
     "GEFORCE_210": r"(?i)(?:nvidia\s+)?(?:geforce\s+)?2+10\b",
     "GEFORCE_GT_1030": r"(?i)(?:nvidia\s+)?(?:geforce\s+)?(?:gt\s+)?10+30\b",
@@ -328,18 +311,28 @@ def _try_special_a2000_match(
             # Check canonical name
             score = fuzz.token_set_ratio(canonical.lower(), normalized_title)
             if score >= threshold:
-                return canonical, 0.8 * (score / 100.0), f"fuzzy: special A2000 match to canonical '{canonical}' with score {score:.1f}"
+                return (
+                    canonical,
+                    0.8 * (score / 100.0),
+                    f"fuzzy: special A2000 match to canonical '{canonical}' with score {score:.1f}",
+                )
 
             # Check alternatives
             for alt in alternatives:
                 score = fuzz.token_set_ratio(alt.lower(), normalized_title)
                 if score >= threshold:
-                    return canonical, 0.8 * (score / 100.0), f"fuzzy: special A2000 match to alternative '{alt}' with score {score:.1f}"
+                    return (
+                        canonical,
+                        0.8 * (score / 100.0),
+                        f"fuzzy: special A2000 match to alternative '{alt}' with score {score:.1f}",
+                    )
 
     return None, 0.0, None
 
 
-def _find_best_fuzzy_match(normalized_title: str, models: Dict[str, List[str]]) -> Tuple[Optional[str], float, Optional[str]]:
+def _find_best_fuzzy_match(
+    normalized_title: str, models: Dict[str, List[str]]
+) -> Tuple[Optional[str], float, Optional[str]]:
     """Find the best fuzzy match across all models and their alternatives."""
     best_match = None
     best_score = 0.0
@@ -364,7 +357,9 @@ def _find_best_fuzzy_match(normalized_title: str, models: Dict[str, List[str]]) 
     return best_match, best_score, best_matched_string
 
 
-def fuzzy_match(title: str, models: Dict[str, List[str]], threshold: float = 80.0) -> Tuple[Optional[str], float, Optional[str]]:
+def fuzzy_match(
+    title: str, models: Dict[str, List[str]], threshold: float = 80.0
+) -> Tuple[Optional[str], float, Optional[str]]:
     """
     Attempt to match the title using fuzzy string matching.
 
@@ -475,22 +470,31 @@ def _detect_intel_gpu(title: str) -> Tuple[bool, Optional[str]]:
         A tuple of (is_intel_gpu, reason) where is_intel_gpu is True if the item is an Intel GPU
     """
     title_lower = title.lower()
-    
+
     # Intel GPU indicators
     intel_indicators = ["intel"]
-    
+
     # Check if this contains Intel GPU indicators
     if any(indicator in title_lower for indicator in intel_indicators):
         # Intel GPU patterns - expanded to include more models
         gpu_patterns = [
-            "arc", "xe", "iris", "uhd", "hd graphics",  # Intel GPU families
-            "a310", "a380", "a750", "a770",  # Arc discrete models
-            "flex", "data center gpu",  # Data center GPUs
-            "max", "ponte vecchio",  # High-end compute GPUs
+            "arc",
+            "xe",
+            "iris",
+            "uhd",
+            "hd graphics",  # Intel GPU families
+            "a310",
+            "a380",
+            "a750",
+            "a770",  # Arc discrete models
+            "flex",
+            "data center gpu",  # Data center GPUs
+            "max",
+            "ponte vecchio",  # High-end compute GPUs
         ]
         if any(pattern in title_lower for pattern in gpu_patterns):
             return True, "Intel GPU - should not match NVIDIA models"
-        
+
         # Also check for Intel GPU naming patterns
         intel_patterns = [
             r"intel.*gpu",  # "Intel Data Center GPU", "Intel GPU", etc.
@@ -499,17 +503,17 @@ def _detect_intel_gpu(title: str) -> Tuple[bool, Optional[str]]:
         for pattern in intel_patterns:
             if re.search(pattern, title_lower):
                 return True, "Intel GPU - should not match NVIDIA models"
-    
+
     # Check for standalone Arc branding (without Intel keyword) - enhanced patterns
     if "arc" in title_lower:
         arc_patterns = ["a310", "a380", "a750", "a770", "a580", "a350"]  # Extended Arc models
         if any(pattern in title_lower for pattern in arc_patterns):
             return True, "Intel GPU - should not match NVIDIA models"
-    
+
     # Check for ASRock Intel Arc pattern specifically (high-volume issue)
     if "asrock" in title_lower and "arc" in title_lower:
         return True, "Intel GPU - should not match NVIDIA models"
-    
+
     return False, None
 
 
@@ -524,11 +528,11 @@ def _detect_amd_gpu(title: str) -> Tuple[bool, Optional[str]]:
         A tuple of (is_amd_gpu, reason) where is_amd_gpu is True if the item is an AMD GPU
     """
     title_lower = title.lower()
-    
+
     # AMD GPU indicators - check for explicit AMD branding first
     amd_indicators = ["amd", "radeon", "ati"]
     has_amd_branding = any(indicator in title_lower for indicator in amd_indicators)
-    
+
     # AMD GPU model patterns that are distinctive enough to identify without branding
     distinctive_amd_patterns = [
         r"rx\s*\d{4}",  # RX followed by 4 digits (RX 7600, RX 6800, etc.)
@@ -540,32 +544,40 @@ def _detect_amd_gpu(title: str) -> Tuple[bool, Optional[str]]:
         r"pro\s*w\d+",  # Pro W series
         r"rx\s*9\d{3}",  # RX 9000 series (RX 9070, etc.)
     ]
-    
+
     # Check distinctive patterns first (these are clearly AMD even without branding)
     for pattern in distinctive_amd_patterns:
         if re.search(pattern, title_lower):
             return True, "AMD GPU - should not match NVIDIA models"
-    
+
     # Check for specific high-volume problematic models
     high_volume_amd_models = [
-        "rx 7600 xt", "rx 6700 xt", "rx 6600 xt", "rx 7600", 
-        "rx 7700 xt", "rx 7800 xt", "rx 9070", "rx 6300"
+        "rx 7600 xt",
+        "rx 6700 xt",
+        "rx 6600 xt",
+        "rx 7600",
+        "rx 7700 xt",
+        "rx 7800 xt",
+        "rx 9070",
+        "rx 6300",
     ]
-    
+
     for model in high_volume_amd_models:
         if model in title_lower:
             return True, "AMD GPU - should not match NVIDIA models"
-    
+
     # If we have AMD branding, check for additional GPU patterns
     if has_amd_branding:
         gpu_patterns = ["rx", "r9", "r7", "r5", "vega", "navi", "rdna", "pro w", "wx", "firepro"]
         if any(pattern in title_lower for pattern in gpu_patterns):
             return True, "AMD GPU - should not match NVIDIA models"
-    
+
     return False, None
 
 
-def normalize_gpu_model(title: str, models_file: Optional[str] = None, fuzzy_threshold: float = 80.0) -> Tuple[str, str, float, bool, Optional[str], Optional[str]]:
+def normalize_gpu_model(
+    title: str, models_file: Optional[str] = None, fuzzy_threshold: float = 80.0
+) -> Tuple[str, str, float, bool, Optional[str], Optional[str]]:
     """
     Normalize a GPU model name from a title string.
 
@@ -614,7 +626,14 @@ def normalize_gpu_model(title: str, models_file: Optional[str] = None, fuzzy_thr
     return "UNKNOWN", "none", 0.0, True, "Could not match to any known GPU model", None
 
 
-def normalize_csv(input_path: str, output_path: str, models_file: Optional[str] = None, fuzzy_threshold: float = 80.0) -> pd.DataFrame:
+def normalize_csv(
+    input_path: str,
+    output_path: str,
+    models_file: Optional[str] = None,
+    fuzzy_threshold: float = 80.0,
+    use_ml: bool = False,
+    ml_threshold: Optional[float] = None,
+) -> pd.DataFrame:
     """
     Normalize GPU model names in a CSV file.
 
@@ -623,6 +642,8 @@ def normalize_csv(input_path: str, output_path: str, models_file: Optional[str] 
         output_path: Path to the output CSV file
         models_file: Optional path to a JSON file containing GPU model definitions
         fuzzy_threshold: Minimum similarity score (0-100) for fuzzy matching
+        use_ml: Whether to enable ML predictions and append ml_is_gpu, ml_score columns
+        ml_threshold: ML confidence threshold (0.0-1.0). Overrides environment variable
 
     Returns:
         A pandas DataFrame with the normalized data
@@ -644,13 +665,35 @@ def normalize_csv(input_path: str, output_path: str, models_file: Optional[str] 
 
     # Normalize each title
     for idx, row in df.iterrows():
-        model, match_type, score, is_valid_gpu, unknown_reason, match_notes = normalize_gpu_model(row["title"], models_file, fuzzy_threshold)
+        model, match_type, score, is_valid_gpu, unknown_reason, match_notes = normalize_gpu_model(
+            row["title"], models_file, fuzzy_threshold
+        )
         df.at[idx, "canonical_model"] = model
         df.at[idx, "match_type"] = match_type
         df.at[idx, "match_score"] = score
         df.at[idx, "is_valid_gpu"] = is_valid_gpu
         df.at[idx, "unknown_reason"] = unknown_reason
         df.at[idx, "match_notes"] = match_notes
+
+    # Add ML predictions if enabled
+    if use_ml:
+        # Lazy import to avoid performance impact when not using ML
+        from glyphsieve.ml.predictor import predict_batch
+
+        # Prepare data for batch prediction
+        titles = df["title"].fillna("").tolist()
+        # Check if bulk_notes column exists, otherwise use empty strings
+        if "bulk_notes" in df.columns:
+            bulk_notes = df["bulk_notes"].fillna("").tolist()
+        else:
+            bulk_notes = [""] * len(titles)
+
+        # Get batch predictions
+        ml_predictions = predict_batch(titles, bulk_notes, threshold=ml_threshold)
+
+        # Add ML columns (must be integers as specified in requirements)
+        df["ml_is_gpu"] = [1 if is_gpu else 0 for is_gpu, _ in ml_predictions]
+        df["ml_score"] = [score for _, score in ml_predictions]
 
     # Write the normalized data to the output file
     df.to_csv(output_path, index=False)

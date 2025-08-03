@@ -44,7 +44,9 @@ def run_clean_step(input_file: str, output_file: str) -> Dict[str, str]:
     return header_mapping
 
 
-def run_normalize_step(input_file: str, output_file: str, models_file: Optional[str], fuzzy_threshold: float = 80.0) -> pd.DataFrame:
+def run_normalize_step(
+    input_file: str, output_file: str, models_file: Optional[str], fuzzy_threshold: float = 80.0
+) -> pd.DataFrame:
     """Run the normalize step of the pipeline."""
     console.print("\n[bold blue]Step 2: Normalize[/bold blue]")
     step_start = time.time()
@@ -173,7 +175,9 @@ def run_score_step(input_file: str, output_file: str, weights_file: Optional[str
     "--force-quantize", is_flag=True, help="Force recalculation of quantization capacity if it already exists"
 )
 @click.option("--filter-invalid", is_flag=True, help="Exclude invalid or non-GPU items from the final output")
-@click.option("--min-confidence-score", type=float, default=80.0, help="Minimum confidence score (0-100) for fuzzy matching")
+@click.option(
+    "--min-confidence-score", type=float, default=80.0, help="Minimum confidence score (0-100) for fuzzy matching"
+)
 def pipeline(
     input,
     output,

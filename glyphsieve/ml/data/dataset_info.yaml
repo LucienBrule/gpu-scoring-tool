@@ -1,0 +1,44 @@
+creation_timestamp: '2025-07-31T17:24:28.570451Z'
+input_file: ../tmp/work/stage_normalized.csv
+output_directory: ml/data
+label_spec_version: v1.0
+total_rows_processed: 10530
+rows_after_cleaning: 10530
+skipped_rows: 0
+gpu_count: 4479
+non_gpu_count: 6051
+gpu_ratio: 0.4253561253561254
+train_test_split:
+  test_size: 0.2
+  random_seed: 42
+  train_samples: 8424
+  test_samples: 2106
+  train_gpu_count: 3583
+  train_non_gpu_count: 4841
+  test_gpu_count: 896
+  test_non_gpu_count: 1210
+  train_gpu_ratio: 0.425332383665717
+  test_gpu_ratio: 0.4254510921177588
+  balance_preserved: !!python/object/apply:numpy._core.multiarray.scalar
+  - !!python/object/apply:numpy.dtype
+    args:
+    - b1
+    - false
+    - true
+    state: !!python/tuple
+    - 3
+    - '|'
+    - null
+    - null
+    - null
+    - -1
+    - -1
+    - 0
+  - !!binary |
+    AQ==
+  max_balance_difference: 9.496676163339712e-05
+output_files:
+  training_set: training_set.csv
+  train_set: train.csv
+  test_set: test.csv
+  metadata: dataset_info.yaml

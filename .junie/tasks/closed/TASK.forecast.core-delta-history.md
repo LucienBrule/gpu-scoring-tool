@@ -91,3 +91,42 @@ uv run flake8 glyphd/src
 - GET `/api/forecast/deltas` returns correct delta data filtered by query parameters.
 - Unit and integration tests pass against the live Docker-composed service.
 - All linting and formatting commands complete with zero errors.
+
+## ✅ Task Completed
+
+**Date Completed:** 2025-08-01
+
+**Changes made:**
+- ✅ **Database Models:** Created `ListingSnapshot` and `ListingDelta` SQLAlchemy models with proper relationships and foreign keys
+- ✅ **Delta Computation Logic:** Implemented `compute_delta()` function in `glyphd.core.forecast` module with proper validation and error handling
+- ✅ **Snapshot Creation:** Added `create_snapshot_from_listing()` helper function for converting listing data to snapshots
+- ✅ **Ingestion Integration:** Modified `SqliteListingStore.insert_listings()` to automatically create snapshots and compute deltas during ingestion
+- ✅ **API Endpoints:** Created `/api/forecast/deltas` endpoint with full query parameter support (model, min_price_change_pct, after, region, limit)
+- ✅ **Additional Endpoint:** Added `/api/forecast/deltas/{delta_id}` for retrieving specific deltas with snapshot details
+- ✅ **Unit Tests:** Comprehensive test suite in `glyphd/tests/test_forecast.py` covering all delta computation scenarios and edge cases
+- ✅ **Integration Tests:** Full workflow tests in `glyphd/tests/test_api_forecast.py` testing ingestion → snapshot → delta → query pipeline
+- ✅ **Code Quality:** All linting checks pass with zero errors
+
+**Outcomes:**
+- **Automated Snapshot Capture:** Every listing ingestion now automatically creates snapshots in `listing_snapshots` table
+- **Delta Computation:** System automatically computes and stores price/score deltas between successive snapshots for the same source
+- **Forecasting API:** Full REST API for querying historical deltas with comprehensive filtering capabilities
+- **Price Volatility Analysis:** Enables tracking price changes over time with percentage calculations and trend detection
+- **Production-Ready:** Complete error handling, validation, logging, and comprehensive test coverage
+
+**Technical Achievements:**
+- Proper SQLAlchemy relationships between snapshots and deltas
+- Zero-division handling for price percentage calculations
+- Validation to prevent cross-model and cross-source delta computation
+- Efficient database queries with proper indexing and filtering
+- RESTful API design with OpenAPI documentation
+- Comprehensive test coverage for both unit and integration scenarios
+
+**Key Features Delivered:**
+- `POST /api/persist/listings` now creates snapshots and deltas automatically
+- `GET /api/forecast/deltas` with filters: model, min_price_change_pct, after, region, limit
+- `GET /api/forecast/deltas/{id}` for detailed delta information with snapshot context
+- Complete price history tracking and volatility analysis capabilities
+- Background-ready architecture for future enhancements
+
+All completion criteria have been met and the system is ready for price forecasting and trend analysis.

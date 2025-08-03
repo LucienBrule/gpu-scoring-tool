@@ -4,11 +4,12 @@ Tests for Shopify loader implementations.
 This module contains tests for the WamatekShopifyLoader and related functionality.
 """
 
+import csv
 import json
 import tempfile
 from pathlib import Path
+
 import pytest
-import csv
 
 from glyphsieve.core.ingest.shopify.wamatek_loader import WamatekShopifyLoader
 
@@ -37,15 +38,15 @@ class TestWamatekShopifyLoader:
                             "sku": "MSI-RTX4090-001",
                             "available": True,
                             "price": "1599.99",
-                            "compare_at_price": "1699.99"
+                            "compare_at_price": "1699.99",
                         }
-                    ]
+                    ],
                 }
             ]
         }
 
         # Write to temporary file
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.jsonl', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".jsonl", delete=False) as f:
             json.dump(sample_data, f)
             temp_path = f.name
 
@@ -57,16 +58,16 @@ class TestWamatekShopifyLoader:
             assert len(listings) == 1
             listing = listings[0]
 
-            assert listing['model'] == 'RTX 4090'
-            assert listing['condition'] == 'New'
-            assert listing['price'] == 1599.99
-            assert listing['quantity'] == 'Available'
-            assert listing['seller'] == 'Wamatek'
-            assert listing['geographic_region'] == 'USA'
-            assert listing['listing_age'] == 'Current'
-            assert listing['source_type'] == 'Shopify_Wamatek'
-            assert 'wamatek.com' in listing['source_url']
-            assert listing['title'] == 'MSI RTX 4090 Gaming X Trio'
+            assert listing["model"] == "RTX 4090"
+            assert listing["condition"] == "New"
+            assert listing["price"] == 1599.99
+            assert listing["quantity"] == "Available"
+            assert listing["seller"] == "Wamatek"
+            assert listing["geographic_region"] == "USA"
+            assert listing["listing_age"] == "Current"
+            assert listing["source_type"] == "Shopify_Wamatek"
+            assert "wamatek.com" in listing["source_url"]
+            assert listing["title"] == "MSI RTX 4090 Gaming X Trio"
 
         finally:
             Path(temp_path).unlink()
@@ -81,38 +82,21 @@ class TestWamatekShopifyLoader:
                     "vendor": "NVIDIA",
                     "handle": "nvidia-rtx-4080-super",
                     "variants": [
-                        {
-                            "id": 1,
-                            "available": True,
-                            "price": "999.99",
-                            "sku": "RTX4080S-001"
-                        },
-                        {
-                            "id": 2,
-                            "available": False,
-                            "price": "1099.99",
-                            "sku": "RTX4080S-002"
-                        }
-                    ]
+                        {"id": 1, "available": True, "price": "999.99", "sku": "RTX4080S-001"},
+                        {"id": 2, "available": False, "price": "1099.99", "sku": "RTX4080S-002"},
+                    ],
                 },
                 {
                     "title": "AMD RX 7900 XTX",
                     "tags": ["AMD", "Graphics"],
                     "vendor": "AMD",
                     "handle": "amd-rx-7900-xtx",
-                    "variants": [
-                        {
-                            "id": 3,
-                            "available": True,
-                            "price": "899.99",
-                            "sku": "RX7900XTX-001"
-                        }
-                    ]
-                }
+                    "variants": [{"id": 3, "available": True, "price": "899.99", "sku": "RX7900XTX-001"}],
+                },
             ]
         }
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.jsonl', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".jsonl", delete=False) as f:
             json.dump(sample_data, f)
             temp_path = f.name
 
@@ -123,15 +107,15 @@ class TestWamatekShopifyLoader:
             assert len(listings) == 3
 
             # Check first product variants
-            rtx_listings = [listing for listing in listings if 'RTX 4080' in listing['model']]
+            rtx_listings = [listing for listing in listings if "RTX 4080" in listing["model"]]
             assert len(rtx_listings) == 2
-            assert rtx_listings[0]['quantity'] == 'Available'
-            assert rtx_listings[1]['quantity'] == 'Unavailable'
+            assert rtx_listings[0]["quantity"] == "Available"
+            assert rtx_listings[1]["quantity"] == "Unavailable"
 
             # Check second product
-            amd_listings = [listing for listing in listings if 'RX 7900' in listing['model']]
+            amd_listings = [listing for listing in listings if "RX 7900" in listing["model"]]
             assert len(amd_listings) == 1
-            assert amd_listings[0]['model'] == 'RX 7900 XTX'
+            assert amd_listings[0]["model"] == "RX 7900 XTX"
 
         finally:
             Path(temp_path).unlink()
@@ -199,17 +183,17 @@ class TestWamatekShopifyLoader:
         # Sample listing data
         listings = [
             {
-                'model': 'RTX 4090',
-                'condition': 'New',
-                'price': 1599.99,
-                'quantity': 'Available',
-                'seller': 'Wamatek',
-                'geographic_region': 'USA',
-                'listing_age': 'Current',
-                'source_url': 'https://wamatek.com/products/rtx-4090',
-                'source_type': 'Shopify_Wamatek',
-                'bulk_notes': 'SKU: RTX4090-001, Vendor: NVIDIA',
-                'title': 'NVIDIA RTX 4090 Graphics Card',
+                "model": "RTX 4090",
+                "condition": "New",
+                "price": 1599.99,
+                "quantity": "Available",
+                "seller": "Wamatek",
+                "geographic_region": "USA",
+                "listing_age": "Current",
+                "source_url": "https://wamatek.com/products/rtx-4090",
+                "source_type": "Shopify_Wamatek",
+                "bulk_notes": "SKU: RTX4090-001, Vendor: NVIDIA",
+                "title": "NVIDIA RTX 4090 Graphics Card",
             }
         ]
 
@@ -223,7 +207,7 @@ class TestWamatekShopifyLoader:
             assert output_path.exists()
 
             # Verify CSV content
-            with open(output_path, 'r', encoding='utf-8') as f:
+            with open(output_path, "r", encoding="utf-8") as f:
                 reader = csv.DictReader(f)
                 rows = list(reader)
 
@@ -232,19 +216,27 @@ class TestWamatekShopifyLoader:
 
                 # Check all expected columns are present
                 expected_columns = [
-                    "model", "condition", "price", "quantity", "seller",
-                    "geographic_region", "listing_age", "source_url",
-                    "source_type", "bulk_notes", "title"
+                    "model",
+                    "condition",
+                    "price",
+                    "quantity",
+                    "seller",
+                    "geographic_region",
+                    "listing_age",
+                    "source_url",
+                    "source_type",
+                    "bulk_notes",
+                    "title",
                 ]
 
                 for col in expected_columns:
                     assert col in row
 
                 # Check specific values
-                assert row['model'] == 'RTX 4090'
-                assert row['condition'] == 'New'
-                assert row['price'] == '1599.99'
-                assert row['seller'] == 'Wamatek'
+                assert row["model"] == "RTX 4090"
+                assert row["condition"] == "New"
+                assert row["price"] == "1599.99"
+                assert row["seller"] == "Wamatek"
 
     def test_load_file_not_found(self):
         """Test handling of missing source file."""
@@ -254,7 +246,7 @@ class TestWamatekShopifyLoader:
     def test_load_malformed_json(self):
         """Test handling of malformed JSON."""
         # Create file with malformed JSON
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.jsonl', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".jsonl", delete=False) as f:
             f.write('{"invalid": json}\n')
             f.write('{"products": []}\n')  # Valid line
             temp_path = f.name
@@ -283,7 +275,7 @@ class TestWamatekShopifyLoader:
             ]
         }
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.jsonl', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".jsonl", delete=False) as f:
             json.dump(sample_data, f)
             temp_path = f.name
 
@@ -294,11 +286,11 @@ class TestWamatekShopifyLoader:
             listing = listings[0]
 
             # Should have default/fallback values
-            assert listing['model'] == 'Unknown'
-            assert listing['condition'] == 'New'
-            assert listing['price'] == 0.0
-            assert listing['quantity'] == 'Unavailable'
-            assert listing['title'] == ''
+            assert listing["model"] == "Unknown"
+            assert listing["condition"] == "New"
+            assert listing["price"] == 0.0
+            assert listing["quantity"] == "Unavailable"
+            assert listing["title"] == ""
 
         finally:
             Path(temp_path).unlink()
@@ -307,7 +299,7 @@ class TestWamatekShopifyLoader:
         """Test handling of empty products array."""
         sample_data = {"products": []}
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.jsonl', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".jsonl", delete=False) as f:
             json.dump(sample_data, f)
             temp_path = f.name
 

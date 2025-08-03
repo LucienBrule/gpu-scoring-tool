@@ -20,7 +20,11 @@ console = Console()
 @click.option("--input", "-i", required=True, help="Path to CSV file to normalize")
 @click.option("--output", "-o", help="Path for normalized output CSV file (default: normalized_<filename>.csv)")
 @click.option("--models-file", "-m", help="Path to JSON file with GPU model definitions")
-def normalize(input, output, models_file):
+@click.option("--use-ml", is_flag=True, help="Enable ML predictions and append ml_is_gpu, ml_score columns")
+@click.option(
+    "--ml-threshold", type=float, help="ML confidence threshold (0.0-1.0). Overrides GLYPHSIEVE_ML_THRESHOLD env var"
+)
+def normalize(input, output, models_file, use_ml, ml_threshold):
     """
     Normalize GPU model names in cleaned data.
 
@@ -51,7 +55,7 @@ def normalize(input, output, models_file):
             console.print(f"Models file: {models_file}")
 
         # Normalize the CSV
-        df = normalize_csv(input, output, models_file)
+        df = normalize_csv(input, output, models_file, use_ml=use_ml, ml_threshold=ml_threshold)
 
         # Print a summary of the normalization results
         match_counts = df["match_type"].value_counts().to_dict()

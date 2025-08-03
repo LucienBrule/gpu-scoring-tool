@@ -105,3 +105,31 @@ Create each task file in .junie/tasks/open/ using the IDs above. Close sequentia
 safe-run.sh for any process expected to run >30s.
 
 Happy modeling, Junie‑Web & Goose‑ML! 🎉
+
+---
+
+### 📝 Retrospective (2025‑08‑01)
+
+**What went well**
+- *Agent autonomy* – Junie executed all seven tasks in a single session with zero manual hot‑fixes.
+- *Model quality* – Title‑only V2 model reached **99 %+ precision / recall** on hold‑out data **and** generalized to the Perplexity dataset (≈86 % agreement → 100 % manual spot‑check accuracy).
+- *Tooling* – `safe-run.sh`, YAML metrics, and the manual spot‑checker GUI formed a tight evaluation loop.
+- *Integration* – `ml_is_gpu` and `ml_score` columns flow through the pipeline without breaking existing tests or CSV schemas.
+
+**What surprised us**
+- Bulk‑note features *reduced* generalization; removing them increased robustness.
+- `TF‑IDF + LR` was “good enough”; no need for heavier embeddings… yet.
+- The disagreement rate (13.8 %) surfaced genuine edge cases for future rule tuning.
+
+**What could be better**
+- No automated drift monitoring – a future cron should re‑evaluate metrics monthly.
+- Training code still mixes CLI parsing and core logic; refactor into a service layer.
+- Pickle chosen over joblib under time pressure; revisit serialization format.
+
+**Follow‑on opportunities**
+1. Ship `/api/ml/is_gpu` inference endpoint in `glyphd` for crawler use.
+2. Automate disagreement sampling into a labeling UI (human‑in‑the‑loop).
+3. Begin ADR for **multiclass** GPU‑family classifier (stretch task 7).
+4. Explore on‑the‑fly active learning during live crawls (online fine‑tuning).
+
+> *“Hot‑dog / not‑hot‑dog is now a micro‑service. Mission accomplished.”* 🍻
