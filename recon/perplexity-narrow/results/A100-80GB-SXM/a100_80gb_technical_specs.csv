@@ -1,0 +1,24 @@
+Specification,A100 80GB PCIe,A100 80GB SXM4
+GPU Memory,80 GB,80 GB
+Memory Type,HBM2e,HBM2e
+Memory Bandwidth,"1,935 GB/s","2,039 GB/s"
+Memory Interface,5120-bit,5120-bit
+FP64 Performance,9.7 TFLOPS,9.7 TFLOPS
+FP32 Performance,19.5 TFLOPS,19.5 TFLOPS
+TF32 Tensor Core,156 TFLOPS,156 TFLOPS
+FP16 Tensor Core,312 TFLOPS,312 TFLOPS
+BF16 Tensor Core,312 TFLOPS,312 TFLOPS
+INT8 Tensor Core,624 TOPS,624 TOPS
+CUDA Cores,"6,912","6,912"
+Tensor Cores,432 (3rd gen),432 (3rd gen)
+Base Clock,765 MHz,765 MHz
+Boost Clock,"1,410 MHz","1,410 MHz"
+TDP (PCIe),300W,N/A
+TDP (SXM4),N/A,400W
+Form Factor Options,Dual-slot PCIe,SXM4 Module
+PCIe Interface,PCIe Gen4 x16,PCIe Gen4 x16
+NVLink,600 GB/s (2 GPU),600 GB/s
+Multi-Instance GPU (MIG),Up to 7 instances @ 10GB,Up to 7 instances @ 10GB
+Manufacturing Process,TSMC 7nm,TSMC 7nm
+Transistors,54.2 billion,54.2 billion
+Die Size,826 mm²,826 mm²

@@ -1,3 +1,5 @@
+tmp/
+.turbo/
 *.sqlite
 # Scrape Artifacts
 *.zip

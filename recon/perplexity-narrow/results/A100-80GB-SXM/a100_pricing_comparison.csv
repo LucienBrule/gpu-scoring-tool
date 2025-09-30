@@ -1,0 +1,9 @@
+Source,GPU Cost per Unit,Form Factor,VRAM,Market,USD per GB VRAM
+eBay SXM4 (Secondary Market),6023.95,SXM4,80,Secondary,75.299375
+eBay PCIe (Secondary Market),14499.99,PCIe,80,Secondary,181.249875
+DGX A100 40GB (Implied),19250.0,SXM4,40,New/OEM,481.25
+DGX A100 80GB (Implied),19250.0,SXM4,80,New/OEM,240.625
+DGX Station 160GB (Implied),18500.0,SXM4,40,New/OEM,462.5
+DGX Station 320GB (Implied),31000.0,SXM4,80,New/OEM,387.5
+Supermicro 4-GPU (Implied),21250.0,SXM4,80,New/OEM,265.625
+Supermicro 8-GPU (Implied),18750.0,SXM4,80,New/OEM,234.375
